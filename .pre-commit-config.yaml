@@ -1,0 +1,29 @@
+---
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v3.2.0
+      hooks:
+          - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-yaml
+    - repo: https://github.com/adrienverge/yamllint.git
+      rev: v1.21.0
+      hooks:
+          - id: yamllint
+            args: [--format, parsable, --strict]
+
+    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+      rev: 0.2.1
+      hooks:
+          - id: yamlfmt
+    - repo: https://github.com/jumanjihouse/pre-commit-hooks
+      rev: master
+      hooks:
+          - id: shfmt
+    - repo: local
+      hooks:
+          - id: nixfmt
+            name: nixfmt
+            entry: nixfmt
+            language: system
+            files: \.nix$
