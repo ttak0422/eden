@@ -14,7 +14,7 @@ let history =
           setopt HIST_EXPIRE_DUPS_FIRST
           ''
 
-in  { alias =
+in  { aliases =
       { `..` = "cd .."
       , g = "cd \$(ghq root)/\$(ghq list | fzf)"
       , gg = "ghq get"

@@ -1,7 +1,5 @@
 { config, pkgs, lib, ... }:
-let
-  prefs =
-    pkgs.dhallToNix (builtins.readFile ./../../../../prefs/shell/zsh/zsh.dhall);
+let prefs = pkgs.dhallToNix (builtins.readFile ./zsh.dhall);
 in {
   programs = {
     zsh = {
@@ -9,12 +7,12 @@ in {
       enableCompletion = true;
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
-      shellAliases = prefs.alias;
+      shellAliases = prefs.aliases;
       initExtra = ''
         ${prefs.bindkey.emacs}
         ${prefs.history}
       '';
     };
   };
-  home.packages = with pkgs; [ bat exa ghq ];
+  home.packages = with pkgs; [ bat exa ghq fzf ];
 }
