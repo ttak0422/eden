@@ -1,0 +1,11 @@
+---
+ls:
+    flakes:
+        .dir: kebab-case
+    modules:
+        .dir: kebab-case
+    .nix: kebab-case
+
+ignore:
+    - .git
+    - result
