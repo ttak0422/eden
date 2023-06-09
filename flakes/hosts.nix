@@ -50,7 +50,7 @@ in {
               users.users.${username}.home = "/Users/${username}";
             }
           ];
-          hmModules = [ self.homeManagerModules.core ];
+          hmModules = [ self.homeManagerModules.eden.core ];
           extraSpecialArgs = { inherit username userEmail; };
         };
       });

@@ -1,3 +1,3 @@
 { self, inputs, ... }: {
-  flake.homeManagerModules.core = { imports = [ ./zsh.nix ]; };
+  flake.homeManagerModules.eden.core = { imports = [ ./zsh.nix ]; };
 }
