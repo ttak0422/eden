@@ -1,1 +1,1 @@
-{ imports = [ ./dev-shell.nix ./hosts.nix ]; }
+{ imports = [ ./shell.nix ./host.nix ]; }
