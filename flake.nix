@@ -27,6 +27,7 @@
         flake-compat.follows = "flake-compat";
       };
     };
+    vim-plugins-overlay.url = "github:ttak0422/vim-plugins-overlay";
     oboro-nvim = {
       url = "github:ttak0422/oboro-nvim";
       inputs = {
