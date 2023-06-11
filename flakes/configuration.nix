@@ -21,7 +21,13 @@ in {
             self.nixosModules.eden-darwin-development
             self.nixosModules.eden-darwin-homebrew
 
-            { users.users.${username}.home = "/Users/${username}"; }
+            {
+              nixpkgs = {
+                overlays = builtins.attrValues self.overlays;
+                config.allowUnfree = true;
+              };
+              users.users.${username}.home = "/Users/${username}";
+            }
 
             (mkHmModule {
               inherit pkgs username;
