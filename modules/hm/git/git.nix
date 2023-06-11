@@ -1,5 +1,5 @@
 { pkgs, username, userEmail, ... }:
-let prefs = pkgs.dhallToNix (builtins.readFile ./git.dhall);
+let prefs = pkgs.dhallToNix (builtins.readFile ./../../../configs/git.dhall);
 in {
   programs.git = {
     inherit userEmail;

@@ -23,16 +23,16 @@ in {
           ];
           hmModules = [
             self.nixosModules.eden-hm-core
-            # self.nixosModules.eden-hm-app
-            # self.nixosModules.eden-hm-development
-            # self.nixosModules.eden-hm-emacs
-            # self.nixosModules.eden-hm-git
-            # self.nixosModules.eden-hm-ideavim
-            # self.nixosModules.eden-hm-tool
-            # self.nixosModules.eden-hm-nvim
-            # self.nixosModules.eden-hm-tool
-            # self.nixosModules.eden-hm-vim
-            # self.nixosModules.eden-hm-virtualization
+            self.nixosModules.eden-hm-app
+            self.nixosModules.eden-hm-development
+            self.nixosModules.eden-hm-emacs
+            self.nixosModules.eden-hm-git
+            self.nixosModules.eden-hm-ideavim
+            self.nixosModules.eden-hm-tool
+            self.nixosModules.eden-hm-nvim
+            self.nixosModules.eden-hm-tool
+            self.nixosModules.eden-hm-vim
+            self.nixosModules.eden-hm-virtualization
           ];
           extraSpecialArgs = { inherit username userEmail; };
         };

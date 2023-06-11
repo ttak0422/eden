@@ -1,1 +1,4 @@
-{ home.file.".wezterm.lua".text = builtins.readFile ./wezterm.lua; }
+{
+  home.file.".wezterm.lua".text =
+    builtins.readFile ./../../../configs/wezterm.lua;
+}

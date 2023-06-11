@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }:
-let prefs = pkgs.dhallToNix (builtins.readFile ./zsh.dhall);
+let prefs = pkgs.dhallToNix (builtins.readFile ./../../../configs/zsh.dhall);
 in {
   programs = {
     zsh = {

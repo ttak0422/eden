@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.eden-tool = { pkgs, ... }: {
+  flake.nixosModules.eden-hm-tool = { pkgs, ... }: {
     home.packages = with pkgs; [
       bat # ------------ cat clone
       bottom # --------- system monitor
