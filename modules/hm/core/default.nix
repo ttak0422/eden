@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
   flake.nixosModules.eden-hm-core = { pkgs, ... }: {
-    imports = [ ./zsh.nix ];
+    imports = [ ./tmux.nix ./zsh.nix ];
     home.packages = with pkgs; [ cachix ];
   };
 }
