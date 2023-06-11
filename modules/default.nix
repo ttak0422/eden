@@ -1,1 +1,1 @@
-{ imports = [ ./darwin ./hm ]; }
+{ imports = [ ./core ./darwin ./hm ]; }
