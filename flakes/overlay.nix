@@ -1,7 +1,8 @@
 { inputs, lib, ... }: {
   flake.overlays = {
     fromInputs = lib.composeManyExtensions [
-      inputs.neovim-nightly-overlay.overlay
+      # WIP: darwin
+      # inputs.neovim-nightly-overlay.overlay
       inputs.vim-plugins-overlay.overlay
       inputs.nix-filter.overlays.default
       (final: prev:
@@ -30,6 +31,10 @@
               mkdir $out
               cp -r ./* $out
             '';
+          };
+          pkgs-unstable = import inputs.nixpkgs-unstable {
+            inherit (prev.stdenv) system;
+            config.allowUnfree = true;
           };
         })
     ];

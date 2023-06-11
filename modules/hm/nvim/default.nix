@@ -9,7 +9,7 @@
         vim-poslist
         {
           plugin = tokyonight-nvim;
-          startup = "vim.nvimcmd[[colorscheme tokyonight]] ";
+          startup = "vim.cmd[[colorscheme tokyonight]] ";
         }
         {
           plugin = nvim-config-local;
@@ -264,7 +264,7 @@
         #   };
         #   config = readFile ./../../../nvim/minimap.lua;
         #   commands = [ "MinimapToggle" ];
-        #   extraPackages = [ pkgs.nvimcode-minimap ];
+        #   extraPackages = [ pkgs.code-minimap ];
         # }
         {
           plugin = colorful-winsep-nvim;
@@ -375,7 +375,7 @@
           config = readFile ./../../../nvim/todo-comments.lua;
           commands =
             [ "TodoQuickFix" "TodoLocList" "TodoTrouble" "TodoTelescope" ];
-          extraPackages = [ pkgs.nvimripgrep ];
+          extraPackages = [ pkgs.ripgrep ];
           lazy = true;
         }
         {
@@ -398,7 +398,7 @@
         # {
         #   plugin = nvim-treesitter';
         #   config = let
-        #     nvim-plugintree = (pkgs.nvimvimPlugins.nvim-treesitter.withPlugins
+        #     nvim-plugintree = (pkgs.imPlugins.nvim-treesitter.withPlugins
         #       (p: [ p.nvimc p.lua p.nix p.bash p.cpp p.json p.python p.markdown ]));
         #     treesitter-parsers = pkgs.nvimsymlinkJoin {
         #       name = "treesitter-parsers";
@@ -433,7 +433,7 @@
           plugin = nvim-jdtls;
           depends = [ ];
           dependBundles = [ "lsp" ];
-          config = let jdtLsp = pkgs.pkgs-unstable.jdt-language-server;
+          config = let jdtLsp = pkgs.jdt-language-server;
           in {
             lang = "lua";
             code = readFile ./../../../nvim/jdtls.lua;
@@ -460,7 +460,7 @@
               java_debug_jar_pattern =
                 "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-*.jar";
               java_test_jar_pattern =
-                "${pkgs.scode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar";
+                "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar";
               jol_jar = pkgs.javaPackages.jol;
 
             };
@@ -830,7 +830,7 @@
                   rust-analyzer
                   taplo-cli
                   dhall-lsp-server
-                ]) ++ (with pkgs.pkgs-unstable; [ lua-language-server ]);
+                ]) ++ (with pkgs; [ lua-language-server ]);
                 config = {
                   lang = "lua";
                   code = readFile ./../../../nvim/lspconfig.lua;

@@ -33,6 +33,7 @@ in {
               inherit pkgs username;
               stateVersion = hmStateVersion;
               modules = [
+                inputs.oboro-nvim.homeManagerModules.${system}.default
                 self.nixosModules.eden-hm-core
                 self.nixosModules.eden-hm-app
                 self.nixosModules.eden-hm-development
