@@ -1,6 +1,5 @@
 { self, self', withSystem, moduleWithSystem, inputs, ... }:
 let
-  inherit (inputs) home-manager;
   inherit (self.lib) mkConfiguration;
 
   hmStateVersion = "23.05";
@@ -15,13 +14,26 @@ in {
           inherit system pkgs username hmStateVersion;
 
           modules = [
-            home-manager.darwinModules.home-manager
-            {
-              services.nix-daemon.enable = true;
-              users.users.${username}.home = "/Users/${username}";
-            }
+            inputs.home-manager.darwinModules.home-manager
+            self.nixosModules.eden-darwin-core
+            self.nixosModules.eden-darwin-desktop
+            self.nixosModules.eden-darwin-development
+            self.nixosModules.eden-darwin-homebrew
+            { users.users.${username}.home = "/Users/${username}"; }
           ];
-          hmModules = [ self.homeManagerModules.eden.core ];
+          hmModules = [
+            self.nixosModules.eden-hm-core
+            # self.nixosModules.eden-hm-app
+            # self.nixosModules.eden-hm-development
+            # self.nixosModules.eden-hm-emacs
+            # self.nixosModules.eden-hm-git
+            # self.nixosModules.eden-hm-ideavim
+            # self.nixosModules.eden-hm-tool
+            # self.nixosModules.eden-hm-nvim
+            # self.nixosModules.eden-hm-tool
+            # self.nixosModules.eden-hm-vim
+            # self.nixosModules.eden-hm-virtualization
+          ];
           extraSpecialArgs = { inherit username userEmail; };
         };
       });

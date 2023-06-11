@@ -14,5 +14,5 @@ in {
       '';
     };
   };
-  home.packages = with pkgs; [ bat exa ghq fzf ];
+  home.packages = with pkgs; [ bat exa ghq ];
 }

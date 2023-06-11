@@ -23,6 +23,7 @@
         inherit system;
 
         modules = [
+          # TODO: remove this
           (mkHmModule {
             inherit pkgs username extraSpecialArgs sharedModules;
             stateVersion = hmStateVersion;
