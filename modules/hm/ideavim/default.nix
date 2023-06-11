@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.eden-hm-ideavim = { pkgs, ... }: {
-    home.file.".ideavimrc".text = builtins.readFile ./ideavimrc.vim;
-  };
+  flake.nixosModules.eden-hm-ideavim = { pkgs, ... }:
+    let vimrc = builtins.readFile ./../../../configs/ideavimrc.vim;
+    in { home.file.".ideavimrc".text = vimrc; };
 }
