@@ -1,1 +1,1 @@
-{ imports = [ ./host.nix ]; }
+{ imports = [ ./configuration.nix ]; }

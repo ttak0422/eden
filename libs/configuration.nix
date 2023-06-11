@@ -2,7 +2,7 @@
   flake.lib = let
     inherit (inputs.darwin.lib) darwinSystem;
     inherit (inputs.nixpkgs.lib) nixosSystem;
-  in rec {
+  in {
     mkHmModule = { pkgs, username, stateVersion, modules ? [ ]
       , extraSpecialArgs ? { }, sharedModules ? [ ] }: {
         home-manager = {
@@ -16,20 +16,10 @@
         };
       };
 
-    mkConfiguration = { system, pkgs, username, modules, hmStateVersion
-      , hmModules ? [ ], extraSpecialArgs ? { }, sharedModules ? [ ] }:
+    mkConfiguration = { system, pkgs, modules, }:
       let inherit (pkgs.stdenv) isDarwin;
       in (if isDarwin then darwinSystem else nixosSystem) {
-        inherit system;
-
-        modules = [
-          # TODO: remove this
-          (mkHmModule {
-            inherit pkgs username extraSpecialArgs sharedModules;
-            stateVersion = hmStateVersion;
-            modules = hmModules;
-          })
-        ] ++ modules;
+        inherit system modules;
       };
   };
 }

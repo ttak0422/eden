@@ -1,6 +1,6 @@
 { self, withSystem, inputs, ... }:
 let
-  inherit (self.lib) mkConfiguration;
+  inherit (self.lib) mkConfiguration mkHmModule;
 
   hmStateVersion = "23.05";
   username = "ttak0422";
@@ -11,7 +11,7 @@ in {
     darwinConfigurations = withSystem "aarch64-darwin"
       ({ self', inputs', system, pkgs, ... }: {
         aarch64-darwin = mkConfiguration {
-          inherit system pkgs username hmStateVersion;
+          inherit system pkgs;
 
           modules = [
             inputs.home-manager.darwinModules.home-manager
@@ -20,22 +20,28 @@ in {
             self.nixosModules.eden-darwin-desktop
             self.nixosModules.eden-darwin-development
             self.nixosModules.eden-darwin-homebrew
+
             { users.users.${username}.home = "/Users/${username}"; }
+
+            (mkHmModule {
+              inherit pkgs username;
+              stateVersion = hmStateVersion;
+              modules = [
+                self.nixosModules.eden-hm-core
+                self.nixosModules.eden-hm-app
+                self.nixosModules.eden-hm-development
+                self.nixosModules.eden-hm-emacs
+                self.nixosModules.eden-hm-git
+                self.nixosModules.eden-hm-ideavim
+                self.nixosModules.eden-hm-tool
+                self.nixosModules.eden-hm-nvim
+                self.nixosModules.eden-hm-tool
+                self.nixosModules.eden-hm-vim
+                self.nixosModules.eden-hm-virtualization
+              ];
+              extraSpecialArgs = { inherit username userEmail; };
+            })
           ];
-          hmModules = [
-            self.nixosModules.eden-hm-core
-            self.nixosModules.eden-hm-app
-            self.nixosModules.eden-hm-development
-            self.nixosModules.eden-hm-emacs
-            self.nixosModules.eden-hm-git
-            self.nixosModules.eden-hm-ideavim
-            self.nixosModules.eden-hm-tool
-            self.nixosModules.eden-hm-nvim
-            self.nixosModules.eden-hm-tool
-            self.nixosModules.eden-hm-vim
-            self.nixosModules.eden-hm-virtualization
-          ];
-          extraSpecialArgs = { inherit username userEmail; };
         };
       });
   };
