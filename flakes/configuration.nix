@@ -1,4 +1,4 @@
-{ self, self', withSystem, moduleWithSystem, inputs, ... }:
+{ self, withSystem, inputs, ... }:
 let
   inherit (self.lib) mkConfiguration;
 
