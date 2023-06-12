@@ -773,32 +773,23 @@
                 plugin = telescope-live-grep-args-nvim;
                 extraPackages = with pkgs; [ ripgrep ];
               }
-              # {
-              #   plugin = telescope-sonictemplate-nvim;
-              #   depends = [{
-              #     plugin = vim-sonictemplate./../../../nvimoverrideAttrs (old: {
-              #       src = nix-filter {
-              #         root = vim-sonictemplate./../../../nvimsrc;
-              #         exclude = [ "template/java" "template/make" ];
-              #       };
-              #     });
-              #     preConfig = let
-              #       templates = stdenv./../../../nvimmkDerivation {
-              #         name = "sonic-custom-templates";
-              #         src = ./../../../nvim/sonic-template;
-              #         installPhase = ''
-              #           mkdir $out
-              #           cp -r ./../../../nvim/* $out
-              #         '';
-              #       };
-              #     in ''
-              #       vim.g.sonictemplate_vim_template_dir = "${templates}"
-              #       vim.g.sonictemplate_key = 0
-              #       vim.g.sonictemplate_intelligent_key = 0
-              #       vim.g.sonictemplate_postfix_key = 0
-              #     '';
-              #   }];
-              # }
+              {
+                plugin = telescope-sonictemplate-nvim;
+                depends = [{
+                  plugin = vim-sonictemplate.overrideAttrs (old: {
+                    src = pkgs.nix-filter {
+                      root = vim-sonictemplate.src;
+                      exclude = [ "template/java" "template/make" ];
+                    };
+                  });
+                  preConfig = ''
+                    vim.g.sonictemplate_vim_template_dir = "${pkgs.sonicCustomTemplates}"
+                    vim.g.sonictemplate_key = 0
+                    vim.g.sonictemplate_intelligent_key = 0
+                    vim.g.sonictemplate_postfix_key = 0
+                  '';
+                }];
+              }
               {
                 plugin = project-nvim;
                 config = readFile ./../../../nvim/project.lua;
