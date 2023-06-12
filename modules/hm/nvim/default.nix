@@ -162,7 +162,7 @@
           plugin = obsidian-nvim;
           depends = [ plenary-nvim ];
           config = readFile ./../../../nvim/obsidian.lua + ''
-            vim.nvimcmd([[silent source ${obsidian-nvim}/after/syntax/markdown.vim]])
+            vim.cmd([[silent source ${obsidian-nvim}/after/syntax/markdown.vim]])
           '';
           commands = [
             "ObsidianBacklinks"
