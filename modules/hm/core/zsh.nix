@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }:
 let prefs = pkgs.dhallToNix (builtins.readFile ./../../../configs/zsh.dhall);
+inherit (pkgs.stdenv) isDarwin;
 in {
   programs = {
     zsh = {
@@ -11,6 +12,8 @@ in {
       initExtra = ''
         ${prefs.bindkey.emacs}
         ${prefs.history}
+        ${prefs.sharedPath}
+        ${if isDarwin then prefs.darwinPath else ""}
       '';
     };
   };

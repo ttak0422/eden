@@ -3,7 +3,9 @@ let fonts =
       , "font-hack-nerd-font"
       , "font-hackgen-nerd"
       , "font-jetbrains-mono-nerd-font"
-      , "font-plemol-jp-nfj"
+      , "font-plemol-jp"
+      , "font-plemol-jp-nf"
+      , "font-plemol-jp-hs"
       , "font-roboto"
       , "font-roboto-mono"
       , "font-roboto-mono-nerd-font"
@@ -23,8 +25,6 @@ let develop =
 
 in  { taps =
       [ "homebrew/cask"
-      , "homebrew/cask-drivers"
-      , "homebrew/cask-fonts"
       , "homebrew/cask-fonts"
       , "homebrew/core"
       , "koekeishiya/formulae"

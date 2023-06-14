@@ -14,6 +14,13 @@ let history =
           setopt HIST_EXPIRE_DUPS_FIRST
           ''
 
+let sharedPath = "\n"
+
+let darwinPath =
+      ''
+      export PATH=/opt/homebrew/bin:$PATH
+      ''
+
 in  { aliases =
       { `..` = "cd .."
       , g = "cd \$(ghq root)/\$(ghq list | fzf)"
@@ -24,4 +31,6 @@ in  { aliases =
       }
     , bindkey.emacs = "bindkey -e"
     , history
+    , sharedPath
+    , darwinPath
     }
