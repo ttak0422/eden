@@ -12,7 +12,7 @@ let rules =
 
 let configs =
       ''
-        yabai -m config
+        yabai -m config layout            bsp
         yabai -m config mouse_modifier    alt
         yabai -m config mouse_action1     move
         yabai -m config mouse_action2     resize
