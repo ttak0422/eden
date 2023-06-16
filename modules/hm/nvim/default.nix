@@ -740,7 +740,7 @@
               nvim-treesitter
               nvim-yati
               nvim-ts-rainbow2
-              vim-matchup
+              # vim-matchup
               nvim-treesitter-textobjects
             ];
             config = readFile ./../../../nvim/treesitter.lua;
