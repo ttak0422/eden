@@ -18,6 +18,11 @@ let configs =
         yabai -m config mouse_action2     resize
         yabai -m config mouse_drop_action swap
         yabai -m config external_bar      all:0:26
+        yabai -m config top_padding       5
+        yabai -m config bottom_padding    5
+        yabai -m config left_padding      5
+        yabai -m config right_padding     5
+
       ''
 
 in  { config =
