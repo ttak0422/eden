@@ -4,6 +4,7 @@
       # WIP: darwin
       # inputs.neovim-nightly-overlay.overlay
       inputs.vim-plugins-overlay.overlay
+      inputs.emacs.overlay
       inputs.nix-filter.overlays.default
       (final: prev:
         let inherit (prev.stdenv) mkDerivation;

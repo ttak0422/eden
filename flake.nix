@@ -37,6 +37,7 @@
         nix-filter.follows = "nix-filter";
       };
     };
+    emacs.url = "github:cmacrae/emacs";
 
     # External packages.
     jol = {
