@@ -2,6 +2,7 @@
 let
   prefs = pkgs.dhallToNix (builtins.readFile ./../../../configs/zsh.dhall);
   inherit (pkgs.stdenv) isDarwin;
+  inherit (lib.attrsets) optionalAttrs;
 in {
   programs = {
     zsh = {
@@ -9,7 +10,10 @@ in {
       enableCompletion = true;
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
-      shellAliases = prefs.aliases;
+      shellAliases = prefs.aliases // (optionalAttrs isDarwin {
+        # emacs wm integration hack
+        emacs = ". $HOME/Applications/Home\\ Manager\\ Apps/Emacs.app/Contents/MacOS/Emacs";
+      });
       initExtra = ''
         ${prefs.bindkey.emacs}
         ${prefs.history}
