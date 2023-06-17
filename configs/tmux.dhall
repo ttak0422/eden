@@ -91,8 +91,17 @@ let plugins =
       set -g @continuum-restore 'on'
       ''
 
+let overrides =
+      ''
+      set -as terminal-overrides ',*:sitm=\E[3m' # Italics support for older ncurses
+      set -as terminal-overrides ',*:smxx=\E[9m' # Strikeout
+      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+      set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours
+      ''
+
 in  { config =
         ''
+          ${overrides}
           ${settings}
           ${windowSettings}
           ${bindings}
