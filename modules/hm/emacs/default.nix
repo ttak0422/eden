@@ -7,6 +7,7 @@
         ${builtins.readFile ./../../../emacs/early-init.el}
         ${builtins.readFile ./../../../emacs/init.el}
       '';
+      extraPackages = epkgs: with pkgs.emacsPackages; [ vterm ];
     };
     home.file."emacs".text = "emacs";
   };
