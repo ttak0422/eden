@@ -39,6 +39,7 @@ in {
                 self.nixosModules.eden-hm-app
                 self.nixosModules.eden-hm-development
                 self.nixosModules.eden-hm-emacs
+                # self.nixosModules.eden-hm-doom-emacs
                 self.nixosModules.eden-hm-git
                 self.nixosModules.eden-hm-ideavim
                 self.nixosModules.eden-hm-tool

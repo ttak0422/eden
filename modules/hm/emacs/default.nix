@@ -3,12 +3,14 @@
     programs.emacs = {
       enable = true;
       package = pkgs.emacs;
-      extraConfig = ''
-        ${builtins.readFile ./../../../emacs/early-init.el}
-        ${builtins.readFile ./../../../emacs/init.el}
-      '';
+      extraConfig = "";
       extraPackages = epkgs: with pkgs.emacsPackages; [ vterm ];
     };
-    home.file."emacs".text = "emacs";
+    home = {
+      packages = with pkgs; [ libgccjit ];
+      file.".emacs.d/early-init.el".text =
+        builtins.readFile ./../../../emacs/early-init.el;
+      file.".emacs.d/init.el".text = builtins.readFile ./../../../emacs/init.el;
+    };
   };
 }

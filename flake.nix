@@ -20,6 +20,12 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+
+    #         _
+    #  __   _(_)_ __ ___
+    #  \ \ / / | '_ ` _ \
+    #   \ V /| | | | | | |
+    #    \_/ |_|_| |_| |_|
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
@@ -37,9 +43,28 @@
         nix-filter.follows = "nix-filter";
       };
     };
-    emacs.url = "github:cmacrae/emacs";
 
-    # External packages.
+    #
+    #    ___ _ __ ___   __ _  ___ ___
+    #   / _ \ '_ ` _ \ / _` |/ __/ __|
+    #  |  __/ | | | | | (_| | (__\__ \
+    #   \___|_| |_| |_|\__,_|\___|___/
+    emacs.url = "github:cmacrae/emacs";
+    nix-doom-emacs = {
+      url = "github:nix-community/nix-doom-emacs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        flake-compat.follows = "flake-compat";
+      };
+    };
+
+    #                    _
+    #   _ __   __ _  ___| | ____ _  __ _  ___  ___
+    #  | '_ \ / _` |/ __| |/ / _` |/ _` |/ _ \/ __|
+    #  | |_) | (_| | (__|   < (_| | (_| |  __/\__ \
+    #  | .__/ \__,_|\___|_|\_\__,_|\__, |\___||___/
+    #  |_|                         |___/
     jol = {
       url =
         "https://repo.maven.apache.org/maven2/org/openjdk/jol/jol-cli/0.16/jol-cli-0.16-full.jar";

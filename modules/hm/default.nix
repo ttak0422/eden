@@ -3,6 +3,7 @@
     ./app
     ./core
     ./development
+    ./doom-emacs
     ./emacs
     ./git
     ./ideavim
