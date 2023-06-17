@@ -1,1 +1,1 @@
-{ imports = [ ./core ./homebrew ./desktop ./development ./homebrew ]; }
+{ imports = [ ./core ./homebrew ./desktop ./development ./emacs ./homebrew ]; }

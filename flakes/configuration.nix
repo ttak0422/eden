@@ -19,6 +19,7 @@ in {
             self.nixosModules.eden-darwin-core
             self.nixosModules.eden-darwin-desktop
             self.nixosModules.eden-darwin-development
+            self.nixosModules.eden-darwin-emacs
             self.nixosModules.eden-darwin-homebrew
 
             {

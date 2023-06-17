@@ -10,15 +10,15 @@ in {
       enableCompletion = true;
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
-      shellAliases = prefs.aliases // (optionalAttrs isDarwin {
-        # emacs wm integration hack
-        emacs = ". $HOME/Applications/Home\\ Manager\\ Apps/Emacs.app/Contents/MacOS/Emacs";
-      });
+      shellAliases = prefs.aliases
+        // (optionalAttrs isDarwin prefs.darwinAliases);
       initExtra = ''
         ${prefs.bindkey.emacs}
         ${prefs.history}
         ${prefs.sharedPath}
         ${if isDarwin then prefs.darwinPath else ""}
+        ${prefs.function}
+        ${if isDarwin then prefs.darwinFunction else ""}
 
         # pure
         fpath+=("$HOME/.zsh/plugins/pure/share/zsh/site-functions")

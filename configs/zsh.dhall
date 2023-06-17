@@ -14,6 +14,19 @@ let history =
           setopt HIST_EXPIRE_DUPS_FIRST
           ''
 
+let function = ""
+
+let darwinFunction =
+      ''
+      function emacsClient() {
+        if [[ -n "$1" ]]; then
+          emacsclient -c "$1" &
+        else
+          emacsclient -c &
+        fi
+      }
+      ''
+
 let sharedPath = "\n"
 
 let darwinPath =
@@ -29,8 +42,11 @@ in  { aliases =
       , ls = "exa"
       , tree = "exa -T"
       }
+    , darwinAliases.emacs = "emacsClient"
     , bindkey.emacs = "bindkey -e"
     , history
     , sharedPath
     , darwinPath
+    , function
+    , darwinFunction
     }
