@@ -8,8 +8,9 @@
     };
     home = {
       packages = with pkgs; [ libgccjit ];
-      file.".emacs.d/early-init.el".text =
-        builtins.readFile ./../../../emacs/early-init.el;
+      file.".emacs.d/early-init.el".text = ''
+        ${builtins.readFile ./../../../emacs/early-init.el}
+      '';
       file.".emacs.d/init.el".text = builtins.readFile ./../../../emacs/init.el;
     };
   };
