@@ -16,12 +16,15 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+;; Integration with use-package
+(straight-use-package 'use-package)
 
 ;;              _ _
 ;;    _____   _(_) |
 ;;   / _ \ \ / / | |
 ;;  |  __/\ V /| | |
 ;;   \___| \_/ |_|_|
-(straight-use-package 'evil)
-(require 'evil)
-(evil-mode 1)
+(use-package evil
+  :straight t
+  :config
+  (evil-mode 1))
