@@ -25,6 +25,16 @@
 ;;  |  __/\ V /| | |
 ;;   \___| \_/ |_|_|
 (use-package evil
+  :ensure nil
   :straight t
   :config
   (evil-mode 1))
+
+;;   _   _
+;;  | |_| |__   ___ _ __ ___   ___
+;;  | __| '_ \ / _ \ '_ ` _ \ / _ \
+;;  | |_| | | |  __/ | | | | |  __/
+;;   \__|_| |_|\___|_| |_| |_|\___|
+(straight-use-package
+  '(nano-emacs :type git :host github :repo "rougier/nano-emacs"))
+(require 'nano)
