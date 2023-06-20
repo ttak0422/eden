@@ -23,6 +23,7 @@ in {
       core = {
         autocrlf = false;
         editor = "nvim";
+        ignorecase = false;
       };
       color = { ui = "auto"; };
       commit.template = "~/.committemplate";
