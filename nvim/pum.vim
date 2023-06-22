@@ -1,10 +1,11 @@
 " depends vim-vsnip-integ.
 call pum#set_option(#{
-      \ padding: v:false,
+      \ padding: v:true,
       \ item_orders: ["abbr", "kind", "menu"],
-      \ scrollbar_char: '█',
+      \ scrollbar_char: '',
       \ max_height: 20,
       \ use_complete: v:true,
+      \ use_setline: v:true,
       \ })
 
 inoremap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<Tab>'
