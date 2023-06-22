@@ -854,6 +854,10 @@
                 lazy = true;
               }
               {
+                plugin = lsp-lens-nvim;
+                config = readFile ./../../../nvim/lsp-lens.lua;
+              }
+              {
                 plugin = actions-preview-nvim;
                 config = readFile ./../../../nvim/actions-preview.lua;
                 dependBundles = [ "telescope" ];
