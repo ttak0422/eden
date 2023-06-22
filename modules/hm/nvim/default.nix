@@ -21,6 +21,13 @@
         }
       ];
 
+      basic = with pkgs.vimPlugins; [{
+        # 対応するカッコの強調表示
+        plugin = sentiment-nvim;
+        config = readFile ./../../../nvim/sentiment.lua;
+        lazy = true;
+      }];
+
       motion = with pkgs.vimPlugins; [
         {
           plugin = reacher-nvim;
@@ -891,7 +898,6 @@
                   plugin = pum-vim;
                   depends = [{
                     plugin = nvim-autopairs;
-                    # depends = [ nvim-treesitter' ];
                     dependBundles = [ "treesitter" ];
                     config = readFile ./../../../nvim/autopairs.lua;
                     events = [ "InsertEnter" ];
@@ -991,7 +997,8 @@
           ${readFile ./../../../nvim/keymap.lua}
         '';
         extraPackages = with pkgs; [ delta ];
-        optPlugins = motion ++ tool ++ git ++ lang ++ code ++ ui ++ custom;
+        optPlugins = basic ++ motion ++ tool ++ git ++ lang ++ code ++ ui
+          ++ custom;
         inherit startPlugins bundles;
       };
     };
