@@ -21,10 +21,19 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     query = "rainbow-parens",
     strategy = require("ts-rainbow").strategy.global,
+    hlgroups = {
+      -- 'TSRainbowRed', 原色寄りすぎる...
+      "TSRainbowYellow",
+      "TSRainbowBlue",
+      "TSRainbowOrange",
+      "TSRainbowGreen",
+      "TSRainbowViolet",
+      "TSRainbowCyan",
+    },
   },
-  -- matchup = {
-  --   enable = true,
-  -- },
+  matchup = {
+    enable = true,
+  },
   textobjects = {
     select = {
       enable = true,
