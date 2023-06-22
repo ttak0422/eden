@@ -1,6 +1,7 @@
+" ↓ disabled to use ddc.vim
 " support filtering
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
+" cnoremap <C-p> <Up>
+" cnoremap <C-n> <Down>
 nmap [b <Plug>(poslist-prev-buf)
 nmap ]b <Plug>(poslist-next-buf)
 " https://zenn.dev/fuzmare/articles/vim-term-escape
