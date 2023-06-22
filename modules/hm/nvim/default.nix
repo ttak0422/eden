@@ -7,9 +7,19 @@
       startPlugins = with pkgs.vimPlugins; [
         vim-sensible
         vim-poslist
+        # {
+        #   plugin = tokyonight-nvim;
+        #   startup = "vim.cmd[[colorscheme tokyonight]] ";
+        # }
         {
-          plugin = tokyonight-nvim;
-          startup = "vim.cmd[[colorscheme tokyonight]] ";
+          plugin = everforest;
+          startup = ''
+            vim.cmd([[
+              set background=dark
+              let g:everforest_background = 'soft'
+              colorscheme everforest
+            ]])
+          '';
         }
         {
           plugin = nvim-config-local;
