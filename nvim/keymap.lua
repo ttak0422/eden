@@ -44,6 +44,7 @@ local normal_keymaps = {
   { "]Q", "<cmd>clast<cr>" },
   { "<c-w>q", "<cmd>SafeCloseWindow<cr>" },
   { "<c-w><c-q>", "<cmd>SafeCloseWindow<cr>" },
+  { ":", "<cmd>FineCmdline<cr>" },
   -- { "<leader>g", "<cmd>JABSOpen<cr>" },
   -- split/join
   { "<leader>m", "<cmd>lua require('treesj').toggle()<cr>", desc("toggle split/join") },
@@ -179,6 +180,6 @@ for i = 0, 9 do
 end
 map("n", "<leader>tg", "<cmd>TigTermToggle<cr>", desc("toggle tig terminal "))
 
--- reacher
-map({ "n", "x" }, "gs", "<cmd>lua require('reacher').start()<cr>", desc("search displayed"))
-map({ "n", "x" }, "gS", "<cmd>lua require('reacher').start_multiple()<cr>", desc("search displayed"))
+-- reacher (wip)
+-- map({ "n", "x" }, "gs", "<cmd>lua require('reacher').start()<cr>", desc("search displayed"))
+-- map({ "n", "x" }, "gS", "<cmd>lua require('reacher').start_multiple()<cr>", desc("search displayed"))
