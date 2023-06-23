@@ -206,12 +206,12 @@
         #   };
         #   events = [ "WinNew" ];
         # }
-        {
-          plugin = nvim-treesitter-context;
-          dependBundles = [ "treesitter" ];
-          config = readFile ./../../../nvim/treesitter-context.lua;
-          events = [ "CursorMoved" ];
-        }
+        # {
+        #   plugin = nvim-treesitter-context;
+        #   dependBundles = [ "treesitter" ];
+        #   config = readFile ./../../../nvim/treesitter-context.lua;
+        #   events = [ "CursorMoved" ];
+        # }
         {
           plugin = nvim-notify;
           config = readFile ./../../../nvim/notify.lua;
