@@ -4,6 +4,9 @@ local key_opts = { noremap = true, silent = true }
 local function desc(d)
   return { noremap = true, silent = true, desc = d }
 end
+local function cmd(c)
+  return "<cmd>" .. c .. "<cr>"
+end
 
 local function toggle_tool()
   local is_open = false
@@ -36,47 +39,46 @@ local normal_keymaps = {
   { "q", "<nop>" },
   { "j", "gj" },
   { "k", "gk" },
-  { "<c-h>", "<cmd>bprev<cr>" },
-  { "<c-l>", "<cmd>bnext<cr>" },
-  { "[q", "<cmd>lua require('qf').above('c')<cr>" },
-  { "]q", "<cmd>lua require('qf').below('c')<cr>" },
-  { "[Q", "<cmd>cfirst<cr>" },
-  { "]Q", "<cmd>clast<cr>" },
-  { "<c-w>q", "<cmd>SafeCloseWindow<cr>" },
-  { "<c-w><c-q>", "<cmd>SafeCloseWindow<cr>" },
-  { ":", "<cmd>FineCmdline<cr>" },
+  { "<c-h>", cmd("bprev") },
+  { "<c-l>", cmd("bnext") },
+  { "[q", cmd("lua require('qf').above('c')") },
+  { "]q", cmd("lua require('qf').below('c')") },
+  { "[Q", cmd("cfirst") },
+  { "]Q", cmd("clast") },
+  { "<c-w>q", cmd("SafeCloseWindow") },
+  { "<c-w><c-q>", cmd("SafeCloseWindow") },
   -- { "<leader>g", "<cmd>JABSOpen<cr>" },
   -- split/join
-  { "<leader>m", "<cmd>lua require('treesj').toggle()<cr>", desc("toggle split/join") },
+  { "<leader>m", cmd("lua require('treesj').toggle()"), desc("toggle split/join") },
   {
     "<leader>M",
-    "<cmd>lua require('treesj').toggle({ split = { recursive = true } })<cr>",
+    cmd("lua require('treesj').toggle({ split = { recursive = true } })"),
     desc("toggle split/join rec"),
   },
   -- motion
   {
     "<c-w><c-w>",
-    "<cmd>lua require('nvim-window').pick()<cr>",
+    cmd("lua require('nvim-window').pick()"),
     desc("choose window"),
   },
   {
     "gpd",
-    "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+    cmd("lua require('goto-preview').goto_preview_definition()"),
     desc("preview definition"),
   },
   {
     "gpi",
-    "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+    cmd("lua require('goto-preview').goto_preview_implementation()"),
     desc("preview implementation"),
   },
   {
     "gpr",
-    "<cmd>lua require('goto-preview').goto_preview_references()<CR>",
+    cmd("lua require('goto-preview').goto_preview_references()"),
     desc("preview references"),
   },
   {
     "gP",
-    "<cmd>lua require('goto-preview').close_all_win()<CR>",
+    cmd("lua require('goto-preview').close_all_win()"),
     desc("close all preview"),
   },
   -- git
@@ -96,33 +98,33 @@ local normal_keymaps = {
   },
   {
     "<leader>gB",
-    "<cmd>GinBuffer ++processor=delta blame %:p<cr>",
+    cmd("GinBuffer ++processor=delta blame %:p"),
     desc("git blame"),
   },
   {
     "<leader>gs",
-    "<cmd>GinStatus<cr>",
+    cmd("GinStatus"),
     desc("git status"),
   },
   {
     "<leader>gl",
-    "<cmd>GinLog<cr>",
+    cmd("GinLog"),
     desc("git log"),
   },
   {
     "<leader>G",
-    "<cmd>Neogit<cr>",
+    cmd("Neogit"),
     desc("open git tui"),
   },
   -- window
-  { "<c-w>z", "<cmd>NeoZoomToggle<cr>" },
-  { "<c-w>e", "<cmd>lua require('smart-splits').start_resize_mode()<cr>", desc("window resize mode") },
+  { "<c-w>z", cmd("NeoZoomToggle") },
+  { "<c-w>e", cmd("lua require('smart-splits').start_resize_mode()"), desc("window resize mode") },
   -- tools
-  { "<leader>q", "<cmd>BufDel<cr>" },
-  { "<leader>Q", "<cmd>BufDel!<cr>" },
-  { "<leader>E", "<cmd>FeMaco<cr>", desc("edit code block") },
+  { "<leader>q", cmd("BufDel") },
+  { "<leader>Q", cmd("BufDel!") },
+  { "<leader>E", cmd("FeMaco"), desc("edit code block") },
   -- toggle
-  { "<leader>tb", "<cmd>NvimTreeToggle<cr>" },
+  { "<leader>tb", cmd("NvimTreeToggle") },
   { "<leader>tq", toggle(1, "quickfix", nil), desc("open quickfix") },
   {
     "<leader>td",
@@ -135,24 +137,24 @@ local normal_keymaps = {
     desc("open diagnostics (workspace)"),
   },
   -- finder
-  { "<leader>ff", "<cmd>Telescope live_grep_args<cr>", desc("search by content") },
-  { "<leader>fp", "<cmd>Telescope find_files<cr>", desc("search by file name") },
-  { "<leader>fP", "<cmd>Telescope projects<cr>", desc("search project") },
-  { "<leader>fb", "<cmd>Telescope buffers<cr>", desc("search buffer") },
-  { "<leader>fh", "<cmd>Legendary<cr>", desc("search buffer") },
-  { "<leader>ft", "<cmd>Telescope sonictemplate templates<cr>", desc("search template") },
+  { "<leader>ff", cmd("Telescope live_grep_args"), desc("search by content") },
+  { "<leader>fp", cmd("Telescope find_files"), desc("search by file name") },
+  { "<leader>fP", cmd("Telescope projects"), desc("search project") },
+  { "<leader>fb", cmd("Telescope buffers"), desc("search buffer") },
+  { "<leader>fh", cmd("Legendary"), desc("search buffer") },
+  { "<leader>ft", cmd("Telescope sonictemplate templates"), desc("search template") },
   {
     "<leader>fF",
-    "<cmd>lua require('spectre').open()<cr>",
+    cmd("lua require('spectre').open()"),
     desc("find and replace with dark power"),
   },
   -- obsidian
-  { "<leader>oo", "<cmd>ObsidianFollowLink<cr>" },
-  { "<leader>oO", "<cmd>ObsidianOpen<cr>" },
-  { "<leader>or", "<cmd>ObsidianBacklinks<cr>" },
-  { "<leader>ot", "<cmd>ObsidianToday<cr>" },
-  { "<leader>of", "<cmd>ObsidianSearch<cr>" },
-  { "<leader>op", "<cmd>ObsidianQuickSwitch<cr>" },
+  { "<leader>oo", cmd("ObsidianFollowLink") },
+  { "<leader>oO", cmd("ObsidianOpen") },
+  { "<leader>or", cmd("ObsidianBacklinks") },
+  { "<leader>ot", cmd("ObsidianToday") },
+  { "<leader>of", cmd("ObsidianSearch") },
+  { "<leader>op", cmd("ObsidianQuickSwitch") },
   {
     "<leader>on",
     function()
@@ -161,9 +163,9 @@ local normal_keymaps = {
     desc("create new note"),
   },
   -- neorg
-  { "<leader>nn", "<cmd>Neorg index<cr>" },
-  { "<leader>nt", "<cmd>Neorg journal today<cr>", desc("neorg today") },
-  { "<leader>ny", "<cmd>Neorg journal yesterday<cr>", desc("neorg today") },
+  { "<leader>nn", cmd("Neorg index") },
+  { "<leader>nt", cmd("Neorg journal today"), desc("neorg today") },
+  { "<leader>ny", cmd("Neorg journal yesterday"), desc("neorg today") },
 }
 
 for _, keymap in ipairs(normal_keymaps) do
@@ -171,14 +173,14 @@ for _, keymap in ipairs(normal_keymaps) do
 end
 
 for _, key in ipairs({ "w", "e", "b" }) do
-  map("n", key, "<cmd>lua require('spider').motion('" .. key .. "')<cr>")
+  map("n", key, cmd("lua require('spider').motion('" .. key .. "')"))
 end
 
 -- toggle term
 for i = 0, 9 do
-  map("n", "<leader>t" .. i, "<cmd>TermToggle " .. i .. "<cr>", desc("toggle terminal " .. i))
+  map("n", "<leader>t" .. i, cmd("TermToggle " .. i), desc("toggle terminal " .. i))
 end
-map("n", "<leader>tg", "<cmd>TigTermToggle<cr>", desc("toggle tig terminal "))
+map("n", "<leader>tg", cmd("TigTermToggle"), desc("toggle tig terminal "))
 
 -- reacher (wip)
 -- map({ "n", "x" }, "gs", "<cmd>lua require('reacher').start()<cr>", desc("search displayed"))
