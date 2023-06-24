@@ -23,6 +23,7 @@
       plantuml # ------- uml
       pwgen # ---------- password generator
       ranger # --------- cui filer
+      ripgrep # -------- grep clone
       sqlite # --------- db engine
       taskwarrior
       taskwarrior-tui
