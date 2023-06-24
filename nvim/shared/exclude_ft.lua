@@ -19,5 +19,6 @@ return {
   "prompt",
   "qf",
   "toggleterm",
+  "registers",
   "",
 }
