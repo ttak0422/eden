@@ -16,10 +16,10 @@
         };
       };
 
-    mkConfiguration = { system, pkgs, modules, }:
+    mkConfiguration = { system, pkgs, modules, specialArgs ? { } }:
       let inherit (pkgs.stdenv) isDarwin;
       in (if isDarwin then darwinSystem else nixosSystem) {
-        inherit system modules;
+        inherit system modules specialArgs;
       };
   };
 }

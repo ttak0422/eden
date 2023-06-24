@@ -13,6 +13,8 @@ in {
         aarch64-darwin = mkConfiguration {
           inherit system pkgs;
 
+          specialArgs = { inherit username; };
+
           modules = [
             inputs.home-manager.darwinModules.home-manager
             self.nixosModules.eden-core
