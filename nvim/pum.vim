@@ -17,11 +17,11 @@ inoremap <silent><expr> <C-y> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' 
 
 cnoremap <expr> <Tab>
       \ wildmenumode() ? &wildcharm->nr2char() :
-      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+      \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
       \ ddc#map#manual_complete()
-cnoremap <expr> <S-Tab> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<S-Tab>'
-cnoremap <expr> <C-n> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<C-n>'
-cnoremap <expr> <C-p> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<C-p>'
+cnoremap <expr> <S-Tab> pum#visible() ? '<Cmd>call pum#map#select_relative(-1)<CR>' : '<S-Tab>'
+cnoremap <expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<C-n>'
+cnoremap <expr> <C-p> pum#visible() ? '<Cmd>call pum#map#select_relative(-1)<CR>' : '<C-p>'
 cnoremap <expr> <C-e> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-e>'
 " use <C-y>
 " cnoremap <expr> <CR>  pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
