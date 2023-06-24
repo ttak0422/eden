@@ -1,6 +1,7 @@
 let s:sources = [
       \ 'nvim-lsp',
       \ 'around',
+      \ 'buffer',
       \ ]
 
 let s:sourceOptions = {}
@@ -145,7 +146,6 @@ call popup_preview#enable()
 
 inoremap <silent> <C-x><C-f> <Cmd>call ddc#map#manual_complete(#{ sources: ['file'] })<CR>
 inoremap <silent> <C-x><C-t> <Cmd>call ddc#map#manual_complete(#{ sources: ['tmux'] })<CR>
-inoremap <silent> <C-x><C-b> <Cmd>call ddc#map#manual_complete(#{ sources: ['buffer'] })<CR>
 
 " for debug
 " call ddc#custom#patch_global('sources', ['file'])

@@ -932,6 +932,9 @@
                   depends = [{
                     plugin = nvim-autopairs;
                     dependBundles = [ "treesitter" ];
+                    startup = ''
+                      vim.cmd([[inoremap <silent><expr> <CR>  "\<C-g>u\<c-r>=v:lua.require'nvim-autopairs'.autopairs_cr()\<CR>"]])
+                    '';
                     config = readFile ./../../../nvim/autopairs.lua;
                     events = [ "InsertEnter" ];
                     modules = [ "nvim-autopairs" ];
