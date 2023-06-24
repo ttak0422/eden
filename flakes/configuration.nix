@@ -16,6 +16,7 @@ in {
           modules = [
             inputs.home-manager.darwinModules.home-manager
             self.nixosModules.eden-core
+            self.nixosModules.eden-darwin-app
             self.nixosModules.eden-darwin-core
             self.nixosModules.eden-darwin-desktop
             self.nixosModules.eden-darwin-development
