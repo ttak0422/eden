@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
   flake.nixosModules.eden-darwin-app = { pkgs, config, lib, username, ... }: {
-    environment.systemPackages = with pkgs; [ wezterm ];
+    environment.systemPackages = with pkgs; [ wezterm raycast ];
 
     # hack (https://github.com/IvarWithoutBones/dotfiles/commit/0b3faad8bd1d0e1af6103caf59b206666ab742f4)
     # Nix-darwin does not link installed applications to the user environment. This means apps will not show up
