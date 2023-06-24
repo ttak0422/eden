@@ -31,12 +31,19 @@
         }
       ];
 
-      basic = with pkgs.vimPlugins; [{
-        # 対応するカッコの強調表示
-        plugin = sentiment-nvim;
-        config = readFile ./../../../nvim/sentiment.lua;
-        lazy = true;
-      }];
+      basic = with pkgs.vimPlugins; [
+        {
+          # 対応するカッコの強調表示
+          plugin = sentiment-nvim;
+          config = readFile ./../../../nvim/sentiment.lua;
+          lazy = true;
+        }
+        {
+          # Enterでいいかんじにテキストオブジェクトを選択
+          plugin = wildfire-vim;
+          events = [ "CursorMoved" ];
+        }
+      ];
 
       motion = with pkgs.vimPlugins; [
         {
