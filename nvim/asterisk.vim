@@ -1,4 +1,4 @@
-map *  <Plug>(asterisk-z*)
-map #  <Plug>(asterisk-z#)
-map g* <Plug>(asterisk-gz*)
-map g# <Plug>(asterisk-gz#)
+map <silent> *  <Plug>(asterisk-z*)
+map <silent> #  <Plug>(asterisk-z#)
+map <silent> g* <Plug>(asterisk-gz*)
+map <silent> g# <Plug>(asterisk-gz#)
