@@ -92,7 +92,7 @@ let s:filterParams = {}
 let s:filterParams.converter_truncate = { 'maxAbbrWidth': 60, 'maxKindWidth': 10, 'maxMenuWidth': 40 }
 
 let s:cmdlineSources = {
-      \ ':': [ 'necovim', 'cmdline', 'cmdline-history', 'file', 'around' ],
+      \ ':': [ 'file', 'necovim', 'cmdline', 'cmdline-history', 'around' ],
       \ '@': [],
       \ '>': [],
       \ '/': [ 'around', 'line' ],
