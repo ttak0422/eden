@@ -30,6 +30,8 @@ let s:sourceOptions.line= {
 let s:sourceOptions.file = {
       \ 'mark': '[FILE]',
       \ 'forceCompletionPattern': '\S/\S*',
+      \ 'isVolatile': v:true,
+      \ 'dup': v:true,
       \ }
 let s:sourceOptions.buffer = {
       \ 'mark': '[BUFF]',
@@ -71,9 +73,13 @@ let s:sourceParams.tmux = {
       \ 'excludeCurrentPane': v:true,
       \ 'kindFormat': '#{pane_current_command}',
       \ }
-let s:sourceParams.file = {
-      \ 'projAsRoot': v:true,
-      \ 'bufAsRoot': v:true,
+let s:sourceParams.file = #{
+      \   projAsRoot: v:false,
+      \   displayFile: '',
+      \   displayDir: '',
+      \   displaySym: '',
+      \   displaySymFile: '',
+      \   displaySymDir: '',
       \ }
 let s:sourceParams['nvim-obsidian'] = #{
       \   dir: '~/vault',
@@ -123,6 +129,12 @@ call ddc#custom#patch_filetype(['java'], 'filterParams', #{
 call ddc#custom#patch_filetype(['vim'], #{
       \ sources: extend(['necovim'], s:sources),
       \ })
+" for fine-cmdline
+call ddc#custom#patch_filetype(['FineCmdlinePrompt'], #{
+      \   keywordPattern: '[0-9a-zA-Z_:#]*',
+      \   sources: ['necovim', 'cmdline', 'cmdline-history', 'file', 'around'],
+      \   specialBufferCompletion: v:true,
+      \ })
 
 call ddc#enable()
 call signature_help#enable()
@@ -134,6 +146,9 @@ call popup_preview#enable()
 inoremap <silent> <C-x><C-f> <Cmd>call ddc#map#manual_complete(#{ sources: ['file'] })<CR>
 inoremap <silent> <C-x><C-t> <Cmd>call ddc#map#manual_complete(#{ sources: ['tmux'] })<CR>
 inoremap <silent> <C-x><C-b> <Cmd>call ddc#map#manual_complete(#{ sources: ['buffer'] })<CR>
+
+" for debug
+" call ddc#custom#patch_global('sources', ['file'])
 
 " for Obsidian
 function! s:obsidian() abort
