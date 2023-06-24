@@ -17,7 +17,7 @@
           mkalias = inputs.mkAlias.outputs.apps.${system}.default.program;
         in lib.hm.dag.entryAfter [ "linkGeneration" ] ''
           echo "Linking Home Manager applications..." 2>&1
-          app_path="$HOME/Applications/Home Manager Apps"
+          app_path="$HOME/Applications/Home Manager Apps Hack"
           tmp_path="$(mktemp -dt "home-manager-applications.XXXXXXXXXX")" || exit 1
           ${pkgs.fd}/bin/fd \
           -t l -d 1 . ${apps}/Applications \
