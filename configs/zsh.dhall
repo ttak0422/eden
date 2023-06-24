@@ -27,11 +27,15 @@ let darwinFunction =
       }
       ''
 
-let sharedPath = "\n"
+let sharedPath =
+      ''
+      export PATH=~/.npm-packages/bin:$PATH
+      export NODE_PATH=~/.npm-packages/lib/node_modules
+      ''
 
 let darwinPath =
       ''
-      export PATH=/opt/homebrew/bin:$PATH
+      export PATH=$PATH:/opt/homebrew/bin
       ''
 
 in  { aliases =

@@ -470,6 +470,7 @@
                 {
                   name = "JavaSE-17";
                   path = pkgs.jdk17;
+
                   default = true;
                 }
               ];
@@ -491,25 +492,36 @@
           };
           filetypes = [ "java" ];
         }
+        # {
+        #   # typescript (node)
+        #   plugin = typescript-nvim;
+        #   dependBundles = [ "lsp" ];
+        #   config = {
+        #     lang = "lua";
+        #     code = readFile ./../../../nvim/typescript.lua;
+        #     args = {
+        #       on_attach_path = ./../../../nvim/shared/on_attach.lua;
+        #       capabilities_path = ./../../../nvim/shared/capabilities.lua;
+        #       tsserver_cmd = [
+        #         "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server"
+        #         "--stdio"
+        #       ];
+        #       tsserver_path =
+        #         "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib/";
+        #     };
+        #   };
+        #   filetypes = [ "typescript" ];
+        # }
         {
-          # typescript (node)
-          plugin = typescript-nvim;
+          plugin = typescript-tool-nvim;
+          depends = [ plenary-nvim nvim-lspconfig ];
           dependBundles = [ "lsp" ];
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/typescript.lua;
-            args = {
-              on_attach_path = ./../../../nvim/shared/on_attach.lua;
-              capabilities_path = ./../../../nvim/shared/capabilities.lua;
-              tsserver_cmd = [
-                "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server"
-                "--stdio"
-              ];
-              tsserver_path =
-                "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib/";
-            };
+            args = { on_attach_path = ./../../../nvim/shared/on_attach.lua; };
+            code = readFile ./../../../nvim/typescript-tool.lua;
           };
-          filetypes = [ "typescript" ];
+          filetypes = [ "typescript" "javascript" ];
         }
         {
           # Rust
