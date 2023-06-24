@@ -13,7 +13,7 @@ let fonts =
 
 let browser = [ "firefox", "google-chrome" ]
 
-let term = [ "kitty", "wezterm" ]
+let term = [ "kitty" ]
 
 let develop =
       [ "flutter"
