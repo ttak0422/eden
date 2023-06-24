@@ -21,7 +21,7 @@ let template =
       ''
 
 
-      # ==========================================================
+      # = HEADER =================================================
       #
       # build: ---------------- changes that affect artifacts
       # feat: ----------------- add new feature
@@ -43,6 +43,11 @@ let template =
       #   │       └─> Commit Scope: common|core|logic|...
       #   │
       #   └─> Commit Type: build|feat|chore|...
+      #
+      # = FOOTER (if exists) =====================================
+      #
+      # - BREAKING CHANGE: <breaking change summary>
+      # - DEPRECATED: <what is deprecated>
       #
       # ==========================================================
       ''
