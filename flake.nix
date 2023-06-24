@@ -21,6 +21,17 @@
       flake = false;
     };
 
+    #      _                     _
+    #   __| | __ _ _ ____      _(_)_ __
+    #  / _` |/ _` | '__\ \ /\ / / | '_ \
+    # | (_| | (_| | |   \ V  V /| | | | |
+    #  \__,_|\__,_|_|    \_/\_/ |_|_| |_|
+    #
+    mkAlias = {
+      url = "github:reckenrode/mkAlias";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #         _
     #  __   _(_)_ __ ___
     #  \ \ / / | '_ ` _ \

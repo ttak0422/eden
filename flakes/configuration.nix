@@ -51,7 +51,7 @@ in {
                 self.nixosModules.eden-hm-vim
                 self.nixosModules.eden-hm-virtualization
               ];
-              extraSpecialArgs = { inherit username userEmail; };
+              extraSpecialArgs = { inherit system username userEmail; };
             })
           ];
         };
