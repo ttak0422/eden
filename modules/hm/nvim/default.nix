@@ -34,9 +34,6 @@
       ai = with pkgs.vimPlugins;
         if flags ? copilot && flags.copilot then [{
           plugin = copilot-lua;
-          startup = ''
-            vim.keymap.set("n", "<leader>tc", "<cmd>Copilot panel<cr>", { noremap = true, silent = true, desc = "toggle copilot"})
-          '';
           config = readFile ./../../../nvim/copilot.lua;
           lazy = true;
         }] else
