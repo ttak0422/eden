@@ -1,13 +1,8 @@
 local wezterm = require("wezterm")
 
-local my_color = wezterm.color.get_builtin_schemes()["Ayu Mirage"]
-my_color.background = "#2a2f33"
-
 return {
-  color_schemes = {
-    ["My Color"] = my_color,
-  },
-  color_scheme = "My Color",
+  color_scheme = 'Everforest Dark (Gogh)',
+
   -- window_background_opacity = 0.96,
   -- text_background_opacity = 0.5,
   font = wezterm.font_with_fallback({
