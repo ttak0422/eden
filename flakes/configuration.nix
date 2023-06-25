@@ -6,12 +6,16 @@ let
   username = "ttak0422";
   userEmail = "ttak0422@gmail.com";
 
+  flags = {
+    copilot = true;
+  };
+
 in {
   flake = {
     darwinConfigurations = withSystem "aarch64-darwin"
       ({ self', inputs', system, pkgs, ... }: {
         aarch64-darwin = mkConfiguration {
-          inherit system pkgs;
+          inherit system pkgs flags;
 
           specialArgs = { inherit username; };
 
@@ -34,7 +38,7 @@ in {
             }
 
             (mkHmModule {
-              inherit pkgs username;
+              inherit pkgs username flags;
               stateVersion = hmStateVersion;
               modules = [
                 inputs.oboro-nvim.homeManagerModules.${system}.default

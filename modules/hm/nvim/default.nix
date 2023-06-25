@@ -1,6 +1,6 @@
 # WIP
 { self, inputs, ... }: {
-  flake.nixosModules.eden-hm-nvim = { pkgs, ... }:
+  flake.nixosModules.eden-hm-nvim = { pkgs, flags, ... }:
     let
       inherit (builtins) readFile;
 
@@ -30,6 +30,17 @@
           startup = readFile ./../../../nvim/stickybuf.lua;
         }
       ];
+
+      ai = with pkgs.vimPlugins;
+        if flags ? copilot && flags.copilot then [{
+          plugin = copilot-lua;
+          startup = ''
+            vim.keymap.set("n", "<leader>tc", "<cmd>Copilot panel<cr>", { noremap = true, silent = true, desc = "toggle copilot"})
+          '';
+          config = readFile ./../../../nvim/copilot.lua;
+          lazy = true;
+        }] else
+          [ ];
 
       basic = with pkgs.vimPlugins; [
         {
@@ -1033,7 +1044,7 @@
           ${readFile ./../../../nvim/keymap.lua}
         '';
         extraPackages = with pkgs; [ delta ];
-        optPlugins = basic ++ motion ++ tool ++ git ++ lang ++ code ++ ui
+        optPlugins = ai ++ basic ++ motion ++ tool ++ git ++ lang ++ code ++ ui
           ++ custom;
         inherit startPlugins bundles;
       };

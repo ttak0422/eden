@@ -800,6 +800,38 @@
         "type": "github"
       }
     },
+    "copilot-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687582763,
+        "narHash": "sha256-7dpjwP086FrtzywUsI+pbUXexaW4HCrWT3MPfhCzPuU=",
+        "owner": "zbirenbaum",
+        "repo": "copilot.lua",
+        "rev": "33aa9419da8f9bf9b6a992e6c9c7b7f9e36dac06",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zbirenbaum",
+        "repo": "copilot.lua",
+        "type": "github"
+      }
+    },
+    "copilot-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687491029,
+        "narHash": "sha256-Vfh50CVF5emZYLlp9keo+qBSe5Rvt0o1yJXdoBY3o/I=",
+        "owner": "github",
+        "repo": "copilot.vim",
+        "rev": "98c293994f1bbebd5bade5d5840ead3b2feb5074",
+        "type": "github"
+      },
+      "original": {
+        "owner": "github",
+        "repo": "copilot.vim",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "flake-compat": [
@@ -6045,6 +6077,8 @@
         "comfortable-motion-vim": "comfortable-motion-vim",
         "comfortable_motion_scroll_up_key": "comfortable_motion_scroll_up_key",
         "confirm-quit-nvim": "confirm-quit-nvim",
+        "copilot-lua": "copilot-lua",
+        "copilot-vim": "copilot-vim",
         "cybu-nvim": "cybu-nvim",
         "ddc-buffer": "ddc-buffer",
         "ddc-converter_remove_overlap": "ddc-converter_remove_overlap",
@@ -6320,11 +6354,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1687623339,
-        "narHash": "sha256-1C+s9Zj/ZlDg00OSlfl0Dt02lspYA3c53AzEUpVuciw=",
+        "lastModified": 1687659152,
+        "narHash": "sha256-daEr/n/1J2k4DqJNvelEj9ZNwDoem8/x+dwLVa0WLxM=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "70985a4edd8346b1ed4093857d5f0e8e2b0cea1e",
+        "rev": "852e4eb9973f3ce0b6591e92966cd1071ce112cf",
         "type": "github"
       },
       "original": {
