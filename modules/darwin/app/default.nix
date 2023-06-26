@@ -2,7 +2,7 @@
   flake.nixosModules.eden-darwin-app = withSystem "aarch64-darwin"
     ({ system, ... }:
       { pkgs, lib, config, username, ... }: {
-        environment.systemPackages = with pkgs; [ wezterm raycast ];
+        environment.systemPackages = with pkgs; [ wezterm ];
 
         system.activationScripts.applications.text =
           let mkalias = inputs.mkAlias.outputs.apps.${system}.default.program;

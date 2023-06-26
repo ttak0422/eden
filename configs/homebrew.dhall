@@ -31,7 +31,8 @@ in  { taps =
       ]
     , brews = [ "lunchy", "qemu" ]
     , casks =
-          [ "aquaskk"
+          [ "alfred"
+          , "aquaskk"
           , "cyberduck"
           , "displaylink"
           , "karabiner-elements"
