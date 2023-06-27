@@ -45,6 +45,7 @@ in  { aliases =
       , cat = "bat"
       , ls = "exa"
       , tree = "exa -T"
+      , rlwrap = "rlwrap sqlplus"
       }
     , darwinAliases.emacs = "emacsClient"
     , bindkey.emacs = "bindkey -e"

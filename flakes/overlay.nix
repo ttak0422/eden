@@ -37,6 +37,10 @@
             inherit (prev.stdenv) system;
             config.allowUnfree = true;
           };
+          pkgs-x86_64-darwin = import inputs.nixpkgs {
+            system = "x86_64-darwin";
+            config.allowUnfree = true;
+          };
         })
     ];
   };

@@ -10,6 +10,7 @@
         experimental-features = ''
           nix-command flakes
         '';
+        extra-platforms = "aarch64-darwin x86_64-darwin";
         substituters = [
           "https://ttak0422.cachix.org"
           "https://ttak0422-vim-plugins-overlay.cachix.org"
