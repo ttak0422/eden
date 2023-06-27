@@ -211,6 +211,11 @@
         }
       ];
       ui = with pkgs.vimPlugins; [
+        {
+          plugin = tint-nvim;
+          config = readFile ./../../../nvim/tint.lua;
+          events = [ "WinNew" ];
+        }
         # {
         #   plugin = windows-nvim;
         #   depends = [ middleclass animation-nvim ];
