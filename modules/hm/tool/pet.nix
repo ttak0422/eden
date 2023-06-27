@@ -45,6 +45,11 @@ let
       tag = [ "python" "direnv" ];
       command = "echo 'source .venv/bin/activate' >> .envrc";
     }
+    {
+      description = "derivate regex pattern from example";
+      tag = [ "regex" ];
+      command = "grex -c '<example>'";
+    }
   ];
 in {
   home = {

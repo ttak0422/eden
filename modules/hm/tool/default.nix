@@ -14,6 +14,7 @@
           gnugrep
           gnused
           graphviz # ------- dot
+          grex # ----------- derive regex from examples
           hey # ------------ load test tool
           htop # ----------- top clone
           jq # ------------- JSON processor
