@@ -10,3 +10,4 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+vim.o.diffopt = "internal,filler,closeoff,vertical"
