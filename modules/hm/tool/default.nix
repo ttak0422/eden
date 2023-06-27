@@ -40,12 +40,13 @@
           yq # ------------- YAML/XML/TOML processor
           zoxide # --------- fast cd
         ] ++ (if isDarwin then
-          with pkgs.pkgs-x86_64-darwin;
           [
-            oracle-instantclient # sqlplus, ...
+            pkgs.pkgs-x86_64-darwin.oracle-instantclient # sqlplus, ...
           ]
         else
-          [ ]);
+          [
+            pkgs.oracle-instantclient # sqlplus, ...
+          ]);
       imports = [ ./direnv.nix ./fzf.nix ./pet.nix ];
     };
 }
