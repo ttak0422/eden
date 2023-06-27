@@ -9,8 +9,13 @@ setup_develop:
 ifeq ($(OS),Windows_NT)
 	@echo "setup develop for Windows."
 	@echo "wip..."
+  ($(shell uname),Darwin)
+else ifeq ($(shell uname),Darwin)
+	@echo "setup develop for MacOS."
+	@./bin/xnix/setup_develop.sh
+	@./bin/darwin/setup.sh
 else
-	@echo "setup develop for Linux, MacOS."
+	@echo "setup develop for Linux."
 	@./bin/xnix/setup_develop.sh
 endif
 
