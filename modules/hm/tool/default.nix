@@ -24,6 +24,7 @@
       pwgen # ---------- password generator
       ranger # --------- cui filer
       ripgrep # -------- grep clone
+      sd # ------------- sed clone
       sqlite # --------- db engine
       taskwarrior
       taskwarrior-tui
