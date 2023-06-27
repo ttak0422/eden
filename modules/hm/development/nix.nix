@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ nixpkgs-fmt deadnix statix nil ];
+  home.packages = with pkgs; [ nixfmt nixpkgs-fmt deadnix statix nil ];
 }
