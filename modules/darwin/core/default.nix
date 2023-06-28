@@ -8,9 +8,9 @@
       ./ng-global.nix
     ];
     services.nix-daemon.enable = true;
-  programs.zsh = {
-    enable = true;
-    promptInit = "";
-  };
+    programs.zsh = {
+      enable = true;
+      promptInit = "";
+    };
   };
 }

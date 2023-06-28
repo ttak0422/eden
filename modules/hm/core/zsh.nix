@@ -19,6 +19,7 @@ in {
         ${if isDarwin then prefs.darwinPath else ""}
         ${prefs.function}
         ${if isDarwin then prefs.darwinFunction else ""}
+        ${prefs.sharedProfile}
 
         # pure
         fpath+=("$HOME/.zsh/plugins/pure/share/zsh/site-functions")

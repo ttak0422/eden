@@ -27,6 +27,11 @@ let darwinFunction =
       }
       ''
 
+let sharedProfile =
+      ''
+      export NLS_LANG=Japanese_Japan.AL32UTF8
+      ''
+
 let sharedPath =
       ''
       export PATH=~/.npm-packages/bin:$PATH
@@ -50,6 +55,7 @@ in  { aliases =
     , darwinAliases.emacs = "emacsClient"
     , bindkey.emacs = "bindkey -e"
     , history
+    , sharedProfile
     , sharedPath
     , darwinPath
     , function
