@@ -37,7 +37,8 @@ return function(client, bufnr)
   map("n", "gR", "<cmd>Glance references<cr>", desc("go to references"))
 
   -- action
-  map("n", "K", require("hover").hover, desc("show doc"))
+  map("n", "K", vim.lsp.buf.hover, desc("show doc"))
+  -- map("n", "K", require("hover").hover, desc("show doc"))
   -- map("n", "K", require("pretty_hover").hover, desc("show doc"))
   map("n", "<leader>K", vim.lsp.buf.signature_help, desc("show signature"))
   map("n", "<leader>D", vim.lsp.buf.type_definition, desc("show type"))
@@ -54,6 +55,18 @@ return function(client, bufnr)
   if client.supports_method("textDocument/formatting") then
     map("n", "<leader>cF", "<cmd>Format<cr>", desc("format"))
   end
+
+  map({ "n", "i", "s" }, "<C-f>", function()
+    if not require("noice.lsp").scroll(4) then
+      return "<C-f>"
+    end
+  end, { silent = true, bufnr = bufnr, expr = true })
+
+  map({ "n", "i", "s" }, "<C-b>", function()
+    if not require("noice.lsp").scroll(-4) then
+      return "<C-b>"
+    end
+  end, { silent = true, bufnr, expr = true })
 
   -- info
   if client.supports_method("textDocument/inlayHint") then

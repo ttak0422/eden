@@ -2,7 +2,11 @@ require("noice").setup({
   cmdline = {
     enabled = true,
     view = "cmdline_popup",
-    opts = {},
+    opts = {
+      zindex = 95,
+      relative = "cursor",
+      position = { row = 0, col = 0 },
+    },
     format = {
       cmdline = { pattern = "^:", icon = "", lang = "vim" },
       search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
@@ -70,7 +74,7 @@ require("noice").setup({
       ["vim.lsp.util.stylize_markdown"] = false,
     },
     hover = {
-      enabled = false,
+      enabled = true,
     },
     signature = {
       enabled = false,
@@ -104,5 +108,17 @@ require("noice").setup({
   throttle = 1000 / 30,
   health = {
     checker = false, -- for goneovim
+  },
+  views = {
+    cmdline_popup = {
+      border = {
+        style = "none",
+        padding = { 0, 0 },
+      },
+      filter_options = {},
+      win_options = {
+        winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+      },
+    },
   },
 })

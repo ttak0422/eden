@@ -39,19 +39,20 @@
         }] else
           [ ];
 
-      basic = with pkgs.vimPlugins; [
-        {
-          # 対応するカッコの強調表示
-          plugin = sentiment-nvim;
-          config = readFile ./../../../nvim/sentiment.lua;
-          lazy = true;
-        }
-        {
-          # Enterでいいかんじにテキストオブジェクトを選択
-          plugin = wildfire-vim;
-          events = [ "CursorMoved" ];
-        }
-      ];
+      basic = with pkgs.vimPlugins;
+        [
+          # {
+          #   # 対応するカッコの強調表示
+          #   plugin = sentiment-nvim;
+          #   config = readFile ./../../../nvim/sentiment.lua;
+          #   lazy = true;
+          # }
+          {
+            # Enterでいいかんじにテキストオブジェクトを選択
+            plugin = wildfire-vim;
+            events = [ "CursorMoved" ];
+          }
+        ];
 
       motion = with pkgs.vimPlugins; [
         {
@@ -748,15 +749,20 @@
           config = readFile ./../../../nvim/numb.lua;
           events = [ "CmdlineEnter" ];
         }
+        # {
+        #   plugin = indent-blankline-nvim;
+        #   # depends = [ nvim-treesitter' ];
+        #   dependBundles = [ "treesitter" ];
+        #   config = {
+        #     lang = "lua";
+        #     code = readFile ./../../../nvim/indent-blankline.lua;
+        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #   };
+        # }
         {
-          plugin = indent-blankline-nvim;
-          # depends = [ nvim-treesitter' ];
-          dependBundles = [ "treesitter" ];
-          config = {
-            lang = "lua";
-            code = readFile ./../../../nvim/indent-blankline.lua;
-            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
-          };
+          plugin = hlchunk-nvim;
+          config = readFile ./../../../nvim/hlchunk.lua;
+          events = [ "CursorMoved" ];
         }
         {
           plugin = nvim-ufo;
@@ -911,7 +917,7 @@
               #   plugin = pretty_hover;
               #   config = readFile ./../../../nvim/pretty-hover.lua;
               # }
-              # noice-nvim
+              noice-nvim
             ];
             depends = [{
               plugin = fidget-nvim;
@@ -942,18 +948,20 @@
                 plugin = ddc-ui-pum;
                 depends = [{
                   plugin = pum-vim;
-                  depends = [{
-                    plugin = nvim-autopairs;
-                    dependBundles = [ "treesitter" ];
-                    startup = ''
-                      vim.cmd([[inoremap <silent><expr> <CR>  "\<C-g>u\<c-r>=v:lua.require'nvim-autopairs'.autopairs_cr()\<CR>"]])
-                    '';
-                    config = readFile ./../../../nvim/autopairs.lua;
-                    events = [ "InsertEnter" ];
-                    modules = [ "nvim-autopairs" ];
-                  }
+                  depends = [
+                    { plugin = noice-nvim; }
+                    {
+                      plugin = nvim-autopairs;
+                      dependBundles = [ "treesitter" ];
+                      startup = ''
+                        vim.cmd([[inoremap <silent><expr> <CR>  "\<C-g>u\<c-r>=v:lua.require'nvim-autopairs'.autopairs_cr()\<CR>"]])
+                      '';
+                      config = readFile ./../../../nvim/autopairs.lua;
+                      events = [ "InsertEnter" ];
+                      modules = [ "nvim-autopairs" ];
+                    }
 
-                    ];
+                  ];
                   config = {
                     lang = "vim";
                     code = readFile ./../../../nvim/pum.vim;
