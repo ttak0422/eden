@@ -23,11 +23,10 @@ in  { taps =
       , "homebrew/core"
       , "koekeishiya/formulae"
       ]
-    , brews = [ "lunchy", "qemu" ]
+    , brews = [ "lunchy" ]
     , casks =
           [ "alfred"
           , "aquaskk"
-          , "cyberduck"
           , "displaylink"
           , "karabiner-elements"
           ]
