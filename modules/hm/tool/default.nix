@@ -2,52 +2,56 @@
   flake.nixosModules.eden-hm-tool = { pkgs, ... }:
     let inherit (pkgs.stdenv) isDarwin;
     in {
-      home.packages = with pkgs;
-        [
-          bat # ------------ cat clone
-          bottom # --------- system monitor
-          commitizen # ----- git commit helper
-          coreutils-full # - cat, ls, mv, wget, ...
-          exa # ------------ ls clone
-          fd # ------------- find clone
-          figlet # --------- ascii
-          gnugrep
-          gnused
-          graphviz # ------- dot
-          grex # ----------- derive regex from examples
-          hey # ------------ load test tool
-          htop # ----------- top clone
-          jq # ------------- JSON processor
-          lazygit # -------- git tui
-          neofetch # ------- system information tool
-          nix-prefetch-git
-          nix-prefetch-github
-          peco
-          pkg-config # ----- compile helper
-          plantuml # ------- uml
-          pwgen # ---------- password generator
-          ranger # --------- cui filer
-          ripgrep # -------- grep clone
-          rlwrap # --------- readline wrapper
-          sd # ------------- sed clone
-          sqlite # --------- db engine
-          taskwarrior
-          taskwarrior-tui
-          tealdeer # ------- tldr: complete `man` command
-          timewarrior
-          tokei # ---------- code count
-          viddy # ---------- watch
-          wget # ----------- GNU Wget
-          yq # ------------- YAML/XML/TOML processor
-          zoxide # --------- fast cd
-        ] ++ (if isDarwin then
+      home = {
+        packages = with pkgs;
           [
-            pkgs.pkgs-x86_64-darwin.oracle-instantclient # sqlplus, ...
-          ]
-        else
-          [
-            pkgs.oracle-instantclient # sqlplus, ...
-          ]);
+            bat # ------------ cat clone
+            bottom # --------- system monitor
+            commitizen # ----- git commit helper
+            coreutils-full # - cat, ls, mv, wget, ...
+            exa # ------------ ls clone
+            fd # ------------- find clone
+            figlet # --------- ascii
+            gnugrep
+            gnused
+            graphviz # ------- dot
+            grex # ----------- derive regex from examples
+            hey # ------------ load test tool
+            htop # ----------- top clone
+            jq # ------------- JSON processor
+            lazygit # -------- git tui
+            neofetch # ------- system information tool
+            nix-prefetch-git
+            nix-prefetch-github
+            peco
+            pkg-config # ----- compile helper
+            plantuml # ------- uml
+            pwgen # ---------- password generator
+            ranger # --------- cui filer
+            ripgrep # -------- grep clone
+            rlwrap # --------- readline wrapper
+            sd # ------------- sed clone
+            sqlite # --------- db engine
+            taskwarrior
+            taskwarrior-tui
+            tealdeer # ------- tldr: complete `man` command
+            timewarrior
+            tokei # ---------- code count
+            viddy # ---------- watch
+            wget # ----------- GNU Wget
+            yq # ------------- YAML/XML/TOML processor
+            zoxide # --------- fast cd
+          ] ++ (if isDarwin then
+            [
+              pkgs.pkgs-x86_64-darwin.oracle-instantclient # sqlplus, ...
+            ]
+          else
+            [
+              pkgs.oracle-instantclient # sqlplus, ...
+            ]);
+
+        sessionVariables = { BAT_CONFIG_PATH = ./../../../configs/bat.conf; };
+      };
       imports = [ ./direnv.nix ./fzf.nix ./pet.nix ];
     };
 }
