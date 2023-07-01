@@ -386,6 +386,7 @@
         }
         {
           plugin = goto-preview;
+          depends = [ tint-nvim ];
           config = readFile ./../../../nvim/goto-preview.lua;
           modules = [ "goto-preview" ];
         }
