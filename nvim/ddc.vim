@@ -41,10 +41,11 @@ let s:sourceOptions.skkeleton = {
       \ 'mark': '[SKK]',
       \ 'matchers': ['skkeleton'],
       \ }
-let s:sourceOptions['nvim-lsp'] = {
-      \ 'mark': '[LSP]',
-      \ 'dup': 'keep',
-      \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+let s:sourceOptions['nvim-lsp'] = #{
+      \   mark: '[LSP]',
+      \   dup: 'keep',
+      \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
+      \   maxItems: 800,
       \ }
 let s:sourceOptions.tmux = {
       \ 'mark': '[TMUX]',
@@ -67,7 +68,11 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
 
 let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
-      \   maxitems: 800,
+      \   snippetEngine: denops#callback#register({
+      \     body -> vsnip#anonymous(body)
+      \   }),
+      \   enableResolveItem: v:true,
+      \   enableAdditionalTextEdit: v:true,
       \ }
 let s:sourceParams.tmux = {
       \ 'currentWinOnly': v:true,

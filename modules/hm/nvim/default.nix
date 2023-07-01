@@ -923,6 +923,7 @@
               plugin = fidget-nvim;
               config = readFile ./../../../nvim/fidget.lua;
             }];
+            dependBundles = [ "ddc" ];
             lazy = true;
           }
           {
