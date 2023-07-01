@@ -704,6 +704,22 @@
         "type": "github"
       }
     },
+    "codewindow-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686581763,
+        "narHash": "sha256-PtT8tnnKQgd9tVGZq2nXjOyzNx0tgEHVYtJwhsVxNxs=",
+        "owner": "gorbit99",
+        "repo": "codewindow.nvim",
+        "rev": "c6bb650673f0026d6dca3f3bf31b93e486f23b4c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gorbit99",
+        "repo": "codewindow.nvim",
+        "type": "github"
+      }
+    },
     "colorful-winsep-nvim": {
       "flake": false,
       "locked": {
@@ -1730,6 +1746,22 @@
       "original": {
         "owner": "Bekaboo",
         "repo": "dropbar.nvim",
+        "type": "github"
+      }
+    },
+    "edgy-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688110980,
+        "narHash": "sha256-mxcB7I7LvFvsghVWGz3A857YwH63hcAlFRV4QgHKzIA=",
+        "owner": "folke",
+        "repo": "edgy.nvim",
+        "rev": "422dbda0f3a074475947b2338f06889da6606e32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "edgy.nvim",
         "type": "github"
       }
     },
@@ -3246,11 +3278,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1687993486,
-        "narHash": "sha256-q7czFtAiK5vaufqSzdoEW99L46WXlzF2KxVtVSKVwYQ=",
+        "lastModified": 1688130788,
+        "narHash": "sha256-26Zl5JGRKjhMO13uul1Iz+2cFA2nr9QqL1EdK68cMlE=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "421c66f741bf4ed4de6bf15df19160df0f90db4b",
+        "rev": "2493815290c4cb5b1fb97b6d010c10bdf2d47a58",
         "type": "github"
       },
       "original": {
@@ -3275,11 +3307,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687997590,
-        "narHash": "sha256-Wh0ub96C+dF5ERiZ2Uyt/SJNf2c2wZu+djEVbJu97Kc=",
+        "lastModified": 1688169937,
+        "narHash": "sha256-Z7k9sreeZZVQfh9N7+KrPakl8oOmqY9oxCG7wxtkEJM=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "2c8b7cf4693e9a8a94c213f2bdf5be8d6c36900b",
+        "rev": "2308960a997fb3bea9e91227254e7e3cf897f6d9",
         "type": "github"
       },
       "original": {
@@ -3887,11 +3919,11 @@
     "nvim-jdtls": {
       "flake": false,
       "locked": {
-        "lastModified": 1686667035,
-        "narHash": "sha256-ZagAavgylbmPpYQDs8o+1Q459C1Viq4BLoUb9HHx5mQ=",
+        "lastModified": 1688018249,
+        "narHash": "sha256-/iU25uqV6xwnUYyFloIRy3DGuUGEBe5fIN2oQ7P3ieQ=",
         "owner": "mfussenegger",
         "repo": "nvim-jdtls",
-        "rev": "aebfc22877ab143f907e90889e3903557183a22c",
+        "rev": "0261cf5a76cf2ef807c4ae0ede18fc9d791ebf02",
         "type": "github"
       },
       "original": {
@@ -4233,6 +4265,22 @@
       "original": {
         "owner": "kevinhwang91",
         "repo": "nvim-ufo",
+        "type": "github"
+      }
+    },
+    "nvim-various-textobjs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687873954,
+        "narHash": "sha256-dyYHRwQfHMSJftisH8q1YcCLR+diF0ecAO/UvXZO298=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-various-textobjs",
+        "rev": "6dd4d07bd0065abbf8c4c0e141c26e4ad07a7c1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-various-textobjs",
         "type": "github"
       }
     },
@@ -5998,6 +6046,7 @@
         "cmp-treesitter": "cmp-treesitter",
         "cmp-vsnip": "cmp-vsnip",
         "cmp_luasnip": "cmp_luasnip",
+        "codewindow-nvim": "codewindow-nvim",
         "colorful-winsep-nvim": "colorful-winsep-nvim",
         "colortils-nvim": "colortils-nvim",
         "coman-nvim": "coman-nvim",
@@ -6057,6 +6106,7 @@
         "dps-dial-vim": "dps-dial-vim",
         "dressing-nvim": "dressing-nvim",
         "dropbar-nvim": "dropbar-nvim",
+        "edgy-nvim": "edgy-nvim",
         "editorconfig-nvim": "editorconfig-nvim",
         "error-lens-nvim": "error-lens-nvim",
         "everforest": "everforest",
@@ -6168,6 +6218,7 @@
         "nvim-ts-rainbow": "nvim-ts-rainbow",
         "nvim-ts-rainbow2": "nvim-ts-rainbow2",
         "nvim-ufo": "nvim-ufo",
+        "nvim-various-textobjs": "nvim-various-textobjs",
         "nvim-web-devicons": "nvim-web-devicons",
         "nvim-window": "nvim-window",
         "nvim-yati": "nvim-yati",
@@ -6283,11 +6334,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1688133573,
-        "narHash": "sha256-twVuLWymSrjVBJwqQl5o/71ZkOHVqvImLdYyTMIqViI=",
+        "lastModified": 1688194096,
+        "narHash": "sha256-uxv6Mhoqzwaff8lQWdLJ7lDj1SaVxwkTFzNoxE0CuHE=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "2744c4d9b084d9d787554b86bf09f36b4fa765a3",
+        "rev": "c72223987924868f373ebb0322e7ddb63d710ef9",
         "type": "github"
       },
       "original": {
