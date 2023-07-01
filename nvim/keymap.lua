@@ -136,6 +136,11 @@ local normal_keymaps = {
     toggle(3, "trouble", { mode = "workspace_diagnostics" }),
     desc("open diagnostics (workspace)"),
   },
+  {
+    "<leader>tm",
+    cmd("lua require('codewindow').toggle_minimap()<cr>"),
+    desc("open minimap"),
+  },
   -- finder
   { "<leader>ff", cmd("Telescope live_grep_args"), desc("search by content") },
   { "<leader>fp", cmd("Telescope find_files"), desc("search by file name") },

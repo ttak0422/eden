@@ -20,5 +20,6 @@ return {
   "qf",
   "toggleterm",
   "registers",
+  "Codewindow",
   "",
 }

@@ -91,6 +91,15 @@
       tool = with pkgs.vimPlugins; [
         { plugin = vim-jukit; }
         {
+          plugin = codewindow-nvim;
+          config = {
+            lang = "lua";
+            code = readFile ./../../../nvim/codewindow.lua;
+            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+          };
+          modules = [ "codewindow" ];
+        }
+        {
           # require ts-parser norg.nvim
           plugin = neorg;
           depends = [
