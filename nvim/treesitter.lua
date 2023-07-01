@@ -39,26 +39,28 @@ require("nvim-treesitter.configs").setup({
       enable = true,
       lookahead = true,
       keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+        ["af"] = { query = "@function.outer", desc = "outer part of function" },
+        ["if"] = { query = "@function.inner", desc = "inner part of function" },
+        ["ac"] = { query = "@class.outer", desc = "outer part of class" },
+        ["ic"] = { query = "@class.inner", desc = "inner partof class" },
       },
     },
     move = {
       enable = true,
       set_jumps = true,
       goto_next_start = {
-        ["]f"] = "@function.outer",
+        ["]f"] = { query = "@function.outer", desc = "next function (start)" },
+        ["]z"] = { query = "@fold", desc = "next fold (start)" },
       },
       goto_next_end = {
-        ["]F"] = "@function.outer",
+        ["]F"] = { query = "@function.outer", desc = "next function (end)" },
       },
       goto_previous_start = {
-        ["[f"] = "@function.outer",
+        ["[f"] = { query = "@function.outer", desc = "prev function (start)" },
+        ["[z"] = { query = "@fold", desc = "prev fold (start)" },
       },
       goto_previous_end = {
-        ["[F"] = "@function.outer",
+        ["[F"] = { query = "@function.outer", desc = "prev function (end)" },
       },
     },
   },
