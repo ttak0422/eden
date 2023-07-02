@@ -816,10 +816,12 @@
             name = "skk";
             plugins = [
               skkeleton
-              # {
-              #   plugin = skkeleton_indicator-nvim;
-              #   config = readFile ./../../../nvim/skk-indicator.lua;
-              # }
+              # wip
+              # skk-vconv-vim
+              {
+                plugin = skkeleton_indicator-nvim;
+                config = readFile ./../../../nvim/skk-indicator.lua;
+              }
             ];
             # depends = [ denops-vim ];
             dependBundles = [ "ddc" ];

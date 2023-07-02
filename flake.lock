@@ -5090,6 +5090,22 @@
         "type": "github"
       }
     },
+    "skk-vconv-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659333605,
+        "narHash": "sha256-frvnsoDNxgBNV3A0wC5sBTYmyQGmx6xTYd3smsiYIUY=",
+        "owner": "Matts966",
+        "repo": "skk-vconv.vim",
+        "rev": "06f297b5a6f7ff4ec0965a77d971580dcb8644a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Matts966",
+        "repo": "skk-vconv.vim",
+        "type": "github"
+      }
+    },
     "skkeleton": {
       "flake": false,
       "locked": {
@@ -6273,6 +6289,7 @@
         "sentiment-nvim": "sentiment-nvim",
         "serenade": "serenade",
         "sidebar-nvim": "sidebar-nvim",
+        "skk-vconv-vim": "skk-vconv-vim",
         "skkeleton": "skkeleton",
         "skkeleton_indicator-nvim": "skkeleton_indicator-nvim",
         "smart-splits-nvim": "smart-splits-nvim",
@@ -6351,11 +6368,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1688297829,
-        "narHash": "sha256-+K4FJ2Pa2SZm+Toi36a7Hsh5iTwtouA6Io6rsTASMGo=",
+        "lastModified": 1688314212,
+        "narHash": "sha256-cAsg0564/620KY/Jn3/noWPOJsPNdsSg4dg/7vUSlkM=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "237c40e0ea676799021bbd42bca5c7f60e8a8763",
+        "rev": "dee59445efa0179be90456c5d2fa87720d615f04",
         "type": "github"
       },
       "original": {
