@@ -836,6 +836,10 @@
               telescope-nvim
               telescope-ui-select-nvim
               {
+                plugin = telescope-repo-nvim;
+                extraPackages = with pkgs; [ fd glow bat ];
+              }
+              {
                 plugin = telescope-live-grep-args-nvim;
                 extraPackages = with pkgs; [ ripgrep ];
               }
@@ -856,10 +860,10 @@
                   '';
                 }];
               }
-              {
-                plugin = project-nvim;
-                config = readFile ./../../../nvim/project.lua;
-              }
+              # {
+              #   plugin = project-nvim;
+              #   config = readFile ./../../../nvim/project.lua;
+              # }
             ];
             depends = [ plenary-nvim ];
             config = readFile ./../../../nvim/telescope.lua;
