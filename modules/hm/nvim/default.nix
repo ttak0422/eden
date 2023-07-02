@@ -89,6 +89,11 @@
         }
       ];
       tool = with pkgs.vimPlugins; [
+        {
+          plugin = project-nvim;
+          config = readFile ./../../../nvim/project.lua;
+          lazy = true;
+        }
         { plugin = vim-jukit; }
         {
           plugin = codewindow-nvim;
@@ -862,10 +867,6 @@
                   '';
                 }];
               }
-              # {
-              #   plugin = project-nvim;
-              #   config = readFile ./../../../nvim/project.lua;
-              # }
             ];
             depends = [ plenary-nvim ];
             config = readFile ./../../../nvim/telescope.lua;
