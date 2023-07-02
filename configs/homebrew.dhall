@@ -37,6 +37,7 @@ in  { taps =
           , "displaylink"
           , "karabiner-elements"
           , "keycastr"
+          , "neovide" -- aquaskkで除外する必要がある
           , "onedrive"
           ]
         # fonts

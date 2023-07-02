@@ -29,6 +29,7 @@ in  { taps =
           , "aquaskk"
           , "displaylink"
           , "karabiner-elements"
+          , "neovide"
           ]
         # fonts
         # browser

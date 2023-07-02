@@ -40,6 +40,8 @@ let s:sourceOptions.buffer = {
 let s:sourceOptions.skkeleton = {
       \ 'mark': '[SKK]',
       \ 'matchers': ['skkeleton'],
+      \ 'isVolatile': v:true,
+      \ 'sorters': [],
       \ }
 let s:sourceOptions['nvim-lsp'] = #{
       \   mark: '[LSP]',

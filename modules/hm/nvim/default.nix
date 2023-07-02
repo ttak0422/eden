@@ -816,12 +816,13 @@
             name = "skk";
             plugins = [
               skkeleton
-              {
-                plugin = skkeleton_indicator-nvim;
-                config = readFile ./../../../nvim/skk-indicator.lua;
-              }
+              # {
+              #   plugin = skkeleton_indicator-nvim;
+              #   config = readFile ./../../../nvim/skk-indicator.lua;
+              # }
             ];
-            depends = [ denops-vim ];
+            # depends = [ denops-vim ];
+            dependBundles = [ "ddc" ];
             config = {
               lang = "vim";
               code = readFile ./../../../nvim/skk.vim;
@@ -993,7 +994,10 @@
               ddc-source-file
               ddc-source-input
               ddc-source-line
-              ddc-source-nvim-lsp
+              {
+                plugin = ddc-source-nvim-lsp;
+                modules = [ "ddc_nvim_lsp" ];
+              }
               ddc-tmux
               ddc-ui-native
               denops-popup-preview-vim
@@ -1063,6 +1067,9 @@
           vim.loader.enable()
           ${readFile ./../../../nvim/prelude.lua}
           ${readFile ./../../../nvim/keymap.lua}
+          if vim.g.neovide then
+            dofile("${./../../../nvim/neovide.lua}")
+          end
         '';
         extraPackages = with pkgs; [ delta ];
         optPlugins = ai ++ basic ++ motion ++ tool ++ git ++ lang ++ code ++ ui
