@@ -764,21 +764,21 @@
           config = readFile ./../../../nvim/numb.lua;
           events = [ "CmdlineEnter" ];
         }
-        # {
-        #   plugin = indent-blankline-nvim;
-        #   # depends = [ nvim-treesitter' ];
-        #   dependBundles = [ "treesitter" ];
-        #   config = {
-        #     lang = "lua";
-        #     code = readFile ./../../../nvim/indent-blankline.lua;
-        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
-        #   };
-        # }
         {
-          plugin = hlchunk-nvim;
-          config = readFile ./../../../nvim/hlchunk.lua;
-          events = [ "CursorMoved" ];
+          plugin = indent-blankline-nvim;
+          dependBundles = [ "treesitter" ];
+          config = {
+            lang = "lua";
+            code = readFile ./../../../nvim/indent-blankline.lua;
+            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+          };
         }
+        # {
+        #   # 対応する括弧の強調
+        #   plugin = hlchunk-nvim;
+        #   config = readFile ./../../../nvim/hlchunk.lua;
+        #   events = [ "CursorMoved" ];
+        # }
         {
           plugin = nvim-ufo;
           depends = [ promise-async statuscol-nvim indent-blankline-nvim ];
