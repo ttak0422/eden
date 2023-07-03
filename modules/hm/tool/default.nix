@@ -20,6 +20,7 @@
             htop # ----------- top clone
             jq # ------------- JSON processor
             lazygit # -------- git tui
+            mkcert # --------- create local CA
             neofetch # ------- system information tool
             nix-prefetch-git
             nix-prefetch-github
