@@ -1,5 +1,7 @@
 let ignores =
       [ "*~"
+      , "*.swp"
+      , "*.swo"
       , ".DS_Store"
       , "Thumbs.db"
       , "Thumbs.db:encryptable"
