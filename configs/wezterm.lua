@@ -6,6 +6,7 @@ return {
   -- window_background_opacity = 0.96,
   -- text_background_opacity = 0.5,
   font = wezterm.font_with_fallback({
+    "PlemolJP Console NF",
     "JetBrains Mono",
     "Noto Color Emoji",
     "Symbols Nerd Font Mono",
