@@ -7,6 +7,11 @@ require("toggleterm").setup({
     end
   end,
   shade_terminals = false,
+  auto_scroll = false,
+  start_in_insert = false,
+  winbar = {
+    enabled = true,
+  },
 })
 
 local Terminal = require("toggleterm.terminal").Terminal
