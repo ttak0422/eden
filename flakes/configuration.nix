@@ -6,9 +6,7 @@ let
   username = "ttak0422";
   userEmail = "ttak0422@gmail.com";
 
-  flags = {
-    copilot = true;
-  };
+  flags = { copilot = true; };
 
 in {
   flake = {
@@ -32,7 +30,10 @@ in {
             {
               nixpkgs = {
                 overlays = builtins.attrValues self.overlays;
-                config.allowUnfree = true;
+                config = {
+                  allowUnfree = true;
+                  permittedInsecurePackages = [ "openssl-1.1.1u" ];
+                };
               };
               users.users.${username}.home = "/Users/${username}";
             }
