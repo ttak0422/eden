@@ -124,6 +124,11 @@ lspconfig.dhall_lsp_server.setup({
 lspconfig.yamlls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    },
+  },
 })
 
 -- html
