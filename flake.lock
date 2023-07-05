@@ -3124,6 +3124,22 @@
         "type": "github"
       }
     },
+    "modes-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1682778003,
+        "narHash": "sha256-qrGgraBdAvIc6AXqMMWESlOV29lM5zC1du1r5L2kpQQ=",
+        "owner": "mvllow",
+        "repo": "modes.nvim",
+        "rev": "4d97a51ebbdb649b85f6d79da0009fddd7081a6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mvllow",
+        "repo": "modes.nvim",
+        "type": "github"
+      }
+    },
     "modicator-nvim": {
       "flake": false,
       "locked": {
@@ -6194,6 +6210,7 @@
         "middleclass": "middleclass",
         "minimap-vim": "minimap-vim",
         "mkdir-nvim": "mkdir-nvim",
+        "modes-nvim": "modes-nvim",
         "modicator-nvim": "modicator-nvim",
         "monokai-pro-nvim": "monokai-pro-nvim",
         "nap-nvim": "nap-nvim",
@@ -6368,11 +6385,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1688314212,
-        "narHash": "sha256-cAsg0564/620KY/Jn3/noWPOJsPNdsSg4dg/7vUSlkM=",
+        "lastModified": 1688573496,
+        "narHash": "sha256-4TTU58BmKyYXJ+ltKF68uHBvl6f6nenzPMzM1E3rlXE=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "dee59445efa0179be90456c5d2fa87720d615f04",
+        "rev": "ec96ca64ccb82796ae156e9918234482331573b7",
         "type": "github"
       },
       "original": {

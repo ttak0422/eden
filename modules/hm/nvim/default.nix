@@ -227,6 +227,16 @@
       ];
       ui = with pkgs.vimPlugins; [
         {
+          # モードに応じたカーソルカラーを適用する
+          plugin = modes-nvim;
+          config = {
+            lang = "lua";
+            code = readFile ./../../../nvim/modes.lua;
+            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+          };
+          lazy = true;
+        }
+        {
           plugin = tint-nvim;
           config = readFile ./../../../nvim/tint.lua;
           events = [ "WinNew" ];
