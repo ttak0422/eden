@@ -52,10 +52,7 @@ in  { aliases =
       , tree = "exa -T"
       , sqlplus = "rlwrap sqlplus"
       }
-    , darwinAliases =
-      { emacs = "emacsClient"
-      , neovide = "open /Applications/Neovide.app --args --frame=none"
-      }
+    , darwinAliases.emacs = "emacsClient"
     , bindkey.emacs = "bindkey -e"
     , history
     , sharedProfile
