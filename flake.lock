@@ -3580,6 +3580,22 @@
         "type": "github"
       }
     },
+    "nordic-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688649689,
+        "narHash": "sha256-vZEF5LZ6WuOa5Q/753vvPLHNt9VKJBCjon3Jf1CBv4U=",
+        "owner": "AlexvZyl",
+        "repo": "nordic.nvim",
+        "rev": "ec2936c9fd887d4413cb02ae83d3b3d60f8b5f10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AlexvZyl",
+        "repo": "nordic.nvim",
+        "type": "github"
+      }
+    },
     "nose": {
       "flake": false,
       "locked": {
@@ -6224,6 +6240,7 @@
         "nixpkgs": "nixpkgs_4",
         "noice-nvim": "noice-nvim",
         "nomodoro": "nomodoro",
+        "nordic-nvim": "nordic-nvim",
         "nui-nvim": "nui-nvim",
         "null-ls-nvim": "null-ls-nvim",
         "numb-nvim": "numb-nvim",
@@ -6361,6 +6378,7 @@
         "vim-nix": "vim-nix",
         "vim-oscyank": "vim-oscyank",
         "vim-poslist": "vim-poslist",
+        "vim-qf": "vim-qf",
         "vim-repeat": "vim-repeat",
         "vim-sensible": "vim-sensible",
         "vim-sonictemplate": "vim-sonictemplate",
@@ -6385,11 +6403,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1688573496,
-        "narHash": "sha256-4TTU58BmKyYXJ+ltKF68uHBvl6f6nenzPMzM1E3rlXE=",
+        "lastModified": 1688658691,
+        "narHash": "sha256-juZGRPekEMl34mD6P8dHvomjeRqIanXjVrhBN3H/VeM=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "ec96ca64ccb82796ae156e9918234482331573b7",
+        "rev": "6f5e65541108205048c198c3679cdfaca70c13c6",
         "type": "github"
       },
       "original": {
@@ -6411,6 +6429,22 @@
       "original": {
         "owner": "thinca",
         "repo": "vim-poslist",
+        "type": "github"
+      }
+    },
+    "vim-qf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683623072,
+        "narHash": "sha256-1Xv9C1Z8Yit9nAKahw1wJJ4bjDLt5n3Bk89Sd5/FMHA=",
+        "owner": "romainl",
+        "repo": "vim-qf",
+        "rev": "7e65325651ff5a0b06af8df3980d2ee54cf10e14",
+        "type": "github"
+      },
+      "original": {
+        "owner": "romainl",
+        "repo": "vim-qf",
         "type": "github"
       }
     },
