@@ -1,4 +1,6 @@
 return {
+  "",
+  "Codewindow",
   "NvimTree",
   "TelescopePrompt",
   "alpha",
@@ -18,8 +20,7 @@ return {
   "noice",
   "prompt",
   "qf",
-  "toggleterm",
+  "quickfix",
   "registers",
-  "Codewindow",
-  "",
+  "toggleterm",
 }

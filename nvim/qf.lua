@@ -5,4 +5,5 @@ require("qf").setup({
   c = {
     wide = true,
   },
+  pretty = false,
 })

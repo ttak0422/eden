@@ -794,7 +794,7 @@
           depends = [ promise-async statuscol-nvim indent-blankline-nvim ];
           dependBundles = [ "treesitter" ];
           config = readFile ./../../../nvim/ufo.lua;
-          events = [ "BufRead" ];
+          lazy = true;
         }
         {
           plugin = statuscol-nvim;
