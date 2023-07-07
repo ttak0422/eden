@@ -5,23 +5,6 @@ return function(client, bufnr)
     return { noremap = true, silent = true, buffer = bufnr, desc = d }
   end
 
-  local diagnostic_wrn_opts = { severity = { min = vim.diagnostic.severity.WARN }, float = false }
-  local diagnostic_err_opts = { severity = vim.diagnostic.severity.ERROR, float = false }
-
-  -- motion
-  map("n", "[d", function()
-    vim.diagnostic.goto_prev(diagnostic_wrn_opts)
-  end, desc("prev diagnostic"))
-  map("n", "]d", function()
-    vim.diagnostic.goto_next(diagnostic_wrn_opts)
-  end, desc("next diagnostic"))
-  map("n", "[D", function()
-    vim.diagnostic.goto_prev(diagnostic_err_opts)
-  end, desc("prev diagnostic (err)"))
-  map("n", "]D", function()
-    vim.diagnostic.goto_next(diagnostic_err_opts)
-  end, desc("next diagnostic (err)"))
-
   -- jump
   map("n", "gd", vim.lsp.buf.definition, desc("go to definition"))
   map("n", "gsd", "<cmd>split<bar>lua vim.lsp.buf.definition()<cr>", desc("go to definition (split)"))

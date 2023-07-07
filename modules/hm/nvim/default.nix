@@ -56,6 +56,11 @@
 
       motion = with pkgs.vimPlugins; [
         {
+          plugin = nap-nvim;
+          config = readFile ./../../../nvim/nap.lua;
+          events = [ "CursorMoved" ];
+        }
+        {
           plugin = reacher-nvim;
           config = readFile ./../../../nvim/reacher.lua;
           modules = [ "reacher" ];
