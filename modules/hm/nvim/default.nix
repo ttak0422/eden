@@ -107,7 +107,7 @@
             code = readFile ./../../../nvim/codewindow.lua;
             args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
           };
-          modules = [ "codewindow" ];
+          lazy = true;
         }
         {
           # require ts-parser norg.nvim

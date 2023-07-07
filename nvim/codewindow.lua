@@ -1,11 +1,11 @@
 local codewindow = require("codewindow")
 codewindow.setup({
   active_in_terminals = false,
-  auto_enable = false,
+  auto_enable = true,
   exclude_filetypes = dofile(args.exclude_ft_path),
   max_minimap_height = nil,
   max_lines = nil,
-  minimap_width = 15,
+  minimap_width = 10,
   use_lsp = true,
   use_treesitter = true,
   use_git = true,
