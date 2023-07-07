@@ -30,6 +30,10 @@ let darwinFunction =
 let sharedProfile =
       ''
       export NLS_LANG=Japanese_Japan.AL32UTF8
+      export MCFLY_KEY_SCHEME=vim
+      export MCFLY_FUZZY=2
+      export MCFLY_INTERFACE_VIEW=BOTTOM
+      exportMCFLY_HISTORY_LIMIT=10000
       ''
 
 let sharedPath =
