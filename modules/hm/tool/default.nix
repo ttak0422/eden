@@ -25,6 +25,7 @@
             neofetch # ------- system information tool
             nix-prefetch-git
             nix-prefetch-github
+            onefetch
             peco
             pkg-config # ----- compile helper
             plantuml # ------- uml
