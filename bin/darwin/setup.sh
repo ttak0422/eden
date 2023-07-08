@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-sudo softwareupdate --install-rosetta --agree-to-license
+[[ ! $(which arch) ]] && sudo softwareupdate --install-rosetta --agree-to-license
+exit 0
