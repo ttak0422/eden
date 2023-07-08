@@ -29,8 +29,8 @@ require("nap").setup({
         rhs = function()
           vim.diagnostic.goto_next(diagnostic_wrn_opts)
         end,
-        opts = { desc = "next warn" },
       },
+      opts = { desc = "next warn" },
       mode = { "n", "v", "o" },
     },
     ["D"] = {
@@ -44,8 +44,8 @@ require("nap").setup({
         rhs = function()
           vim.diagnostic.goto_next(diagnostic_err_opts)
         end,
-        opts = { desc = "next error" },
       },
+      opts = { desc = "next error" },
       mode = { "n", "v", "o" },
     },
     ["q"] = {

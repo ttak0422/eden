@@ -107,6 +107,7 @@
             code = readFile ./../../../nvim/codewindow.lua;
             args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
           };
+          dependBundles = [ "treesitter" ];
           lazy = true;
         }
         {
