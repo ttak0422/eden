@@ -19,6 +19,18 @@ else
 	@./bin/xnix/setup_develop.sh
 endif
 
+.PHONY: setup_onedrive
+setup_onedrive:
+ifeq ($(OS),Windows_NT)
+	@echo "setup onedrive for Windows."
+	@echo "wip..."
+  ($(shell uname),Darwin)
+else
+	@echo "setup onedrive."
+	@./bin/xnix/setup_onedrive.sh
+endif
+
 .PHONY: setup
 setup:
 	"${MAKE}" setup_develop
+	"${MAKE}" setup_onedrive
