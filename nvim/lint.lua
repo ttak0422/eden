@@ -12,7 +12,7 @@ lint.linters_by_ft = {
   nix = { "statix" },
   lua = { "luacheck" },
   python = { "flake8" },
-  html = { "tidy" },
+  -- html = { "tidy" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
