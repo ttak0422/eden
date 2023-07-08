@@ -33,4 +33,4 @@ endif
 .PHONY: setup
 setup:
 	"${MAKE}" setup_develop
-	"${MAKE}" setup_onedrive
+	# "${MAKE}" setup_onedrive
