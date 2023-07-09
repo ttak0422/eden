@@ -1,8 +1,10 @@
 # WIP
 { self, inputs, ... }: {
-  flake.nixosModules.eden-hm-nvim = { pkgs, flags, ... }:
+  flake.nixosModules.eden-hm-nvim = { pkgs, lib, flags, system, ... }:
     let
       inherit (builtins) readFile;
+      inherit (pkgs.stdenv) isDarwin;
+      inherit (lib.attrsets) optionalAttrs;
 
       startPlugins = with pkgs.vimPlugins; [
         vim-sensible
@@ -1098,6 +1100,8 @@
         optPlugins = ai ++ basic ++ motion ++ tool ++ git ++ lang ++ code ++ ui
           ++ custom;
         inherit startPlugins bundles;
+      } // optionalAttrs isDarwin {
+        package = inputs.nifoc-overlay.packages.${system}.neovim-nightly;
       };
     };
 }

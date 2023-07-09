@@ -20,6 +20,10 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+    nifoc-overlay = {
+      url = "github:nifoc/nix-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #      _                     _
     #   __| | __ _ _ ____      _(_)_ __
