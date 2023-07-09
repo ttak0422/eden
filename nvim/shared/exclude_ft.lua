@@ -13,6 +13,7 @@ return {
   "dapui_watches",
   "ddu-ff",
   "ddu-ff-filter",
+  "dropbar_menu",
   "glowpreview",
   "help",
   "lspinfo",

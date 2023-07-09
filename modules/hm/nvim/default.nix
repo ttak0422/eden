@@ -270,13 +270,19 @@
           config = readFile ./../../../nvim/notify.lua;
           lazy = true;
         }
+        # {
+        #   plugin = winbar-nvim;
+        #   config = {
+        #     lang = "lua";
+        #     code = readFile ./../../../nvim/winbar.lua;
+        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #   };
+        #   lazy = true;
+        # }
         {
-          plugin = winbar-nvim;
-          config = {
-            lang = "lua";
-            code = readFile ./../../../nvim/winbar.lua;
-            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
-          };
+          plugin = dropbar-nvim;
+          config = readFile ./../../../nvim/dropbar.lua;
+          depends = [ nvim-web-devicons ];
           lazy = true;
         }
         {
