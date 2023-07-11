@@ -272,6 +272,22 @@
         "type": "github"
       }
     },
+    "auto-session": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686681399,
+        "narHash": "sha256-bmNrQQnaA+c9DsSTChS87Ir9+xlhlue9yl4VmqXWaB8=",
+        "owner": "rmagatti",
+        "repo": "auto-session",
+        "rev": "7afbb149f87be279778689596c781882014f7eef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rmagatti",
+        "repo": "auto-session",
+        "type": "github"
+      }
+    },
     "autolist-nvim": {
       "flake": false,
       "locked": {
@@ -1674,6 +1690,22 @@
       "original": {
         "owner": "vim-denops",
         "repo": "denops.vim",
+        "type": "github"
+      }
+    },
+    "diagflow-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689033620,
+        "narHash": "sha256-7AFNsSwKQm2nFuaSvLWVJscq21nb+QRvwpGougm3uiY=",
+        "owner": "dgagn",
+        "repo": "diagflow.nvim",
+        "rev": "bd98269c95527db4ca8a824afd46958c6eb75c7c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dgagn",
+        "repo": "diagflow.nvim",
         "type": "github"
       }
     },
@@ -6226,6 +6258,7 @@
         "animation-nvim": "animation-nvim",
         "anyline-nvim": "anyline-nvim",
         "arctic-nvim": "arctic-nvim",
+        "auto-session": "auto-session",
         "autolist-nvim": "autolist-nvim",
         "backseat-nvim": "backseat-nvim",
         "bclose-vim": "bclose-vim",
@@ -6309,6 +6342,7 @@
         "denops-popup-preview-vim": "denops-popup-preview-vim",
         "denops-signature_help": "denops-signature_help",
         "denops-vim": "denops-vim",
+        "diagflow-nvim": "diagflow-nvim",
         "diffview-nvim": "diffview-nvim",
         "dps-dial-vim": "dps-dial-vim",
         "dressing-nvim": "dressing-nvim",
@@ -6546,11 +6580,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1688902165,
-        "narHash": "sha256-+Glar8UAmU9DIoCMfkv6BESGLXGMLWOKpbiUBwSx1SE=",
+        "lastModified": 1689089633,
+        "narHash": "sha256-5gx/zOwc3i3+1TrsyJoNVphrL4ywQzYNI15IXA6MXYs=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "0293fd8b92fede99a5ed440d4b631100f63c76e8",
+        "rev": "ef1acbd391e43f111b994378b76663bde178bae6",
         "type": "github"
       },
       "original": {
