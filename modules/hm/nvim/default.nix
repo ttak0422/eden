@@ -97,6 +97,13 @@
       ];
       tool = with pkgs.vimPlugins; [
         {
+          plugin = auto-session;
+          config = readFile ./../../../nvim/auto-session.lua;
+          dependBundles = [ "telescope" ];
+          commands = [ "auto-session.session-lens" ];
+          lazy = true;
+        }
+        {
           plugin = project-nvim;
           config = readFile ./../../../nvim/project.lua;
           lazy = true;

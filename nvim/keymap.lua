@@ -149,6 +149,11 @@ local normal_keymaps = {
     cmd("lua require('spectre').open()"),
     desc("find and replace with dark power"),
   },
+  {
+    "<leader>fs",
+    function() require("auto-session.session-lens").search_session() end,
+    desc("search session"),
+  },
   -- obsidian
   { "<leader>oo", cmd("ObsidianFollowLink") },
   { "<leader>oO", cmd("ObsidianOpen") },
