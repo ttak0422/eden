@@ -958,13 +958,17 @@
                 plugin = vim-illuminate;
                 config = readFile ./../../../nvim/illuminate.lua;
               }
-              {
-                plugin = hover-nvim;
-                config = readFile ./../../../nvim/hover.lua;
-              }
+              # {
+              #   plugin = hover-nvim;
+              #   config = readFile ./../../../nvim/hover.lua;
+              # }
               # {
               #   plugin = pretty_hover;
               #   config = readFile ./../../../nvim/pretty-hover.lua;
+              # }
+              # {
+              #   plugin = diagflow-nvim;
+              #   config = readFile ./../../../nvim/diagflow.lua;
               # }
               noice-nvim
             ];
