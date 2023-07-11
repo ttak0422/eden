@@ -289,7 +289,7 @@
         {
           plugin = dropbar-nvim;
           config = readFile ./../../../nvim/dropbar.lua;
-          depends = [ nvim-web-devicons ];
+          depends = [ nvim-web-devicons circles-nvim ];
           lazy = true;
         }
         {
