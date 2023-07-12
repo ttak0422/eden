@@ -117,7 +117,8 @@
             args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
           };
           dependBundles = [ "treesitter" ];
-          lazy = true;
+          modules = [ "codewindow" ];
+          # lazy = true;
         }
         {
           # require ts-parser norg.nvim

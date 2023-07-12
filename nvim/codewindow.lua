@@ -1,7 +1,7 @@
 local codewindow = require("codewindow")
 codewindow.setup({
   active_in_terminals = false,
-  auto_enable = true,
+  auto_enable = false,
   exclude_filetypes = dofile(args.exclude_ft_path),
   max_minimap_height = nil,
   max_lines = nil,
