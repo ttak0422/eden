@@ -242,6 +242,10 @@
         }
       ];
       ui = with pkgs.vimPlugins; [
+        {
+          plugin = nvim-web-devicons;
+          config = readFile ./../../../nvim/devicons.lua;
+        }
         # {
         #   # モードに応じたカーソルカラーを適用する
         #   plugin = modes-nvim;
