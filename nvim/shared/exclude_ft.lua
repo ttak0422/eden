@@ -1,5 +1,6 @@
 return {
   "",
+  "nofile",
   "Codewindow",
   "NvimTree",
   "TelescopePrompt",
