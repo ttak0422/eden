@@ -9,7 +9,7 @@ require("diagflow").setup({
   },
   gap_size = 1,
   scope = "cursor",
-  padding_top = 0,
-  padding_right = 0,
+  padding_top = 2,
+  padding_right = 2,
   text_align = "left",
 })

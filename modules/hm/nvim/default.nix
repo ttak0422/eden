@@ -971,10 +971,10 @@
               #   plugin = pretty_hover;
               #   config = readFile ./../../../nvim/pretty-hover.lua;
               # }
-              # {
-              #   plugin = diagflow-nvim;
-              #   config = readFile ./../../../nvim/diagflow.lua;
-              # }
+              {
+                plugin = diagflow-nvim;
+                config = readFile ./../../../nvim/diagflow.lua;
+              }
               noice-nvim
             ];
             depends = [{
