@@ -2,35 +2,50 @@
 
 .PHONY: eden
 eden:
-	@echo "eden (vX.X.X - WIP)"
+	@echo "eden"
 
-.PHONY: setup_develop
-setup_develop:
+
+#  _           _        _ _
+# (_)_ __  ___| |_ __ _| | |
+# | | '_ \/ __| __/ _` | | |
+# | | | | \__ \ || (_| | | |
+# |_|_| |_|___/\__\__,_|_|_|
+#
+.PHONY: install
+install:
+# Windows
+ifeq ($(OS),Windows_NT)
+	@echo "install for Windows."
+# MacOS
+else ifeq ($(shell uname),Darwin)
+	@echo "install for MacOS."
+	@./bin/darwin/install.sh
+# Linux
+else
+	@echo "install for Linux."
+endif
+
+
+#           _
+#  ___  ___| |_ _   _ _ __
+# / __|/ _ \ __| | | | '_ \
+# \__ \  __/ |_| |_| | |_) |
+# |___/\___|\__|\__,_| .__/
+#                    |_|
+.PHONY: setup
+setup:
+# Windows
 ifeq ($(OS),Windows_NT)
 	@echo "setup develop for Windows."
 	@echo "wip..."
-  ($(shell uname),Darwin)
+# MacOS
 else ifeq ($(shell uname),Darwin)
 	@echo "setup develop for MacOS."
 	@./bin/xnix/setup_develop.sh
-	@./bin/darwin/setup.sh
+	@./bin/xnix/setup_onedrive.sh
+# Linux
 else
 	@echo "setup develop for Linux."
 	@./bin/xnix/setup_develop.sh
-endif
-
-.PHONY: setup_onedrive
-setup_onedrive:
-ifeq ($(OS),Windows_NT)
-	@echo "setup onedrive for Windows."
-	@echo "wip..."
-  ($(shell uname),Darwin)
-else
-	@echo "setup onedrive."
 	@./bin/xnix/setup_onedrive.sh
 endif
-
-.PHONY: setup
-setup:
-	"${MAKE}" setup_develop
-	# "${MAKE}" setup_onedrive
