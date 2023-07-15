@@ -120,6 +120,7 @@ local normal_keymaps = {
   { "<leader>Q", cmd("BufDel!") },
   { "<leader>E", cmd("FeMaco"), desc("edit code block") },
   -- toggle
+  { "<leader>tc", cmd("ColorizerToggle"), desc("toggle colorize") },
   { "<leader>tb", cmd("NvimTreeToggle") },
   { "<leader>tq", toggle(1, "quickfix", nil), desc("open quickfix") },
   {
@@ -151,7 +152,9 @@ local normal_keymaps = {
   },
   {
     "<leader>fs",
-    function() require("auto-session.session-lens").search_session() end,
+    function()
+      require("auto-session.session-lens").search_session()
+    end,
     desc("search session"),
   },
   -- obsidian

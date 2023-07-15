@@ -97,6 +97,11 @@
       ];
       tool = with pkgs.vimPlugins; [
         {
+          plugin = nvim-colorizer-lua;
+          config = readFile ./../../../nvim/colorizer.lua;
+          commands = [ "ColorizerToggle" ];
+        }
+        {
           plugin = auto-session;
           config = readFile ./../../../nvim/auto-session.lua;
           dependBundles = [ "telescope" ];
