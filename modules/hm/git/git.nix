@@ -23,7 +23,9 @@ in {
       core = {
         autocrlf = false;
         editor = "nvim";
+        fsmonitor = true;
         ignorecase = false;
+        untrackedcache = true;
       };
       color = { ui = "auto"; };
       commit.template = "~/.committemplate";
