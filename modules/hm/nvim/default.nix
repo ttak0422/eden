@@ -1124,7 +1124,9 @@
           end
         '';
         extraPackages = with pkgs; [ delta ];
-        optPlugins = ai ++ basic ++ motion ++ tool ++ git ++ lang ++ code ++ ui
+        optPlugins = [ ] ++ ai ++ basic ++ motion ++ tool ++ git ++ lang ++ code
+          ++ ui
+
           ++ custom;
         inherit startPlugins bundles;
       } // optionalAttrs isDarwin {

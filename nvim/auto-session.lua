@@ -2,11 +2,7 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 require("auto-session").setup({
   log_level = "error",
-  cwd_change_handling = {
-    restore_upcoming_session = false,
-    pre_cwd_changed_hook = nil,
-    post_cwd_changed_hook = nil,
-  },
+  cwd_change_handling = nil,
   session_lens = {
     load_on_setup = true,
     theme_conf = { border = true },
