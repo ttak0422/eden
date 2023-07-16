@@ -4,8 +4,8 @@ require("noice").setup({
     view = "cmdline_popup",
     opts = {
       zindex = 95,
-      relative = "cursor",
-      position = { row = 0, col = 0 },
+      -- relative = "cursor",
+      -- position = { row = 0, col = 0 },
     },
     format = {
       cmdline = { pattern = "^:", icon = "", lang = "vim" },
