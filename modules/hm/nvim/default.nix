@@ -863,7 +863,11 @@
             plugins = [
               skkeleton
               # wip
-              # skk-vconv-vim
+              # {
+              #   plugin = skk-vconv-vim;
+              #   depends = [ skkeleton ];
+              #   extraPackages = with pkgs; [ python3Packages.pykakasi ];
+              # }
               {
                 plugin = skkeleton_indicator-nvim;
                 config = readFile ./../../../nvim/skk-indicator.lua;
