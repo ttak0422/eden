@@ -13,7 +13,6 @@ imap <C-j> <Plug>(skkeleton-enable)
 cmap <C-j> <Plug>(skkeleton-enable)
 
 function! s:skkeleton_pre() abort
-  echo "pre"
   let s:prev_buffer_config = ddc#custom#get_buffer()
   call ddc#custom#patch_buffer(#{
         \   sources: ['around', 'skkeleton'],
@@ -26,7 +25,6 @@ function! s:skkeleton_pre() abort
 endfunction
 
 function! s:skkeleton_post() abort
-  echo "post"
   if 's:prev_buffer_config'->exists()
     call ddc#custom#set_buffer(s:prev_buffer_config)
   endif
