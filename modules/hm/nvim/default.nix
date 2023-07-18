@@ -20,6 +20,8 @@
               set background=dark
               let g:everforest_background = 'soft'
               colorscheme everforest
+              hi NormalFloat ctermbg=NONE guibg=NONE
+              hi FloatBorder ctermbg=NONE guibg=NONE
             ]])
           '';
         }
