@@ -5,7 +5,16 @@ require("auto-session").setup({
   cwd_change_handling = nil,
   session_lens = {
     load_on_setup = true,
-    theme_conf = { border = true },
+    theme_conf = require("telescope.themes").get_ivy({
+      path_display = { "truncate" },
+      prompt_prefix = " ",
+      selection_caret = " ",
+      mappings = {
+        i = {
+          ["<C-j>"] = { "<Plug>(skkeleton-enable)", type = "command" },
+        },
+      },
+    }),
     previewer = false,
   },
   auto_session_enable_last_session = false,
