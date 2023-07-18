@@ -689,6 +689,11 @@
       ];
       custom = with pkgs.vimPlugins; [
         {
+          # Cicaに登録されている絵文字を全角幅にしてくれる
+          plugin = vim-ambiwidth;
+          lazy = true;
+        }
+        {
           plugin = better-escape-nvim;
           config = readFile ./../../../nvim/better-escape.lua;
           events = [ "InsertEnter" ];
