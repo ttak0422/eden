@@ -40,18 +40,6 @@ return function(client, bufnr)
     map("n", "<leader>cF", "<cmd>Format<cr>", desc("format"))
   end
 
-  map({ "n", "i", "s" }, "<C-f>", function()
-    if not require("noice.lsp").scroll(4) then
-      return "<C-f>"
-    end
-  end, { silent = true, bufnr = bufnr, expr = true })
-
-  map({ "n", "i", "s" }, "<C-b>", function()
-    if not require("noice.lsp").scroll(-4) then
-      return "<C-b>"
-    end
-  end, { silent = true, bufnr, expr = true })
-
   -- info
   if client.supports_method("textDocument/inlayHint") then
     require("lsp-inlayhints").on_attach(client, bufnr, false)

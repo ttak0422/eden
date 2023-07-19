@@ -70,15 +70,24 @@ require("noice").setup({
       enabled = false,
     },
     override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-      ["vim.lsp.util.stylize_markdown"] = false,
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
     },
     hover = {
       enabled = true,
+      silent = true,
+      view = "hover",
     },
     signature = {
       enabled = false,
     },
+  },
+  presets = {
+    bottom_search = false,
+    command_palette = false,
+    long_message_to_split = true,
+    inc_rename = false,
+    lsp_doc_border = true,
   },
   messages = {
     enabled = true,
@@ -120,5 +129,21 @@ require("noice").setup({
       --   winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
       -- },
     },
+    hover = {
+      border = {
+        style = "single",
+      },
+    },
   },
 })
+
+vim.keymap.set({ "n", "i", "s" }, "<C-f>", function()
+  if not require("noice.lsp").scroll(4) then
+    return "<C-f>"
+  end
+end, { silent = true, expr = true })
+vim.keymap.set({ "n", "i", "s" }, "<C-b>", function()
+  if not require("noice.lsp").scroll(-4) then
+    return "<C-b>"
+  end
+end, { silent = true, expr = true })
