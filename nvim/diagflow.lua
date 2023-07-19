@@ -12,4 +12,5 @@ require("diagflow").setup({
   padding_top = 2,
   padding_right = 2,
   text_align = "left",
+  placement = "inline",
 })
