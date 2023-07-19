@@ -1111,7 +1111,7 @@
           #   depends = [ denops-vim ];
           #   config = {
           #     lang = "vim";
-          #     code = readFile ./ddu.vim;
+          #     code = readFile ./../../../nvim/ddu.vim;
           #   };
           #   # WIP
           #   lazy = true;
