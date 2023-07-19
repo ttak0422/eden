@@ -26,7 +26,8 @@ return function(client, bufnr)
   map("n", "<leader>K", vim.lsp.buf.signature_help, desc("show signature"))
   map("n", "<leader>D", vim.lsp.buf.type_definition, desc("show type"))
   map("n", "<leader>rn", vim.lsp.buf.rename, desc("rename"))
-  map("n", "<leader>ca", require("actions-preview").code_actions, desc("code action"))
+  -- map("n", "<leader>ca", require("actions-preview").code_actions, desc("code action"))
+  map("n", "<leader>ca", vim.lsp.buf.code_action, desc("code action"))
   map("n", "<leader>cc", "<cmd>Neogen class<cr>", desc("class comment"))
   map(
     "n",

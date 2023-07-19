@@ -893,7 +893,7 @@
             name = "telescope";
             plugins = [
               telescope-nvim
-              telescope-ui-select-nvim
+              # telescope-ui-select-nvim
               {
                 plugin = telescope-repo-nvim;
                 extraPackages = with pkgs; [ fd glow bat ];
