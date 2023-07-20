@@ -31,10 +31,10 @@ return function(runtimes)
           enabled = false,
         },
         referencesCodeLens = {
-          enabled = false,
+          enabled = true,
         },
         implementationsCodeLens = {
-          enabled = false,
+          enabled = true,
         },
         signatureHelp = {
           enabled = true,
