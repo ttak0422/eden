@@ -342,15 +342,15 @@
         #   events = [ "CmdlineEnter" ];
         #   extraPackages = with pkgs; [ fd ];
         # }
-        {
-          plugin = SmoothCursor-nvim;
-          config = {
-            lang = "lua";
-            code = readFile ./../../../nvim/smoothcursor.lua;
-            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
-          };
-          events = [ "CursorMoved" ];
-        }
+        # {
+        #   plugin = SmoothCursor-nvim;
+        #   config = {
+        #     lang = "lua";
+        #     code = readFile ./../../../nvim/smoothcursor.lua;
+        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #   };
+        #   events = [ "CursorMoved" ];
+        # }
         # {
         #   plugin = minimap-vim;
         #   preConfig = {
@@ -965,20 +965,21 @@
                 plugin = lsp-lens-nvim;
                 config = readFile ./../../../nvim/lsp-lens.lua;
               }
-              {
-                plugin = actions-preview-nvim;
-                config = readFile ./../../../nvim/actions-preview.lua;
-                dependBundles = [ "telescope" ];
-                modules = [ "actions-preview" ];
-              }
+              # {
+              #   plugin = actions-preview-nvim;
+              #   config = readFile ./../../../nvim/actions-preview.lua;
+              #   dependBundles = [ "telescope" ];
+              #   modules = [ "actions-preview" ];
+              # }
               {
                 plugin = lsp-inlayhints-nvim;
                 config = readFile ./../../../nvim/inlayhints.lua;
               }
-              {
-                plugin = vim-illuminate;
-                config = readFile ./../../../nvim/illuminate.lua;
-              }
+              # {
+              #   # カーソルの対応する要素のハイライト.
+              #   plugin = vim-illuminate;
+              #   config = readFile ./../../../nvim/illuminate.lua;
+              # }
               # {
               #   plugin = hover-nvim;
               #   config = readFile ./../../../nvim/hover.lua;

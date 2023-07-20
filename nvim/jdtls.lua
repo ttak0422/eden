@@ -48,7 +48,8 @@ local config = {
     bundles = bundles,
   },
   flags = {
-    allow_incremental_sync = true,
+    allow_incremental_sync = false,
+    server_side_fuzzy_completion = true,
   },
   handlers = {
     ["language/status"] = function() end,
