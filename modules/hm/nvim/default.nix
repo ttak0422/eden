@@ -1076,8 +1076,8 @@
             depends = [
               denops-vim
               {
-                plugin = vim-vsnip-integ;
-                depends = [ vim-vsnip ];
+                plugin = LuaSnip;
+                config = readFile ./../../../nvim/luasnip.lua;
               }
             ];
             dependBundles = [ "lsp" ];

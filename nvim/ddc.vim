@@ -48,6 +48,7 @@ let s:sourceOptions['nvim-lsp'] = #{
       \   dup: 'keep',
       \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
       \   maxItems: 800,
+      \   minKeywordLength: 0,
       \ }
 let s:sourceOptions.tmux = {
       \ 'mark': '[TMUX]',
@@ -69,12 +70,13 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
       \ }
 
 let s:sourceParams = {}
+	    "\     body -> vsnip#anonymous(body)
 let s:sourceParams['nvim-lsp'] = #{
       \   snippetEngine: denops#callback#register({
-      \     body -> vsnip#anonymous(body)
-      \   }),
-      \   enableResolveItem: v:true,
-      \   enableAdditionalTextEdit: v:true,
+	    \     body -> luaeval('require("luasnip").lsp_expand(_A)', body)
+	    \   }),
+      \   enableResolveItem: v:false,
+      \   enableAdditionalTextEdit: v:false,
       \ }
 let s:sourceParams.tmux = {
       \ 'currentWinOnly': v:true,
@@ -165,10 +167,10 @@ autocmd BufEnter,BufNewFile **/vault/**/*.md call s:obsidian()
 autocmd BufEnter,BufNewFile **/vault/*.md call s:obsidian()
 
 " vsnip
-inoremap <expr> <C-k> vsnip#jumpable(+1) ? '<Plug>(vsnip-jump-next)' : ''
-snoremap <expr> <C-k> vsnip#jumpable(+1) ? '<Plug>(vsnip-jump-next)' : ''
-inoremap <expr> <C-l> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : ''
-snoremap <expr> <C-l> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : ''
+" inoremap <expr> <C-k> vsnip#jumpable(+1) ? '<Plug>(vsnip-jump-next)' : ''
+" snoremap <expr> <C-k> vsnip#jumpable(+1) ? '<Plug>(vsnip-jump-next)' : ''
+" inoremap <expr> <C-l> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : ''
+" snoremap <expr> <C-l> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : ''
 
 function! CommandlinePre() abort
   autocmd User DDCCmdlineLeave ++once call CommandlinePost()

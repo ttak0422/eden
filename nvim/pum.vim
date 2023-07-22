@@ -1,4 +1,3 @@
-" depends vim-vsnip-integ.
 call pum#set_option(#{
       \ padding: v:true,
       \ item_orders: ["abbr", "kind", "menu"],
@@ -17,5 +16,3 @@ cnoremap <expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>
 cnoremap <expr> <C-p> pum#visible() ? '<Cmd>call pum#map#select_relative(-1)<CR>' : '<C-p>'
 cnoremap <expr> <C-e> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-e>'
 cnoremap <silent><expr> <C-y> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<C-y>'
-
-autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
