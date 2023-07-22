@@ -7,14 +7,25 @@
       inputs.emacs.overlay
       inputs.nix-filter.overlays.default
       (final: prev:
-        let inherit (prev.stdenv) mkDerivation;
+        let inherit (prev.stdenv) mkDerivation isDarwin;
         in {
           vimPlugins = prev.vimPlugins // {
-            # ddc-sorter_itemsize = prev.vimUtils.buildVimPluginFrom2Nix {
-            #   pname = "ddc-sorter_itemsize";
-            #   version = "local";
-            #   src = inputs.ddc-sorter_itemsize;
-            # };
+            LuaSnip = prev.vimUtils.buildVimPluginFrom2Nix {
+              pname = "LuaSnip";
+              version = "unstable";
+              src = prev.vimPlugins.LuaSnip;
+              nativeBuildInputs = [ prev.gcc ];
+              buildPhase = ''
+                ${if isDarwin then
+                  "LUA_LDLIBS='-undefined dynamic_lookup -all_load'"
+                else
+                  ""}
+                JSREGEXP_PATH=deps/jsregexp
+                make "INCLUDE_DIR=-I $PWD/deps/lua51_include" LDLIBS="$LUA_LDLIBS" -C $JSREGEXP_PATH
+
+                cp $JSREGEXP_PATH/jsregexp.so lua/luasnip-jsregexp.so
+              '';
+            };
           };
           tmuxPlugins = prev.tmuxPlugins // {
             tmux-pomodoro-plus = prev.tmuxPlugins.mkTmuxPlugin {

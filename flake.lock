@@ -112,6 +112,24 @@
         "type": "github"
       }
     },
+    "LuaSnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689694230,
+        "narHash": "sha256-gPp729Lk9tuGJxfGZSlYz+enaJjmInpQFIq5yYRyTBg=",
+        "ref": "refs/heads/master",
+        "rev": "0b4950a237ce441a6a3a947d501622453f6860ea",
+        "revCount": 1963,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/L3MON4D3/LuaSnip"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/L3MON4D3/LuaSnip"
+      }
+    },
     "NeoZoom-lua": {
       "flake": false,
       "locked": {
@@ -3089,16 +3107,18 @@
       "flake": false,
       "locked": {
         "lastModified": 1689694230,
-        "narHash": "sha256-bgQMU9hjqymzoIg+Ov+Ks18WrJPhwMIVCL3nDQkIdkM=",
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
+        "narHash": "sha256-gPp729Lk9tuGJxfGZSlYz+enaJjmInpQFIq5yYRyTBg=",
+        "ref": "refs/heads/master",
         "rev": "0b4950a237ce441a6a3a947d501622453f6860ea",
-        "type": "github"
+        "revCount": 1963,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/L3MON4D3/LuaSnip"
       },
       "original": {
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
-        "type": "github"
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/L3MON4D3/LuaSnip"
       }
     },
     "lush-nvim": {
@@ -6264,6 +6284,7 @@
         "Ionide-vim": "Ionide-vim",
         "JABS-nvim": "JABS-nvim",
         "LspUI-nvim": "LspUI-nvim",
+        "LuaSnip": "LuaSnip",
         "NeoZoom-lua": "NeoZoom-lua",
         "Shade-nvim": "Shade-nvim",
         "SmoothCursor-nvim": "SmoothCursor-nvim",
@@ -6597,11 +6618,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1689873534,
-        "narHash": "sha256-N+cFGf10Gxt7C2xR/j6MENp/P1ZK/h0g9LBYZ5fWJj4=",
+        "lastModified": 1690033022,
+        "narHash": "sha256-c4FTllLNqwU1H+hON0Fmgz5sKDrv6qthT8Vwgk1szm4=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "f4c2b8c05e99135e4885dd475e0a530269ebf64e",
+        "rev": "7009daa411735314faaaa1aad391188e6d2bf676",
         "type": "github"
       },
       "original": {
