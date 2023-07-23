@@ -12,6 +12,8 @@ return {
     "Symbols Nerd Font Mono",
   }),
 
+  allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
+
   keys = {
     { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
   },
