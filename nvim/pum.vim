@@ -1,3 +1,5 @@
+set pumblend=12
+
 call pum#set_option(#{
       \ padding: v:true,
       \ item_orders: ["abbr", "kind", "menu"],
