@@ -6,8 +6,6 @@ local commands = {
   { ":Pomodoro", description = "start pomodoro" },
   { ":PomodoroBreak", description = "start pomodoro (break)" },
   { ":PomodoroClose", description = "close pomodoro" },
-  { ":Fontzoom +1", description = "increment guifont size" },
-  { ":Fontzoom -1", description = "decrement guifont size" },
 }
 local functions = {}
 local autocmds = {}
