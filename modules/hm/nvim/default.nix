@@ -25,6 +25,10 @@
             ]])
           '';
         }
+        # {
+        #   plugin = nvim-tundra;
+        #   startup = readFile ./../../../nvim/tundra.lua;
+        # }
         {
           plugin = nvim-config-local;
           startup = readFile ./../../../nvim/config-local.lua;
