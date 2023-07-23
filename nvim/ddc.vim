@@ -1,14 +1,12 @@
 let s:sources = [
       \ 'nvim-lsp',
       \ 'around',
-      \ 'buffer',
       \ ]
 
 let s:sourceOptions = {}
 let s:sourceOptions._ = {
       \ 'ignoreCase': v:true,
       \ 'matchers': [
-      "\   'matcher_length',
       \   'matcher_fuzzy',
       \ ],
       \ 'sorters': ['sorter_fuzzy'],
@@ -34,8 +32,8 @@ let s:sourceOptions.file = {
       \ 'isVolatile': v:true,
       \ 'dup': v:true,
       \ }
-let s:sourceOptions.buffer = {
-      \ 'mark': '[BUFF]',
+let s:sourceOptions.buffer = #{
+      \   mark: '[BUFF]',
       \ }
 let s:sourceOptions.skkeleton = {
       \ 'mark': '[SKK]',
@@ -70,13 +68,18 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
       \ }
 
 let s:sourceParams = {}
-	    "\     body -> vsnip#anonymous(body)
 let s:sourceParams['nvim-lsp'] = #{
       \   snippetEngine: denops#callback#register({
 	    \     body -> luaeval('require("luasnip").lsp_expand(_A)', body)
 	    \   }),
-      \   enableResolveItem: v:false,
-      \   enableAdditionalTextEdit: v:false,
+      \   enableResolveItem: v:true,
+      \   enableAdditionalTextEdit: v:true,
+      \ }
+let s:sourceParams.buffer = #{
+      \   requireSameFiletype: v:true,
+      \   limitBytes: 500000,
+      \   fromAltBuf: v:true,
+			\   forceCollect: v:true,
       \ }
 let s:sourceParams.tmux = {
       \ 'currentWinOnly': v:true,
@@ -153,8 +156,11 @@ let g:popup_preview_config = #{
       \ }
 call popup_preview#enable()
 
+inoremap <silent> <C-x><C-x> <Cmd>call ddc#map#manual_complete()<CR>
+inoremap <silent> <C-x><C-b> <Cmd>call ddc#map#manual_complete(#{ sources: ['buffer'] })<CR>
 inoremap <silent> <C-x><C-f> <Cmd>call ddc#map#manual_complete(#{ sources: ['file'] })<CR>
 inoremap <silent> <C-x><C-t> <Cmd>call ddc#map#manual_complete(#{ sources: ['tmux'] })<CR>
+inoremap <silent> <C-x><C-l> <Cmd>call ddc#map#manual_complete(#{ sources: ['nvim-lsp'] })<CR>
 
 " for debug
 " call ddc#custom#patch_global('sources', ['file'])
@@ -165,12 +171,6 @@ function! s:obsidian() abort
 endfunction
 autocmd BufEnter,BufNewFile **/vault/**/*.md call s:obsidian()
 autocmd BufEnter,BufNewFile **/vault/*.md call s:obsidian()
-
-" vsnip
-" inoremap <expr> <C-k> vsnip#jumpable(+1) ? '<Plug>(vsnip-jump-next)' : ''
-" snoremap <expr> <C-k> vsnip#jumpable(+1) ? '<Plug>(vsnip-jump-next)' : ''
-" inoremap <expr> <C-l> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : ''
-" snoremap <expr> <C-l> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : ''
 
 function! CommandlinePre() abort
   autocmd User DDCCmdlineLeave ++once call CommandlinePost()

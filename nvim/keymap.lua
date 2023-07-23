@@ -39,8 +39,6 @@ local normal_keymaps = {
   { "q", "<nop>" },
   { "j", "gj" },
   { "k", "gk" },
-  { "<c-h>", cmd("bprev") },
-  { "<c-l>", cmd("bnext") },
   { "<c-w>q", cmd("SafeCloseWindow") },
   { "<c-w><c-q>", cmd("SafeCloseWindow") },
   -- { "<leader>g", "<cmd>JABSOpen<cr>" },

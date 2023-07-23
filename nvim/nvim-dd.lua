@@ -1,3 +1,3 @@
 require("dd").setup({
-  timeout = 1000,
+  timeout = 2000,
 })

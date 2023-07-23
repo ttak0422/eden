@@ -1063,7 +1063,7 @@
                 modules = [ "ddc_nvim_lsp" ];
               }
               ddc-tmux
-              ddc-ui-native
+              # ddc-ui-native
               denops-popup-preview-vim
               denops-signature_help
               neco-vim
@@ -1078,6 +1078,7 @@
               {
                 plugin = LuaSnip;
                 config = readFile ./../../../nvim/luasnip.lua;
+                depends = [ friendly-snippets ];
               }
             ];
             dependBundles = [ "lsp" ];
