@@ -176,11 +176,11 @@
           config = readFile ./../../../nvim/neo-zoom.lua;
           commands = [ "NeoZoomToggle" ];
         }
-        {
-          plugin = vim-fontzoom;
-          preConfig = readFile ./../../../nvim/fontzoom-pre.lua;
-          commands = [ "Fontzoom" ];
-        }
+        # {
+        #   plugin = vim-fontzoom;
+        #   preConfig = readFile ./../../../nvim/fontzoom-pre.lua;
+        #   commands = [ "Fontzoom" ];
+        # }
         {
           plugin = pommodoro-clock;
           depends = [ nui-nvim ];
