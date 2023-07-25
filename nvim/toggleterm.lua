@@ -8,7 +8,7 @@ require("toggleterm").setup({
   end,
   shade_terminals = false,
   auto_scroll = false,
-  start_in_insert = false,
+  start_in_insert = true,
   winbar = {
     enabled = true,
   },

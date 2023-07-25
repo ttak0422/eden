@@ -185,7 +185,7 @@ end
 
 -- toggle term
 for i = 0, 9 do
-  map("n", "<leader>t" .. i, cmd("TermToggle " .. i), desc("toggle terminal " .. i))
+  map({ "n", "t" }, "<C-" .. i .. ">", cmd("TermToggle " .. i), desc("toggle terminal " .. i))
 end
 map("n", "<leader>tg", cmd("TigTermToggle"), desc("toggle tig terminal "))
 
