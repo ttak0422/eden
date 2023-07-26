@@ -38,6 +38,8 @@ let sharedProfile =
 
 let sharedPath =
       ''
+      export GOPATH=$HOME/go
+      export PATH=$GOPATH/bin:$PATH
       export PATH=~/.npm-packages/bin:$PATH
       export NODE_PATH=~/.npm-packages/lib/node_modules
       ''
