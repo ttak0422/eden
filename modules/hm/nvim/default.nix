@@ -47,20 +47,26 @@
         }] else
           [ ];
 
-      basic = with pkgs.vimPlugins;
-        [
-          # {
-          #   # 対応するカッコの強調表示
-          #   plugin = sentiment-nvim;
-          #   config = readFile ./../../../nvim/sentiment.lua;
-          #   lazy = true;
-          # }
-          {
-            # Enterでいいかんじにテキストオブジェクトを選択
-            plugin = wildfire-vim;
-            events = [ "CursorMoved" ];
-          }
-        ];
+      basic = with pkgs.vimPlugins; [
+        # {
+        #   # 対応するカッコの強調表示
+        #   plugin = sentiment-nvim;
+        #   config = readFile ./../../../nvim/sentiment.lua;
+        #   lazy = true;
+        # }
+        {
+          # Enterでいいかんじにテキストオブジェクトを選択
+          plugin = wildfire-vim;
+          events = [ "CursorMoved" ];
+        }
+        {
+          # quickfixの高さを調整
+          plugin = qfheight-nvim;
+          config = readFile ./../../../nvim/qfheight.lua;
+          filetypes = [ "qf" ];
+          events = [ "QuickFixCmdPre" ];
+        }
+      ];
 
       motion = with pkgs.vimPlugins; [
         {
