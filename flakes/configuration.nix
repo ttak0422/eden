@@ -45,6 +45,7 @@ in {
                 inputs.oboro-nvim.homeManagerModules.${system}.default
                 self.nixosModules.eden-hm-core
                 self.nixosModules.eden-hm-app
+                self.nixosModules.eden-hm-darwin
                 self.nixosModules.eden-hm-development
                 self.nixosModules.eden-hm-emacs
                 # self.nixosModules.eden-hm-doom-emacs

@@ -2,6 +2,7 @@
   imports = [
     ./app
     ./core
+    ./darwin
     ./development
     ./doom-emacs
     ./emacs
