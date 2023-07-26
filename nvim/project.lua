@@ -1,5 +1,6 @@
 require("project_nvim").setup({
-  manual_mode = true,
-  detection_methods = { "pattern" },
+  manual_mode = false,
+  detection_methods = { "lsp", "pattern" },
   patterns = { ".git" },
+  scope_chdir = "win",
 })
