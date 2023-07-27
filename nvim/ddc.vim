@@ -135,9 +135,9 @@ call ddc#custom#patch_filetype(['java'], 'sourceOptions', #{
       \   sorters: ['sorter_itemsize', 'sorter_fuzzy'],
       \ }})
 call ddc#custom#patch_filetype(['java'], 'filterParams', #{
-      \ converter_truncate: #{ maxAbbrWidth: 60, maxKindWidth: 10, maxMenuWidth: 0 },
       \ sorter_itemsize: #{ sameWordOnly: v:true },
       \ })
+      " \ converter_truncate: #{ maxAbbrWidth: 60, maxKindWidth: 10, maxMenuWidth: 0 },
 " for Vim
 call ddc#custom#patch_filetype(['vim'], #{
       \ sources: extend(['necovim'], s:sources),
