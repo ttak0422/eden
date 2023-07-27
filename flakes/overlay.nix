@@ -89,6 +89,18 @@
               cp -r ./* $out
             '';
           };
+          jdt-language-server = let
+            version = "1.25.0";
+            timestamp = "202306291518";
+          in prev.jdt-language-server.overrideAttrs (old: {
+            src = prev.fetchurl {
+              url =
+                "https://download.eclipse.org/jdtls/milestones/${version}/jdt-language-server-${version}-${timestamp}.tar.gz";
+              sha256 =
+                "d4c1a7718282036e9f5ddc653b25d2a93fee317e0a9c1583d85b03838b86d3b2";
+            };
+          });
+
           pkgs-unstable = import inputs.nixpkgs-unstable {
             inherit (prev.stdenv) system;
             config.allowUnfree = true;
