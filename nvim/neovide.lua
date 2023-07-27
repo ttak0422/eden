@@ -26,5 +26,6 @@ end)
 vim.keymap.set("n", "<C-->", function()
   change_scale_factor(1 / scale_delta)
 end)
+vim.keymap.set("n", "<A-Enter>", toggle_zoom)
 
 vim.api.nvim_create_user_command("ToggleNeovideFullScreen", toggle_zoom, {})
