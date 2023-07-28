@@ -794,6 +794,12 @@
           events = [ "QuickFixCmdPre" ];
           lazy = true;
         }
+        # {
+        #   plugin = qfview-nvim;
+        #   config = readFile ./../../../nvim/qfview.lua;
+        #   events = [ "QuickFixCmdPre" ];
+        #   lazy = true;
+        # }
         {
           plugin = nvim-hlslens;
           config = readFile ./../../../nvim/hlslens.lua;
