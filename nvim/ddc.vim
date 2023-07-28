@@ -1,45 +1,41 @@
-let s:sources = [
-      \ 'nvim-lsp',
-      \ 'around',
-      \ ]
+let s:sources = ['nvim-lsp', 'around']
 
 let s:sourceOptions = {}
-let s:sourceOptions._ = {
-      \ 'ignoreCase': v:true,
-      \ 'matchers': [
+let s:sourceOptions._ = #{
+      \ ignoreCase: v:true,
+      \ matchers: [
       \   'matcher_fuzzy',
       \ ],
-      \ 'sorters': ['sorter_fuzzy'],
-      \ 'converters': [
+      \ sorters: ['sorter_fuzzy'],
+      \ converters: [
       \   'converter_remove_overlap',
       \   'converter_truncate',
       \   'converter_fuzzy',
       \ ],
-      \ 'dup': 'ignore',
-      \ 'minKeywordLength': 2,
+      \ dup: 'ignore',
+      \ minKeywordLength: 2,
       \ }
-let s:sourceOptions.around = {
-      \ 'mark': '[AROUND]',
-      \ 'maxItems': 50,
+let s:sourceOptions.around = #{
+      \ mark: '[AROUND]',
       \ }
-let s:sourceOptions.line= {
-      \ 'mark': '[LINE]',
-      \ 'maxItems': 50,
+let s:sourceOptions.line= #{
+      \ mark: '[LINE]',
+      \ maxItems: 50,
       \ }
-let s:sourceOptions.file = {
-      \ 'mark': '[FILE]',
-      \ 'forceCompletionPattern': '\S/\S*',
-      \ 'isVolatile': v:true,
-      \ 'dup': v:true,
+let s:sourceOptions.file = #{
+      \ mark: '[FILE]',
+      \ forceCompletionPattern: '\S/\S*',
+      \ isVolatile: v:true,
+      \ dup: v:true,
       \ }
 let s:sourceOptions.buffer = #{
       \   mark: '[BUFF]',
       \ }
-let s:sourceOptions.skkeleton = {
-      \ 'mark': '[SKK]',
-      \ 'matchers': ['skkeleton'],
-      \ 'isVolatile': v:true,
-      \ 'sorters': [],
+let s:sourceOptions.skkeleton = #{
+      \ mark: '[SKK]',
+      \ matchers: ['skkeleton'],
+      \ isVolatile: v:true,
+      \ sorters: [],
       \ }
 let s:sourceOptions['nvim-lsp'] = #{
       \   mark: '[LSP]',
@@ -48,17 +44,17 @@ let s:sourceOptions['nvim-lsp'] = #{
       \   maxItems: 800,
       \   minKeywordLength: 0,
       \ }
-let s:sourceOptions.tmux = {
-      \ 'mark': '[TMUX]',
+let s:sourceOptions.tmux = #{
+      \ mark: '[TMUX]',
       \ }
-let s:sourceOptions.necovim = {
-      \ 'mark': '[VIM]',
+let s:sourceOptions.necovim = #{
+      \ mark: '[VIM]',
       \ }
-let s:sourceOptions.cmdline = {
-      \ 'mark': '[CMD]',
+let s:sourceOptions.cmdline = #{
+      \ mark: '[CMD]',
       \ }
-let s:sourceOptions['cmdline-history'] = {
-      \ 'mark': '[HIST]',
+let s:sourceOptions['cmdline-history'] = #{
+      \ mark: '[HIST]',
       \ }
 let s:sourceOptions['nvim-obsidian'] = #{
       \   mark: ' ',
@@ -69,9 +65,7 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
 
 let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
-      \   snippetEngine: denops#callback#register({
-	    \     body -> luaeval('require("luasnip").lsp_expand(_A)', body)
-	    \   }),
+      \   snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
       \   enableResolveItem: v:true,
       \   enableAdditionalTextEdit: v:true,
       \ }
@@ -81,13 +75,16 @@ let s:sourceParams.buffer = #{
       \   fromAltBuf: v:true,
 			\   forceCollect: v:true,
       \ }
-let s:sourceParams.tmux = {
-      \ 'currentWinOnly': v:true,
-      \ 'excludeCurrentPane': v:true,
-      \ 'kindFormat': '#{pane_current_command}',
+let s:sourceParams.tmux = #{
+      \ currentWinOnly: v:true,
+      \ excludeCurrentPane: v:true,
+      \ kindFormat: '#{pane_current_command}',
       \ }
 let s:sourceParams.file = #{
       \   projAsRoot: v:false,
+			\   cwdMaxItems: 0,
+			\   projFromCwdMaxItems: [0],
+			\   projFromBufMaxItems: [0],
       \   displayFile: '',
       \   displayDir: '',
       \   displaySym: '',
@@ -118,6 +115,7 @@ let s:patch_global = {}
 let s:patch_global.ui = 'pum'
 let s:patch_global.keywordPattern = '[0-9a-zA-Z]\k*'
 " let s:patch_global.ui = 'native'
+let s:patch_global.autoCompleteDelay = 150
 let s:patch_global.autoCompleteEvents = [ 'InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged' ]
 
 " let s:patch_global.autoCompleteDelay = 100
