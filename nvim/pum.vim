@@ -6,7 +6,7 @@ call pum#set_option(#{
       \ scrollbar_char: '',
       \ max_height: 20,
       \ use_complete: v:true,
-      \ use_setline: v:false,
+      \ use_setline: v:true,
       \ })
 
 inoremap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<Tab>'
