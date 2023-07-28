@@ -28,6 +28,20 @@ let s:sourceOptions.file = #{
       \ isVolatile: v:true,
       \ dup: v:true,
       \ }
+let s:sourceOptions['node-modules'] = #{
+      \ mark: '[NODE]',
+      \ isVolatile: v:true,
+      \ minAutoCompleteLength: 10000,
+      \ forceCompletionPattern:
+      \   '(?:'
+      \     . '\bimport|'
+      \     . '\bfrom|'
+      \     . '\brequire\s*\(|'
+      \     . '\bresolve\s*\(|'
+      \     . '\bimport\s*\('
+      \   . ')'
+      \   . '\s*(?:''|"|`)[^''"`]*',
+      \ }
 let s:sourceOptions.buffer = #{
       \   mark: '[BUFF]',
       \ }
@@ -91,6 +105,16 @@ let s:sourceParams.file = #{
       \   displaySymFile: '',
       \   displaySymDir: '',
       \ }
+let s:sourceParams['node-modules'] = #{
+      \ cwdMaxItems: 0,
+      \ bufMaxItems: 0,
+      \ followSymlinks: v:true,
+      \ projMarkers: ['node_modules'],
+      \ projFromCwdMaxItems: [],
+      \ projFromBufMaxItems: [1000, 1000, 1000],
+      \ beforeResolve: 'node_modules',
+      \ displayBuf: '',
+      \ }
 let s:sourceParams['nvim-obsidian'] = #{
       \   dir: '~/vault',
       \ }
@@ -125,6 +149,8 @@ let s:patch_global.sourceOptions = s:sourceOptions
 let s:patch_global.sourceParams = s:sourceParams
 let s:patch_global.filterParams = s:filterParams
 let s:patch_global.cmdlineSources = s:cmdlineSources
+
+call ddc#custom#alias('source', 'node-modules', 'file')
 call ddc#custom#patch_global(s:patch_global)
 
 " for Java
@@ -139,6 +165,17 @@ call ddc#custom#patch_filetype(['java'], 'filterParams', #{
 " for Vim
 call ddc#custom#patch_filetype(['vim'], #{
       \ sources: extend(['necovim'], s:sources),
+      \ })
+" for node
+call ddc#custom#patch_filetype(
+      \ [
+      \   'javascript',
+      \   'typescript',
+      \   'javascriptreact',
+      \   'typescriptreact',
+      \   'tsx',
+      \ ], #{
+      \ sources: extend(['node-modules'], s:sources)
       \ })
 " for fine-cmdline
 call ddc#custom#patch_filetype(['FineCmdlinePrompt'], #{
