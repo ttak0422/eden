@@ -90,14 +90,14 @@
             '';
           };
           jdt-language-server = let
-            version = "1.25.0";
-            timestamp = "202306291518";
+            version = "1.26.0";
+            timestamp = "202307271613";
           in prev.jdt-language-server.overrideAttrs (old: {
             src = prev.fetchurl {
               url =
                 "https://download.eclipse.org/jdtls/milestones/${version}/jdt-language-server-${version}-${timestamp}.tar.gz";
               sha256 =
-                "d4c1a7718282036e9f5ddc653b25d2a93fee317e0a9c1583d85b03838b86d3b2";
+                "ba5fe5ee3b2a8395287e24aef20ce6e17834cf8e877117e6caacac6a688a6c53";
             };
           });
 
