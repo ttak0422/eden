@@ -2463,6 +2463,22 @@
         "type": "github"
       }
     },
+    "fuzzy-motion-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689982810,
+        "narHash": "sha256-z3/Am5RfZMhynA68oNjCA/TZL3R80YSqPuUvabSSznQ=",
+        "owner": "yuki-yano",
+        "repo": "fuzzy-motion.vim",
+        "rev": "fdb65c0ef4b8ce0b3325e1a3599e5605e7c94c5e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yuki-yano",
+        "repo": "fuzzy-motion.vim",
+        "type": "github"
+      }
+    },
     "fzy-lua-native": {
       "flake": false,
       "locked": {
@@ -3458,6 +3474,22 @@
       "original": {
         "owner": "karb94",
         "repo": "neoscroll.nvim",
+        "type": "github"
+      }
+    },
+    "neotree-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690343409,
+        "narHash": "sha256-cJvpfD/LhAw8lPOVsHkBdsr75kwnIPmOHlVR1YAHy78=",
+        "owner": "nvim-neo-tree",
+        "repo": "neo-tree.nvim",
+        "rev": "93fcf0a3056c60829c0a210fe35523cda7ef0369",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neo-tree",
+        "repo": "neo-tree.nvim",
         "type": "github"
       }
     },
@@ -6115,6 +6147,22 @@
         "type": "github"
       }
     },
+    "tsnip-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676106387,
+        "narHash": "sha256-Iu49/RzpXMA/v5uhFfHA3o3P0JGxMZv1eoAlNx5h0+I=",
+        "owner": "yuki-yano",
+        "repo": "tsnip.nvim",
+        "rev": "d01f5228250f793d40849a1e1f9f001fc36087ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yuki-yano",
+        "repo": "tsnip.nvim",
+        "type": "github"
+      }
+    },
     "twilight-nvim": {
       "flake": false,
       "locked": {
@@ -6560,6 +6608,7 @@
         "flutter-tools-nvim": "flutter-tools-nvim",
         "formatter-nvim": "formatter-nvim",
         "friendly-snippets": "friendly-snippets",
+        "fuzzy-motion-vim": "fuzzy-motion-vim",
         "fzy-lua-native": "fzy-lua-native",
         "gin-vim": "gin-vim",
         "git-conflict-nvim": "git-conflict-nvim",
@@ -6614,6 +6663,7 @@
         "neogit": "neogit",
         "neorg": "neorg",
         "neoscroll-nvim": "neoscroll-nvim",
+        "neotree-nvim": "neotree-nvim",
         "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": "nixpkgs_4",
         "noice-nvim": "noice-nvim",
@@ -6742,6 +6792,7 @@
         "treesj": "treesj",
         "trouble-nvim": "trouble-nvim",
         "true-zen": "true-zen",
+        "tsnip-nvim": "tsnip-nvim",
         "twilight-nvim": "twilight-nvim",
         "typescript-nvim": "typescript-nvim",
         "typescript-tool-nvim": "typescript-tool-nvim",
@@ -6788,11 +6839,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1690471716,
-        "narHash": "sha256-mDtQm30Gu/IPCJEkkT4wCuuIn8kDCwaIDr78klyrLMo=",
+        "lastModified": 1690643679,
+        "narHash": "sha256-GCfRgy8WcQaDoaTCU1Zoz2h2OWuCAfUEf0JW+bSZKr8=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "54d08587b3831fa5f5714ed7ed7024e20b3f9b52",
+        "rev": "75bc7c94026f3ebbcb3953807ff1d68a09d60ba4",
         "type": "github"
       },
       "original": {
