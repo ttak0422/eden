@@ -185,10 +185,9 @@ end
 
 -- toggle term
 for i = 0, 9 do
-  map({ "n", "t" }, "<C-" .. i .. ">", cmd("TermToggle " .. i), desc("toggle terminal " .. i))
+  map({ "n", "t", "i" }, "<C-" .. i .. ">", cmd("TermToggle " .. i), desc("toggle terminal " .. i))
 end
 map("n", "<leader>tg", cmd("TigTermToggle"), desc("toggle tig terminal "))
 
--- reacher (wip)
--- map({ "n", "x" }, "gs", "<cmd>lua require('reacher').start()<cr>", desc("search displayed"))
--- map({ "n", "x" }, "gS", "<cmd>lua require('reacher').start_multiple()<cr>", desc("search displayed"))
+map({ "n", "x" }, "gs", "<cmd>lua require('reacher').start()<cr>", desc("search displayed"))
+map({ "n", "x" }, "gS", "<cmd>lua require('reacher').start_multiple()<cr>", desc("search displayed"))
