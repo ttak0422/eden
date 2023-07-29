@@ -54,7 +54,7 @@ return function(runtimes)
           enabled = true,
         },
         lazyResolveTextEdit = {
-          enabled = true,
+          enabled = false,
         }
       },
       autobuild = {
