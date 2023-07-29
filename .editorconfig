@@ -11,5 +11,5 @@ indent_size = 2
 [*.md]
 trim_trailing_whitespace = false
 
-[{*.lua,Makefile,*.mak,*.stpl}]
+[{*.lua,Makefile,*.mak,*.stpl,*.snippets}]
 indent_style = tab
