@@ -1093,7 +1093,11 @@
               denops-vim
               {
                 plugin = LuaSnip;
-                config = readFile ./../../../nvim/luasnip.lua;
+                config = {
+                  lang = "lua";
+                  code = readFile ./../../../nvim/luasnip.lua;
+                  args = { snipmate_root = ./../../../snippets/snipmate; };
+                };
                 depends = [ friendly-snippets ];
               }
             ];
