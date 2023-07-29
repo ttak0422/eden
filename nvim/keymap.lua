@@ -35,7 +35,9 @@ local map = vim.keymap.set
 
 local normal_keymaps = {
   -- utils
-  { "<esc><esc>", "<cmd>nohl<cr>" },
+  { "<esc><esc>", cmd("nohl") },
+  { "<C-,>", cmd("bprevious") },
+  { "<C-.>", cmd("bnext") },
   { "q", "<nop>" },
   { "j", "gj" },
   { "k", "gk" },
