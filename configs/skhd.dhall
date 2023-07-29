@@ -51,6 +51,8 @@ let action =
         ${mod} - f : yabai -m window --toggle float && yabai -m window --grid 10:10:2:1:7:8
         ${mod} - left : yabai -m window --toggle float && yabai -m window --grid 10:10:0:0:5:10
         ${mod} - right : yabai -m window --toggle float && yabai -m window --grid 10:10:5:0:5:10
+
+        ${mod} - v :/Applications/Neovide.app/Contents/MacOS/neovide --frame=none --multigrid
       ''
 
 in  { config =
