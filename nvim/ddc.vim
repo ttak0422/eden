@@ -1,4 +1,4 @@
-let s:sources = ['nvim-lsp', 'tsnip', 'vsnip', 'around']
+let s:sources = ['nvim-lsp', 'tsnip', 'around']
 
 let s:sourceOptions = {}
 let s:sourceOptions._ = #{
@@ -21,9 +21,9 @@ let s:sourceOptions.around = #{
 let s:sourceOptions.tsnip = #{
       \ mark: '[TSNIP]',
       \ }
-let s:sourceOptions.vsnip = #{
-      \ mark: '[VSNIP]',
-      \ }
+" let s:sourceOptions.vsnip = #{
+"       \ mark: '[VSNIP]',
+"       \ }
 let s:sourceOptions.line= #{
       \ mark: '[LINE]',
       \ maxItems: 50,
@@ -85,14 +85,15 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
 
 let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
-	    \   snippetEngine: denops#callback#register({
-	    \     body -> vsnip#anonymous(body)
-	    \   }),
+			\   snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
       \   enableResolveItem: v:true,
       \   enableAdditionalTextEdit: v:true,
       \ }
+			" vsnip
+	    " \   snippetEngine: denops#callback#register({
+	    " \     body -> vsnip#anonymous(body)
+	    " \   }),
 " luasnip
-" snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
 let s:sourceParams.buffer = #{
       \   requireSameFiletype: v:true,
       \   limitBytes: 500000,

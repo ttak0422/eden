@@ -1092,16 +1092,16 @@
               ddc-source-file
               ddc-source-input
               ddc-source-line
-              {
-                plugin = ddc-source-vsnip;
-                depends = [{
-                  plugin = vim-vsnip;
-                  config = {
-                    lang = "vim";
-                    code = readFile ./../../../nvim/vsnip.vim;
-                  };
-                }];
-              }
+              # {
+              #   plugin = ddc-source-vsnip;
+              #   depends = [{
+              #     plugin = vim-vsnip;
+              #     config = {
+              #       lang = "vim";
+              #       code = readFile ./../../../nvim/vsnip.vim;
+              #     };
+              #   }];
+              # }
               {
                 plugin = ddc-source-nvim-lsp;
                 modules = [ "ddc_nvim_lsp" ];
@@ -1128,15 +1128,15 @@
             ];
             depends = [
               denops-vim
-              # {
-              #   plugin = LuaSnip;
-              #   config = {
-              #     lang = "lua";
-              #     code = readFile ./../../../nvim/luasnip.lua;
-              #     args = { snipmate_root = ./../../../snippets/snipmate; };
-              #   };
-              #   depends = [ friendly-snippets ];
-              # }
+              {
+                plugin = LuaSnip;
+                config = {
+                  lang = "lua";
+                  code = readFile ./../../../nvim/luasnip.lua;
+                  args = { snipmate_root = ./../../../snippets/snipmate; };
+                };
+                depends = [ friendly-snippets ];
+              }
             ];
             dependBundles = [ "lsp" ];
             config = {
