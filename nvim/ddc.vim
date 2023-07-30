@@ -82,10 +82,11 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
 
 let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
-      \   snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
       \   enableResolveItem: v:true,
       \   enableAdditionalTextEdit: v:true,
       \ }
+" luaで設定する
+" \   snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
 let s:sourceParams.buffer = #{
       \   requireSameFiletype: v:true,
       \   limitBytes: 500000,
@@ -220,3 +221,9 @@ endfunction
 nnoremap <expr> : '<Cmd>call CommandlinePre()<CR>: '
 nnoremap  ? <Cmd>call CommandlinePre()<CR>?
 nnoremap  / <Cmd>call CommandlinePre()<CR>/
+
+lua << EOF
+vim.fn["denops#callback#register"](function(body)
+	require('luasnip').lsp_expand(body)
+end)
+EOF
