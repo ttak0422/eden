@@ -10,4 +10,5 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Component
 public class {{_expr_:substitute('{{_name_}}', '\w\+', '\u\0', '')}} {
+  {{_cursor_}}
 }
