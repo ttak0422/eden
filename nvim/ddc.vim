@@ -1,4 +1,4 @@
-let s:sources = ['tsnip', 'nvim-lsp', 'around']
+let s:sources = ['nvim-lsp', 'tsnip', 'around']
 
 let s:sourceOptions = {}
 let s:sourceOptions._ = #{
