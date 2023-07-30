@@ -1,4 +1,4 @@
-let s:sources = ['nvim-lsp', 'tsnip', 'around']
+let s:sources = ['nvim-lsp', 'tsnip', 'vsnip', 'around']
 
 let s:sourceOptions = {}
 let s:sourceOptions._ = #{
@@ -19,7 +19,10 @@ let s:sourceOptions.around = #{
       \ mark: '[AROUND]',
       \ }
 let s:sourceOptions.tsnip = #{
-      \ mark: '[SNIP]',
+      \ mark: '[TSNIP]',
+      \ }
+let s:sourceOptions.vsnip = #{
+      \ mark: '[VSNIP]',
       \ }
 let s:sourceOptions.line= #{
       \ mark: '[LINE]',
@@ -82,11 +85,14 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
 
 let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
+	    \   snippetEngine: denops#callback#register({
+	    \     body -> vsnip#anonymous(body)
+	    \   }),
       \   enableResolveItem: v:true,
       \   enableAdditionalTextEdit: v:true,
       \ }
-" luaで設定する
-" \   snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
+" luasnip
+" snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
 let s:sourceParams.buffer = #{
       \   requireSameFiletype: v:true,
       \   limitBytes: 500000,
@@ -222,8 +228,8 @@ nnoremap <expr> : '<Cmd>call CommandlinePre()<CR>: '
 nnoremap  ? <Cmd>call CommandlinePre()<CR>?
 nnoremap  / <Cmd>call CommandlinePre()<CR>/
 
-lua << EOF
-vim.fn["denops#callback#register"](function(body)
-	require('luasnip').lsp_expand(body)
-end)
-EOF
+" lua << EOF
+" vim.fn["denops#callback#register"](function(body)
+" 	require('luasnip').lsp_expand(body)
+" end)
+" EOF
