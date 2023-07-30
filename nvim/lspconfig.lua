@@ -62,14 +62,6 @@ lspconfig.bashls.setup({
   capabilities = capabilities,
 })
 
--- deno
-lspconfig.denols.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = util.root_pattern("deno.json", "deno.jsonc", "denops"),
-  single_file_support = false,
-})
-
 -- csharp (use csharp_ls)
 lspconfig.csharp_ls.setup({
   on_attach = on_attach,

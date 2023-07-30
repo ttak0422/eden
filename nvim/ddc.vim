@@ -1,4 +1,4 @@
-let s:sources = ['nvim-lsp', 'around']
+let s:sources = ['tsnip', 'nvim-lsp', 'around']
 
 let s:sourceOptions = {}
 let s:sourceOptions._ = #{
@@ -17,6 +17,9 @@ let s:sourceOptions._ = #{
       \ }
 let s:sourceOptions.around = #{
       \ mark: '[AROUND]',
+      \ }
+let s:sourceOptions.tsnip = #{
+      \ mark: '[SNIP]',
       \ }
 let s:sourceOptions.line= #{
       \ mark: '[LINE]',

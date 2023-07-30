@@ -605,10 +605,23 @@
           dependBundles = [ "lsp" ];
           config = {
             lang = "lua";
-            args = { on_attach_path = ./../../../nvim/shared/on_attach.lua; };
             code = readFile ./../../../nvim/typescript-tool.lua;
+            args = { on_attach_path = ./../../../nvim/shared/on_attach.lua; };
           };
           filetypes = [ "typescript" "javascript" ];
+        }
+        {
+          plugin = deno-nvim;
+          dependBundles = [ "lsp" ];
+          config = {
+            lang = "lua";
+            code = readFile ./../../../nvim/deno.lua;
+            args = {
+              on_attach_path = ./../../../nvim/shared/on_attach.lua;
+              capabilities_path = ./../../../nvim/shared/capabilities.lua;
+            };
+          };
+          filetypes = [ "typescript" ];
         }
         {
           # Rust
@@ -1092,6 +1105,15 @@
               {
                 plugin = ddc-source-nvim-obsidian;
                 depends = [ obsidian-nvim ];
+              }
+              {
+                plugin = tsnip-nvim;
+                config = {
+                  lang = "lua";
+                  code = readFile ./../../../nvim/tsnip.lua;
+                  args = { tsnip_root = ./../../../snippets/tsnip; };
+                };
+                depends = [ nui-nvim ];
               }
             ];
             depends = [
