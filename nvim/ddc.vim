@@ -1,4 +1,4 @@
-let s:sources = ['nvim-lsp', 'tsnip', 'around']
+let s:sources = ['nvim-lsp', 'tsnip', 'vsnip', 'around']
 
 let s:sourceOptions = {}
 let s:sourceOptions._ = #{
@@ -21,9 +21,9 @@ let s:sourceOptions.around = #{
 let s:sourceOptions.tsnip = #{
       \ mark: '[TSNIP]',
       \ }
-" let s:sourceOptions.vsnip = #{
-"       \ mark: '[VSNIP]',
-"       \ }
+let s:sourceOptions.vsnip = #{
+      \ mark: '[VSNIP]',
+      \ }
 let s:sourceOptions.line= #{
       \ mark: '[LINE]',
       \ maxItems: 50,
@@ -85,14 +85,13 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
 
 let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
-			\   snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
+      \   snippetEngine: denops#callback#register({ body -> vsnip#anonymous(body) }),
       \   enableResolveItem: v:true,
       \   enableAdditionalTextEdit: v:true,
       \ }
-			" vsnip
-	    " \   snippetEngine: denops#callback#register({
-	    " \     body -> vsnip#anonymous(body)
-	    " \   }),
+" vsnip
+" luasnip
+" \   snippetEngine: denops#callback#register({ body -> luaeval('require("luasnip").lsp_expand(_A)', body)}),
 " luasnip
 let s:sourceParams.buffer = #{
       \   requireSameFiletype: v:true,
@@ -202,6 +201,7 @@ let g:popup_preview_config = #{
       \ }
 call popup_preview#enable()
 
+inoremap <silent> <C-x>      <Cmd>call ddc#map#manual_complete()<CR>
 inoremap <silent> <C-x><C-x> <Cmd>call ddc#map#manual_complete()<CR>
 inoremap <silent> <C-x><C-b> <Cmd>call ddc#map#manual_complete(#{ sources: ['buffer'] })<CR>
 inoremap <silent> <C-x><C-f> <Cmd>call ddc#map#manual_complete(#{ sources: ['file'] })<CR>
