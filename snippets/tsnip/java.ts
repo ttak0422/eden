@@ -7,6 +7,13 @@ const completedFuture: Snippet = {
     `CompletableFuture.completedFuture(${postCursor})`,
 };
 
+const inheritDoc: Snippet = {
+  name: "inheritDoc",
+  params: [],
+  render: (_, { postCursor }) => `/** {@inheritDoc} */${postCursor}}`,
+};
+
 export default {
   completedFuture,
+  inheritDoc,
 };
