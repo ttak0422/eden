@@ -10,7 +10,7 @@ const completedFuture: Snippet = {
 const inheritDoc: Snippet = {
   name: "inheritDoc",
   params: [],
-  render: (_, { postCursor }) => `/** {@inheritDoc} */${postCursor}}`,
+  render: (_, { postCursor }) => `/** {@inheritDoc} */${postCursor}`,
 };
 
 export default {
