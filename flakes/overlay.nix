@@ -89,17 +89,17 @@
               cp -r ./* $out
             '';
           };
-          # jdt-language-server = let
-          #   version = "1.26.0";
-          #   timestamp = "202307271613";
-          # in prev.jdt-language-server.overrideAttrs (old: {
-          #   src = prev.fetchurl {
-          #     url =
-          #       "https://download.eclipse.org/jdtls/milestones/${version}/jdt-language-server-${version}-${timestamp}.tar.gz";
-          #     sha256 =
-          #       "ba5fe5ee3b2a8395287e24aef20ce6e17834cf8e877117e6caacac6a688a6c53";
-          #   };
-          # });
+          jdt-language-server = let
+            version = "1.26.0";
+            timestamp = "202307271613";
+          in prev.jdt-language-server.overrideAttrs (old: {
+            src = prev.fetchurl {
+              url =
+                "https://download.eclipse.org/jdtls/milestones/${version}/jdt-language-server-${version}-${timestamp}.tar.gz";
+              sha256 =
+                "ba5fe5ee3b2a8395287e24aef20ce6e17834cf8e877117e6caacac6a688a6c53";
+            };
+          });
 
           pkgs-unstable = import inputs.nixpkgs-unstable {
             inherit (prev.stdenv) system;

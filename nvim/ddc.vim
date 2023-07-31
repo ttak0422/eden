@@ -20,6 +20,7 @@ let s:sourceOptions.around = #{
       \ }
 let s:sourceOptions.tsnip = #{
       \ mark: '[TSNIP]',
+      \ sorters: ['sorter_rank'],
       \ }
 let s:sourceOptions.vsnip = #{
       \ mark: '[VSNIP]',
@@ -63,6 +64,7 @@ let s:sourceOptions['nvim-lsp'] = #{
       \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
       \   maxItems: 800,
       \   minKeywordLength: 0,
+      \   sorters: ['sorter_lsp-kind', 'sorter_fuzzy'],
       \ }
 let s:sourceOptions.tmux = #{
       \ mark: '[TMUX]',
@@ -87,7 +89,7 @@ let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
       \   snippetEngine: denops#callback#register({ body -> vsnip#anonymous(body) }),
       \   enableResolveItem: v:true,
-      \   enableAdditionalTextEdit: v:true,
+      \   enableAdditionalTextEdit: v:false,
       \ }
 " vsnip
 " luasnip
@@ -134,6 +136,31 @@ let s:sourceParams['nvim-obsidian-new'] = #{
 
 let s:filterParams = {}
 let s:filterParams.converter_truncate = { 'maxAbbrWidth': 60, 'maxKindWidth': 10, 'maxMenuWidth': 40 }
+let s:filterParams['sorter_lsp-kind'] = #{
+      \ priority: [
+      \   'Variable',
+      \   ['Method', 'Function'],
+      \   'Constructor',
+      \   'Field',
+      \   ['Class', 'Interface', 'Module'],
+      \   'Property',
+      \   'Unit',
+      \   'Value',
+      \   'Enum',
+      \   'Keyword',
+      \   'Color',
+      \   'File',
+      \   'Reference',
+      \   'Folder',
+      \   'EnumMember',
+      \   'Constant',
+      \   'Struct',
+      \   'Event',
+      \   'Operator',
+      \   'TypeParameter',
+      \   'Text',
+      \   'Snippet',
+      \ ]}
 
 let s:cmdlineSources = {
       \ ':': [ 'file', 'necovim', 'cmdline', 'cmdline-history', 'around' ],
@@ -166,7 +193,7 @@ call ddc#custom#patch_global(s:patch_global)
 " for Java
 call ddc#custom#patch_filetype(['java'], 'sourceOptions', #{
       \ _: #{
-      \   sorters: ['sorter_itemsize', 'sorter_fuzzy'],
+      \   sorters: ['sorter_itemsize', 'sorter_lsp-kind', 'sorter_fuzzy'],
       \ }})
 call ddc#custom#patch_filetype(['java'], 'filterParams', #{
       \ sorter_itemsize: #{ sameWordOnly: v:true },
@@ -194,7 +221,7 @@ call ddc#custom#patch_filetype(['FineCmdlinePrompt'], #{
       \   specialBufferCompletion: v:true,
       \ })
 
-call ddc#enable()
+call ddc#enable(#{ context_filetype: 'treesitter' })
 call signature_help#enable()
 let g:popup_preview_config = #{
       \ maxWidth: 100,

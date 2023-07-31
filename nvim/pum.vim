@@ -1,9 +1,9 @@
-set pumblend=12
+set pumblend=11
 
 call pum#set_option(#{
-      \ padding: v:true,
-      \ item_orders: ["abbr", "kind", "menu"],
+      \ padding: v:false,
       \ scrollbar_char: '',
+      \ item_orders: ['abbr', 'space', 'kind', 'space', 'menu'],
       \ max_height: 20,
       \ use_complete: v:true,
       \ use_setline: v:false,
