@@ -147,3 +147,6 @@ require("dropbar").setup({
     },
   },
 })
+
+-- disable current context highlight
+vim.api.nvim_set_hl(0, "DropBarMenuCurrentContext", {})
