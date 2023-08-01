@@ -176,7 +176,7 @@ let s:patch_global = {}
 let s:patch_global.ui = 'pum'
 let s:patch_global.keywordPattern = '[0-9a-zA-Z]\k*'
 " let s:patch_global.ui = 'native'
-let s:patch_global.autoCompleteDelay = 150
+" let s:patch_global.autoCompleteDelay = 150
 let s:patch_global.autoCompleteEvents = [ 'InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged' ]
 
 " let s:patch_global.autoCompleteDelay = 100
