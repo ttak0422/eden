@@ -88,8 +88,8 @@ let s:sourceOptions['nvim-obsidian-new'] = #{
 let s:sourceParams = {}
 let s:sourceParams['nvim-lsp'] = #{
       \   snippetEngine: denops#callback#register({ body -> vsnip#anonymous(body) }),
-      \   enableResolveItem: v:false,
-      \   enableAdditionalTextEdit: v:false,
+      \   enableResolveItem: v:true,
+      \   enableAdditionalTextEdit: v:true,
       \ }
 " vsnip
 " luasnip
