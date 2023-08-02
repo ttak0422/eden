@@ -26,6 +26,16 @@
                 cp $JSREGEXP_PATH/jsregexp.so lua/luasnip-jsregexp.so
               '';
             };
+            # ddc-sorter_itemsize =
+            #   prev.vimPlugins.ddc-sorter_itemsize.overrideAttrs (old: {
+            #     version = "custom";
+            #     src = inputs.ddc-sorter_itemsize;
+            #   });
+            # ddc-sorter_reverse = prev.vimUtils.buildVimPluginFrom2Nix {
+            #   pname = "ddc-sorter_reverse";
+            #   version = "local";
+            #   src = inputs.ddc-sorter_reverse;
+            # };
           };
           tmuxPlugins = prev.tmuxPlugins // {
             tmux-pomodoro-plus = prev.tmuxPlugins.mkTmuxPlugin {
