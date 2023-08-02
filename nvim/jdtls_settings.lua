@@ -7,6 +7,19 @@ return function(runtimes)
         runtimes = runtimes or {},
         updateBuildConfiguration = "automatic",
       },
+      jdt = {
+        ls = {
+          lombokSupport = {
+            true,
+          },
+          protobufSupport = {
+            true,
+          },
+          androidSupport = {
+            true,
+          },
+        },
+      },
       import = {
         gradle = {
           offline = {
@@ -50,12 +63,16 @@ return function(runtimes)
           "org.junit.jupiter.params.provider.Arguments.arguments",
           "org.mockito.Mockito.*",
         },
+        guessMethodArguments = true,
         chain = {
           enabled = true,
         },
         lazyResolveTextEdit = {
-          enabled = false,
-        }
+          enabled = true,
+        },
+        edit = {
+          validateAllOpenBuffersOnChanges = false,
+        },
       },
       autobuild = {
         enabled = true,
