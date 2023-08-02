@@ -135,6 +135,7 @@ let s:sourceParams['nvim-obsidian-new'] = #{
       \ }
 
 let s:filterParams = {}
+" let s:filterParams.sorter_reverse = {}
 let s:filterParams.converter_truncate = { 'maxAbbrWidth': 60, 'maxKindWidth': 10, 'maxMenuWidth': 40 }
 let s:filterParams['sorter_lsp-kind'] = #{
       \ priority: [
@@ -142,7 +143,8 @@ let s:filterParams['sorter_lsp-kind'] = #{
       \   ['Method', 'Function'],
       \   'Constructor',
       \   'Field',
-      \   ['Class', 'Interface', 'Module'],
+      \   'Interface',
+      \   ['Class', 'Module'],
       \   'Property',
       \   'Unit',
       \   'Value',
@@ -191,10 +193,10 @@ call ddc#custom#alias('source', 'node-modules', 'file')
 call ddc#custom#patch_global(s:patch_global)
 
 " for Java
-call ddc#custom#patch_filetype(['java'], 'sourceOptions', #{
-      \ _: #{
-      \   sorters: ['sorter_itemsize', 'sorter_lsp-kind', 'sorter_fuzzy'],
-      \ }})
+" call ddc#custom#patch_filetype(['java'], 'sourceOptions', #{
+"       \ _: #{
+"       \   sorters: ['sorter_lsp-kind', 'sorter_fuzzy'],
+"       \ }})
 call ddc#custom#patch_filetype(['java'], 'filterParams', #{
       \ sorter_itemsize: #{ sameWordOnly: v:true },
       \ })
