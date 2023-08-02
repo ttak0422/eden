@@ -23,7 +23,7 @@ in {
       core = {
         autocrlf = false;
         editor = "nvim";
-        fsmonitor = true;
+        # fsmonitor = true;
         ignorecase = false;
         untrackedcache = true;
       };
