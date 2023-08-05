@@ -33,7 +33,7 @@ let s:sourceOptions.file = #{
       \ mark: '[FILE]',
       \ forceCompletionPattern: '\S/\S*',
       \ isVolatile: v:true,
-      \ dup: v:true,
+      \ dup: 'ignore',
       \ }
 let s:sourceOptions['node-modules'] = #{
       \ mark: '[NODE]',
@@ -60,6 +60,7 @@ let s:sourceOptions.skkeleton = #{
       \ }
 let s:sourceOptions['nvim-lsp'] = #{
       \   mark: '[LSP]',
+      \   keywordPattern: '\k+',
       \   dup: 'keep',
       \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
       \   maxItems: 800,
@@ -214,7 +215,7 @@ call ddc#custom#patch_filetype(
       \   'typescriptreact',
       \   'tsx',
       \ ], #{
-      \ sources: extend(['node-modules'], s:sources)
+      \ sources: extend(s:sources, ['node-modules'])
       \ })
 " for fine-cmdline
 call ddc#custom#patch_filetype(['FineCmdlinePrompt'], #{
