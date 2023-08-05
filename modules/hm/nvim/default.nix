@@ -224,7 +224,7 @@
         {
           plugin = nvim-bufdel;
           config = readFile ./../../../nvim/bufdel.lua;
-          commands = [ "BufDel" "BufDel!" ];
+          commands = [ "BufDel" "BufDel!" "BufDelAll" "BufDelOthers" ];
         }
         # {
         #   plugin = close-buffers-nvim;
