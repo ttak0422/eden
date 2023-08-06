@@ -121,7 +121,8 @@ local normal_keymaps = {
   { "<leader>E", cmd("FeMaco"), desc("edit code block") },
   -- toggle
   { "<leader>tc", cmd("ColorizerToggle"), desc("toggle colorize") },
-  { "<leader>tb", cmd("NvimTreeToggle") },
+  -- { "<leader>tb", cmd("NvimTreeToggle") },
+  { "<leader>tb", cmd("Neotree toggle") },
   { "<leader>tq", toggle(1, "quickfix", nil), desc("open quickfix") },
   {
     "<leader>td",

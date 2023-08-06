@@ -239,6 +239,12 @@
           commands = [ "NvimTreeToggle" ];
         }
         {
+          plugin = neotree-nvim;
+          depends = [ plenary-nvim nvim-web-devicons nui-nvim ];
+          config = readFile ./../../../nvim/neotree.lua;
+          commands = [ "Neotree" ];
+        }
+        {
           plugin = obsidian-nvim;
           depends = [ plenary-nvim ];
           config = readFile ./../../../nvim/obsidian.lua + ''
