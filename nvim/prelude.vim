@@ -13,6 +13,7 @@ set termguicolors
 set isk+=-
 set autoread
 set showmatch
+set nostartofline
 set completeopt=menu,menuone,noinsert
 
 autocmd WinEnter * checktime
