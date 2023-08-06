@@ -1097,10 +1097,12 @@
               ddc-source-file
               ddc-source-input
               ddc-source-line
+              ddc-sorter_reverse
               {
                 plugin = ddc-source-vsnip;
                 depends = [{
                   plugin = vim-vsnip;
+                  depends = [ tabout-nvim ];
                   config = {
                     lang = "vim";
                     code = readFile ./../../../nvim/vsnip.vim;
