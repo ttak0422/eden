@@ -117,6 +117,7 @@ require("neo-tree").setup({
   },
   nesting_rules = {},
   filesystem = {
+    group_empty_dirs = true,
     filtered_items = {
       visible = false,
       hide_dotfiles = true,
@@ -135,7 +136,6 @@ require("neo-tree").setup({
       enabled = true,
       leave_dirs_open = false,
     },
-    group_empty_dirs = false,
     hijack_netrw_behavior = "open_default",
     use_libuv_file_watcher = false,
     window = {
