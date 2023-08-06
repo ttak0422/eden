@@ -325,6 +325,11 @@
           lazy = true;
         }
         # {
+        #   plugin = heirline-nvim;
+        #   config = readFile ./../../../nvim/heirline.lua;
+        #   lazy = true;
+        # }
+        # {
         #   plugin = nvim-scrollbar;
         #   depends = [ gitsigns-nvim ];
         #   config = {
