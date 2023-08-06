@@ -63,6 +63,13 @@ return function(runtimes)
           "org.junit.jupiter.params.provider.Arguments.arguments",
           "org.mockito.Mockito.*",
         },
+        importOrder = {
+          -- "#",
+          "java",
+          "javax",
+          "org",
+          "com",
+        },
         guessMethodArguments = true,
         chain = {
           enabled = true,
