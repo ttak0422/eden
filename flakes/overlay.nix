@@ -36,6 +36,11 @@
             #   version = "local";
             #   src = inputs.ddc-sorter_reverse;
             # };
+            ddc-vim = prev.vimUtils.buildVimPluginFrom2Nix {
+              pname = "ddc-vim";
+              version = "local";
+              src = inputs.ddc-vim;
+            };
           };
           tmuxPlugins = prev.tmuxPlugins // {
             tmux-pomodoro-plus = prev.tmuxPlugins.mkTmuxPlugin {
