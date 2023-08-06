@@ -1113,6 +1113,10 @@
                 plugin = ddc-source-nvim-lsp;
                 modules = [ "ddc_nvim_lsp" ];
               }
+              {
+                plugin = ddc-nvim-lsp-setup;
+                config = readFile ./../../../nvim/ddc-nvim-lsp-setup.lua;
+              }
               ddc-tmux
               # ddc-ui-native
               denops-popup-preview-vim
@@ -1149,6 +1153,7 @@
             config = {
               lang = "vim";
               code = readFile ./../../../nvim/ddc.vim;
+              args = { ts_config = ./../../../nvim/ddc.ts; };
             };
             lazy = true;
           }
