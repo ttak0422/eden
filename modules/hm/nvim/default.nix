@@ -239,7 +239,7 @@
           commands = [ "NvimTreeToggle" ];
         }
         {
-          plugin = neotree-nvim;
+          plugin = neotree-nvim-3;
           depends = [ plenary-nvim nvim-web-devicons nui-nvim ];
           config = readFile ./../../../nvim/neotree.lua;
           commands = [ "Neotree" ];

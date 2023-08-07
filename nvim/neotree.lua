@@ -3,7 +3,7 @@ require("neo-tree").setup({
     "filesystem",
     "buffers",
     "git_status",
-    "document_symbols",
+    -- "document_symbols",
   },
   use_default_mappings = false,
   source_selector = {
