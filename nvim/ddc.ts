@@ -7,7 +7,7 @@ export class Config extends BaseConfig {
   ): Promise<void> {
     contextBuilder.patchGlobal({
       ui: "pum",
-      keywordPattern: "[0-9a-zA-Z]\k*",
+      keywordPattern: "[0-9a-zA-Z]\\k*",
       // VSCode
       autoCompleteDelay: 10,
       autoCompleteEvents: [
@@ -60,7 +60,7 @@ export class Config extends BaseConfig {
         },
         file: {
           mark: "[FILE]",
-          forceCompletionPattern: "\S/\S*",
+          forceCompletionPattern: "\\S/\\S*",
           isVolatile: true,
         },
         buffer: {
@@ -74,12 +74,15 @@ export class Config extends BaseConfig {
         },
         "nvim-lsp": {
           mark: "[LSP]",
-          keywordPattern: "\k+",
+          keywordPattern: "\\k+",
           dup: "keep",
-          forceCompletionPattern: "\.\w*|:\w*|->\w*",
+          forceCompletionPattern: "\\.\\w*|::\\w*|->\\w*",
           maxItems: 800,
           minKeywordLength: 0,
-          sorters: ["sorter_lsp-kind", "sorter_fuzzy"],
+          sorters: [
+            "sorter_lsp-kind",
+            "sorter_fuzzy",
+          ],
         },
         tmux: {
           mark: "[TMUX]",
