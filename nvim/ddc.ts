@@ -79,7 +79,7 @@ export class Config extends BaseConfig {
           forceCompletionPattern: "\.\w*|:\w*|->\w*",
           maxItems: 800,
           minKeywordLength: 0,
-          sorters: ["sorter_fuzzy", "sorter_lsp-kind"],
+          sorters: ["sorter_lsp-kind", "sorter_fuzzy"],
         },
         tmux: {
           mark: "[TMUX]",
