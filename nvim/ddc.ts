@@ -157,8 +157,8 @@ export class Config extends BaseConfig {
         },
         "sorter_lsp-kind": {
           priority: [
-            "Variable",
             ["Method", "Function"],
+            ["Constant", "Variable"],
             "Constructor",
             "Field",
             "Interface",
@@ -172,7 +172,6 @@ export class Config extends BaseConfig {
             "Reference",
             "Folder",
             "EnumMember",
-            "Constant",
             "Struct",
             "Event",
             "Operator",
