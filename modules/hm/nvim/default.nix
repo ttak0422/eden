@@ -506,9 +506,14 @@
           modules = [ "trouble" ];
           commands = [ "TroubleToggle" ];
         }
+        # {
+        #   plugin = spaceless-nvim;
+        #   config = readFile ./../../../nvim/spaceless.lua;
+        #   lazy = true;
+        # }
         {
-          plugin = spaceless-nvim;
-          config = readFile ./../../../nvim/spaceless.lua;
+          plugin = trim-nvim;
+          config = readFile ./../../../nvim/trim.lua;
           lazy = true;
         }
         {

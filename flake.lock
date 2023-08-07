@@ -6384,6 +6384,22 @@
         "type": "github"
       }
     },
+    "trim-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679499612,
+        "narHash": "sha256-RKBIub1VFJCCq2q7OAZ4H0Vjo38MyZlywGW0GPVIl+Q=",
+        "owner": "cappyzawa",
+        "repo": "trim.nvim",
+        "rev": "2df124c2c2844d3143091ebd3ae8b49bbe06bc5e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cappyzawa",
+        "repo": "trim.nvim",
+        "type": "github"
+      }
+    },
     "trouble-nvim": {
       "flake": false,
       "locked": {
@@ -7082,6 +7098,7 @@
         "tokyonight-nvim": "tokyonight-nvim",
         "toolwindow-nvim": "toolwindow-nvim",
         "treesj": "treesj",
+        "trim-nvim": "trim-nvim",
         "trouble-nvim": "trouble-nvim",
         "true-zen": "true-zen",
         "tsnip-nvim": "tsnip-nvim",
@@ -7131,11 +7148,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1691419897,
-        "narHash": "sha256-vjR2k7QbYbEzALLPNufY01HAsPvsD1YYHP7cMUwyhdk=",
+        "lastModified": 1691427293,
+        "narHash": "sha256-QH0PccIohBpQ0z1AhedHvokDlu7uslTh1FHjchzFmf4=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "f1dcef5d4e18fc24cbb12ed72006cfd277717cbb",
+        "rev": "193791591ea314dbb3c6fc40253c10ca27e9e6ee",
         "type": "github"
       },
       "original": {
