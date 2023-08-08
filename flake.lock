@@ -7130,6 +7130,7 @@
         "vim-startuptime": "vim-startuptime",
         "vim-table-mode": "vim-table-mode",
         "vim-translator": "vim-translator",
+        "vim-typo": "vim-typo",
         "vim-vsnip": "vim-vsnip",
         "vim-vsnip-integ": "vim-vsnip-integ",
         "vimdoc-ja": "vimdoc-ja",
@@ -7148,11 +7149,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1691499643,
-        "narHash": "sha256-PE/mJYFWXvCOcTs60FAYsSxoRmZ8bbDBGzM3pJO1vGw=",
+        "lastModified": 1691504144,
+        "narHash": "sha256-zvP2PJMfBKRRga7D+ycY84P+XVriEPhr5NoGblolqwc=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "d5328f6afb50a42491a763aab3612a3aa5831720",
+        "rev": "f5aed82b510b8a6dead7c6f8e15fdeb2e1c9d5ae",
         "type": "github"
       },
       "original": {
@@ -7286,6 +7287,22 @@
       "original": {
         "owner": "voldikss",
         "repo": "vim-translator",
+        "type": "github"
+      }
+    },
+    "vim-typo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689903560,
+        "narHash": "sha256-SwNU0jBLI5N/HBJPMQdiMucVKhdEz5yXqvol4drYvy4=",
+        "owner": "tani",
+        "repo": "vim-typo",
+        "rev": "37102c98b8da4c1ca5433591f0706c4838cb9022",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tani",
+        "repo": "vim-typo",
         "type": "github"
       }
     },
