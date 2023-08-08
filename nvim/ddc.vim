@@ -1,53 +1,10 @@
-" let s:sourceOptions['node-modules'] = #{
-"       \ mark: '[NODE]',
-"       \ isVolatile: v:true,
-"       \ minAutoCompleteLength: 10000,
-"       \ forceCompletionPattern:
-"       \   '(?:'
-"       \     . '\bimport|'
-"       \     . '\bfrom|'
-"       \     . '\brequire\s*\(|'
-"       \     . '\bresolve\s*\(|'
-"       \     . '\bimport\s*\('
-"       \   . ')'
-"       \   . '\s*(?:''|"|`)[^''"`]*',
-"       \ }
-" let s:sourceParams['node-modules'] = #{
-"       \ cwdMaxItems: 0,
-"       \ bufMaxItems: 0,
-"       \ followSymlinks: v:true,
-"       \ projMarkers: ['node_modules'],
-"       \ projFromCwdMaxItems: [],
-"       \ projFromBufMaxItems: [1000, 1000, 1000],
-"       \ beforeResolve: 'node_modules',
-"       \ displayBuf: '',
-"       \ }
-
 call ddc#custom#load_config(s:args['ts_config'])
 
 " for Vim
-call ddc#custom#patch_filetype(['vim'], #{
-      \ sources: ['necovim', 'around'],
-      \ })
-" for node
-" call ddc#custom#patch_filetype(
-"       \ [
-"       \   'javascript',
-"       \   'typescript',
-"       \   'javascriptreact',
-"       \   'typescriptreact',
-"       \   'tsx',
-"       \ ], #{
-"       \ sources: extend(s:sources, ['node-modules'])
-"       \ })
-" for fine-cmdline
-" call ddc#custom#patch_filetype(['FineCmdlinePrompt'], #{
-"       \   keywordPattern: '[0-9a-zA-Z_:#]*',
-"       \   sources: ['necovim', 'cmdline', 'cmdline-history', 'file', 'around'],
-"       \   specialBufferCompletion: v:true,
-"       \ })
+call ddc#custom#patch_filetype(['vim'], #{ sources: ['necovim', 'around'] })
 
 call ddc#enable(#{ context_filetype: 'treesitter' })
+
 call signature_help#enable()
 call popup_preview#enable()
 
