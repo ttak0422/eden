@@ -21,7 +21,11 @@ local toggle_terminal = (function()
     if not terms[idx] then
       terms[idx] = Terminal:new()
     end
-    terms[idx]:toggle()
+    if terms[idx]:is_open() and not (terms[idx]:is_focused()) then
+      terms[idx]:focus()
+    else
+      terms[idx]:toggle()
+    end
   end
 end)()
 local toggle_tig = (function()
