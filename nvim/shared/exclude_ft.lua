@@ -1,6 +1,5 @@
 return {
   "",
-  "nofile",
   "Codewindow",
   "NvimTree",
   "TelescopePrompt",
@@ -19,6 +18,8 @@ return {
   "help",
   "lspinfo",
   "minimap",
+  "neo-tree",
+  "nofile",
   "noice",
   "prompt",
   "qf",
