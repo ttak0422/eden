@@ -463,10 +463,10 @@
         }
       ];
       code = with pkgs.vimPlugins; [
-        {
-          plugin = vim-typo;
-          events = [ "BufEnter" ];
-        }
+        # {
+        #   plugin = vim-typo;
+        #   events = [ "BufEnter" ];
+        # }
         {
           plugin = treesj;
           config = readFile ./../../../nvim/treesj.lua;
