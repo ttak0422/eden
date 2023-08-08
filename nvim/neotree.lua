@@ -127,6 +127,7 @@ require("neo-tree").setup({
       hide_by_pattern = {},
       always_show = {},
       never_show = {
+        ".git",
         ".DS_Store",
         "thumbs.db",
       },
