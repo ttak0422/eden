@@ -11,9 +11,9 @@ const nonEmptyGuard: Snippet = {
   name: "NonEmpty Guard",
   params: [],
   render: (_, { postCursor }) => `
-    function nonEmpty<T>(list: T[]): list is NonEmptyList<T> {
-      return list.length > 0;
-    }${postCursor}
+function nonEmpty<T>(list: T[]): list is NonEmptyList<T> {
+  return list.length > 0;
+}${postCursor}
   `,
 };
 
@@ -25,8 +25,8 @@ const neverMatch: Snippet = {
     }
   ],
   render: ({ value }, { postCursor }) => `
-    const never: never = ${value?.text ?? ""};
-    throw new Error(never);${postCursor}
+const never: never = ${value?.text ?? ""};
+throw new Error(never);${postCursor}
   `,
 }
 
