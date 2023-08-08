@@ -245,6 +245,18 @@
           commands = [ "Neotree" ];
         }
         {
+          plugin = nvim-window-picker;
+          config = {
+            lang = "lua";
+            code = readFile ./../../../nvim/window-picker.lua;
+            args = {
+              exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua;
+              exclude_buf_ft_path = ./../../../nvim/shared/exclude_buf_ft.lua;
+            };
+          };
+          modules = [ "window-picker" ];
+        }
+        {
           plugin = obsidian-nvim;
           depends = [ plenary-nvim ];
           config = readFile ./../../../nvim/obsidian.lua + ''
