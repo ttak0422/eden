@@ -21,10 +21,19 @@ local toggle_terminal = (function()
     if not terms[idx] then
       terms[idx] = Terminal:new()
     end
-    if terms[idx]:is_open() and not (terms[idx]:is_focused()) then
-      terms[idx]:focus()
+    if terms[idx]:is_open() then
+      if not (terms[idx]:is_focused()) then
+        -- focus
+        terms[idx]:focus()
+        vim.cmd([[startinsert]])
+      else
+        -- close
+        terms[idx]:toggle()
+      end
     else
+      -- open
       terms[idx]:toggle()
+      vim.cmd([[startinsert]])
     end
   end
 end)()
