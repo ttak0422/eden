@@ -11,8 +11,8 @@ require("nap").setup({
   prev_repeat = "<c-p>",
   operators = {
     ["b"] = {
-      prev = { rhs = cmd("bprevious"), opts = { desc = "prev buffer" } },
-      next = { rhs = cmd("bnext"), opts = { desc = "next buffer" } },
+      prev = { rhs = "<Plug>(buf-surf-back)", opts = { desc = "prev buffer" } },
+      next = { rhs = "<Plug>(buf-surf-forward)", opts = { desc = "next buffer" } },
     },
     ["e"] = {
       prev = { rhs = "g,", opts = { desc = "prev change item" } },

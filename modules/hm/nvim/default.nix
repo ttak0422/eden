@@ -72,6 +72,10 @@
         {
           plugin = nap-nvim;
           config = readFile ./../../../nvim/nap.lua;
+          depends = [{
+            plugin = vim-bufsurf;
+            config = readFile ./../../../nvim/bufsurf.lua;
+          }];
           events = [ "CursorMoved" ];
         }
         {

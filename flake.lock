@@ -6640,6 +6640,22 @@
         "type": "github"
       }
     },
+    "vim-bufsurf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1613502120,
+        "narHash": "sha256-o/Uf4bnh3IctKnT50JitTe5/+BUrCyrlOOzkmwAzxLk=",
+        "owner": "ton",
+        "repo": "vim-bufsurf",
+        "rev": "e6dbc7ad66c7e436e5eb20d304464e378bd7f28c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ton",
+        "repo": "vim-bufsurf",
+        "type": "github"
+      }
+    },
     "vim-esearch": {
       "flake": false,
       "locked": {
@@ -7113,6 +7129,7 @@
         "vim-better-whitespace": "vim-better-whitespace",
         "vim-buffer-history": "vim-buffer-history",
         "vim-bufmru": "vim-bufmru",
+        "vim-bufsurf": "vim-bufsurf",
         "vim-esearch": "vim-esearch",
         "vim-fontzoom": "vim-fontzoom",
         "vim-html-template-literals": "vim-html-template-literals",
@@ -7149,11 +7166,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1691551194,
-        "narHash": "sha256-hK8PF2fZKrefJfkvdIlJ9nd0luztU28U77QXgNOeLv8=",
+        "lastModified": 1691593127,
+        "narHash": "sha256-nlFtByR2uArTxdhLUQOkKfJooxm/f4w6jDrLyAlaFG4=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "b53956edca07128f4c76a4afe409ecb54ab8314c",
+        "rev": "71f262acdc82984def5b8670a862121d15ba4873",
         "type": "github"
       },
       "original": {
