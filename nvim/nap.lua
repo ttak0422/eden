@@ -49,8 +49,10 @@ require("nap").setup({
       mode = { "n", "v", "o" },
     },
     ["q"] = {
-      prev = { rhs = cmd("Qprev"), opts = { desc = "prev quickfix" } },
-      next = { rhs = cmd("Qnext"), opts = { desc = "next quickfix" } },
+      -- prev = { rhs = cmd("Qprev"), opts = { desc = "prev quickfix" } },
+      -- next = { rhs = cmd("Qnext"), opts = { desc = "next quickfix" } },
+      prev = { rhs = cmd("cprev"), opts = { desc = "prev quickfix" } },
+      next = { rhs = cmd("cnext"), opts = { desc = "next quickfix" } },
     },
     ["Q"] = {
       prev = { rhs = cmd("cfirst"), opts = { desc = "first quickfix" } },
