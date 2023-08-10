@@ -19,7 +19,9 @@ local toggle_terminal = (function()
   local terms = {}
   return function(idx)
     if not terms[idx] then
-      terms[idx] = Terminal:new()
+      terms[idx] = Terminal:new({
+        direction = "float",
+      })
     end
     if terms[idx]:is_open() then
       if not (terms[idx]:is_focused()) then
