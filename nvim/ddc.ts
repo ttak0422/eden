@@ -5,7 +5,11 @@ export class Config extends BaseConfig {
   override config(
     { contextBuilder, denops }: ConfigArguments,
   ): Promise<void> {
+    contextBuilder.patchFiletype("vim", {
+      sources: ["necovim", "around"],
+    });
     contextBuilder.patchGlobal({
+
       ui: "pum",
       keywordPattern: "[0-9a-zA-Z]\\k*",
       // VSCode
@@ -33,7 +37,7 @@ export class Config extends BaseConfig {
           ],
           sorters: [
             // "sorter_reverse",
-            // "sorter_rank",
+            "sorter_rank",
             "sorter_fuzzy",
           ],
           converters: [
@@ -82,6 +86,7 @@ export class Config extends BaseConfig {
           sorters: [
             "sorter_lsp-kind",
             "sorter_fuzzy",
+            // "sorter_rank",
           ],
         },
         tmux: {
