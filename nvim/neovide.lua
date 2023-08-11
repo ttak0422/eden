@@ -20,6 +20,7 @@ local toggle_zoom = (function()
 end)()
 
 -- apply
+vim.keymap.set({"n", "i", "c"}, "¥", "\\")
 vim.keymap.set("n", "<C-+>", function()
   change_scale_factor(scale_delta)
 end)
