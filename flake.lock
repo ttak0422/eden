@@ -1442,23 +1442,6 @@
     "ddc-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1690972472,
-        "narHash": "sha256-Sp0qUa4DChk7fRfbQjPPbstNgwAQvzvj0KsWWx+pI3g=",
-        "owner": "Shougo",
-        "repo": "ddc.vim",
-        "rev": "dbaa5703fa8de684def8a5bc5ff50c597702a57c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Shougo",
-        "repo": "ddc.vim",
-        "rev": "dbaa5703fa8de684def8a5bc5ff50c597702a57c",
-        "type": "github"
-      }
-    },
-    "ddc-vim_2": {
-      "flake": false,
-      "locked": {
         "lastModified": 1691744298,
         "narHash": "sha256-XGvvWK5yy0UGQNOFh41qAkT9u3GuTb1KXu4QQXkTyZM=",
         "owner": "Shougo",
@@ -5547,7 +5530,6 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
-        "ddc-vim": "ddc-vim",
         "emacs": "emacs",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
@@ -6887,7 +6869,7 @@
         "ddc-treesitter": "ddc-treesitter",
         "ddc-ui-native": "ddc-ui-native",
         "ddc-ui-pum": "ddc-ui-pum",
-        "ddc-vim": "ddc-vim_2",
+        "ddc-vim": "ddc-vim",
         "ddu-column-filename": "ddu-column-filename",
         "ddu-commands-vim": "ddu-commands-vim",
         "ddu-filter-converter_display_word": "ddu-filter-converter_display_word",

@@ -89,10 +89,10 @@
       url = "github:olimorris/tmux-pomodoro-plus";
       flake = false;
     };
-    ddc-vim = {
-      url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";
-      flake = false;
-    };
+    # ddc-vim = {
+    #   url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";
+    #   flake = false;
+    # };
     # ddc-sorter_reverse = {
     #   url = "path:/Users/ttak0422/ghq/github.com/ttak0422/ddc-sorter_reverse/";
     #   flake = false;
