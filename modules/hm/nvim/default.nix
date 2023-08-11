@@ -8,7 +8,7 @@
 
       startPlugins = with pkgs.vimPlugins; [
         vim-sensible
-        vim-poslist
+        # vim-poslist
         # {
         #   plugin = tokyonight-nvim;
         #   startup = "vim.cmd[[colorscheme tokyonight]] ";
