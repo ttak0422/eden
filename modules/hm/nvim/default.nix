@@ -138,6 +138,7 @@
             args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
           };
           dependBundles = [ "treesitter" ];
+          events = [ "CursorHold" ];
           modules = [ "codewindow" ];
           # lazy = true;
         }
