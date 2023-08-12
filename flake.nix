@@ -89,6 +89,10 @@
       url = "github:olimorris/tmux-pomodoro-plus";
       flake = false;
     };
+    fidget-nvim-legacy = {
+      url = "github:j-hui/fidget.nvim/legacy";
+      flake = false;
+    };
     # ddc-vim = {
     #   url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";
     #   flake = false;

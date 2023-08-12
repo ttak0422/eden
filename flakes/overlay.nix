@@ -26,6 +26,10 @@
                 cp $JSREGEXP_PATH/jsregexp.so lua/luasnip-jsregexp.so
               '';
             };
+            fidget-nvim = prev.vimPlugins.fidget-nvim.overrideAttrs (old: {
+              version = "custom";
+              src = inputs.fidget-nvim-legacy;
+            });
             # ddc-sorter_itemsize =
             #   prev.vimPlugins.ddc-sorter_itemsize.overrideAttrs (old: {
             #     version = "custom";
