@@ -120,6 +120,7 @@ local normal_keymaps = {
   -- toggle
   { "<leader>tc", cmd("ColorizerToggle"), desc("toggle colorize") },
   { "<leader>tb", cmd("NvimTreeToggle") },
+  { "<leader>to", cmd("SidebarNvimToggle") },
   -- { "<leader>tb", cmd("Neotree toggle") },
   { "<leader>tq", toggle(1, "quickfix", nil), desc("open quickfix") },
   {

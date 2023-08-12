@@ -282,11 +282,11 @@
         }
       ];
       ui = with pkgs.vimPlugins; [
-        # {
-        #   plugin = sidebar-nvim;
-        #   config = readFile ./../../../nvim/sidebar.lua;
-        #   commands = [ "SidebarNvimToggle" ];
-        # }
+        {
+          plugin = sidebar-nvim;
+          config = readFile ./../../../nvim/sidebar.lua;
+          commands = [ "SidebarNvimToggle" ];
+        }
         {
           plugin = nvim-web-devicons;
           config = readFile ./../../../nvim/devicons.lua;
