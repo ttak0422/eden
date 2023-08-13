@@ -16,6 +16,9 @@ require("statuscol").setup({
       condition = { builtin.not_empty, true, builtin.not_empty },
       click = "v:lua.scfa",
     },
-    { text = { builtin.lnumfunc }, click = "v:lua.scla" },
+    {
+      text = { builtin.lnumfunc },
+      -- , click = "v:lua.scla"
+    },
   },
 })
