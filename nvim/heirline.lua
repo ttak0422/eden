@@ -2,6 +2,7 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local icons = {
+  vim = "",
   circle = "",
   circle_o = "⭘",
   circle_d = "",
@@ -64,7 +65,7 @@ do
       return not vim.bo.modifiable or vim.bo.readonly
     end,
     provider = icons.lock,
-    hl = colors.red,
+    hl = { fg = colors.bg },
   }
   local NormalModeIndicator = {
     Space,
@@ -89,12 +90,11 @@ do
       {
         fallthrough = false,
         ReadOnlySymbol,
-        { provider = icons.circle, hl = { fg = colors.bg } },
+        { provider = icons.vim, hl = { fg = colors.bg } },
       },
-      Space,
       {
         provider = function(self)
-          return "%2(" .. self.mode_names[self.mode] .. "%)"
+          return "%2(" .. self.mode_names[self.mode] .. "%)"
         end,
         hl = function(self)
           return {
