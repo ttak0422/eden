@@ -13,6 +13,8 @@ local icons = {
   right_rounded = "",
   right_rounded_thin = "",
   bar = "|",
+  warn = " ",
+  error = " ",
 }
 
 local everforest = {
@@ -293,6 +295,27 @@ do
   }
 end
 
+local Diagnostics = {
+  condition = conditions.has_diagnostics,
+  init = function(self)
+    self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+    self.warns = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+  end,
+  {
+    provider = function(self)
+      return icons.error .. self.errors
+    end,
+    hl = { fg = colors.diag_error },
+  },
+  Space,
+  {
+    provider = function(self)
+      return icons.warn  .. self.warns
+    end,
+    hl = { fg = colors.diag_warn },
+  },
+}
+
 local DefaultStatusLine = {
   LeftCap,
   Mode,
@@ -300,6 +323,11 @@ local DefaultStatusLine = {
   Git,
   Space,
   Align,
+  --
+  Diagnostics,
+  Space,
+  Align,
+  --
   Ruler,
   Space,
   Skk,

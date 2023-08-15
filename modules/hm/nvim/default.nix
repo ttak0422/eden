@@ -342,16 +342,18 @@
           depends = [ nvim-web-devicons ];
           lazy = true;
         }
-        {
-          plugin = windline-nvim;
-          config = readFile ./../../../nvim/windline.lua;
-          lazy = true;
-        }
         # {
-        #   plugin = heirline-nvim;
-        #   config = readFile ./../../../nvim/heirline.lua;
+        #   plugin = windline-nvim;
+        #   config = readFile ./../../../nvim/windline.lua;
         #   lazy = true;
         # }
+        {
+          plugin = heirline-nvim;
+          config = readFile ./../../../nvim/heirline.lua;
+          depends = [ plenary-nvim nvim-web-devicons ];
+          dependBundles = [ "skk" ];
+          lazy = true;
+        }
         # {
         #   plugin = nvim-scrollbar;
         #   depends = [ gitsigns-nvim ];
