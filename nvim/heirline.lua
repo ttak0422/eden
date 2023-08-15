@@ -2,6 +2,7 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local icons = {
+  keyboard = " ",
   vim = "",
   circle = "",
   circle_o = "⭘",
@@ -100,7 +101,6 @@ do
           return {
             fg = colors.bg,
             bg = mode_colors[self.mode:sub(1, 1)],
-            bold = true,
           }
         end,
       },
@@ -176,19 +176,19 @@ do
   local GitChanges = {
     {
       provider = function(self)
-        return "  " .. self.git_status.added
+        return "  " .. (self.git_status.added or 0)
       end,
       hl = { fg = colors.git_add },
     },
     {
       provider = function(self)
-        return "  " .. self.git_status.changed
+        return "  " .. (self.git_status.changed or 0)
       end,
       hl = { fg = colors.git_change },
     },
     {
       provider = function(self)
-        return "  " .. self.git_status.removed
+        return "  " .. (self.git_status.removed or 0)
       end,
       hl = { fg = colors.git_del },
     },
@@ -205,22 +205,20 @@ end
 
 local Ruler = {
   provider = "%7(%l,%c%)",
-  hl = { bold = true },
 }
 
 local Skk
 do
   local SkkL = {
-    provider = icons.bar,
+    provider = icons.bar .. " ",
   }
   Skk = {
     SkkL,
     {
       provider = function(self)
         local mode = vim.fn["skkeleton#mode"]() or ""
-        return " SKK " .. self.mode_label[mode]
+        return icons.keyboard .. " " .. self.mode_label[mode]
       end,
-      hl = { bold = true },
       static = {
         mode_label = {
           [""] = "英数",
@@ -237,6 +235,46 @@ do
   }
 end
 
+local FileProperties
+do
+  local Encoding = {
+    condition = function(self)
+      self.encoding = (vim.bo.fileencoding ~= "" and vim.bo.fileencoding) or vim.o.encoding or nil
+      return self.encoding
+    end,
+    provider = function(self)
+      return self.encoding_label[self.encoding] or self.encoding
+    end,
+    static = {
+      encoding_label = {
+        ["utf-8"] = "UTF-8",
+      },
+    },
+  }
+  local Format = {
+    condition = function(self)
+      self.format = vim.bo.fileformat
+      return self.format
+    end,
+    provider = function(self)
+      return self.format_label[self.format] or self.format
+    end,
+    static = {
+      format_label = {
+        dos = "CRLF",
+        mac = "CR",
+        unix = "LF",
+      },
+    },
+  }
+  FileProperties = {
+    { provider = icons.bar .. " " },
+    Encoding,
+    Space,
+    Format,
+  }
+end
+
 local ProjectRoot
 do
   local fg = colors.bg
@@ -248,7 +286,7 @@ do
     provider = function(self)
       return "   %4(" .. self.root .. "%) "
     end,
-    hl = { fg = fg, bg = bg, bold = true },
+    hl = { fg = fg, bg = bg },
   }
   ProjectRoot = {
     Root,
@@ -266,12 +304,14 @@ local DefaultStatusLine = {
   Space,
   Skk,
   Space,
+  FileProperties,
+  Space,
   ProjectRoot,
 }
 
 local StatusLine = {
   fallthrough = false,
-  hl = { fg = colors.fg, bg = colors.bg },
+  hl = { fg = colors.fg, bg = colors.bg, bold = true },
   DefaultStatusLine,
 }
 
