@@ -11,6 +11,7 @@ local icons = {
   left_rounded_thin = "",
   right_rounded = "",
   right_rounded_thin = "",
+  bar = "|",
 }
 
 local everforest = {
@@ -80,7 +81,6 @@ do
     condition = function(self)
       return self.mode ~= "normal"
     end,
-    hl = { bg = colors.bg },
     utils.surround({
       icons.left_rounded,
       icons.right_rounded,
@@ -166,13 +166,112 @@ do
   }
 end
 
+local Git
+do
+  local GitBranch = {
+    provider = function(self)
+      return table.concat({ " ", self.git_status.head })
+    end,
+  }
+  local GitChanges = {
+    {
+      provider = function(self)
+        return "  " .. self.git_status.added
+      end,
+      hl = { fg = colors.git_add },
+    },
+    {
+      provider = function(self)
+        return "  " .. self.git_status.changed
+      end,
+      hl = { fg = colors.git_change },
+    },
+    {
+      provider = function(self)
+        return "  " .. self.git_status.removed
+      end,
+      hl = { fg = colors.git_del },
+    },
+  }
+  Git = {
+    condition = conditions.is_git_repo,
+    init = function(self)
+      self.git_status = vim.b.gitsigns_status_dict
+    end,
+    GitBranch,
+    GitChanges,
+  }
+end
+
+local Ruler = {
+  provider = "%7(%l,%c%)",
+  hl = { bold = true },
+}
+
+local Skk
+do
+  local SkkL = {
+    provider = icons.bar,
+  }
+  Skk = {
+    SkkL,
+    {
+      provider = function(self)
+        local mode = vim.fn["skkeleton#mode"]() or ""
+        return " SKK " .. self.mode_label[mode]
+      end,
+      hl = { bold = true },
+      static = {
+        mode_label = {
+          [""] = "英数",
+          ["hira"] = "ひら",
+          ["kata"] = "カナ",
+          ["hankata"] = "半カ",
+          ["zenkaku"] = "全英",
+          ["abbrev"] = "abbr",
+        },
+      },
+      -- configured in skkeleton
+      -- update = {},
+    },
+  }
+end
+
+local ProjectRoot
+do
+  local fg = colors.bg
+  local bg = colors.orange
+  local Root = {
+    init = function(self)
+      self.root = vim.fn["fnamemodify"](vim.fn["getcwd"](), ":t")
+    end,
+    provider = function(self)
+      return "   %4(" .. self.root .. "%) "
+    end,
+    hl = { fg = fg, bg = bg, bold = true },
+  }
+  ProjectRoot = {
+    Root,
+  }
+end
+
 local DefaultStatusLine = {
   LeftCap,
   Mode,
+  Space,
+  Git,
+  Space,
+  Align,
+  Ruler,
+  Space,
+  Skk,
+  Space,
+  ProjectRoot,
 }
 
 local StatusLine = {
   fallthrough = false,
+  hl = { fg = colors.fg, bg = colors.bg },
   DefaultStatusLine,
 }
 

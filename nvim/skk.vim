@@ -32,4 +32,5 @@ endfunction
 
 autocmd User skkeleton-disable-pre call s:skkeleton_post()
 autocmd User skkeleton-enable-pre call s:skkeleton_pre()
+autocmd User skkeleton-mode-changed redrawstatus
 " https://github.com/Shougo/shougo-s-github/tree/4697362b2d96be2d372320495f9264f02208023b
