@@ -2,6 +2,7 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local icons = {
+  terminal = "",
   keyboard = " ",
   vim = "",
   circle = "",
@@ -62,6 +63,8 @@ local mode_colors = {
 local Align = { provider = "%=" }
 local Space = { provider = " " }
 local LeftCap = { provider = "▌" }
+local Bar = { provider = icons.bar .. " " }
+local RoundR = { provider = icons.right_rounded_thin }
 local Mode
 do
   local ReadOnlySymbol = {
@@ -131,9 +134,6 @@ do
   Mode = {
     init = function(self)
       self.mode = vim.fn.mode(1)
-    end,
-    condition = function()
-      return vim.bo.buftype == ""
     end,
     static = {
       mode_names = {
@@ -214,6 +214,8 @@ do
     end,
     GitBranch,
     GitChanges,
+    Space,
+    RoundR,
   }
 end
 
@@ -254,7 +256,8 @@ do
     },
   }
   FileProperties = {
-    { provider = icons.bar .. " " },
+    update = { "WinNew", "WinClosed", "BufEnter" },
+    Bar,
     Encoding,
     Space,
     Format,
@@ -272,6 +275,7 @@ do
     provider = function(self)
       return "   %4(" .. self.root .. "%) "
     end,
+    update = { "DirChanged" },
     hl = { fg = fg, bg = bg },
   }
   ProjectRoot = {
@@ -285,6 +289,12 @@ local Diagnostics = {
     self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
     self.warns = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
   end,
+  on_click = {
+    callback = function()
+      require("trouble").toggle({ mode = "document_diagnostics" })
+    end,
+    name = "heirline_diagnostics",
+  },
   {
     provider = function(self)
       return icons.error .. self.errors
@@ -298,6 +308,41 @@ local Diagnostics = {
     end,
     hl = { fg = colors.diag_warn },
   },
+  Space,
+  RoundR,
+}
+
+local FileType = {
+  provider = function()
+    return string.upper(vim.bo.filetype)
+  end,
+  hl = { fg = colors.bg, bg = colors.red },
+}
+
+local TerminalName = {
+  provider = function()
+    local tname, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
+    return tname
+  end,
+  hl = { fg = colors.blue },
+}
+
+local TerminalStatusLine = {
+  condition = function()
+    return conditions.buffer_matches({ buftype = { "terminal" } })
+  end,
+  LeftCap,
+  Space,
+  Mode,
+  Align,
+  TerminalName,
+  Align,
+  {
+    provider = function()
+      return " " .. icons.terminal .. " " .. string.upper(vim.bo.filetype) .. " "
+    end,
+    hl = { fg = colors.bg, bg = colors.red },
+  },
 }
 
 local DefaultStatusLine = {
@@ -306,10 +351,10 @@ local DefaultStatusLine = {
   Space,
   Git,
   Space,
-  Align,
-  --
   Diagnostics,
   Space,
+  Align,
+  --
   Align,
   --
   Ruler,
@@ -322,6 +367,7 @@ local DefaultStatusLine = {
 local StatusLine = {
   fallthrough = false,
   hl = { fg = colors.fg, bg = colors.bg, bold = true },
+  TerminalStatusLine,
   DefaultStatusLine,
 }
 
