@@ -16,6 +16,7 @@ local icons = {
   bar = "|",
   warn = " ",
   error = " ",
+  document = "",
 }
 
 local everforest = {
@@ -312,11 +313,37 @@ local Diagnostics = {
   RoundR,
 }
 
-local FileType = {
-  provider = function()
-    return string.upper(vim.bo.filetype)
+local HelpFileName = {
+  condition = function()
+    return vim.bo.filetype == "help"
   end,
-  hl = { fg = colors.bg, bg = colors.red },
+  provider = function()
+    local filename = vim.api.nvim_buf_get_name(0)
+    return vim.fn.fnamemodify(filename, ":t")
+  end,
+  hl = { fg = colors.blue },
+}
+
+local SpecialStatusline = {
+  condition = function()
+    return conditions.buffer_matches({
+      buftype = { "nofile", "prompt", "help", "quickfix" },
+      filetype = { "^git.*", "fugitive" },
+    })
+  end,
+
+  LeftCap,
+  Mode,
+  Align,
+  HelpFileName,
+  Align,
+  {
+    provider = function()
+      return " " .. icons.document .. " " .. string.upper(vim.bo.filetype) .. " "
+    end,
+    hl = { fg = colors.bg, bg = colors.blue },
+    update = { "WinNew", "WinClosed", "BufEnter" },
+  },
 }
 
 local TerminalName = {
@@ -332,7 +359,6 @@ local TerminalStatusLine = {
     return conditions.buffer_matches({ buftype = { "terminal" } })
   end,
   LeftCap,
-  Space,
   Mode,
   Align,
   TerminalName,
@@ -342,6 +368,7 @@ local TerminalStatusLine = {
       return " " .. icons.terminal .. " " .. string.upper(vim.bo.filetype) .. " "
     end,
     hl = { fg = colors.bg, bg = colors.red },
+    update = { "WinNew", "WinClosed", "BufEnter" },
   },
 }
 
@@ -367,6 +394,7 @@ local DefaultStatusLine = {
 local StatusLine = {
   fallthrough = false,
   hl = { fg = colors.fg, bg = colors.bg, bold = true },
+  SpecialStatusline,
   TerminalStatusLine,
   DefaultStatusLine,
 }
