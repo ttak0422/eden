@@ -71,19 +71,30 @@ do
     provider = icons.lock,
     hl = { fg = colors.bg },
   }
-  local NormalModeIndicator = {
-    Space,
-    {
-      fallthrough = false,
-      ReadOnlySymbol,
-      { provider = icons.circle },
-    },
-    Space,
-  }
-  local ActiveModeIndicator = {
-    condition = function(self)
-      return self.mode ~= "normal"
+  local Skk = {
+    provider = function(self)
+      local mode = vim.fn["skkeleton#mode"]() or ""
+      return icons.bar .. " " .. self.mode_label[mode]
     end,
+    static = {
+      mode_label = {
+        [""] = "英数",
+        ["hira"] = "ひら",
+        ["kata"] = "カナ",
+        ["hankata"] = "半カ",
+        ["zenkaku"] = "全英",
+        ["abbrev"] = "abbr",
+      },
+    },
+    hl = {
+      fg = colors.bg,
+    },
+  }
+
+  local ModeIndicator = {
+    -- condition = function(self)
+    --   return self.mode ~= "normal"
+    -- end,
     utils.surround({
       icons.left_rounded,
       icons.right_rounded,
@@ -105,7 +116,16 @@ do
             bg = mode_colors[self.mode:sub(1, 1)],
           }
         end,
+        update = {
+          "ModeChanged",
+          pattern = "*:*",
+          callback = vim.schedule_wrap(function()
+            vim.cmd("redrawstatus")
+          end),
+        },
       },
+      Space,
+      Skk,
     }),
   }
   Mode = {
@@ -153,17 +173,9 @@ do
         t = "T",
       },
     },
-    update = {
-      "ModeChanged",
-      pattern = "*:*",
-      callback = vim.schedule_wrap(function()
-        vim.cmd("redrawstatus")
-      end),
-    },
     {
       fallthrough = false,
-      ActiveModeIndicator,
-      NormalModeIndicator,
+      ModeIndicator,
     },
   }
 end
@@ -208,34 +220,6 @@ end
 local Ruler = {
   provider = "%7(%l,%c%)",
 }
-
-local Skk
-do
-  local SkkL = {
-    provider = icons.bar .. " ",
-  }
-  Skk = {
-    SkkL,
-    {
-      provider = function(self)
-        local mode = vim.fn["skkeleton#mode"]() or ""
-        return icons.keyboard .. " " .. self.mode_label[mode]
-      end,
-      static = {
-        mode_label = {
-          [""] = "英数",
-          ["hira"] = "ひら",
-          ["kata"] = "カナ",
-          ["hankata"] = "半カ",
-          ["zenkaku"] = "全英",
-          ["abbrev"] = "abbr",
-        },
-      },
-      -- configured in skkeleton
-      -- update = {},
-    },
-  }
-end
 
 local FileProperties
 do
@@ -310,7 +294,7 @@ local Diagnostics = {
   Space,
   {
     provider = function(self)
-      return icons.warn  .. self.warns
+      return icons.warn .. self.warns
     end,
     hl = { fg = colors.diag_warn },
   },
@@ -329,8 +313,6 @@ local DefaultStatusLine = {
   Align,
   --
   Ruler,
-  Space,
-  Skk,
   Space,
   FileProperties,
   Space,
