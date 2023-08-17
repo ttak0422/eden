@@ -54,9 +54,15 @@
         #   config = readFile ./../../../nvim/sentiment.lua;
         #   lazy = true;
         # }
+        # {
+        #   # Enterでいいかんじにテキストオブジェクトを選択
+        #   plugin = wildfire-vim;
+        #   events = [ "CursorMoved" ];
+        # }
         {
           # Enterでいいかんじにテキストオブジェクトを選択
-          plugin = wildfire-vim;
+          plugin = wildfire-nvim;
+          config = readFile ./../../../nvim/wildfire.lua;
           events = [ "CursorMoved" ];
         }
         {
