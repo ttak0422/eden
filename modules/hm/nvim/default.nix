@@ -935,7 +935,7 @@
               nvim-treesitter-textobjects
             ];
             config = readFile ./../../../nvim/treesitter.lua;
-            extraPackages = [ pkgs.tree-sitter ];
+            extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
             lazy = true;
           }
           {
