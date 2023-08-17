@@ -20,18 +20,29 @@ function nonEmpty<T>(list: T[]): list is NonEmptyList<T> {
 const neverMatch: Snippet = {
   name: "Never Match",
   params: [
-    { name: "value",
-      type: "single_line",
-    }
+    { name: "value", type: "single_line" },
   ],
   render: ({ value }, { postCursor }) => `
 const never: never = ${value?.text ?? ""};
 throw new Error(never);${postCursor}
   `,
-}
+};
+
+const strictEntries: Snippet = {
+  name: "Strict entries",
+  params: [],
+  render: (_, { postCursor }) => `
+function strictEntries<T extends Record<string, any>>(
+  obj: T,
+): [keyof T, T[keyof T]][] {
+  return Object.entries(object);
+}${postCursor}
+  `,
+};
 
 export default {
   nonEmptyList,
   nonEmptyGuard,
   neverMatch,
+  strictEntries,
 };
