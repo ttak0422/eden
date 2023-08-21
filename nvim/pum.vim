@@ -5,8 +5,8 @@ call pum#set_option(#{
       \ scrollbar_char: '',
       \ item_orders: ['abbr', 'space', 'kind', 'space', 'menu'],
       \ max_height: 20,
-      \ use_complete: v:true,
-      \ use_setline: v:false,
+      \ use_complete: v:false,
+      \ use_setline: v:true,
       \ offset_cmdcol: 0,
       \ })
 inoremap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : ddc#map#manual_complete()
