@@ -84,6 +84,8 @@ export class Config extends BaseConfig {
           maxItems: 800,
           minKeywordLength: 0,
           sorters: [
+            // "sorter_itemsize",
+            // "sorter_lsp-detail-size",
             "sorter_lsp-kind",
             "sorter_fuzzy",
             // "sorter_rank",
@@ -163,6 +165,12 @@ export class Config extends BaseConfig {
           maxKindWidth: 10,
           maxMenuWidth: 40,
         },
+        "sorter_itemsize": {
+          sameWordOnly: true,
+        },
+        "sorter_lsp-detail-size": {
+          sameWordOnly: true,
+        },
         "sorter_lsp-kind": {
           priority: [
             ["Method", "Function"],
@@ -200,6 +208,19 @@ export class Config extends BaseConfig {
         "=": ["input"],
       },
     });
+
+    // for java
+    contextBuilder.patchFiletype("java", {
+      sourceOptions: {
+        "nvim-lsp": {
+          sorters: [
+            "sorter_lsp-detail-size",
+            "sorter_lsp-kind",
+            "sorter_fuzzy",
+          ],
+        },
+      }
+    })
     return Promise.resolve();
   }
 }

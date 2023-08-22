@@ -97,10 +97,10 @@
     #   url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";
     #   flake = false;
     # };
-    # ddc-sorter_reverse = {
-    #   url = "path:/Users/ttak0422/ghq/github.com/ttak0422/ddc-sorter_reverse/";
-    #   flake = false;
-    # };
+    ddc-sorter_itemsize = {
+      url = "github:ttak0422/ddc-sorter_itemsize/feature/support-latest-jdt";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
