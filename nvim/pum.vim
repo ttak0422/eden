@@ -8,6 +8,9 @@ call pum#set_option(#{
       \ use_complete: v:false,
       \ use_setline: v:true,
       \ offset_cmdcol: 0,
+      \ preview: v:true,
+      \ preview_border: 'single',
+      \ preview_width: 120,
       \ })
 inoremap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : ddc#map#manual_complete()
 inoremap <silent><expr> <C-p> pum#visible() ? '<Cmd>call pum#map#select_relative(-1)<CR>' : ddc#map#manual_complete()

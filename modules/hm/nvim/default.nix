@@ -1159,7 +1159,12 @@
               }
               ddc-tmux
               # ddc-ui-native
-              denops-popup-preview-vim
+              # denops-popup-preview-vim
+              # {
+              #   plugin = ddc-previewer-floating;
+              #   config = readFile ./../../../nvim/ddc-previewer-floating.lua;
+              #   depends = [ pum-vim ];
+              # }
               denops-signature_help
               neco-vim
               # TODO lazy

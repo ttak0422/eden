@@ -13,8 +13,7 @@ endfunction
 
 " doc
 call signature_help#enable()
-call popup_preview#enable()
-
+" call popup_preview#enable()
 
 " for Obsidian
 function! s:obsidian() abort
