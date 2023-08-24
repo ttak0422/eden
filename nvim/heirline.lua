@@ -265,6 +265,35 @@ do
   }
 end
 
+local StyleProperties
+do
+  local SpaceStyle = {
+    condition = function(self)
+      return vim.bo.expandtab
+    end,
+    provider = function(self)
+      return "Spaces: " .. vim.bo.shiftwidth
+    end,
+  }
+  local TabStyle = {
+    condition = function(self)
+      return not vim.bo.expandtab
+    end,
+    provider = function(self)
+      return "Tab Size: " .. vim.bo.tabstop
+    end,
+  }
+  StyleProperties = {
+    update = { "WinNew", "WinClosed", "BufEnter" },
+    Bar,
+    {
+      fallthrough = false,
+      SpaceStyle,
+      TabStyle,
+    },
+  }
+end
+
 local ProjectRoot
 do
   local fg = colors.bg
@@ -387,6 +416,8 @@ local DefaultStatusLine = {
   Ruler,
   Space,
   FileProperties,
+  Space,
+  StyleProperties,
   Space,
   ProjectRoot,
 }
