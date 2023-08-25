@@ -101,6 +101,10 @@
       url = "github:ttak0422/ddc-sorter_itemsize/feature/support-latest-jdt";
       flake = false;
     };
+    pomodoro-nvim = {
+      url = "github:ttak0422/pomodoro.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
