@@ -188,6 +188,9 @@ do
       return table.concat({ " ", self.git_status.head })
     end,
   }
+  local GitBranchInactive = {
+    provider = " ------",
+  }
   local GitChanges = {
     {
       provider = function(self)
@@ -208,13 +211,26 @@ do
       hl = { fg = colors.git_del },
     },
   }
+  local GitChangesInactive = {
+    provider = "  --  --  --",
+  }
   Git = {
-    condition = conditions.is_git_repo,
-    init = function(self)
-      self.git_status = vim.b.gitsigns_status_dict
-    end,
-    GitBranch,
-    GitChanges,
+    {
+      fallthrough = false,
+      {
+        condition = conditions.is_git_repo,
+        init = function(self)
+          self.git_status = vim.b.gitsigns_status_dict
+        end,
+        GitBranch,
+        GitChanges,
+      },
+      {
+        GitBranchInactive,
+        GitChangesInactive,
+      },
+    },
+
     Space,
     RoundR,
   }
@@ -314,29 +330,35 @@ do
 end
 
 local Diagnostics = {
-  condition = conditions.has_diagnostics,
-  init = function(self)
-    self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-    self.warns = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-  end,
-  on_click = {
-    callback = function()
-      require("trouble").toggle({ mode = "document_diagnostics" })
-    end,
-    name = "heirline_diagnostics",
-  },
   {
-    provider = function(self)
-      return icons.error .. self.errors
-    end,
-    hl = { fg = colors.diag_error },
-  },
-  Space,
-  {
-    provider = function(self)
-      return icons.warn .. self.warns
-    end,
-    hl = { fg = colors.diag_warn },
+    fallthrough = false,
+    {
+      condition = conditions.has_diagnostics,
+      init = function(self)
+        self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+        self.warns = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+      end,
+      on_click = {
+        callback = function()
+          require("trouble").toggle({ mode = "document_diagnostics" })
+        end,
+        name = "heirline_diagnostics",
+      },
+      {
+        provider = function(self)
+          return icons.error .. self.errors
+        end,
+      },
+      Space,
+      {
+        provider = function(self)
+          return icons.warn .. self.warns
+        end,
+      },
+    },
+    {
+      provider = icons.error .. "-- " .. icons.warn .. "--",
+    },
   },
   Space,
   RoundR,
