@@ -1046,6 +1046,10 @@
                     ];
                   };
                 };
+                # depends = [{
+                #   plugin = neodev-nvim;
+                #   config = readFile ./../../../nvim/neodev.lua;
+                # }];
                 lazy = true;
               }
               {
