@@ -9,7 +9,7 @@ require("tabout").setup({
   default_tab = "<C-t>",
   default_shift_tab = "<C-d>",
   enable_backwards = true,
-  completion = true,
+  completion = false,
   ignoreignore_beginning = false,
   tabouts = {
     { open = "'", close = "'" },
