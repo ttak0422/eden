@@ -800,11 +800,11 @@
           plugin = modicator-nvim;
           config = readFile ./../../../nvim/modicator.lua;
         }
-        {
-          plugin = nvim-spider;
-          config = readFile ./../../../nvim/spider.lua;
-          modules = [ "spider" ];
-        }
+        # {
+        #   plugin = nvim-spider;
+        #   config = readFile ./../../../nvim/spider.lua;
+        #   modules = [ "spider" ];
+        # }
         {
           plugin = noice-nvim;
           depends = [ nui-nvim nvim-notify ];

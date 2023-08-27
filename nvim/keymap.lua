@@ -181,9 +181,9 @@ for _, keymap in ipairs(normal_keymaps) do
   map("n", keymap[1], keymap[2], keymap[3] or key_opts)
 end
 
-for _, key in ipairs({ "w", "e", "b" }) do
-  map("n", key, cmd("lua require('spider').motion('" .. key .. "')"))
-end
+-- for _, key in ipairs({ "w", "e", "b" }) do
+--   map("n", key, cmd("lua require('spider').motion('" .. key .. "')"))
+-- end
 
 -- toggle term
 for i = 0, 9 do
