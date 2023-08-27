@@ -1245,6 +1245,43 @@
           #   lazy = true;
           #   commands = [ ];
           # }
+          {
+            name = "neotest-bundle";
+            plugins = [
+              {
+                plugin = neotest;
+                depends = [ plenary-nvim ];
+                dependBundles = [ "treesitter" "dap" ];
+              }
+              neotest-python
+              neotest-plenary
+              neotest-go
+              neotest-jest
+              neotest-vitest
+              neotest-playwright
+              neotest-rspec
+              neotest-minitest
+              neotest-dart
+              neotest-testthat
+              neotest-phpunit
+              neotest-pest
+              neotest-rust
+              neotest-elixir
+              neotest-dotnet
+              neotest-scala
+              neotest-haskell
+              neotest-deno
+              {
+                plugin = neotest-vim-test;
+                depends = [ vim-test ];
+              }
+            ];
+            config = {
+              lang = "lua";
+              code = readFile ./../../../nvim/neotest.lua;
+            };
+            commands = [ "Neotest" ];
+          }
         ];
     in {
       programs.oboro-nvim = {
