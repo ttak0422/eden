@@ -3,9 +3,6 @@ local commands = {
   { ":UpdateRemotePlugins", description = "[REQUIRE] every time a remote plugin is installed, updated, or deleted" },
   { ":write | edit | TSBufEnable highlight", description = "reload file" },
   { ":so $VIMRUNTIME/syntax/hitest.vim", description = "enumerate highlight" },
-  { ":Pomodoro", description = "start pomodoro" },
-  { ":PomodoroBreak", description = "start pomodoro (break)" },
-  { ":PomodoroClose", description = "close pomodoro" },
 }
 local functions = {}
 local autocmds = {}

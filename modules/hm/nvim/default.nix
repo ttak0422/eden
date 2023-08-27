@@ -203,12 +203,6 @@
         #   commands = [ "Fontzoom" ];
         # }
         # {
-        #   plugin = pommodoro-clock;
-        #   depends = [ nui-nvim ];
-        #   config = readFile ./../../../nvim/pomodoro-clock.lua;
-        #   commands = [ "Pomodoro" ];
-        # }
-        # {
         #   plugin = hologram-nvim;
         #   config = readFile ./../../../nvim/hologram.lua;
         #   filetypes = [ "markdown" ];
