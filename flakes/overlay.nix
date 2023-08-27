@@ -30,16 +30,6 @@
               version = "custom";
               src = inputs.fidget-nvim-legacy;
             });
-            ddc-sorter_itemsize =
-              prev.vimPlugins.ddc-sorter_itemsize.overrideAttrs (old: {
-                version = "custom";
-                src = inputs.ddc-sorter_itemsize;
-              });
-            pomodoro-nvim = prev.vimPlugins.pomodoro-nvim.overrideAttrs (old: {
-              version = "custom";
-              src = inputs.pomodoro-nvim;
-            });
-
             # ddc-sorter_reverse = prev.vimUtils.buildVimPluginFrom2Nix {
             #   pname = "ddc-sorter_reverse";
             #   version = "local";
