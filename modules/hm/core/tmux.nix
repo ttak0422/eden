@@ -33,10 +33,6 @@ let
       TMUX_USER = ''
         echo " $USER"
       '';
-      TMUX_POMODORO = ''
-        STATUS=`${pkgs.tmuxPlugins.tmux-pomodoro-plus}/share/tmux-plugins/tmux-pomodoro-plus/scripts/pomodoro.sh`
-        if [ -z $STATUS ]; then echo " pomodoro"; else echo $STATUS; fi
-      '';
       TMUX_LOA = ''
         uptime | awk -F "[:,]"  '{printf "%s %s %s\n",$(NF - 2),$(NF - 1), $NF}'
       '';
@@ -59,7 +55,6 @@ let
     better-mouse-mode
     copycat
     urlview
-    tmux-pomodoro-plus
   ];
 
   zoom = "#{?window_zoomed_flag,${zoomInSimbol},${zoomOutSimbol}}";
@@ -85,7 +80,7 @@ let
     set-window-option -g window-status-format "#[fg=${darkFgColor}] #I:#W #[default]"
     set-window-option -g window-status-current-format "#[fg=${darkFgColor2},bold] #I:#W #[default]"
 
-    set -g status-right "#(${scripts.TMUX_POMODORO}/bin/TMUX_POMODORO) | #(${scripts.TMUX_USER}/bin/TMUX_USER) "
+    set -g status-right "#(${scripts.TMUX_USER}/bin/TMUX_USER) "
 
     set -g status-bg '${darkBgColor}'
     set -g status-fg '${darkFgColor}'
@@ -99,8 +94,6 @@ let
   '';
 
   extraConfig = ''
-    # pomodoro
-    bind p run-shell "${pkgs.tmuxPlugins.tmux-pomodoro-plus}/share/tmux-plugins/tmux-pomodoro-plus/scripts/pomodoro.sh toggle"
     ${statusline}
     ${paneborder}
     ${prefs.config}

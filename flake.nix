@@ -85,10 +85,6 @@
         "https://repo.maven.apache.org/maven2/org/openjdk/jol/jol-cli/0.16/jol-cli-0.16-full.jar";
       flake = false;
     };
-    tmux-pomodoro-plus = {
-      url = "github:olimorris/tmux-pomodoro-plus";
-      flake = false;
-    };
     fidget-nvim-legacy = {
       url = "github:j-hui/fidget.nvim/legacy";
       flake = false;

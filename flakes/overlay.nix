@@ -42,12 +42,12 @@
             # };
           };
           tmuxPlugins = prev.tmuxPlugins // {
-            tmux-pomodoro-plus = prev.tmuxPlugins.mkTmuxPlugin {
-              pluginName = "tmux-pomodoro-plus";
-              rtpFilePath = "pomodoro.tmux";
-              version = "local";
-              src = inputs.tmux-pomodoro-plus;
-            };
+            # tmux-pomodoro-plus = prev.tmuxPlugins.mkTmuxPlugin {
+            #   pluginName = "tmux-pomodoro-plus";
+            #   rtpFilePath = "pomodoro.tmux";
+            #   version = "local";
+            #   src = inputs.tmux-pomodoro-plus;
+            # };
           };
           javaPackages = prev.javaPackages // { inherit (inputs) jol; };
           python3Packages = prev.python3Packages

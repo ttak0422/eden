@@ -5859,7 +5859,6 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "oboro-nvim": "oboro-nvim",
-        "tmux-pomodoro-plus": "tmux-pomodoro-plus",
         "vim-plugins-overlay": "vim-plugins-overlay"
       }
     },
@@ -6575,22 +6574,6 @@
       "original": {
         "owner": "aserowy",
         "repo": "tmux.nvim",
-        "type": "github"
-      }
-    },
-    "tmux-pomodoro-plus": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1677013670,
-        "narHash": "sha256-MhkCXY9pDvvTPmu0jF1Z5JobWDQY47SGDG0gyDmdCbM=",
-        "owner": "olimorris",
-        "repo": "tmux-pomodoro-plus",
-        "rev": "e3d011651de1c640fda24efd33a363a67e7af15d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "olimorris",
-        "repo": "tmux-pomodoro-plus",
         "type": "github"
       }
     },
