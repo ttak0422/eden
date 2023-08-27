@@ -202,12 +202,12 @@
         #   preConfig = readFile ./../../../nvim/fontzoom-pre.lua;
         #   commands = [ "Fontzoom" ];
         # }
-        {
-          plugin = pommodoro-clock;
-          depends = [ nui-nvim ];
-          config = readFile ./../../../nvim/pomodoro-clock.lua;
-          commands = [ "Pomodoro" ];
-        }
+        # {
+        #   plugin = pommodoro-clock;
+        #   depends = [ nui-nvim ];
+        #   config = readFile ./../../../nvim/pomodoro-clock.lua;
+        #   commands = [ "Pomodoro" ];
+        # }
         # {
         #   plugin = hologram-nvim;
         #   config = readFile ./../../../nvim/hologram.lua;
@@ -354,15 +354,17 @@
         #   lazy = true;
         # }
         {
-          plugin = pomodoro-nvim;
-          depends = [ nui-nvim ];
-          config = readFile ./../../../nvim/pomodoro.lua;
-          commands = [ "PomodoroStart" "PomodoroStop" "PomodoroPause" ];
-        }
-        {
           plugin = heirline-nvim;
           config = readFile ./../../../nvim/heirline.lua;
-          depends = [ plenary-nvim nvim-web-devicons ];
+          depends = [
+            plenary-nvim
+            nvim-web-devicons
+            {
+              plugin = piccolo-pomodoro-nvim;
+              config = readFile ./../../../nvim/piccolo-pomodoro.lua;
+              modules = [ "piccolo-pomodoro" ];
+            }
+          ];
           dependBundles = [ "skk" ];
           lazy = true;
         }

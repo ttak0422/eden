@@ -310,13 +310,31 @@ do
   }
 end
 
+local Pomodoro
+do
+  Pomodoro = {
+    Bar,
+    {
+      on_click = {
+        callback = function()
+          require("piccolo-pomodoro").toggle()
+        end,
+        name = "toggle_pomodoro",
+      },
+      provider = function(self)
+        return require("piccolo-pomodoro").status()
+      end,
+    },
+  }
+end
+
 local ProjectRoot
 do
   local fg = colors.bg
   local bg = colors.orange
   local Root = {
     init = function(self)
-      self.root = vim.fn["fnamemodify"](vim.fn["getcwd"](), ":t")
+      self.root = vim.fn["fnamemodify"](vim.fn["getcwd"](), ":t") or "----"
     end,
     provider = function(self)
       return "   %4(" .. self.root .. "%) "
@@ -423,6 +441,22 @@ local TerminalStatusLine = {
   },
 }
 
+local SearchCount = {
+  condition = function()
+    return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
+  end,
+  init = function(self)
+    local ok, search = pcall(vim.fn.searchcount)
+    if ok and search.total then
+      self.search = search
+    end
+  end,
+  provider = function(self)
+    local search = self.search
+    return string.format("[%d/%d]", search.current, math.min(search.total, search.maxcount))
+  end,
+}
+
 local DefaultStatusLine = {
   LeftCap,
   Mode,
@@ -433,6 +467,7 @@ local DefaultStatusLine = {
   Space,
   Align,
   --
+  SearchCount,
   Align,
   --
   Ruler,
@@ -440,6 +475,8 @@ local DefaultStatusLine = {
   FileProperties,
   Space,
   StyleProperties,
+  Space,
+  Pomodoro,
   Space,
   ProjectRoot,
 }
