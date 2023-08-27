@@ -93,6 +93,10 @@
     #   url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";
     #   flake = false;
     # };
+    # piccolo-pomodoro-nvim = {
+    #   url = "path:/Users/ttak0422/ghq/github.com/ttak0422/piccolo-pomodoro.nvim";
+    #   flake = false;
+    # };
   };
 
   outputs = inputs@{ flake-parts, ... }:

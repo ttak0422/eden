@@ -30,6 +30,11 @@
               version = "custom";
               src = inputs.fidget-nvim-legacy;
             });
+            # piccolo-pomodoro-nvim = prev.vimUtils.buildVimPluginFrom2Nix {
+            #   pname = "piccolo-pomodoro-nvim";
+            #   version = "local";
+            #   src = inputs.piccolo-pomodoro-nvim;
+            # };
             # ddc-sorter_reverse = prev.vimUtils.buildVimPluginFrom2Nix {
             #   pname = "ddc-sorter_reverse";
             #   version = "local";
