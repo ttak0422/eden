@@ -334,13 +334,19 @@ do
   local bg = colors.orange
   local Root = {
     init = function(self)
-      self.root = vim.fn["fnamemodify"](vim.fn["getcwd"](), ":t") or "----"
+      local cwd = vim.fn["fnamemodify"](vim.fn["getcwd"](), ":t")
+      self.root = self.alias[cwd] or cwd
     end,
     provider = function(self)
       return "   %4(" .. self.root .. "%) "
     end,
     update = { "DirChanged" },
     hl = { fg = fg, bg = bg },
+    static = {
+      alias = {
+        [""] = "ROOT",
+      },
+    },
   }
   ProjectRoot = {
     Root,
