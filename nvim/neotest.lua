@@ -7,6 +7,7 @@ require("neotest").setup({
         return vim.fn.getcwd()
       end,
     }),
+    require("neotest-vim-test")({ allow_file_types = { "java" } }),
   },
   benchmark = {
     enabled = true,
