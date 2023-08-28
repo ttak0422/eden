@@ -403,11 +403,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1692278396,
-        "narHash": "sha256-H551Q1HLI5/ra/IR/iNnjpoNdoZArVjs+3sQyOvbWc4=",
+        "lastModified": 1692916224,
+        "narHash": "sha256-pRoCy53TlQJTaE76FQ9M9krdxu32eJMmI4f3MRFLrY4=",
         "owner": "nifoc",
         "repo": "bdfr-browser",
-        "rev": "852f69f690a36150aedd0a100d1ec43271fcde57",
+        "rev": "f23b6904c98cad9b0989dadfdbf0a78faaf23828",
         "type": "github"
       },
       "original": {
@@ -4236,11 +4236,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1692275751,
-        "narHash": "sha256-0bXCHShIKOZU10v/3bPcM5PLglCoS7v8AUAxAmw4eUg=",
+        "lastModified": 1693220718,
+        "narHash": "sha256-InT62FvuET67j2G9kkz3M1ehhk0x+QkvbBQrm3RlfaA=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "5a564bf242828a04c8fe12c7e83154cb09acf4aa",
+        "rev": "1ad13e07d2d9a01fbadd59a84af601b2ab0d8c73",
         "type": "github"
       },
       "original": {
@@ -4289,11 +4289,11 @@
         "weewx-proxy-flake": "weewx-proxy-flake"
       },
       "locked": {
-        "lastModified": 1692278451,
-        "narHash": "sha256-dvup5GphS95pV/2qNTHxamhiRGwyPmXDLllJh06AgRQ=",
+        "lastModified": 1693221593,
+        "narHash": "sha256-uUBUbm5gA2BXYlpPIABeetRrDiHjNrypJ1ydA6wjhs4=",
         "owner": "nifoc",
         "repo": "nix-overlay",
-        "rev": "9eb99aea153449474e3b75f63f8670e33c1cc772",
+        "rev": "b9281c29f39fe193e126264f04c68e04d861a428",
         "type": "github"
       },
       "original": {
