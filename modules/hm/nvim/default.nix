@@ -1245,7 +1245,7 @@
               {
                 plugin = neotest;
                 depends = [ plenary-nvim ];
-                dependBundles = [ "treesitter" "dap" ];
+                dependBundles = [ "treesitter" "lsp" "dap" ];
               }
               neotest-python
               neotest-plenary

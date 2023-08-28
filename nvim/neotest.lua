@@ -8,6 +8,28 @@ require("neotest").setup({
       end,
     }),
     require("neotest-vim-test")({ allow_file_types = { "java" } }),
+    require("neotest-python")({
+      dap = { justMyCode = false },
+    }),
+    require("neotest-plenary"),
+    require("neotest-go"),
+    require("neotest-vitest"),
+    require("neotest-rspec"),
+    require("neotest-minitest"),
+    require("neotest-dart")({
+      command = "flutter",
+      use_lsp = true,
+      custom_test_method_names = {},
+    }),
+    require("neotest-rust")({
+      args = { "--no-capture" },
+      dap_adapter = "lldb",
+    }),
+    require("neotest-elixir"),
+    require("neotest-dotnet"),
+    require("neotest-scala"),
+    require("neotest-haskell"),
+    require("neotest-deno"),
   },
   benchmark = {
     enabled = true,
