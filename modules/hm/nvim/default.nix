@@ -1121,7 +1121,6 @@
                       events = [ "InsertEnter" ];
                       modules = [ "nvim-autopairs" ];
                     }
-
                   ];
                   config = {
                     lang = "vim";
