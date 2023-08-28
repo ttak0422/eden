@@ -90,7 +90,7 @@ return function(runtimes)
         matchCase = "firstLetter",
         guessMethodArguments = true,
         chain = {
-          enabled = false,
+          enabled = true,
         },
         lazyResolveTextEdit = {
           enabled = true,
