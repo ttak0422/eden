@@ -1,14 +1,12 @@
 require("neotest").setup({
   adapters = {
-    adapters = {
-      require("neotest-jest")({
-        jestConfigFile = "jest.config.js",
-        env = { CI = true },
-        cwd = function()
-          return vim.fn.getcwd()
-        end,
-      }),
-    },
+    require("neotest-jest")({
+      jestConfigFile = "jest.config.js",
+      env = { CI = true },
+      cwd = function()
+        return vim.fn.getcwd()
+      end,
+    }),
   },
   benchmark = {
     enabled = true,
@@ -146,5 +144,10 @@ require("neotest").setup({
   },
 })
 
-vim.api.nvim_create_user_command("Neotest", "lua require('neotest').run.run()", {})
-print("neotest setup completed")
+vim.api.nvim_create_user_command("Neotest", [[ lua require("neotest").run.run(vim.fn.expand("%")) ]], {})
+vim.api.nvim_create_user_command("NeotestStop", [[ lua require("neotest").run.stop() ]], {})
+vim.api.nvim_create_user_command("NeotestNearest", [[ lua require("neotest").run.run() ]], {})
+vim.api.nvim_create_user_command("NeotestCurrentFile", [[ lua require("neotest").run.run(vim.fn.expand("%")) ]], {})
+vim.api.nvim_create_user_command("NeotestAllFile", [[ lua require("neotest").run.run(vim.loop.cwd()) ]], {})
+vim.api.nvim_create_user_command("NeotestToggleSummary", [[ lua require("neotest").summary.toggle() ]], {})
+vim.api.nvim_create_user_command("NeotestTogglePanel", [[ lua require("neotest").output_panel.toggle() ]], {})
