@@ -5364,6 +5364,22 @@
         "type": "github"
       }
     },
+    "nvim-vtsls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689929290,
+        "narHash": "sha256-3bbrhIuroJ6CvqnLaIWE39qNAOAx5wUJaCDLPBm/3nI=",
+        "owner": "yioneko",
+        "repo": "nvim-vtsls",
+        "rev": "f5bf34a53eba97e08b5ae25bddf88820e81ef03c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yioneko",
+        "repo": "nvim-vtsls",
+        "type": "github"
+      }
+    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -7719,6 +7735,7 @@
         "nvim-tundra": "nvim-tundra",
         "nvim-ufo": "nvim-ufo",
         "nvim-various-textobjs": "nvim-various-textobjs",
+        "nvim-vtsls": "nvim-vtsls",
         "nvim-web-devicons": "nvim-web-devicons",
         "nvim-window": "nvim-window",
         "nvim-window-picker": "nvim-window-picker",
@@ -7853,11 +7870,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1693268285,
-        "narHash": "sha256-JPsqYDMwOTRDYs3c32xo+ARHeICTLUxby3nqzyLhD2Y=",
+        "lastModified": 1693327333,
+        "narHash": "sha256-r1h/kKgvPQuarqDtmFXXKURarEeQNg7NcSEOiDZ7edw=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "734a287364a9d40078198d22ba84af3cf8a4bdea",
+        "rev": "34dc5079d0527c1a1bf44c8ac48cad3bb3afb107",
         "type": "github"
       },
       "original": {

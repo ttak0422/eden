@@ -141,3 +141,9 @@ lspconfig.eslint.setup({
   capabilities = capabilities,
   cmd = eslint_cmd,
 })
+
+-- typescript (vtsls)
+lspconfig.vtsls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})

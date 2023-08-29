@@ -646,17 +646,17 @@
         #   };
         #   filetypes = [ "typescript" ];
         # }
-        {
-          plugin = typescript-tool-nvim;
-          depends = [ plenary-nvim nvim-lspconfig ];
-          dependBundles = [ "lsp" ];
-          config = {
-            lang = "lua";
-            code = readFile ./../../../nvim/typescript-tool.lua;
-            args = { on_attach_path = ./../../../nvim/shared/on_attach.lua; };
-          };
-          filetypes = [ "typescript" "javascript" ];
-        }
+        # {
+        #   plugin = typescript-tool-nvim;
+        #   depends = [ plenary-nvim nvim-lspconfig ];
+        #   dependBundles = [ "lsp" ];
+        #   config = {
+        #     lang = "lua";
+        #     code = readFile ./../../../nvim/typescript-tool.lua;
+        #     args = { on_attach_path = ./../../../nvim/shared/on_attach.lua; };
+        #   };
+        #   filetypes = [ "typescript" "javascript" ];
+        # }
         {
           plugin = deno-nvim;
           dependBundles = [ "lsp" ];
@@ -1076,6 +1076,10 @@
               {
                 plugin = diagflow-nvim;
                 config = readFile ./../../../nvim/diagflow.lua;
+              }
+              {
+                plugin = nvim-vtsls;
+                config = readFile ./../../../nvim/vtsls.lua;
               }
               noice-nvim
             ];
