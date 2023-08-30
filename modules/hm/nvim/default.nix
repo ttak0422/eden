@@ -1015,8 +1015,10 @@
                 extraPackages = (with pkgs; [
                   dart
                   deno
+                  dhall-lsp-server
                   google-java-format
                   gopls
+                  lua-language-server
                   nil
                   nodePackages.bash-language-server
                   nodePackages.pyright
@@ -1026,8 +1028,7 @@
                   rubyPackages.solargraph
                   rust-analyzer
                   taplo-cli
-                  dhall-lsp-server
-                ]) ++ (with pkgs; [ lua-language-server ]);
+                ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
                 config = {
                   lang = "lua";
                   code = readFile ./../../../nvim/lspconfig.lua;

@@ -57,6 +57,10 @@ lspconfig.nil_ls.setup({
     },
   },
 })
+-- lspconfig.nixd.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- })
 
 -- bash
 lspconfig.bashls.setup({
