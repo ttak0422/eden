@@ -4,10 +4,10 @@ vim.diagnostic.config({
 vim.lsp.set_log_level("off")
 
 local signs = {
-  { name = "DiagnosticSignError", text = "" },
-  { name = "DiagnosticSignWarn", text = "" },
-  { name = "DiagnosticSignHint", text = "" },
-  { name = "DiagnosticSignInfo", text = "" },
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
 }
 
 for _, sign in ipairs(signs) do
@@ -19,6 +19,8 @@ local util = require("lspconfig.util")
 local on_attach = dofile(args.on_attach_path)
 local capabilities = dofile(args.capabilities_path)
 local eslint_cmd = args.eslint_cmd
+
+require("lspconfig.ui.windows").default_options.border = "single"
 
 -- lua
 lspconfig.lua_ls.setup({
