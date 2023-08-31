@@ -761,7 +761,8 @@
         }
         {
           plugin = denops-vim;
-          extraPackages = with pkgs; [ deno ];
+          # 全体で管理
+          # extraPackages = with pkgs; [ deno ];
         }
       ];
       custom = with pkgs.vimPlugins; [
