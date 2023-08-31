@@ -150,6 +150,26 @@ lspconfig.eslint.setup({
 
 -- typescript (vtsls)
 lspconfig.vtsls.setup({
+  root_dir = lspconfig.util.root_pattern("package.json"),
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    separate_diagnostic_server = true,
+    publish_diagnostic_on = "insert_leave",
+    typescript = {
+      suggest = {
+        completeFunctionCalls = true,
+      },
+      preferences = {
+        importModuleSpecifier = "relative",
+      },
+    },
+    vtsls = {
+      experimental = {
+        completion = {
+          enableServerSideFuzzyMatch = true,
+        },
+      },
+    },
+  },
 })
