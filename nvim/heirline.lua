@@ -19,25 +19,46 @@ local icons = {
   document = "",
 }
 
-local everforest = {
-  bg = utils.get_highlight("Folded").bg,
-  fg = utils.get_highlight("Folded").fg,
-  red = utils.get_highlight("red").fg,
-  green = utils.get_highlight("green").fg,
-  blue = utils.get_highlight("blue").fg,
-  grey = utils.get_highlight("grey").fg,
-  orange = utils.get_highlight("orange").fg,
-  purple = utils.get_highlight("purple").fg,
-  cyan = utils.get_highlight("aqua").fg,
-  diag_warn = utils.get_highlight("WarningText").fg,
-  diag_error = utils.get_highlight("ErrorText").fg,
-  diag_hint = utils.get_highlight("HintText").fg,
-  diag_info = utils.get_highlight("InfoText").fg,
-  git_del = utils.get_highlight("DiffDelete").fg,
-  git_add = utils.get_highlight("DiffAdd").fg,
-  git_change = utils.get_highlight("DiffChange").fg,
+-- local everforest = {
+--   bg = utils.get_highlight("Folded").bg,
+--   fg = utils.get_highlight("Folded").fg,
+--   red = utils.get_highlight("red").fg,
+--   green = utils.get_highlight("green").fg,
+--   blue = utils.get_highlight("blue").fg,
+--   grey = utils.get_highlight("grey").fg,
+--   orange = utils.get_highlight("orange").fg,
+--   purple = utils.get_highlight("purple").fg,
+--   cyan = utils.get_highlight("aqua").fg,
+--   diag_warn = utils.get_highlight("WarningText").fg,
+--   diag_error = utils.get_highlight("ErrorText").fg,
+--   diag_hint = utils.get_highlight("HintText").fg,
+--   diag_info = utils.get_highlight("InfoText").fg,
+--   git_del = utils.get_highlight("DiffDelete").fg,
+--   git_add = utils.get_highlight("DiffAdd").fg,
+--   git_change = utils.get_highlight("DiffChange").fg,
+-- }
+
+local palette = require("kanagawa.colors").setup().palette
+local kanagawa = {
+  bg = palette.sumiInk2,
+  fg = palette.sumiInk6,
+  red = palette.autumnRed,
+  green = palette.autumnGreen,
+  blue = palette.winterBlue,
+  grey = palette.fujiGray,
+  orange = palette.surimiOrange,
+  purple = palette.oniViolet,
+  cyan = palette.lotusCyan,
+  diag_warn = palette.roninYellow,
+  diag_error = palette.samuraiRed,
+  diag_hint = palette.dragonBlue,
+  diag_info = palette.waveAqua1,
+  git_del = palette.autumnRed,
+  git_add = palette.autumnGreen,
+  git_change = palette.autumnYellow,
 }
-local colors = everforest
+
+local colors = kanagawa
 
 local mode_colors = {
   n = "red",

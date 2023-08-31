@@ -125,9 +125,12 @@ require("noice").setup({
         -- padding = { 1, 1 },
       },
       filter_options = {},
-      -- win_options = {
-      --   winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-      -- },
+      win_options = {
+        winhighlight = {
+          Normal = "NormalFloat",
+          FloatBorder = "FloatBorder",
+        },
+      },
     },
     hover = {
       border = {

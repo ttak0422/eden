@@ -13,17 +13,21 @@
         #   plugin = tokyonight-nvim;
         #   startup = "vim.cmd[[colorscheme tokyonight]] ";
         # }
+        # {
+        #   plugin = everforest;
+        #   startup = ''
+        #     vim.cmd([[
+        #       set background=dark
+        #       let g:everforest_background = 'soft'
+        #       colorscheme everforest
+        #       hi NormalFloat ctermbg=NONE guibg=NONE
+        #       hi FloatBorder ctermbg=NONE guibg=NONE
+        #     ]])
+        #   '';
+        # }
         {
-          plugin = everforest;
-          startup = ''
-            vim.cmd([[
-              set background=dark
-              let g:everforest_background = 'soft'
-              colorscheme everforest
-              hi NormalFloat ctermbg=NONE guibg=NONE
-              hi FloatBorder ctermbg=NONE guibg=NONE
-            ]])
-          '';
+          plugin = kanagawa-nvim;
+          startup = readFile ./../../../nvim/kanagawa.lua;
         }
         # {
         #   plugin = nvim-tundra;
