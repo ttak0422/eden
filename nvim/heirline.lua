@@ -24,6 +24,18 @@ vim.api.nvim_create_autocmd({ "DirChanged" }, {
   end,
 })
 
+local ignore_lsp = {
+  copilot = true,
+}
+local function check_lsp_attach()
+  for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+    if not ignore_lsp[server.name] then
+      return true
+    end
+  end
+  return false
+end
+
 local icons = {
   terminal = "",
   keyboard = " ",
@@ -507,24 +519,43 @@ local SearchCount = {
   end,
 }
 
-local Direnv
+local Indicator
 do
-  local label = {
+  local direnv = {
     provider = function()
       if is_direnv_active then
-        return "  direnv"
+        return "  direnv "
       else
-        return "  direnv"
+        return "  direnv "
       end
     end,
-  }
-  Direnv = {
-    condition = function()
-      return is_direnv
-    end,
     update = { "DirChanged" },
+  }
+  local lsp = {
+    provider = function()
+      if check_lsp_attach() then
+        return "  LSP "
+      else
+        return "  LSP "
+      end
+    end,
+    update = { "LspAttach", "LspDetach" },
+  }
+  Indicator = {
+    condition = function()
+      return check_lsp_attach() or is_direnv
+    end,
+    on_click = {
+      callback = function()
+        vim.defer_fn(function()
+          vim.cmd("LspInfo")
+        end, 100)
+      end,
+      name = "heirline_LSP",
+    },
     Bar,
-    label,
+    lsp,
+    direnv,
   }
 end
 
@@ -549,8 +580,7 @@ local DefaultStatusLine = {
   Space,
   Pomodoro,
   Space,
-  Direnv,
-  Space,
+  Indicator,
   ProjectRoot,
 }
 
