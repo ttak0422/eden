@@ -1,6 +1,29 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
+-- heirlineと相性が悪いので別管理
+local function check_direnv()
+  vim.fn.system([[direnv status | grep --silent 'Found RC allowed']])
+  return vim.v.shell_error == 0
+end
+
+local function check_direnv_active()
+  vim.fn.system([[direnv status | grep --silent 'Found RC allowed true']])
+  return vim.v.shell_error == 0
+end
+
+local is_direnv = check_direnv()
+local is_direnv_active = check_direnv_active()
+
+vim.api.nvim_create_autocmd({ "DirChanged" }, {
+  pattern = "*",
+  callback = function()
+    is_direnv = check_direnv()
+    is_direnv_active = check_direnv_active()
+    vim.cmd("redrawstatus")
+  end,
+})
+
 local icons = {
   terminal = "",
   keyboard = " ",
@@ -484,6 +507,27 @@ local SearchCount = {
   end,
 }
 
+local Direnv
+do
+  local label = {
+    provider = function()
+      if is_direnv_active then
+        return "  direnv"
+      else
+        return "  direnv"
+      end
+    end,
+  }
+  Direnv = {
+    condition = function()
+      return is_direnv
+    end,
+    update = { "DirChanged" },
+    Bar,
+    label,
+  }
+end
+
 local DefaultStatusLine = {
   LeftCap,
   Mode,
@@ -504,6 +548,8 @@ local DefaultStatusLine = {
   StyleProperties,
   Space,
   Pomodoro,
+  Space,
+  Direnv,
   Space,
   ProjectRoot,
 }

@@ -41,6 +41,10 @@
           plugin = stickybuf-nvim;
           startup = readFile ./../../../nvim/stickybuf.lua;
         }
+        {
+          plugin = direnv-vim;
+          startup = readFile ./../../../nvim/direnv.lua;
+        }
       ];
 
       ai = with pkgs.vimPlugins;
