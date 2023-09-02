@@ -574,11 +574,11 @@ local DefaultStatusLine = {
   --
   Ruler,
   Space,
+  Pomodoro,
+  Space,
   FileProperties,
   Space,
   StyleProperties,
-  Space,
-  Pomodoro,
   Space,
   Indicator,
   ProjectRoot,
