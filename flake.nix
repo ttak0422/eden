@@ -52,6 +52,7 @@
     vim-plugins-overlay.url = "github:ttak0422/vim-plugins-overlay";
     oboro-nvim = {
       url = "github:ttak0422/oboro-nvim";
+      # url = "path:/Users/ttak0422/ghq/github.com/ttak0422/oboro-nvim";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
