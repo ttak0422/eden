@@ -1,7 +1,7 @@
 vim.diagnostic.config({
   severity_sort = true,
 })
-vim.lsp.set_log_level("off")
+vim.lsp.set_log_level("WARN")
 
 local signs = {
   { name = "DiagnosticSignError", text = "" },
