@@ -34,19 +34,27 @@ let sharedProfile =
       export MCFLY_FUZZY=2
       export MCFLY_INTERFACE_VIEW=BOTTOM
       exportMCFLY_HISTORY_LIMIT=10000
-      ''
-
-let sharedPath =
-      ''
       export GOPATH=$HOME/go
       export PATH=$GOPATH/bin:$PATH
       export PATH=~/.npm-packages/bin:$PATH
       export NODE_PATH=~/.npm-packages/lib/node_modules
       ''
 
+let sharedPath =
+      ''
+      ''
+
 let darwinPath =
       ''
+      ''
+
+let darwinProfile =
+      ''
       export PATH=$PATH:/opt/homebrew/bin
+      JETBRAINS_SCRIPT="$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts"
+      if [ -e $JETBRAINS_SCRIPT ]; then
+        export PATH=$PATH:$JETBRAINS_SCRIPT
+      fi
       ''
 
 in  { aliases =
@@ -62,6 +70,7 @@ in  { aliases =
     , bindkey.emacs = "bindkey -e"
     , history
     , sharedProfile
+    , darwinProfile
     , sharedPath
     , darwinPath
     , function
