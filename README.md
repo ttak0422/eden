@@ -10,7 +10,6 @@
 ## Project structure
 
 ```
-├── app: -------------------------- native app bins (e.g. wrapper).
 ├── assets: ----------------------- static assets (e.g. icon, wallpaper, ...).
 ├── bin: -------------------------- setup helper scripts.
 ├── configs: ---------------------- basic dotfiles. (e.g. .zshrc, .gitconfig, ...)
