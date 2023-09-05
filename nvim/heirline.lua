@@ -268,7 +268,7 @@ do
     },
   }
   local GitChangesInactive = {
-    provider = "  --  --  --",
+    provider = "  -  -  -",
   }
   Git = {
     {
@@ -437,7 +437,7 @@ local Diagnostics = {
       },
     },
     {
-      provider = icons.error .. "-- " .. icons.warn .. "--",
+      provider = icons.error .. "- " .. icons.warn .. "-",
     },
   },
   Space,
