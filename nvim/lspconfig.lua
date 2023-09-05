@@ -150,6 +150,7 @@ lspconfig.eslint.setup({
 
 -- typescript (vtsls)
 lspconfig.vtsls.setup({
+  single_file_support = false,
   root_dir = lspconfig.util.root_pattern("package.json"),
   on_attach = on_attach,
   capabilities = capabilities,
