@@ -34,7 +34,9 @@ require("neotest").setup({
   benchmark = {
     enabled = true,
   },
-  consumers = {},
+  consumers = {
+    overseer = require("neotest.consumers.overseer"),
+  },
   default_strategy = "integrated",
   diagnostic = {
     enabled = true,

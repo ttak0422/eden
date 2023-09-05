@@ -28,20 +28,8 @@ require("nvim-dap-virtual-text").setup({
   highlight_changed_variables = false,
   all_frames = true,
 })
-require("dap-go").setup({
-  dap_configurations = {
-    {
-      type = "go",
-      name = "Attach remote",
-      mode = "remote",
-      request = "attach",
-    },
-  },
-  delve = {
-    initialize_timeout_sec = 20,
-    port = "${port}",
-  },
-})
+
+require("dap.ext.vscode").json_decode = require("overseer.json").decode
 
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "dap-repl",

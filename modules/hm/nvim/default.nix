@@ -128,9 +128,22 @@
       ];
       tool = with pkgs.vimPlugins; [
         {
+          plugin = nvim-dap-go;
+          config = readFile ./../../../nvim/dap-go.lua;
+          dependBundles = [ "dap" ];
+          filetypes = [ "go" ];
+          extraPackages = with pkgs; [ delve ];
+        }
+        {
           plugin = nvim-colorizer-lua;
           config = readFile ./../../../nvim/colorizer.lua;
           commands = [ "ColorizerToggle" ];
+        }
+        {
+          plugin = overseer-nvim;
+          depends = [ toggleterm-nvim ];
+          config = readFile ./../../../nvim/overseer.lua;
+          commands = [ "OverseerRun" ];
         }
         # {
         #   plugin = auto-session;
@@ -1108,13 +1121,12 @@
               nvim-dap-go
               nvim-dap-ui
               nvim-dap-virtual-text
-              # nvim-treesitter'
+              overseer-nvim
             ];
             dependBundles = [ "treesitter" ];
             config = readFile ./../../../nvim/dap.lua;
             modules = [ "dap" "dapui" ];
-            extraPackages = with pkgs; [ delve ];
-            filetypes = [ "go" "java" ];
+            filetypes = [ "java" ];
           }
           {
             name = "ddc";
@@ -1283,6 +1295,7 @@
                 plugin = neotest-vim-test;
                 depends = [ vim-test ];
               }
+              overseer-nvim
             ];
             config = {
               lang = "lua";
@@ -1316,5 +1329,8 @@
       } // optionalAttrs isDarwin {
         package = inputs.nifoc-overlay.packages.${system}.neovim-nightly;
       };
+      # programs.oboro-nvim2 = {
+      #   enable = true;
+      # };
     };
 }
