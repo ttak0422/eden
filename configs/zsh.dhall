@@ -51,7 +51,7 @@ let darwinPath =
 let darwinProfile =
       ''
       export PATH=$PATH:/opt/homebrew/bin
-      JETBRAINS_SCRIPT="$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts"
+      JETBRAINS_SCRIPT="$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
       if [ -e $JETBRAINS_SCRIPT ]; then
         export PATH=$PATH:$JETBRAINS_SCRIPT
       fi
