@@ -2,14 +2,14 @@ local Type = require("piccolo-pomodoro.type")
 
 local prefix = {
   [Type.TIMER_MODE.FOCUS] = {
-    [Type.TIMER_STATE.IDLE] = " focus",
+    [Type.TIMER_STATE.IDLE] = " ",
     [Type.TIMER_STATE.ACTIVE] = " focus",
     [Type.TIMER_STATE.PAUSE] = " focus",
   },
   [Type.TIMER_MODE.BREAK] = {
     [Type.TIMER_STATE.IDLE] = " break",
-    [Type.TIMER_STATE.ACTIVE] = " focus",
-    [Type.TIMER_STATE.PAUSE] = " focus",
+    [Type.TIMER_STATE.ACTIVE] = " break",
+    [Type.TIMER_STATE.PAUSE] = " break",
   },
   [Type.TIMER_MODE.LONG_BREAK] = {
     [Type.TIMER_STATE.IDLE] = " break",
