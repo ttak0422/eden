@@ -30,12 +30,34 @@ require("neotest").setup({
     require("neotest-scala"),
     require("neotest-haskell"),
     require("neotest-deno"),
+    require("neotest-playwright").adapter({
+      options = {
+        persist_project_selection = true,
+        enable_dynamic_test_discovery = true,
+        preset = "none", -- "none" | "headed" | "debug"
+        -- get_playwright_binary = function()
+        --    return vim.loop.cwd() + "/node_modules/.bin/playwright"
+        -- end,
+        -- get_playwright_config = function()
+        --    return vim.loop.cwd() + "/playwright.config.ts"
+        -- end,
+        get_cwd = function()
+          return vim.loop.cwd()
+        end,
+        env = {},
+        extra_args = {},
+        filter_dir = function(name, rel_path, root)
+          return name ~= "node_modules"
+        end,
+      },
+    }),
   },
   benchmark = {
     enabled = true,
   },
   consumers = {
     overseer = require("neotest.consumers.overseer"),
+    playwright = require("neotest-playwright.consumers").consumers,
   },
   default_strategy = "integrated",
   diagnostic = {
