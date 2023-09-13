@@ -5864,6 +5864,22 @@
         "type": "github"
       }
     },
+    "rainbow-delimiters-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1693079405,
+        "narHash": "sha256-4aH2UhG1alE9F1jOMZUSSnvHmWYR6QSC4HwH3oOv5GM=",
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "rev": "9cbd3dc409af1f5531778ccd1ea6bce668241f39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "type": "github"
+      }
+    },
     "range-highlight-nvim": {
       "flake": false,
       "locked": {
@@ -6599,6 +6615,22 @@
       "original": {
         "owner": "ThemerCorp",
         "repo": "themer.lua",
+        "type": "github"
+      }
+    },
+    "themery-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689325323,
+        "narHash": "sha256-x6NQigSbOUIHTQMrcpe+opubL91oiYcEeFb/kjQ0hD0=",
+        "owner": "zaldih",
+        "repo": "themery.nvim",
+        "rev": "c629a596370508680e4c6fb0b2791b6a55b412c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zaldih",
+        "repo": "themery.nvim",
         "type": "github"
       }
     },
@@ -7447,6 +7479,7 @@
         "qfopen-vim": "qfopen-vim",
         "qfview-nvim": "qfview-nvim",
         "quick-scope": "quick-scope",
+        "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
         "range-highlight-nvim": "range-highlight-nvim",
         "reacher-nvim": "reacher-nvim",
         "registers-nvim": "registers-nvim",
@@ -7486,6 +7519,7 @@
         "telescope-undo-nvim": "telescope-undo-nvim",
         "term-edit-nvim": "term-edit-nvim",
         "themer-lua": "themer-lua",
+        "themery-nvim": "themery-nvim",
         "tig-explorer-vim": "tig-explorer-vim",
         "tint-nvim": "tint-nvim",
         "tmux-nvim": "tmux-nvim",
@@ -7549,11 +7583,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1694564180,
-        "narHash": "sha256-ndfvjoY0GhMwYrbAjvFko5hhD2DFkoAzaBphRcySmVQ=",
+        "lastModified": 1694623034,
+        "narHash": "sha256-/31mrOFre5zuUt1KCleWmrnyI63JPctx2k3j2rkXQVU=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "df42c04b52d901cabcdc81cbeb058006bffbdc19",
+        "rev": "50ecf8689f2b5dfac49ec910f8d3bfae1c0a4d6f",
         "type": "github"
       },
       "original": {
