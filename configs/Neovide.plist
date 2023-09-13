@@ -12,6 +12,8 @@
       <string>true</string>
       <string>NEOVIDE_FRAME</string>
       <string>none</string>
+      <string>NEOVIDE_MULTIGRID</string>
+      <string>true</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
