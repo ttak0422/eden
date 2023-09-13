@@ -961,9 +961,13 @@
             plugins = [
               nvim-treesitter
               nvim-yati
-              nvim-ts-rainbow2
+              # nvim-ts-rainbow2
               # vim-matchup
               nvim-treesitter-textobjects
+              {
+                plugin = rainbow-delimiters-nvim;
+                config = readFile ./../../../nvim/rainbow-delimiters.lua;
+              }
             ];
             config = readFile ./../../../nvim/treesitter.lua;
             extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
