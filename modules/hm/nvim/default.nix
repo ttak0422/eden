@@ -1333,8 +1333,5 @@
       } // optionalAttrs isDarwin {
         package = inputs.nifoc-overlay.packages.${system}.neovim-nightly;
       };
-      # programs.oboro-nvim2 = {
-      #   enable = true;
-      # };
     };
 }
