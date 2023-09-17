@@ -695,8 +695,8 @@
         {
           # Rust
           plugin = rust-tools-nvim;
-          depends = [ plenary-nvim nvim-dap ];
-          dependBundles = [ "lsp" ];
+          depends = [ plenary-nvim toggleterm-nvim ];
+          dependBundles = [ "lsp" "dap" ];
           config = {
             lang = "lua";
             code = readFile ./../../../nvim/rust-tools.lua;
