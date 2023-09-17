@@ -3,7 +3,7 @@ local previewer = require("ddc_previewer_floating")
   ui = "pum",
   max_height = 30,
   max_width = 80,
-	border = "single",
+	border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
 })
 
 previewer.enable();

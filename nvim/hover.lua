@@ -3,7 +3,7 @@ require("hover").setup({
     require("hover.providers.lsp")
   end,
   preview_opts = {
-    border = "single",
+    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
   },
   preview_window = false,
   title = false,

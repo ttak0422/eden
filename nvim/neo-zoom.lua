@@ -4,7 +4,7 @@ require("neo-zoom").setup({
     offset = {
       height = 0.90,
     },
-    border = "single",
+    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
   },
   presets = {
     {

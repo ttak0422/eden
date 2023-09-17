@@ -20,8 +20,7 @@ local on_attach = dofile(args.on_attach_path)
 local capabilities = dofile(args.capabilities_path)
 local eslint_cmd = args.eslint_cmd
 
-require("lspconfig.ui.windows").default_options.border = "single"
-
+require("lspconfig.ui.windows").default_options.border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" }
 -- lua
 lspconfig.lua_ls.setup({
   on_attach = on_attach,

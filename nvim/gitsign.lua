@@ -27,7 +27,7 @@ require("gitsigns").setup({
   update_debounce = 1000,
   max_file_length = 40000,
   preview_config = {
-    border = "single",
+    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
     style = "minimal",
     relative = "cursor",
     row = 0,

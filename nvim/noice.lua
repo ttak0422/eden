@@ -121,7 +121,7 @@ require("noice").setup({
   views = {
     cmdline_popup = {
       border = {
-        style = "single",
+        style = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
         -- padding = { 1, 1 },
       },
       filter_options = {},
@@ -134,7 +134,7 @@ require("noice").setup({
     },
     hover = {
       border = {
-        style = "single",
+        style = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
       },
     },
   },

@@ -69,7 +69,7 @@ require("neotest").setup({
     enabled = true,
   },
   floating = {
-    border = "single",
+    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
     max_height = 0.6,
     max_width = 0.6,
     options = {},
