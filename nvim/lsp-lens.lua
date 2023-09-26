@@ -1,5 +1,5 @@
 require("lsp-lens").setup({
-  enable = true,
+  enable = false,
   include_declaration = false,
   sections = {
     definition = false,
