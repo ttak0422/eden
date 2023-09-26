@@ -1,4 +1,4 @@
 require("nvim-autopairs").setup({
-  map_cr = false,
+  map_cr = true,
   check_ts = true,
 })
