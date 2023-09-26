@@ -648,6 +648,12 @@
           };
           filetypes = [ "java" ];
         }
+        {
+          plugin = nvim-vtsls;
+          config = readFile ./../../../nvim/vtsls.lua;
+          dependBundles = [ "lsp" ];
+          filetypes = [ "typescript" ];
+        }
         # {
         #   # typescript (node)
         #   plugin = typescript-nvim;
@@ -1101,14 +1107,10 @@
               #   plugin = pretty_hover;
               #   config = readFile ./../../../nvim/pretty-hover.lua;
               # }
-              {
-                plugin = diagflow-nvim;
-                config = readFile ./../../../nvim/diagflow.lua;
-              }
-              {
-                plugin = nvim-vtsls;
-                config = readFile ./../../../nvim/vtsls.lua;
-              }
+              # {
+              #   plugin = diagflow-nvim;
+              #   config = readFile ./../../../nvim/diagflow.lua;
+              # }
               noice-nvim
             ];
             depends = [{
