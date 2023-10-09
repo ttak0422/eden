@@ -21,10 +21,6 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    nifoc-overlay = {
-      url = "github:nifoc/nix-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     #      _                     _
     #   __| | __ _ _ ____      _(_)_ __
@@ -45,7 +41,7 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         flake-parts.follows = "flake-parts";
         flake-compat.follows = "flake-compat";
       };

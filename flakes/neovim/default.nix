@@ -8,6 +8,7 @@
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
         overlays = with inputs; [
+          inputs.neovim-nightly-overlay.overlay
           vim-plugins-overlay.overlay
           nix-filter.overlays.default
           (final: prev:
@@ -110,7 +111,7 @@
       };
       bundler-nvim = {
         default = {
-          package = inputs.nifoc-overlay.packages.${system}.neovim-nightly;
+          package = pkgs.neovim-nightly;
           extraConfig = ''
             " test
             ${readFile ./../../nvim/disable-default-plugin.vim}
