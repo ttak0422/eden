@@ -8,7 +8,6 @@
     ./emacs
     ./git
     ./ideavim
-    ./nvim
     ./tool
     ./tool
     ./vim

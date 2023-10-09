@@ -53,7 +53,6 @@ in {
               inherit pkgs username flags;
               stateVersion = hmStateVersion;
               modules = [
-                inputs.oboro-nvim.homeManagerModules.${system}.default
                 self.nixosModules.eden-hm-core
                 self.nixosModules.eden-hm-app
                 self.nixosModules.eden-hm-darwin
@@ -63,7 +62,6 @@ in {
                 self.nixosModules.eden-hm-git
                 self.nixosModules.eden-hm-ideavim
                 self.nixosModules.eden-hm-tool
-                self.nixosModules.eden-hm-nvim
                 self.nixosModules.eden-hm-tool
                 self.nixosModules.eden-hm-vim
                 self.nixosModules.eden-hm-virtualization

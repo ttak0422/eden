@@ -51,22 +51,6 @@
       };
     };
     vim-plugins-overlay.url = "github:ttak0422/vim-plugins-overlay";
-    oboro-nvim = {
-      url = "github:ttak0422/oboro-nvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        nix-filter.follows = "nix-filter";
-      };
-    };
-    oboro-nvim2 = {
-      url = "path:/Users/ttak0422/ghq/github.com/ttak0422/oboro-nvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        nix-filter.follows = "nix-filter";
-      };
-    };
     bundler = {
       url = "path:/Users/ttak0422/ghq/github.com/ttak0422/bundler";
       inputs = {
