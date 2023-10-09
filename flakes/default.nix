@@ -1,1 +1,1 @@
-{ imports = [ ./shell.nix ./configuration.nix ./overlay.nix ]; }
+{ imports = [ ./shell.nix ./configuration.nix ./overlay.nix ./neovim ]; }

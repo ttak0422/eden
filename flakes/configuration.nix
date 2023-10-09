@@ -9,6 +9,9 @@ let
   flags = { copilot = true; };
 
 in {
+  # imports = [
+  #   inputs.bundler.flakeModules.nvim
+  # ];
   flake = {
     darwinConfigurations = withSystem "aarch64-darwin"
       ({ self', inputs', system, pkgs, ... }: {
@@ -29,13 +32,21 @@ in {
 
             {
               nixpkgs = {
-                overlays = builtins.attrValues self.overlays;
+                overlays = builtins.attrValues self.overlays ++ [ ];
                 config = {
                   allowUnfree = true;
                   permittedInsecurePackages = [ "openssl-1.1.1u" ];
                 };
               };
               users.users.${username}.home = "/Users/${username}";
+              environment.systemPackages = [
+                (pkgs.runCommand "nvim" { } ''
+                  mkdir -p $out/bin
+                  ln -s ${
+                    self.packages.${system}.bundler-nvim
+                  }/bin/nvim $out/bin/nvim
+                '')
+              ];
             }
 
             (mkHmModule {

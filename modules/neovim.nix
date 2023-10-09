@@ -1,6 +1,5 @@
-# WIP
 { self, inputs, ... }: {
-  flake.nixosModules.eden-hm-nvim = { pkgs, lib, flags, system, ... }:
+  flake.nixosModules.eden-nvim = { pkgs, lib, flags, system, ... }:
     let
       inherit (builtins) readFile;
       inherit (pkgs.stdenv) isDarwin;
@@ -27,30 +26,30 @@
         # }
         {
           plugin = kanagawa-nvim;
-          startup = readFile ./../../../nvim/kanagawa.lua;
+          startup = readFile ./../nvim/kanagawa.lua;
         }
         # {
         #   plugin = nvim-tundra;
-        #   startup = readFile ./../../../nvim/tundra.lua;
+        #   startup = readFile ./../nvim/tundra.lua;
         # }
         {
           plugin = nvim-config-local;
-          startup = readFile ./../../../nvim/config-local.lua;
+          startup = readFile ./../nvim/config-local.lua;
         }
         {
           plugin = stickybuf-nvim;
-          startup = readFile ./../../../nvim/stickybuf.lua;
+          startup = readFile ./../nvim/stickybuf.lua;
         }
         {
           plugin = direnv-vim;
-          startup = readFile ./../../../nvim/direnv.lua;
+          startup = readFile ./../nvim/direnv.lua;
         }
       ];
 
       ai = with pkgs.vimPlugins;
         if flags ? copilot && flags.copilot then [{
           plugin = copilot-lua;
-          config = readFile ./../../../nvim/copilot.lua;
+          config = readFile ./../nvim/copilot.lua;
           lazy = true;
         }] else
           [ ];
@@ -60,7 +59,7 @@
           # {
           #   # 対応するカッコの強調表示
           #   plugin = sentiment-nvim;
-          #   config = readFile ./../../../nvim/sentiment.lua;
+          #   config = readFile ./../nvim/sentiment.lua;
           #   lazy = true;
           # }
           # {
@@ -71,13 +70,13 @@
           # {
           #   # Enterでいいかんじにテキストオブジェクトを選択
           #   plugin = wildfire-nvim;
-          #   config = readFile ./../../../nvim/wildfire.lua;
+          #   config = readFile ./../nvim/wildfire.lua;
           #   events = [ "CursorMoved" ];
           # }
           {
             # quickfixの高さを調整
             plugin = qfheight-nvim;
-            config = readFile ./../../../nvim/qfheight.lua;
+            config = readFile ./../nvim/qfheight.lua;
             filetypes = [ "qf" ];
             events = [ "QuickFixCmdPre" ];
           }
@@ -86,42 +85,42 @@
       motion = with pkgs.vimPlugins; [
         {
           plugin = nap-nvim;
-          config = readFile ./../../../nvim/nap.lua;
+          config = readFile ./../nvim/nap.lua;
           depends = [{
             plugin = vim-bufsurf;
-            config = readFile ./../../../nvim/bufsurf.lua;
+            config = readFile ./../nvim/bufsurf.lua;
           }];
           events = [ "CursorMoved" ];
         }
         {
           plugin = reacher-nvim;
-          config = readFile ./../../../nvim/reacher.lua;
+          config = readFile ./../nvim/reacher.lua;
           modules = [ "reacher" ];
         }
         {
           plugin = nvim-window;
-          config = readFile ./../../../nvim/nvim-window.lua;
+          config = readFile ./../nvim/nvim-window.lua;
           modules = [ "nvim-window" ];
         }
         {
           plugin = JABS-nvim;
-          config = readFile ./../../../nvim/JABS.lua;
+          config = readFile ./../nvim/JABS.lua;
           commands = [ "JABSOpen" ];
         }
         {
           plugin = leap-nvim;
           depends = [ vim-repeat ];
-          config = readFile ./../../../nvim/leap.lua;
+          config = readFile ./../nvim/leap.lua;
           events = [ "CursorMoved" ];
         }
         {
           plugin = flit-nvim;
-          config = readFile ./../../../nvim/flit.lua;
+          config = readFile ./../nvim/flit.lua;
           events = [ "CursorMoved" ];
         }
         {
           plugin = tabout-nvim;
-          config = readFile ./../../../nvim/tabout.lua;
+          config = readFile ./../nvim/tabout.lua;
           dependBundles = [ "treesitter" ];
           events = [ "InsertEnter" ];
         }
@@ -129,32 +128,32 @@
       tool = with pkgs.vimPlugins; [
         {
           plugin = nvim-dap-go;
-          config = readFile ./../../../nvim/dap-go.lua;
+          config = readFile ./../nvim/dap-go.lua;
           dependBundles = [ "dap" ];
           filetypes = [ "go" ];
           extraPackages = with pkgs; [ delve ];
         }
         {
           plugin = nvim-colorizer-lua;
-          config = readFile ./../../../nvim/colorizer.lua;
+          config = readFile ./../nvim/colorizer.lua;
           commands = [ "ColorizerToggle" ];
         }
         {
           plugin = overseer-nvim;
           depends = [ toggleterm-nvim ];
-          config = readFile ./../../../nvim/overseer.lua;
+          config = readFile ./../nvim/overseer.lua;
           commands = [ "OverseerRun" ];
         }
         # {
         #   plugin = auto-session;
-        #   config = readFile ./../../../nvim/auto-session.lua;
+        #   config = readFile ./../nvim/auto-session.lua;
         #   dependBundles = [ "telescope" ];
         #   commands = [ "auto-session.session-lens" ];
         #   lazy = true;
         # }
         {
           plugin = project-nvim;
-          config = readFile ./../../../nvim/project.lua;
+          config = readFile ./../nvim/project.lua;
           lazy = true;
         }
         { plugin = vim-jukit; }
@@ -162,8 +161,8 @@
           plugin = codewindow-nvim;
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/codewindow.lua;
-            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+            code = readFile ./../nvim/codewindow.lua;
+            args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
           };
           dependBundles = [ "treesitter" ];
           events = [ "CursorHold" ];
@@ -178,15 +177,15 @@
             {
               plugin = headlines-nvim;
               dependBundles = [ "treesitter" ];
-              config = readFile ./../../../nvim/headlines.lua;
+              config = readFile ./../nvim/headlines.lua;
             }
           ];
           dependBundles = [ "treesitter" ];
           # startup = {
           #   lang = "vim";
-          #   code = readFile "${neorg}/ftdetect/norg./../../../nvimvim";
+          #   code = readFile "${neorg}/ftdetect/norg./../nvimvim";
           # };
-          config = readFile ./../../../nvim/neorg.lua;
+          config = readFile ./../nvim/neorg.lua;
           commands = [ "Neorg" ];
           # filetypes = [ "norg" ];
         }
@@ -194,91 +193,91 @@
           plugin = toggleterm-nvim;
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/toggleterm.lua;
+            code = readFile ./../nvim/toggleterm.lua;
           };
           commands = [ "TermToggle" "TigTermToggle" ];
         }
         {
           plugin = nvim-FeMaco-lua;
           dependBundles = [ "treesitter" ];
-          config = readFile ./../../../nvim/femaco.lua;
+          config = readFile ./../nvim/femaco.lua;
           commands = [ "FeMaco" ];
         }
         {
           plugin = smart-splits-nvim;
-          config = readFile ./../../../nvim/smart-splits.lua;
+          config = readFile ./../nvim/smart-splits.lua;
           depends = [{
             plugin = bufresize-nvim;
-            config = readFile ./../../../nvim/bufresize.lua;
+            config = readFile ./../nvim/bufresize.lua;
             events = [ "WinNew" ];
           }];
           modules = [ "smart-splits" ];
         }
         {
           plugin = NeoZoom-lua;
-          config = readFile ./../../../nvim/neo-zoom.lua;
+          config = readFile ./../nvim/neo-zoom.lua;
           commands = [ "NeoZoomToggle" ];
         }
         # {
         #   plugin = vim-fontzoom;
-        #   preConfig = readFile ./../../../nvim/fontzoom-pre.lua;
+        #   preConfig = readFile ./../nvim/fontzoom-pre.lua;
         #   commands = [ "Fontzoom" ];
         # }
         # {
         #   plugin = hologram-nvim;
-        #   config = readFile ./../../../nvim/hologram.lua;
+        #   config = readFile ./../nvim/hologram.lua;
         #   filetypes = [ "markdown" ];
         # }
         {
           plugin = pets-nvim;
           depends = [ hologram-nvim nui-nvim ];
-          config = readFile ./../../../nvim/pets.lua;
+          config = readFile ./../nvim/pets.lua;
           commands = [ "PetsNew" ];
         }
         {
           # regex search panel.nvim
           plugin = nvim-spectre;
           depends = [ plenary-nvim nvim-web-devicons ];
-          config = readFile ./../../../nvim/spectre.lua;
+          config = readFile ./../nvim/spectre.lua;
           extraPackages = with pkgs; [ gnused ripgrep ];
           modules = [ "spectre" ];
         }
         {
           plugin = registers-nvim;
-          config = readFile ./../../../nvim/registers.lua;
+          config = readFile ./../nvim/registers.lua;
           events = [ "CursorMoved" ];
         }
         {
           plugin = nvim-bufdel;
-          config = readFile ./../../../nvim/bufdel.lua;
+          config = readFile ./../nvim/bufdel.lua;
           commands = [ "BufDel" "BufDel!" "BufDelAll" "BufDelOthers" ];
         }
         # {
         #   plugin = close-buffers-nvim;
-        #   config = readFile ./../../../nvim/close-buffer.lua;
+        #   config = readFile ./../nvim/close-buffer.lua;
         #   modules = [ "close_buffers" ];
         #   commands = [ "BDelete" "BDelete!" ];
         # }
         {
           plugin = nvim-tree-lua;
           depends = [ nvim-web-devicons circles-nvim ];
-          config = readFile ./../../../nvim/nvim-tree.lua;
+          config = readFile ./../nvim/nvim-tree.lua;
           commands = [ "NvimTreeToggle" ];
         }
         {
           plugin = neotree-nvim-3;
           depends = [ plenary-nvim nvim-web-devicons nui-nvim ];
-          config = readFile ./../../../nvim/neotree.lua;
+          config = readFile ./../nvim/neotree.lua;
           commands = [ "Neotree" ];
         }
         {
           plugin = nvim-window-picker;
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/window-picker.lua;
+            code = readFile ./../nvim/window-picker.lua;
             args = {
-              exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua;
-              exclude_buf_ft_path = ./../../../nvim/shared/exclude_buf_ft.lua;
+              exclude_ft_path = ./../nvim/shared/exclude_ft.lua;
+              exclude_buf_ft_path = ./../nvim/shared/exclude_buf_ft.lua;
             };
           };
           modules = [ "window-picker" ];
@@ -286,7 +285,7 @@
         {
           plugin = obsidian-nvim;
           depends = [ plenary-nvim ];
-          config = readFile ./../../../nvim/obsidian.lua + ''
+          config = readFile ./../nvim/obsidian.lua + ''
             vim.cmd([[silent source ${obsidian-nvim}/after/syntax/markdown.vim]])
           '';
           commands = [
@@ -306,26 +305,26 @@
       ui = with pkgs.vimPlugins; [
         {
           plugin = sidebar-nvim;
-          config = readFile ./../../../nvim/sidebar.lua;
+          config = readFile ./../nvim/sidebar.lua;
           commands = [ "SidebarNvimToggle" ];
         }
         {
           plugin = nvim-web-devicons;
-          config = readFile ./../../../nvim/devicons.lua;
+          config = readFile ./../nvim/devicons.lua;
         }
         # {
         #   # モードに応じたカーソルカラーを適用する
         #   plugin = modes-nvim;
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/modes.lua;
-        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #     code = readFile ./../nvim/modes.lua;
+        #     args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
         #   };
         #   lazy = true;
         # }
         {
           plugin = tint-nvim;
-          config = readFile ./../../../nvim/tint.lua;
+          config = readFile ./../nvim/tint.lua;
           events = [ "WinNew" ];
         }
         # {
@@ -333,51 +332,51 @@
         #   depends = [ middleclass animation-nvim ];
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/windows.lua;
-        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #     code = readFile ./../nvim/windows.lua;
+        #     args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
         #   };
         #   events = [ "WinNew" ];
         # }
         # {
         #   plugin = nvim-treesitter-context;
         #   dependBundles = [ "treesitter" ];
-        #   config = readFile ./../../../nvim/treesitter-context.lua;
+        #   config = readFile ./../nvim/treesitter-context.lua;
         #   events = [ "CursorMoved" ];
         # }
         {
           plugin = nvim-notify;
-          config = readFile ./../../../nvim/notify.lua;
+          config = readFile ./../nvim/notify.lua;
           lazy = true;
         }
         # {
         #   plugin = winbar-nvim;
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/winbar.lua;
-        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #     code = readFile ./../nvim/winbar.lua;
+        #     args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
         #   };
         #   lazy = true;
         # }
         {
           plugin = dropbar-nvim;
-          config = readFile ./../../../nvim/dropbar.lua;
+          config = readFile ./../nvim/dropbar.lua;
           depends = [ nvim-web-devicons ];
           lazy = true;
         }
         # {
         #   plugin = windline-nvim;
-        #   config = readFile ./../../../nvim/windline.lua;
+        #   config = readFile ./../nvim/windline.lua;
         #   lazy = true;
         # }
         {
           plugin = heirline-nvim;
-          config = readFile ./../../../nvim/heirline.lua;
+          config = readFile ./../nvim/heirline.lua;
           depends = [
             plenary-nvim
             nvim-web-devicons
             {
               plugin = piccolo-pomodoro-nvim;
-              config = readFile ./../../../nvim/piccolo-pomodoro.lua;
+              config = readFile ./../nvim/piccolo-pomodoro.lua;
               modules = [ "piccolo-pomodoro" ];
             }
           ];
@@ -389,10 +388,10 @@
         #   depends = [ gitsigns-nvim ];
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/scrollbar.lua;
+        #     code = readFile ./../nvim/scrollbar.lua;
         #     args = {
-        #       exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua;
-        #       exclude_buf_ft_path = ./../../../nvim/shared/exclude_buf_ft.lua;
+        #       exclude_ft_path = ./../nvim/shared/exclude_ft.lua;
+        #       exclude_buf_ft_path = ./../nvim/shared/exclude_buf_ft.lua;
         #     };
         #   };
         #   events = [ "CursorMoved" ];
@@ -402,8 +401,8 @@
           depends = [ gitsigns-nvim ];
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/satellite.lua;
-            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+            code = readFile ./../nvim/satellite.lua;
+            args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
           };
           events = [ "CursorMoved" ];
         }
@@ -413,7 +412,7 @@
         #   #   - withPython3 required.
         #   plugin = wilder-nvim;
         #   depends = [ fzy-lua-native ];
-        #   config = readFile ./../../../nvim/wilder.lua;
+        #   config = readFile ./../nvim/wilder.lua;
         #   events = [ "CmdlineEnter" ];
         #   extraPackages = with pkgs; [ fd ];
         # }
@@ -421,8 +420,8 @@
         #   plugin = SmoothCursor-nvim;
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/smoothcursor.lua;
-        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #     code = readFile ./../nvim/smoothcursor.lua;
+        #     args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
         #   };
         #   events = [ "CursorMoved" ];
         # }
@@ -430,25 +429,25 @@
         #   plugin = minimap-vim;
         #   preConfig = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/minimap-pre.lua;
+        #     code = readFile ./../nvim/minimap-pre.lua;
         #   };
-        #   config = readFile ./../../../nvim/minimap.lua;
+        #   config = readFile ./../nvim/minimap.lua;
         #   commands = [ "MinimapToggle" ];
         #   extraPackages = [ pkgs.code-minimap ];
         # }
         {
           plugin = colorful-winsep-nvim;
           events = [ "WinNew" ];
-          config = readFile ./../../../nvim/winsep.lua;
+          config = readFile ./../nvim/winsep.lua;
         }
         {
           plugin = scope-nvim;
-          config = readFile ./../../../nvim/scope.lua;
+          config = readFile ./../nvim/scope.lua;
         }
         {
           plugin = bufferline-nvim;
           depends = [ scope-nvim ];
-          config = readFile ./../../../nvim/bufferline.lua;
+          config = readFile ./../nvim/bufferline.lua;
           lazy = true;
         }
       ];
@@ -459,7 +458,7 @@
         }
         {
           plugin = vim-markdown;
-          preConfig = readFile ./../../../nvim/vim-markdown-pre.lua;
+          preConfig = readFile ./../nvim/vim-markdown-pre.lua;
           filetypes = [ "markdown" ];
         }
         # {
@@ -470,18 +469,18 @@
       git = with pkgs.vimPlugins; [
         {
           plugin = git-conflict-nvim;
-          config = readFile ./../../../nvim/git-conflict.lua;
+          config = readFile ./../nvim/git-conflict.lua;
           lazy = true;
         }
         {
           plugin = gitsigns-nvim;
           depends = [ plenary-nvim ];
-          config = readFile ./../../../nvim/gitsign.lua;
+          config = readFile ./../nvim/gitsign.lua;
           events = [ "CursorMoved" ];
         }
         {
           plugin = gin-vim;
-          config = readFile ./../../../nvim/gin.lua;
+          config = readFile ./../nvim/gin.lua;
           depends = [ denops-vim ];
           # TODO: support denops lazy load
           # commands = [ "Gin" "GinBuffer" "GinLog" "GinStatus" "GinDiff" ];
@@ -490,7 +489,7 @@
         {
           plugin = neogit;
           depends = [ diffview-nvim plenary-nvim ];
-          config = readFile ./../../../nvim/neogit.lua;
+          config = readFile ./../nvim/neogit.lua;
           commands = [ "Neogit" ];
         }
         {
@@ -506,48 +505,48 @@
         # }
         {
           plugin = treesj;
-          config = readFile ./../../../nvim/treesj.lua;
+          config = readFile ./../nvim/treesj.lua;
           modules = [ "treesj" ];
         }
         {
           plugin = neogen;
           dependBundles = [ "treesitter" ];
-          config = readFile ./../../../nvim/neogen.lua;
+          config = readFile ./../nvim/neogen.lua;
           commands = [ "Neogen" ];
         }
         {
           plugin = glance-nvim;
-          config = readFile ./../../../nvim/glance.lua;
+          config = readFile ./../nvim/glance.lua;
           commands = [ "Glance" ];
         }
         {
           plugin = goto-preview;
           depends = [ tint-nvim ];
-          config = readFile ./../../../nvim/goto-preview.lua;
+          config = readFile ./../nvim/goto-preview.lua;
           modules = [ "goto-preview" ];
         }
         {
           plugin = legendary-nvim;
           dependBundles = [ "telescope" ];
-          config = readFile ./../../../nvim/legendary.lua;
+          config = readFile ./../nvim/legendary.lua;
           commands = [ "Legendary" ];
         }
         {
           # ys, ds, cs, ...
           plugin = nvim-surround;
-          config = readFile ./../../../nvim/surround.lua;
+          config = readFile ./../nvim/surround.lua;
           events = [ "InsertEnter" ];
         }
         {
           plugin = nvim-ts-autotag;
           dependBundles = [ "treesitter" ];
-          config = readFile ./../../../nvim/ts-autotag.lua;
+          config = readFile ./../nvim/ts-autotag.lua;
           filetypes = [ "javascript" "typescript" "jsx" "tsx" "vue" "html" ];
         }
         {
           plugin = todo-comments-nvim;
           depends = [ plenary-nvim trouble-nvim ];
-          config = readFile ./../../../nvim/todo-comments.lua;
+          config = readFile ./../nvim/todo-comments.lua;
           commands =
             [ "TodoQuickFix" "TodoLocList" "TodoTrouble" "TodoTelescope" ];
           extraPackages = [ pkgs.ripgrep ];
@@ -555,24 +554,24 @@
         }
         {
           plugin = trouble-nvim;
-          config = readFile ./../../../nvim/trouble.lua;
+          config = readFile ./../nvim/trouble.lua;
           modules = [ "trouble" ];
           commands = [ "TroubleToggle" ];
         }
         # {
         #   plugin = spaceless-nvim;
-        #   config = readFile ./../../../nvim/spaceless.lua;
+        #   config = readFile ./../nvim/spaceless.lua;
         #   lazy = true;
         # }
         {
           plugin = trim-nvim;
-          config = readFile ./../../../nvim/trim.lua;
+          config = readFile ./../nvim/trim.lua;
           lazy = true;
         }
         {
           plugin = nvim_context_vt;
           dependBundles = [ "treesitter" ];
-          config = readFile ./../../../nvim/context-vt.lua;
+          config = readFile ./../nvim/context-vt.lua;
           lazy = true;
         }
         # {
@@ -586,17 +585,16 @@
         #     };
         #   in ''
         #     vim.opt.runtimepath:append("${treesitter-parsers}");
-        #   '' + readFile ./../../../nvim/treesitter.lua;
+        #   '' + readFile ./../nvim/treesitter.lua;
         #   extraPackages = [ pkgs.tree-sitter ];
         # }
         {
           plugin = nvim-lint;
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/lint.lua;
+            code = readFile ./../nvim/lint.lua;
             args = {
-              checkstyle_config_file_path =
-                ./../../../configs/google_checks.xml;
+              checkstyle_config_file_path = ./../configs/google_checks.xml;
             };
           };
           extraPackages = with pkgs; [
@@ -616,7 +614,7 @@
           config = let jdtLsp = pkgs.jdt-language-server;
           in {
             lang = "lua";
-            code = readFile ./../../../nvim/jdtls.lua;
+            code = readFile ./../nvim/jdtls.lua;
             args = {
               runtimes = [
                 {
@@ -630,14 +628,14 @@
                   default = true;
                 }
               ];
-              on_attach_path = ./../../../nvim/shared/on_attach.lua;
-              capabilities_path = ./../../../nvim/shared/capabilities.lua;
+              on_attach_path = ./../nvim/shared/on_attach.lua;
+              capabilities_path = ./../nvim/shared/capabilities.lua;
               java_bin = "${pkgs.jdk17}/bin/java";
               jdtls_config = "${jdtLsp}/share/config";
               lombok_jar = "${pkgs.lombok}/share/java/lombok.jar";
               jdtls_jar_pattern =
                 "${jdtLsp}/share/java/plugins/org.eclipse.equinox.launcher_*.jar";
-              jdtls_settings_path = ./../../../nvim/jdtls_settings.lua;
+              jdtls_settings_path = ./../nvim/jdtls_settings.lua;
               java_debug_jar_pattern =
                 "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-*.jar";
               java_test_jar_pattern =
@@ -648,22 +646,16 @@
           };
           filetypes = [ "java" ];
         }
-        {
-          plugin = nvim-vtsls;
-          config = readFile ./../../../nvim/vtsls.lua;
-          dependBundles = [ "lsp" ];
-          filetypes = [ "typescript" ];
-        }
         # {
         #   # typescript (node)
         #   plugin = typescript-nvim;
         #   dependBundles = [ "lsp" ];
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/typescript.lua;
+        #     code = readFile ./../nvim/typescript.lua;
         #     args = {
-        #       on_attach_path = ./../../../nvim/shared/on_attach.lua;
-        #       capabilities_path = ./../../../nvim/shared/capabilities.lua;
+        #       on_attach_path = ./../nvim/shared/on_attach.lua;
+        #       capabilities_path = ./../nvim/shared/capabilities.lua;
         #       tsserver_cmd = [
         #         "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server"
         #         "--stdio"
@@ -680,8 +672,8 @@
         #   dependBundles = [ "lsp" ];
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/typescript-tool.lua;
-        #     args = { on_attach_path = ./../../../nvim/shared/on_attach.lua; };
+        #     code = readFile ./../nvim/typescript-tool.lua;
+        #     args = { on_attach_path = ./../nvim/shared/on_attach.lua; };
         #   };
         #   filetypes = [ "typescript" "javascript" ];
         # }
@@ -690,10 +682,10 @@
           dependBundles = [ "lsp" ];
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/deno.lua;
+            code = readFile ./../nvim/deno.lua;
             args = {
-              on_attach_path = ./../../../nvim/shared/on_attach.lua;
-              capabilities_path = ./../../../nvim/shared/capabilities.lua;
+              on_attach_path = ./../nvim/shared/on_attach.lua;
+              capabilities_path = ./../nvim/shared/capabilities.lua;
             };
           };
           filetypes = [ "typescript" ];
@@ -701,14 +693,14 @@
         {
           # Rust
           plugin = rust-tools-nvim;
-          depends = [ plenary-nvim toggleterm-nvim ];
-          dependBundles = [ "lsp" "dap" ];
+          depends = [ plenary-nvim nvim-dap ];
+          dependBundles = [ "lsp" ];
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/rust-tools.lua;
+            code = readFile ./../nvim/rust-tools.lua;
             args = {
-              on_attach_path = ./../../../nvim/shared/on_attach.lua;
-              capabilities_path = ./../../../nvim/shared/capabilities.lua;
+              on_attach_path = ./../nvim/shared/on_attach.lua;
+              capabilities_path = ./../nvim/shared/capabilities.lua;
             };
           };
           filetypes = [ "rust" ];
@@ -724,10 +716,10 @@
           ];
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/haskell-tools.lua;
+            code = readFile ./../nvim/haskell-tools.lua;
             args = {
-              on_attach_path = ./../../../nvim/shared/on_attach.lua;
-              capabilities_path = ./../../../nvim/shared/capabilities.lua;
+              on_attach_path = ./../nvim/shared/on_attach.lua;
+              capabilities_path = ./../nvim/shared/capabilities.lua;
             };
           };
           filetypes = [ "haskell" ];
@@ -737,7 +729,7 @@
           plugin = flutter-tools-nvim;
           depends = [ plenary-nvim ];
           dependBundles = [ "lsp" ];
-          config = readFile ./../../../nvim/flutter-tools.lua;
+          config = readFile ./../nvim/flutter-tools.lua;
           filetypes = [ "dart" ];
         }
         {
@@ -757,17 +749,17 @@
           };
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/ionide.lua;
+            code = readFile ./../nvim/ionide.lua;
             args = {
-              on_attach_path = ./../../../nvim/shared/on_attach.lua;
-              capabilities_path = ./../../../nvim/shared/capabilities.lua;
+              on_attach_path = ./../nvim/shared/on_attach.lua;
+              capabilities_path = ./../nvim/shared/capabilities.lua;
             };
           };
           filetypes = [ "fsharp" ];
         }
         {
           plugin = formatter-nvim;
-          config = readFile ./../../../nvim/formatter.lua;
+          config = readFile ./../nvim/formatter.lua;
           commands = [ "Format" ];
           extraPackages = with pkgs; [
             html-tidy
@@ -784,7 +776,7 @@
         }
         {
           plugin = Comment-nvim;
-          config = readFile ./../../../nvim/comment.lua;
+          config = readFile ./../nvim/comment.lua;
           events = [ "InsertEnter" "CursorMoved" ];
         }
         {
@@ -801,31 +793,31 @@
         }
         {
           plugin = better-escape-nvim;
-          config = readFile ./../../../nvim/better-escape.lua;
+          config = readFile ./../nvim/better-escape.lua;
           events = [ "InsertEnter" ];
         }
         {
           plugin = nvim-dd;
-          config = readFile ./../../../nvim/nvim-dd.lua;
+          config = readFile ./../nvim/nvim-dd.lua;
           events = [ "InsertEnter" ];
         }
         {
           plugin = waitevent-nvim;
-          config = readFile ./../../../nvim/waitevent.lua;
+          config = readFile ./../nvim/waitevent.lua;
           lazy = true;
         }
         {
           plugin = safe-close-window-nvim;
-          config = readFile ./../../../nvim/safe-close-window.lua;
+          config = readFile ./../nvim/safe-close-window.lua;
           commands = [ "SafeCloseWindow" ];
         }
         {
           plugin = modicator-nvim;
-          config = readFile ./../../../nvim/modicator.lua;
+          config = readFile ./../nvim/modicator.lua;
         }
         # {
         #   plugin = nvim-spider;
-        #   config = readFile ./../../../nvim/spider.lua;
+        #   config = readFile ./../nvim/spider.lua;
         #   modules = [ "spider" ];
         # }
         {
@@ -834,8 +826,8 @@
           dependBundles = [ "treesitter" ];
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/noice.lua;
-            args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+            code = readFile ./../nvim/noice.lua;
+            args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
           };
           lazy = true;
 
@@ -843,7 +835,7 @@
         {
           plugin = nvim-fundo;
           depends = [ promise-async ];
-          config = readFile ./../../../nvim/fundo.lua;
+          config = readFile ./../nvim/fundo.lua;
           lazy = true;
           # run
           # require('fundo').install()
@@ -852,18 +844,18 @@
           plugin = nvim-early-retirement;
           config = {
             lang = "lua";
-            code = readFile ./../../../nvim/nvim-early-retirement.lua;
+            code = readFile ./../nvim/nvim-early-retirement.lua;
           };
           lazy = true;
         }
         {
           plugin = open-nvim;
-          config = readFile ./../../../nvim/open.lua;
+          config = readFile ./../nvim/open.lua;
           modules = [ "open" ];
         }
         {
           plugin = qf-nvim;
-          config = readFile ./../../../nvim/qf.lua;
+          config = readFile ./../nvim/qf.lua;
           filetypes = [ "qf" ];
           events = [ "QuickFixCmdPre" ];
           lazy = true;
@@ -879,33 +871,33 @@
         }
         {
           plugin = which-key-nvim;
-          config = readFile ./../../../nvim/whichkey.lua;
+          config = readFile ./../nvim/whichkey.lua;
           lazy = true;
         }
         {
           plugin = nvim-bqf;
-          config = readFile ./../../../nvim/bqf.lua;
+          config = readFile ./../nvim/bqf.lua;
           events = [ "QuickFixCmdPre" ];
           lazy = true;
         }
         # {
         #   plugin = qfview-nvim;
-        #   config = readFile ./../../../nvim/qfview.lua;
+        #   config = readFile ./../nvim/qfview.lua;
         #   events = [ "QuickFixCmdPre" ];
         #   lazy = true;
         # }
         {
           plugin = nvim-hlslens;
-          config = readFile ./../../../nvim/hlslens.lua;
+          config = readFile ./../nvim/hlslens.lua;
           events = [ "CmdlineEnter" ];
         }
         {
           plugin = vim-asterisk;
           config = {
             lang = "vim";
-            code = readFile ./../../../nvim/asterisk.vim;
+            code = readFile ./../nvim/asterisk.vim;
           };
-          events = [ "CmdlineEnter" "CursorMoved" ];
+          events = [ "CmdlineEnter" ];
         }
 
         {
@@ -914,12 +906,12 @@
         }
         {
           plugin = indent-o-matic;
-          config = readFile ./../../../nvim/indent-o-matic.lua;
+          config = readFile ./../nvim/indent-o-matic.lua;
           events = [ "CursorMoved" ];
         }
         {
           plugin = numb-nvim;
-          config = readFile ./../../../nvim/numb.lua;
+          config = readFile ./../nvim/numb.lua;
           events = [ "CmdlineEnter" ];
         }
         # {
@@ -927,26 +919,26 @@
         #   dependBundles = [ "treesitter" ];
         #   config = {
         #     lang = "lua";
-        #     code = readFile ./../../../nvim/indent-blankline.lua;
-        #     args = { exclude_ft_path = ./../../../nvim/shared/exclude_ft.lua; };
+        #     code = readFile ./../nvim/indent-blankline.lua;
+        #     args = { exclude_ft_path = ./../nvim/shared/exclude_ft.lua; };
         #   };
         # }
         {
           # 対応する括弧の強調
           plugin = hlchunk-nvim;
-          config = readFile ./../../../nvim/hlchunk.lua;
+          config = readFile ./../nvim/hlchunk.lua;
           events = [ "CursorMoved" ];
         }
         {
           plugin = nvim-ufo;
           depends = [ promise-async statuscol-nvim indent-blankline-nvim ];
           dependBundles = [ "treesitter" ];
-          config = readFile ./../../../nvim/ufo.lua;
+          config = readFile ./../nvim/ufo.lua;
           lazy = true;
         }
         {
           plugin = statuscol-nvim;
-          config = readFile ./../../../nvim/statuscol.lua;
+          config = readFile ./../nvim/statuscol.lua;
         }
       ];
       bundles =
@@ -967,15 +959,14 @@
             plugins = [
               nvim-treesitter
               nvim-yati
-              # nvim-ts-rainbow2
               # vim-matchup
               nvim-treesitter-textobjects
               {
                 plugin = rainbow-delimiters-nvim;
-                config = readFile ./../../../nvim/rainbow-delimiters.lua;
+                config = readFile ./../nvim/rainbow-delimiters.lua;
               }
             ];
-            config = readFile ./../../../nvim/treesitter.lua;
+            config = readFile ./../nvim/treesitter.lua;
             extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
             lazy = true;
           }
@@ -991,14 +982,14 @@
               # }
               {
                 plugin = skkeleton_indicator-nvim;
-                config = readFile ./../../../nvim/skk-indicator.lua;
+                config = readFile ./../nvim/skk-indicator.lua;
               }
             ];
             # depends = [ denops-vim ];
             dependBundles = [ "ddc" ];
             config = {
               lang = "vim";
-              code = readFile ./../../../nvim/skk.vim;
+              code = readFile ./../nvim/skk.vim;
               args = { jisyo_path = "${pkgs.skk-dicts}/share/SKK-JISYO.L"; };
             };
             lazy = true;
@@ -1035,7 +1026,7 @@
               }
             ];
             depends = [ plenary-nvim ];
-            config = readFile ./../../../nvim/telescope.lua;
+            config = readFile ./../nvim/telescope.lua;
             commands = [ "Telescope" ];
           }
           {
@@ -1064,10 +1055,10 @@
                 ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
                 config = {
                   lang = "lua";
-                  code = readFile ./../../../nvim/lspconfig.lua;
+                  code = readFile ./../nvim/lspconfig.lua;
                   args = {
-                    on_attach_path = ./../../../nvim/shared/on_attach.lua;
-                    capabilities_path = ./../../../nvim/shared/capabilities.lua;
+                    on_attach_path = ./../nvim/shared/on_attach.lua;
+                    capabilities_path = ./../nvim/shared/capabilities.lua;
                     eslint_cmd = [
                       "${pkgs.nodePackages.vscode-langservers-extracted}/bin/vscode-eslint-language-server"
                       "--stdio"
@@ -1076,46 +1067,50 @@
                 };
                 # depends = [{
                 #   plugin = neodev-nvim;
-                #   config = readFile ./../../../nvim/neodev.lua;
+                #   config = readFile ./../nvim/neodev.lua;
                 # }];
                 lazy = true;
               }
               {
                 plugin = lsp-lens-nvim;
-                config = readFile ./../../../nvim/lsp-lens.lua;
+                config = readFile ./../nvim/lsp-lens.lua;
               }
               # {
               #   plugin = actions-preview-nvim;
-              #   config = readFile ./../../../nvim/actions-preview.lua;
+              #   config = readFile ./../nvim/actions-preview.lua;
               #   dependBundles = [ "telescope" ];
               #   modules = [ "actions-preview" ];
               # }
               {
                 plugin = lsp-inlayhints-nvim;
-                config = readFile ./../../../nvim/inlayhints.lua;
+                config = readFile ./../nvim/inlayhints.lua;
               }
               # {
               #   # カーソルの対応する要素のハイライト.
               #   plugin = vim-illuminate;
-              #   config = readFile ./../../../nvim/illuminate.lua;
+              #   config = readFile ./../nvim/illuminate.lua;
               # }
               # {
               #   plugin = hover-nvim;
-              #   config = readFile ./../../../nvim/hover.lua;
+              #   config = readFile ./../nvim/hover.lua;
               # }
               # {
               #   plugin = pretty_hover;
-              #   config = readFile ./../../../nvim/pretty-hover.lua;
+              #   config = readFile ./../nvim/pretty-hover.lua;
               # }
-              # {
-              #   plugin = diagflow-nvim;
-              #   config = readFile ./../../../nvim/diagflow.lua;
-              # }
+              {
+                plugin = diagflow-nvim;
+                config = readFile ./../nvim/diagflow.lua;
+              }
+              {
+                plugin = nvim-vtsls;
+                config = readFile ./../nvim/vtsls.lua;
+              }
               noice-nvim
             ];
             depends = [{
               plugin = fidget-nvim;
-              config = readFile ./../../../nvim/fidget.lua;
+              config = readFile ./../nvim/fidget.lua;
             }];
             dependBundles = [ "ddc" ];
             lazy = true;
@@ -1130,7 +1125,7 @@
               overseer-nvim
             ];
             dependBundles = [ "treesitter" ];
-            config = readFile ./../../../nvim/dap.lua;
+            config = readFile ./../nvim/dap.lua;
             modules = [ "dap" "dapui" ];
             filetypes = [ "java" ];
           }
@@ -1147,14 +1142,17 @@
                     {
                       plugin = nvim-autopairs;
                       dependBundles = [ "treesitter" ];
-                      config = readFile ./../../../nvim/autopairs.lua;
+                      startup = ''
+                        vim.cmd([[inoremap <silent><expr> <CR>  "\<C-g>u\<c-r>=v:lua.require'nvim-autopairs'.autopairs_cr()\<CR>"]])
+                      '';
+                      config = readFile ./../nvim/autopairs.lua;
                       events = [ "InsertEnter" ];
                       modules = [ "nvim-autopairs" ];
                     }
                   ];
                   config = {
                     lang = "vim";
-                    code = readFile ./../../../nvim/pum.vim;
+                    code = readFile ./../nvim/pum.vim;
                   };
                 }];
               }
@@ -1180,7 +1178,7 @@
                   depends = [ tabout-nvim ];
                   config = {
                     lang = "vim";
-                    code = readFile ./../../../nvim/vsnip.vim;
+                    code = readFile ./../nvim/vsnip.vim;
                   };
                 }];
               }
@@ -1190,14 +1188,14 @@
               }
               {
                 plugin = ddc-nvim-lsp-setup;
-                config = readFile ./../../../nvim/ddc-nvim-lsp-setup.lua;
+                config = readFile ./../nvim/ddc-nvim-lsp-setup.lua;
               }
               ddc-tmux
               # ddc-ui-native
               # denops-popup-preview-vim
               # {
               #   plugin = ddc-previewer-floating;
-              #   config = readFile ./../../../nvim/ddc-previewer-floating.lua;
+              #   config = readFile ./../nvim/ddc-previewer-floating.lua;
               #   depends = [ pum-vim ];
               # }
               denops-signature_help
@@ -1211,8 +1209,8 @@
                 plugin = tsnip-nvim;
                 config = {
                   lang = "lua";
-                  code = readFile ./../../../nvim/tsnip.lua;
-                  args = { tsnip_root = ./../../../snippets/tsnip; };
+                  code = readFile ./../nvim/tsnip.lua;
+                  args = { tsnip_root = ./../snippets/tsnip; };
                 };
                 depends = [ nui-nvim ];
               }
@@ -1223,8 +1221,8 @@
               #   plugin = LuaSnip;
               #   config = {
               #     lang = "lua";
-              #     code = readFile ./../../../nvim/luasnip.lua;
-              #     args = { snipmate_root = ./../../../snippets/snipmate; };
+              #     code = readFile ./../nvim/luasnip.lua;
+              #     args = { snipmate_root = ./../snippets/snipmate; };
               #   };
               #   depends = [ friendly-snippets ];
               # }
@@ -1232,8 +1230,8 @@
             dependBundles = [ "lsp" ];
             config = {
               lang = "vim";
-              code = readFile ./../../../nvim/ddc.vim;
-              args = { ts_config = ./../../../nvim/ddc.ts; };
+              code = readFile ./../nvim/ddc.vim;
+              args = { ts_config = ./../nvim/ddc.ts; };
             };
             lazy = true;
           }
@@ -1262,7 +1260,7 @@
           #   depends = [ denops-vim ];
           #   config = {
           #     lang = "vim";
-          #     code = readFile ./../../../nvim/ddu.vim;
+          #     code = readFile ./../nvim/ddu.vim;
           #   };
           #   # WIP
           #   lazy = true;
@@ -1302,25 +1300,26 @@
             ];
             config = {
               lang = "lua";
-              code = readFile ./../../../nvim/neotest.lua;
+              code = readFile ./../nvim/neotest.lua;
             };
             commands = [ "Neotest" ];
           }
         ];
+
     in {
-      # programs.oboro-nvim = {
+      # programs.bundler-nvim = {
       #   enable = true;
       #   extraConfig = ''
       #     vim.cmd([[
-      #       ${readFile ./../../../nvim/disable-default-plugin.vim}
-      #       ${readFile ./../../../nvim/prelude.vim}
-      #       ${readFile ./../../../nvim/keymap.vim}
+      #       ${readFile ./../nvim/disable-default-plugin.vim}
+      #       ${readFile ./../nvim/prelude.vim}
+      #       ${readFile ./../nvim/keymap.vim}
       #     ]])
       #     vim.loader.enable()
-      #     ${readFile ./../../../nvim/prelude.lua}
-      #     ${readFile ./../../../nvim/keymap.lua}
+      #     ${readFile ./../nvim/prelude.lua}
+      #     ${readFile ./../nvim/keymap.lua}
       #     if vim.g.neovide then
-      #       dofile("${./../../../nvim/neovide.lua}")
+      #       dofile("${./../nvim/neovide.lua}")
       #     end
       #   '';
       #   extraPackages = with pkgs; [ delta ];
@@ -1329,7 +1328,8 @@
       #
       #     ++ custom;
       #   inherit startPlugins bundles;
-      # } // optionalAttrs isDarwin {
+      # };
+      # // optionalAttrs isDarwin {
       #   package = inputs.nifoc-overlay.packages.${system}.neovim-nightly;
       # };
     };
