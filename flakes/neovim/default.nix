@@ -112,6 +112,7 @@
       bundler-nvim = {
         default = {
           package = pkgs.neovim-nightly;
+          # logLevel = "debug";
           extraConfig = ''
             " test
             ${readFile ./../../nvim/disable-default-plugin.vim}
