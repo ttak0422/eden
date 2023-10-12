@@ -529,7 +529,6 @@ do
         return "  direnv "
       end
     end,
-    update = { "DirChanged" },
   }
   local lsp = {
     provider = function()
