@@ -391,15 +391,6 @@
               config = readFile ./../../nvim/notify.lua;
               lazy = true;
             }
-            # {
-            #   plugin = winbar-nvim;
-            #   config = {
-            #     lang = "lua";
-            #     code = readFile ./../../nvim/winbar.lua;
-            #     args = { exclude_ft_path = ./../../nvim/shared/exclude_ft.lua; };
-            #   };
-            #   lazy = true;
-            # }
             {
               plugin = dropbar-nvim;
               config = readFile ./../../nvim/dropbar.lua;
@@ -451,35 +442,6 @@
               };
               events = [ "CursorMoved" ];
             }
-            # {
-            #   # MEMO:
-            #   #   - `UpdateRemotePlugins` required.
-            #   #   - withPython3 required.
-            #   plugin = wilder-nvim;
-            #   depends = [ fzy-lua-native ];
-            #   config = readFile ./../../nvim/wilder.lua;
-            #   events = [ "CmdlineEnter" ];
-            #   extraPackages = with pkgs; [ fd ];
-            # }
-            # {
-            #   plugin = SmoothCursor-nvim;
-            #   config = {
-            #     lang = "lua";
-            #     code = readFile ./../../nvim/smoothcursor.lua;
-            #     args = { exclude_ft_path = ./../../nvim/shared/exclude_ft.lua; };
-            #   };
-            #   events = [ "CursorMoved" ];
-            # }
-            # {
-            #   plugin = minimap-vim;
-            #   preConfig = {
-            #     lang = "lua";
-            #     code = readFile ./../../nvim/minimap-pre.lua;
-            #   };
-            #   config = readFile ./../../nvim/minimap.lua;
-            #   commands = [ "MinimapToggle" ];
-            #   extraPackages = [ pkgs.code-minimap ];
-            # }
             {
               plugin = colorful-winsep-nvim;
               events = [ "WinNew" ];
@@ -860,11 +822,6 @@
               plugin = modicator-nvim;
               config = readFile ./../../nvim/modicator.lua;
             }
-            # {
-            #   plugin = nvim-spider;
-            #   config = readFile ./../../nvim/spider.lua;
-            #   modules = [ "spider" ];
-            # }
             {
               plugin = noice-nvim;
               depends = [ nui-nvim nvim-notify ];
@@ -973,6 +930,7 @@
               # 対応する括弧の強調
               plugin = hlchunk-nvim;
               config = readFile ./../../nvim/hlchunk.lua;
+              dependBundles = [ "treesitter" ];
               events = [ "CursorMoved" ];
             }
             {
