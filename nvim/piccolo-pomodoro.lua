@@ -2,7 +2,7 @@ local Type = require("piccolo-pomodoro.type")
 
 local prefix = {
   [Type.TIMER_MODE.FOCUS] = {
-    [Type.TIMER_STATE.IDLE] = " ",
+    [Type.TIMER_STATE.IDLE] = "",
     [Type.TIMER_STATE.ACTIVE] = " focus",
     [Type.TIMER_STATE.PAUSE] = " focus",
   },
@@ -23,7 +23,11 @@ require("piccolo-pomodoro").setup({
     vim.cmd([[redrawstatus]])
   end,
   focus_format = function(ctx)
-    return string.format("%s %02d:%02d", prefix[ctx.timer_mode][ctx.timer_state], ctx.m, ctx.s)
+    if ctx.timer_state ~= Type.TIMER_STATE.IDLE then
+      return string.format("%s %02d:%02d", prefix[ctx.timer_mode][ctx.timer_state], ctx.m, ctx.s)
+    else
+      return string.format("%s", prefix[ctx.timer_mode][ctx.timer_state])
+    end
   end,
   break_format = function(ctx)
     return string.format("%s %02d:%02d", prefix[ctx.timer_mode][ctx.timer_state], ctx.m, ctx.s)
@@ -36,6 +40,7 @@ require("piccolo-pomodoro").setup({
     else
       vim.notify("Start!")
     end
+    vim.cmd([[redrawstatus]])
   end,
   on_pause = function()
     if vim.fn.has("mac") == 1 then
@@ -45,6 +50,7 @@ require("piccolo-pomodoro").setup({
     else
       vim.notify("Pause!")
     end
+    vim.cmd([[redrawstatus]])
   end,
   on_complete_focus_time = function()
     if vim.fn.has("mac") == 1 then
