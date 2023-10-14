@@ -18,6 +18,10 @@ require("nap").setup({
       prev = { rhs = "<Plug>(buf-surf-back)", opts = { desc = "prev buffer (history)" } },
       next = { rhs = "<Plug>(buf-surf-forward)", opts = { desc = "next buffer (history)" } },
     },
+    ["r"] = {
+      prev = { rhs = cmd([[lua require("harpoon.ui").nav_prev()]]), opts = { desc = "prev registered buffer (harpoon)" } },
+      next = { rhs = cmd([[lua require("harpoon.ui").nav_next()]]), opts = { desc = "next registered buffer (harpoon)" } },
+    },
     ["e"] = {
       prev = { rhs = "g,", opts = { desc = "prev change item" } },
       next = { rhs = "g;", opts = { desc = "next change item" } },

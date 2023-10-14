@@ -8,6 +8,10 @@ local function cmd(c)
   return "<cmd>" .. c .. "<cr>"
 end
 
+local function lua(c)
+  return cmd("lua " .. c)
+end
+
 local function toggle_tool()
   local is_open = false
   local pre_id = nil
@@ -117,6 +121,8 @@ local normal_keymaps = {
   { "<leader>q", cmd("BufDel") },
   { "<leader>Q", cmd("BufDel!") },
   { "<leader>E", cmd("FeMaco"), desc("edit code block") },
+  -- buffer
+  { "<leader>br", lua([[require("harpoon.mark").add_file()]]), desc("register buffer (harpoon)") },
   -- toggle
   { "<leader>tc", cmd("ColorizerToggle"), desc("toggle colorize") },
   { "<leader>tb", cmd("NvimTreeToggle") },
@@ -135,15 +141,20 @@ local normal_keymaps = {
   },
   {
     "<leader>tm",
-    cmd("lua require('codewindow').toggle_minimap()<cr>"),
+    cmd("lua require('codewindow').toggle_minimap()"),
     desc("open minimap"),
+  },
+  {
+    "<leader>tr",
+    cmd("lua require('harpoon.ui').toggle_quick_menu()"),
+    desc("open registered buffer menu (harpoon)"),
   },
   -- finder
   { "<leader>ff", cmd("Telescope live_grep_args"), desc("search by content") },
   { "<leader>fp", cmd("Telescope find_files"), desc("search by file name") },
   { "<leader>fP", cmd("Telescope repo"), desc("search repo") },
   { "<leader>fb", cmd("Telescope buffers"), desc("search buffer") },
-  { "<leader>fh", cmd("Legendary"), desc("search buffer") },
+  { "<leader>fh", cmd("Legendary"), desc("search legendary") },
   { "<leader>ft", cmd("Telescope sonictemplate templates"), desc("search template") },
   {
     "<leader>fF",

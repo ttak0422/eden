@@ -30,6 +30,12 @@
           startPlugins = callPackage ./startup.nix { };
           optPlugins = callPackage ./util.nix { } ++ (with pkgs.vimPlugins; [
             {
+              plugin = harpoon;
+              config = readFile ./../../nvim/harpoon.lua;
+              depends = [ plenary-nvim ];
+              modules = [ "harpoon.mark" "harpoon.ui" ];
+            }
+            {
               plugin = copilot-lua;
               config = readFile ./../../nvim/copilot.lua;
               lazy = true;
