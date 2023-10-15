@@ -14,7 +14,6 @@
           package = pkgs.neovim-nightly;
           # logLevel = "debug";
           extraConfig = ''
-            " test
             ${readFile ./../../nvim/disable-default-plugin.vim}
             ${readFile ./../../nvim/prelude.vim}
             ${readFile ./../../nvim/keymap.vim}
@@ -391,9 +390,8 @@
               plugin = gin-vim;
               config = readFile ./../../nvim/gin.lua;
               depends = [ denops-vim ];
-              # TODO: support denops lazy load
-              # commands = [ "Gin" "GinBuffer" "GinLog" "GinStatus" "GinDiff" ];
-              lazy = true;
+              commands = [ "Gin" "GinBuffer" "GinLog" "GinStatus" "GinDiff" ];
+              useDenops = true;
             }
             {
               plugin = neogit;
@@ -695,11 +693,6 @@
               events = [ "InsertEnter" "CursorMoved" ];
             }
             {
-              plugin = denops-vim;
-              # 全体で管理
-              # extraPackages = with pkgs; [ deno ];
-            }
-            {
               # Cicaに登録されている絵文字を全角幅にしてくれる
               plugin = vim-ambiwidth;
               lazy = true;
@@ -872,7 +865,10 @@
             {
               name = "skk";
               plugins = [
-                skkeleton
+                {
+                  plugin = skkeleton;
+                  useDenops = true;
+                }
                 # wip
                 # {
                 #   plugin = skk-vconv-vim;
@@ -884,14 +880,14 @@
                   config = readFile ./../../nvim/skk-indicator.lua;
                 }
               ];
-              # depends = [ denops-vim ];
+              depends = [ denops-vim ];
               dependBundles = [ "ddc" ];
               config = {
                 lang = "vim";
                 code = readFile ./../../nvim/skk.vim;
                 args = { jisyo_path = "${pkgs.skk-dicts}/share/SKK-JISYO.L"; };
               };
-              lazy = true;
+              events = [ "InsertEnter" "CmdlineEnter" ];
             }
             {
               name = "telescope";
@@ -1027,7 +1023,10 @@
             {
               name = "ddc";
               plugins = [
-                ddc-vim
+                {
+                  plugin = ddc-vim;
+                  useDenops = true;
+                }
                 {
                   plugin = ddc-ui-pum;
                   depends = [{
@@ -1047,22 +1046,68 @@
                       code = readFile ./../../nvim/pum.vim;
                     };
                   }];
+                  useDenops = true;
                 }
-                ddc-buffer
-                ddc-converter_remove_overlap
-                ddc-converter_truncate
-                ddc-fuzzy
-                ddc-matcher_head
-                ddc-matcher_length
-                ddc-sorter_itemsize
-                ddc-sorter_rank
-                ddc-source-around
-                ddc-source-cmdline
-                ddc-source-cmdline-history
-                ddc-source-file
-                ddc-source-input
-                ddc-source-line
-                ddc-sorter_reverse
+                {
+                  plugin = ddc-buffer;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-converter_remove_overlap;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-converter_truncate;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-fuzzy;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-matcher_head;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-matcher_length;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-sorter_itemsize;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-sorter_rank;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-source-around;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-source-cmdline;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-source-cmdline-history;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-source-file;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-source-input;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-source-line;
+                  useDenops = true;
+                }
+                {
+                  plugin = ddc-sorter_reverse;
+                  useDenops = true;
+                }
                 {
                   plugin = ddc-source-vsnip;
                   depends = [{
@@ -1073,16 +1118,22 @@
                       code = readFile ./../../nvim/vsnip.vim;
                     };
                   }];
+                  useDenops = true;
                 }
                 {
                   plugin = ddc-source-nvim-lsp;
                   modules = [ "ddc_nvim_lsp" ];
+                  useDenops = true;
                 }
                 {
                   plugin = ddc-nvim-lsp-setup;
                   config = readFile ./../../nvim/ddc-nvim-lsp-setup.lua;
+                  useDenops = true;
                 }
-                ddc-tmux
+                {
+                  plugin = ddc-tmux;
+                  useDenops = true;
+                }
                 # ddc-ui-native
                 # denops-popup-preview-vim
                 # {
@@ -1090,12 +1141,19 @@
                 #   config = readFile ./../../nvim/ddc-previewer-floating.lua;
                 #   depends = [ pum-vim ];
                 # }
-                denops-signature_help
-                neco-vim
+                {
+                  plugin = denops-signature_help;
+                  useDenops = true;
+                }
+                {
+                  plugin = neco-vim;
+                  useDenops = true;
+                }
                 # TODO lazy
                 {
                   plugin = ddc-source-nvim-obsidian;
                   depends = [ obsidian-nvim ];
+                  useDenops = true;
                 }
                 {
                   plugin = tsnip-nvim;
@@ -1105,6 +1163,7 @@
                     args = { tsnip_root = ./../../snippets/tsnip; };
                   };
                   depends = [ nui-nvim ];
+                  useDenops = true;
                 }
               ];
               depends = [
@@ -1125,7 +1184,8 @@
                 code = readFile ./../../nvim/ddc.vim;
                 args = { ts_config = ./../../nvim/ddc.ts; };
               };
-              lazy = true;
+              events = [ "InsertEnter" "CmdlineEnter" ];
+              # lazy = true;
             }
             # {
             #   name = "ddu";
