@@ -3619,6 +3619,22 @@
         "type": "github"
       }
     },
+    "melange-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691793679,
+        "narHash": "sha256-67Ldkr7Uo0vV/ouLxH5KMXnZT7Hjuh4WXHxOLkJdBmY=",
+        "owner": "savq",
+        "repo": "melange-nvim",
+        "rev": "517518347e41301bb2d1189d257f3918551a2ea5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "savq",
+        "repo": "melange-nvim",
+        "type": "github"
+      }
+    },
     "middleclass": {
       "flake": false,
       "locked": {
@@ -3716,6 +3732,22 @@
       "original": {
         "owner": "mawkler",
         "repo": "modicator.nvim",
+        "type": "github"
+      }
+    },
+    "monokai-nightasty-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697124487,
+        "narHash": "sha256-wJUoAKtCrE7I9ma7Lfz0S/djdP4yXR5++gEi+xl//ZY=",
+        "owner": "polirritmico",
+        "repo": "monokai-nightasty.nvim",
+        "rev": "37ade2f16087ad989fb8b335ce7f3af8efeafcdc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "polirritmico",
+        "repo": "monokai-nightasty.nvim",
         "type": "github"
       }
     },
@@ -7527,11 +7559,13 @@
         "lush-nvim": "lush-nvim",
         "marks-nvim": "marks-nvim",
         "mdeval-nvim": "mdeval-nvim",
+        "melange-nvim": "melange-nvim",
         "middleclass": "middleclass",
         "minimap-vim": "minimap-vim",
         "mkdir-nvim": "mkdir-nvim",
         "modes-nvim": "modes-nvim",
         "modicator-nvim": "modicator-nvim",
+        "monokai-nightasty-nvim": "monokai-nightasty-nvim",
         "monokai-pro-nvim": "monokai-pro-nvim",
         "nap-nvim": "nap-nvim",
         "navigator-lua": "navigator-lua",
@@ -7756,11 +7790,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1697329131,
-        "narHash": "sha256-PKd++02kj7AWIxiCei/5q7N+7wAGhQz2xBNDhKkVFso=",
+        "lastModified": 1697386626,
+        "narHash": "sha256-5lKdLxpAF5vvZz77EHxOym2W4qt04bdlwApbvpVRMLI=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "04ab83ce43385627dd89cc1a9d2ce3eedd53f422",
+        "rev": "39de13658bfb7213e306444cd0696e9e01fb4ce6",
         "type": "github"
       },
       "original": {
