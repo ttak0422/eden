@@ -50,8 +50,11 @@ require("bqf").setup({
     drop = "O",
     split = "<C-x>",
     vsplit = "<C-v>",
+    -- open the item in a new tab
     tab = "t",
+    -- open the item in a new tab, but stay in quickfix window
     tabb = "T",
+    -- open the item in a new tab, and close quickfix window
     tabc = "<C-t>",
     tabdrop = "",
     ptogglemode = "zp",
