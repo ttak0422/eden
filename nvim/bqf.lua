@@ -43,4 +43,35 @@ end
 
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
-require("bqf").setup({})
+require("bqf").setup({
+  func_map = {
+    open = "<CR>",
+    openc = "o",
+    drop = "O",
+    split = "<C-x>",
+    vsplit = "<C-v>",
+    tab = "t",
+    tabb = "T",
+    tabc = "<C-t>",
+    tabdrop = "",
+    ptogglemode = "zp",
+    ptoggleitem = "p",
+    ptoggleauto = "P",
+    pscrollup = "<C-b>",
+    pscrolldown = "<C-f>",
+    pscrollorig = "zo",
+    prevfile = "",
+    nextfile = "",
+    prevhist = "",
+    nexthist = "",
+    lastleave = [['"]],
+    stoggleup = "<S-Tab>",
+    stoggledown = "<Tab>",
+    stogglevm = "<Tab>",
+    stogglebuf = [['<Tab>]],
+    sclear = "z<Tab>",
+    filter = "zn",
+    filterr = "zN",
+    fzffilter = "zf",
+  },
+})

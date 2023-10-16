@@ -778,9 +778,10 @@
             }
             {
               plugin = nvim-bqf;
-              config = readFile ./../../nvim/bqf.lua;
+              config = readFile ./../../nvim/bqf.lua + ''
+                vim.cmd([[silent source ${nvim-bqf}/after/ftplugin/qf/bqf.vim]])
+              '';
               events = [ "QuickFixCmdPre" ];
-              lazy = true;
             }
             # {
             #   plugin = qfview-nvim;

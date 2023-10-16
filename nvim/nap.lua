@@ -4,6 +4,30 @@ local function cmd(c)
   return "<cmd>" .. c .. "<cr>"
 end
 
+local function get_qflist_nr(nr)
+  return vim.fn["getqflist"]({ ["nr"] = nr }).nr
+end
+
+local function safe_qf_colder()
+  local idx = get_qflist_nr(0)
+  if 1 < idx then
+    vim.cmd("silent colder")
+  else
+    local last_idx = get_qflist_nr("$")
+    vim.cmd("silent " .. last_idx .. "chistory")
+  end
+end
+
+local function safe_qf_cnewer()
+  local idx = get_qflist_nr(0)
+  local last_idx = get_qflist_nr("$")
+  if idx < last_idx then
+    vim.cmd("silent cnewer")
+  else
+    vim.cmd("silent 1chistory")
+  end
+end
+
 require("nap").setup({
   next_prefix = "]",
   prev_prefix = "[",
@@ -19,8 +43,14 @@ require("nap").setup({
       next = { rhs = "<Plug>(buf-surf-forward)", opts = { desc = "next buffer (history)" } },
     },
     ["r"] = {
-      prev = { rhs = cmd([[lua require("harpoon.ui").nav_prev()]]), opts = { desc = "prev registered buffer (harpoon)" } },
-      next = { rhs = cmd([[lua require("harpoon.ui").nav_next()]]), opts = { desc = "next registered buffer (harpoon)" } },
+      prev = {
+        rhs = cmd([[lua require("harpoon.ui").nav_prev()]]),
+        opts = { desc = "prev registered buffer (harpoon)" },
+      },
+      next = {
+        rhs = cmd([[lua require("harpoon.ui").nav_next()]]),
+        opts = { desc = "next registered buffer (harpoon)" },
+      },
     },
     ["e"] = {
       prev = { rhs = "g,", opts = { desc = "prev change item" } },
@@ -71,8 +101,8 @@ require("nap").setup({
       next = { rhs = cmd("cnfile"), opts = { desc = "next quickfix item in different file" } },
     },
     ["<M-q>"] = {
-      prev = { rhs = cmd("colder"), opts = { desc = "prev quickfix list" } },
-      next = { rhs = cmd("cnewer"), opts = { desc = "next quickfix list" } },
+      prev = { rhs = safe_qf_colder, opts = { desc = "prev error list" } },
+      next = { rhs = safe_qf_cnewer, opts = { desc = "next error list" } },
     },
     ["l"] = {
       prev = { rhs = cmd("Lprev"), opts = { desc = "prev loclist item" } },
