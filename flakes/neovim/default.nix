@@ -850,6 +850,8 @@
             {
               name = "treesitter";
               plugins = [
+                # WIP: TODO lazy load or merge
+                # pkgs.writeText "text" (builtins.toJSON pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies);
                 pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars
                 nvim-yati
                 # nvim-ts-rainbow2
