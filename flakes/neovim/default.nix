@@ -757,10 +757,11 @@
             }
             {
               plugin = qf-nvim;
-              config = readFile ./../../nvim/qf.lua;
+              config = readFile ./../../nvim/qf.lua + ''
+                vim.cmd([[silent source ${qf-nvim}/after/ftplugin/qf.vim]])
+              '';
               filetypes = [ "qf" ];
-              events = [ "QuickFixCmdPre" ];
-              lazy = true;
+              commands = [ "Qnext" "Qprev" "Lnext" "Lprev" ];
             }
             {
               plugin = toolwindow-nvim;
