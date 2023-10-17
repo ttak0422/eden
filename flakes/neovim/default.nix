@@ -850,7 +850,7 @@
             {
               name = "treesitter";
               plugins = [
-                nvim-treesitter
+                pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars
                 nvim-yati
                 # nvim-ts-rainbow2
                 # vim-matchup
