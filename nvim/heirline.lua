@@ -369,7 +369,6 @@ end
 local Pomodoro
 do
   Pomodoro = {
-    Bar,
     {
       on_click = {
         callback = function()
@@ -566,14 +565,14 @@ local DefaultStatusLine = {
   Space,
   Diagnostics,
   Space,
+  Pomodoro,
+  Space,
   Align,
   --
   SearchCount,
   Align,
   --
   Ruler,
-  Space,
-  Pomodoro,
   Space,
   FileProperties,
   Space,
