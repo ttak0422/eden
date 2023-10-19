@@ -4,6 +4,7 @@
     let
       inherit (builtins) readFile;
       inherit (pkgs) callPackage;
+      inherit (lib.strings) concatStringsSep;
     in {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
@@ -849,10 +850,10 @@
           bundles = with pkgs.vimPlugins; [
             {
               name = "treesitter";
-              plugins = [
-                # WIP: TODO lazy load or merge
-                # pkgs.writeText "text" (builtins.toJSON pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies);
-                pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars
+              plugins = let
+                nvim-treesitter = pkgs.pkgs-unstable.vimPlugins.nvim-treesitter;
+              in [
+                nvim-treesitter
                 nvim-yati
                 # nvim-ts-rainbow2
                 # vim-matchup
@@ -862,7 +863,23 @@
                   config = readFile ./../../nvim/rainbow-delimiters.lua;
                 }
               ];
-              config = readFile ./../../nvim/treesitter.lua;
+              config = readFile ./../../nvim/treesitter.lua + ''
+                vim.opt.runtimepath:append("${
+                  pkgs.stdenv.mkDerivation {
+                    name = "treesitter-all-grammars";
+                    buildCommand = ''
+                      mkdir -p $out
+                      echo "${
+                        concatStringsSep ","
+                        nvim-treesitter.withAllGrammars.dependencies
+                      }" \
+                        | tr ',' '\n' \
+                        | xargs -I {} find {} -name '*.so' \
+                        | xargs -I {} cp {} $out
+                    '';
+                  }
+                }");
+              '';
               extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
               lazy = true;
             }
