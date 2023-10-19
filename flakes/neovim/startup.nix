@@ -1,7 +1,7 @@
 { vimPlugins, ... }:
 let inherit (builtins) readFile;
 in with vimPlugins; [
-  vim-sensible
+  # vim-sensible
   {
     plugin = alpha-nvim;
     startup = readFile ./../../nvim/alpha.lua;
