@@ -850,10 +850,8 @@
           bundles = with pkgs.vimPlugins; [
             {
               name = "treesitter";
-              plugins = let
-                nvim-treesitter = pkgs.pkgs-unstable.vimPlugins.nvim-treesitter;
-              in [
-                nvim-treesitter
+              plugins = [
+                pkgs.pkgs-unstable.vimPlugins.nvim-treesitter
                 nvim-yati
                 # nvim-ts-rainbow2
                 # vim-matchup
@@ -863,23 +861,27 @@
                   config = readFile ./../../nvim/rainbow-delimiters.lua;
                 }
               ];
-              config = readFile ./../../nvim/treesitter.lua + ''
-                vim.opt.runtimepath:append("${
-                  pkgs.stdenv.mkDerivation {
-                    name = "treesitter-all-grammars";
-                    buildCommand = ''
-                      mkdir -p $out
-                      echo "${
-                        concatStringsSep ","
-                        nvim-treesitter.withAllGrammars.dependencies
-                      }" \
-                        | tr ',' '\n' \
-                        | xargs -I {} find {} -name '*.so' \
-                        | xargs -I {} cp {} $out
-                    '';
-                  }
-                }");
-              '';
+              config = let
+                parser = pkgs.stdenv.mkDerivation {
+                  name = "treesitter-all-grammars";
+                  buildCommand = ''
+                    mkdir -p $out/parser
+                    echo "${
+                      concatStringsSep ","
+                      pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
+                    }" \
+                      | tr ',' '\n' \
+                      | xargs -I {} find {} -name '*.so' \
+                      | xargs -I {} cp {} $out/parser
+                  '';
+                };
+              in {
+                lang = "lua";
+                code = readFile ./../../nvim/treesitter.lua + ''
+                  vim.opt.runtimepath:append("${parser}");
+                '';
+                args = { inherit parser; };
+              };
               extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
               lazy = true;
             }
