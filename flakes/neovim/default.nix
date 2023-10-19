@@ -851,7 +851,9 @@
             {
               name = "treesitter";
               plugins = [
-                pkgs.pkgs-unstable.vimPlugins.nvim-treesitter
+                # WIP: `bash` does not work on lazy loading
+                (pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins
+                  (p: with p; [ bash ]))
                 nvim-yati
                 # nvim-ts-rainbow2
                 # vim-matchup
@@ -871,7 +873,7 @@
                       pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
                     }" \
                       | tr ',' '\n' \
-                      | xargs -I {} find {} -name '*.so' \
+                      | xargs -I {} find {} -not -type d \
                       | xargs -I {} cp {} $out/parser
                   '';
                 };
