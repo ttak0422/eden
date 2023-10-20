@@ -874,7 +874,7 @@
                     }" \
                       | tr ',' '\n' \
                       | xargs -I {} find {} -not -type d \
-                      | xargs -I {} cp {} $out/parser
+                      | xargs -I {} ln -s {} $out/parser
                   '';
                 };
               in {
