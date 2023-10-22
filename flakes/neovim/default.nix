@@ -847,484 +847,413 @@
               config = readFile ./../../nvim/statuscol.lua;
             }
           ]);
-          bundles = with pkgs.vimPlugins; [
-            {
-              name = "treesitter";
-              plugins = [
-                # WIP: `bash` does not work on lazy loading
-                (pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins
-                  (p: with p; [ bash ]))
-                nvim-yati
-                # nvim-ts-rainbow2
-                # vim-matchup
-                nvim-treesitter-textobjects
-                {
-                  plugin = rainbow-delimiters-nvim;
-                  config = readFile ./../../nvim/rainbow-delimiters.lua;
-                }
-              ];
-              config = let
-                parser = pkgs.stdenv.mkDerivation {
-                  name = "treesitter-all-grammars";
-                  buildCommand = ''
-                    mkdir -p $out/parser
-                    echo "${
-                      concatStringsSep ","
-                      pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
-                    }" \
-                      | tr ',' '\n' \
-                      | xargs -I {} find {} -not -type d \
-                      | xargs -I {} ln -s {} $out/parser
-                  '';
-                };
-              in {
-                lang = "lua";
-                code = readFile ./../../nvim/treesitter.lua + ''
-                  vim.opt.runtimepath:append("${parser}");
-                '';
-                args = { inherit parser; };
-              };
-              extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
-              lazy = true;
-            }
-            {
-              name = "skk";
-              plugins = [
-                {
-                  plugin = skkeleton;
-                  useDenops = true;
-                }
-                # wip
-                # {
-                #   plugin = skk-vconv-vim;
-                #   depends = [ skkeleton ];
-                #   extraPackages = with pkgs; [ python3Packages.pykakasi ];
-                # }
-                {
-                  plugin = skkeleton_indicator-nvim;
-                  config = readFile ./../../nvim/skk-indicator.lua;
-                }
-              ];
-              depends = [ denops-vim ];
-              dependBundles = [ "ddc" ];
-              config = {
-                lang = "vim";
-                code = readFile ./../../nvim/skk.vim;
-                args = { jisyo_path = "${pkgs.skk-dicts}/share/SKK-JISYO.L"; };
-              };
-              events = [ "InsertEnter" "CmdlineEnter" ];
-            }
-            {
-              name = "telescope";
-              plugins = [
-                telescope-nvim
-                telescope-ui-select-nvim
-                {
-                  plugin = telescope-repo-nvim;
-                  extraPackages = with pkgs; [ fd glow bat ];
-                }
-                {
-                  plugin = telescope-live-grep-args-nvim;
-                  extraPackages = with pkgs; [ ripgrep ];
-                }
-                {
-                  plugin = telescope-sonictemplate-nvim;
-                  depends = [{
-                    plugin = vim-sonictemplate.overrideAttrs (old: {
-                      src = pkgs.nix-filter {
-                        root = vim-sonictemplate.src;
-                        exclude = [ "template/java" "template/make" ];
-                      };
-                    });
-                    preConfig = ''
-                      vim.g.sonictemplate_vim_template_dir = "${pkgs.sonicCustomTemplates}"
-                      vim.g.sonictemplate_key = 0
-                      vim.g.sonictemplate_intelligent_key = 0
-                      vim.g.sonictemplate_postfix_key = 0
+          bundles = with pkgs.vimPlugins;
+            [
+              {
+                name = "treesitter";
+                plugins = [
+                  # WIP: `bash` does not work on lazy loading
+                  (pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins
+                    (p: with p; [ bash ]))
+                  nvim-yati
+                  # nvim-ts-rainbow2
+                  # vim-matchup
+                  nvim-treesitter-textobjects
+                  {
+                    plugin = rainbow-delimiters-nvim;
+                    config = readFile ./../../nvim/rainbow-delimiters.lua;
+                  }
+                ];
+                config = let
+                  parser = pkgs.stdenv.mkDerivation {
+                    name = "treesitter-all-grammars";
+                    buildCommand = ''
+                      mkdir -p $out/parser
+                      echo "${
+                        concatStringsSep ","
+                        pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
+                      }" \
+                        | tr ',' '\n' \
+                        | xargs -I {} find {} -not -type d \
+                        | xargs -I {} ln -s {} $out/parser
                     '';
-                  }];
-                }
-              ];
-              depends = [ plenary-nvim ];
-              config = readFile ./../../nvim/telescope.lua;
-              commands = [ "Telescope" ];
-            }
-            {
-              name = "lsp";
-              plugins = [
-                {
-                  plugin = nvim-lspconfig;
-                  # [WIP] dotnet
-                  # dotnet tool install --global csharp-ls
-                  extraPackages = (with pkgs; [
-                    dart
-                    deno
-                    dhall-lsp-server
-                    google-java-format
-                    gopls
-                    lua-language-server
-                    nil
-                    nodePackages.bash-language-server
-                    nodePackages.pyright
-                    nodePackages.typescript
-                    nodePackages.vscode-langservers-extracted
-                    nodePackages.yaml-language-server
-                    rubyPackages.solargraph
-                    rust-analyzer
-                    taplo-cli
-                  ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
-                  config = {
-                    lang = "lua";
-                    code = readFile ./../../nvim/lspconfig.lua;
-                    args = {
-                      on_attach_path = ./../../nvim/shared/on_attach.lua;
-                      capabilities_path = ./../../nvim/shared/capabilities.lua;
-                      eslint_cmd = [
-                        "${pkgs.nodePackages.vscode-langservers-extracted}/bin/vscode-eslint-language-server"
-                        "--stdio"
+                  };
+                in {
+                  lang = "lua";
+                  code = readFile ./../../nvim/treesitter.lua + ''
+                    vim.opt.runtimepath:append("${parser}");
+                  '';
+                  args = { inherit parser; };
+                };
+                extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
+                lazy = true;
+              }
+              {
+                name = "skk";
+                plugins = [
+                  {
+                    plugin = skkeleton;
+                    useDenops = true;
+                  }
+                  # wip
+                  # {
+                  #   plugin = skk-vconv-vim;
+                  #   depends = [ skkeleton ];
+                  #   extraPackages = with pkgs; [ python3Packages.pykakasi ];
+                  # }
+                  {
+                    plugin = skkeleton_indicator-nvim;
+                    config = readFile ./../../nvim/skk-indicator.lua;
+                  }
+                ];
+                depends = [ denops-vim ];
+                dependBundles = [ "ddc" ];
+                config = {
+                  lang = "vim";
+                  code = readFile ./../../nvim/skk.vim;
+                  args = {
+                    jisyo_path = "${pkgs.skk-dicts}/share/SKK-JISYO.L";
+                  };
+                };
+                events = [ "InsertEnter" "CmdlineEnter" ];
+              }
+              {
+                name = "telescope";
+                plugins = [
+                  telescope-nvim
+                  telescope-ui-select-nvim
+                  {
+                    plugin = telescope-repo-nvim;
+                    extraPackages = with pkgs; [ fd glow bat ];
+                  }
+                  {
+                    plugin = telescope-live-grep-args-nvim;
+                    extraPackages = with pkgs; [ ripgrep ];
+                  }
+                  {
+                    plugin = telescope-sonictemplate-nvim;
+                    depends = [{
+                      plugin = vim-sonictemplate.overrideAttrs (old: {
+                        src = pkgs.nix-filter {
+                          root = vim-sonictemplate.src;
+                          exclude = [ "template/java" "template/make" ];
+                        };
+                      });
+                      preConfig = ''
+                        vim.g.sonictemplate_vim_template_dir = "${pkgs.sonicCustomTemplates}"
+                        vim.g.sonictemplate_key = 0
+                        vim.g.sonictemplate_intelligent_key = 0
+                        vim.g.sonictemplate_postfix_key = 0
+                      '';
+                    }];
+                  }
+                ];
+                depends = [ plenary-nvim ];
+                config = readFile ./../../nvim/telescope.lua;
+                commands = [ "Telescope" ];
+              }
+              {
+                name = "lsp";
+                plugins = [
+                  {
+                    plugin = nvim-lspconfig;
+                    # [WIP] dotnet
+                    # dotnet tool install --global csharp-ls
+                    extraPackages = (with pkgs; [
+                      dart
+                      deno
+                      dhall-lsp-server
+                      google-java-format
+                      gopls
+                      lua-language-server
+                      nil
+                      nodePackages.bash-language-server
+                      nodePackages.pyright
+                      nodePackages.typescript
+                      nodePackages.vscode-langservers-extracted
+                      nodePackages.yaml-language-server
+                      rubyPackages.solargraph
+                      rust-analyzer
+                      taplo-cli
+                    ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
+                    config = {
+                      lang = "lua";
+                      code = readFile ./../../nvim/lspconfig.lua;
+                      args = {
+                        on_attach_path = ./../../nvim/shared/on_attach.lua;
+                        capabilities_path =
+                          ./../../nvim/shared/capabilities.lua;
+                        eslint_cmd = [
+                          "${pkgs.nodePackages.vscode-langservers-extracted}/bin/vscode-eslint-language-server"
+                          "--stdio"
+                        ];
+                      };
+                    };
+                    # depends = [{
+                    #   plugin = neodev-nvim;
+                    #   config = readFile ./../../nvim/neodev.lua;
+                    # }];
+                    lazy = true;
+                  }
+                  {
+                    plugin = lsp-lens-nvim;
+                    config = readFile ./../../nvim/lsp-lens.lua;
+                  }
+                  # {
+                  #   plugin = actions-preview-nvim;
+                  #   config = readFile ./../../nvim/actions-preview.lua;
+                  #   dependBundles = [ "telescope" ];
+                  #   modules = [ "actions-preview" ];
+                  # }
+                  {
+                    plugin = lsp-inlayhints-nvim;
+                    config = readFile ./../../nvim/inlayhints.lua;
+                  }
+                  # {
+                  #   # カーソルの対応する要素のハイライト.
+                  #   plugin = vim-illuminate;
+                  #   config = readFile ./../../nvim/illuminate.lua;
+                  # }
+                  # {
+                  #   plugin = hover-nvim;
+                  #   config = readFile ./../../nvim/hover.lua;
+                  # }
+                  # {
+                  #   plugin = pretty_hover;
+                  #   config = readFile ./../../nvim/pretty-hover.lua;
+                  # }
+                  # {
+                  #   plugin = diagflow-nvim;
+                  #   config = readFile ./../../nvim/diagflow.lua;
+                  # }
+                  noice-nvim
+                ];
+                depends = [{
+                  plugin = fidget-nvim;
+                  config = readFile ./../../nvim/fidget.lua;
+                }];
+                dependBundles = [ "ddc" ];
+                lazy = true;
+              }
+              {
+                name = "dap";
+                plugins = [
+                  nvim-dap
+                  nvim-dap-go
+                  nvim-dap-ui
+                  nvim-dap-virtual-text
+                  overseer-nvim
+                ];
+                dependBundles = [ "treesitter" ];
+                config = readFile ./../../nvim/dap.lua;
+                modules = [ "dap" "dapui" ];
+                filetypes = [ "java" ];
+              }
+              {
+                name = "ddc";
+                plugins = [
+                  {
+                    plugin = ddc-vim;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-ui-pum;
+                    depends = [{
+                      plugin = pum-vim;
+                      depends = [
+                        { plugin = noice-nvim; }
+                        {
+                          plugin = nvim-autopairs;
+                          dependBundles = [ "treesitter" ];
+                          config = readFile ./../../nvim/autopairs.lua;
+                          events = [ "InsertEnter" ];
+                          modules = [ "nvim-autopairs" ];
+                        }
                       ];
-                    };
-                  };
-                  # depends = [{
-                  #   plugin = neodev-nvim;
-                  #   config = readFile ./../../nvim/neodev.lua;
-                  # }];
-                  lazy = true;
-                }
-                {
-                  plugin = lsp-lens-nvim;
-                  config = readFile ./../../nvim/lsp-lens.lua;
-                }
-                # {
-                #   plugin = actions-preview-nvim;
-                #   config = readFile ./../../nvim/actions-preview.lua;
-                #   dependBundles = [ "telescope" ];
-                #   modules = [ "actions-preview" ];
-                # }
-                {
-                  plugin = lsp-inlayhints-nvim;
-                  config = readFile ./../../nvim/inlayhints.lua;
-                }
-                # {
-                #   # カーソルの対応する要素のハイライト.
-                #   plugin = vim-illuminate;
-                #   config = readFile ./../../nvim/illuminate.lua;
-                # }
-                # {
-                #   plugin = hover-nvim;
-                #   config = readFile ./../../nvim/hover.lua;
-                # }
-                # {
-                #   plugin = pretty_hover;
-                #   config = readFile ./../../nvim/pretty-hover.lua;
-                # }
-                # {
-                #   plugin = diagflow-nvim;
-                #   config = readFile ./../../nvim/diagflow.lua;
-                # }
-                noice-nvim
-              ];
-              depends = [{
-                plugin = fidget-nvim;
-                config = readFile ./../../nvim/fidget.lua;
-              }];
-              dependBundles = [ "ddc" ];
-              lazy = true;
-            }
-            {
-              name = "dap";
-              plugins = [
-                nvim-dap
-                nvim-dap-go
-                nvim-dap-ui
-                nvim-dap-virtual-text
-                overseer-nvim
-              ];
-              dependBundles = [ "treesitter" ];
-              config = readFile ./../../nvim/dap.lua;
-              modules = [ "dap" "dapui" ];
-              filetypes = [ "java" ];
-            }
-            {
-              name = "ddc";
-              plugins = [
-                {
-                  plugin = ddc-vim;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-ui-pum;
-                  depends = [{
-                    plugin = pum-vim;
-                    depends = [
-                      { plugin = noice-nvim; }
-                      {
-                        plugin = nvim-autopairs;
-                        dependBundles = [ "treesitter" ];
-                        config = readFile ./../../nvim/autopairs.lua;
-                        events = [ "InsertEnter" ];
-                        modules = [ "nvim-autopairs" ];
-                      }
-                    ];
+                      config = {
+                        lang = "vim";
+                        code = readFile ./../../nvim/pum.vim;
+                      };
+                    }];
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-buffer;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-converter_remove_overlap;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-converter_truncate;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-fuzzy;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-matcher_head;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-matcher_length;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-sorter_itemsize;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-sorter_rank;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-around;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-cmdline;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-cmdline-history;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-file;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-input;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-line;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-sorter_reverse;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-vsnip;
+                    depends = [{
+                      plugin = vim-vsnip;
+                      depends = [ tabout-nvim ];
+                      config = {
+                        lang = "vim";
+                        code = readFile ./../../nvim/vsnip.vim;
+                      };
+                    }];
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-source-nvim-lsp;
+                    modules = [ "ddc_nvim_lsp" ];
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-nvim-lsp-setup;
+                    config = readFile ./../../nvim/ddc-nvim-lsp-setup.lua;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = ddc-tmux;
+                    useDenops = true;
+                  }
+                  # ddc-ui-native
+                  # denops-popup-preview-vim
+                  # {
+                  #   plugin = ddc-previewer-floating;
+                  #   config = readFile ./../../nvim/ddc-previewer-floating.lua;
+                  #   depends = [ pum-vim ];
+                  # }
+                  {
+                    plugin = denops-signature_help;
+                    useDenops = true;
+                  }
+                  {
+                    plugin = neco-vim;
+                    useDenops = true;
+                  }
+                  # TODO lazy
+                  {
+                    plugin = ddc-source-nvim-obsidian;
+                    depends = [ obsidian-nvim ];
+                    useDenops = true;
+                  }
+                  {
+                    plugin = tsnip-nvim;
                     config = {
-                      lang = "vim";
-                      code = readFile ./../../nvim/pum.vim;
+                      lang = "lua";
+                      code = readFile ./../../nvim/tsnip.lua;
+                      args = { tsnip_root = ./../../snippets/tsnip; };
                     };
-                  }];
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-buffer;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-converter_remove_overlap;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-converter_truncate;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-fuzzy;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-matcher_head;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-matcher_length;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-sorter_itemsize;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-sorter_rank;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-around;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-cmdline;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-cmdline-history;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-file;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-input;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-line;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-sorter_reverse;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-vsnip;
-                  depends = [{
-                    plugin = vim-vsnip;
-                    depends = [ tabout-nvim ];
-                    config = {
-                      lang = "vim";
-                      code = readFile ./../../nvim/vsnip.vim;
-                    };
-                  }];
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-source-nvim-lsp;
-                  modules = [ "ddc_nvim_lsp" ];
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-nvim-lsp-setup;
-                  config = readFile ./../../nvim/ddc-nvim-lsp-setup.lua;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddc-tmux;
-                  useDenops = true;
-                }
-                # ddc-ui-native
-                # denops-popup-preview-vim
-                # {
-                #   plugin = ddc-previewer-floating;
-                #   config = readFile ./../../nvim/ddc-previewer-floating.lua;
-                #   depends = [ pum-vim ];
-                # }
-                {
-                  plugin = denops-signature_help;
-                  useDenops = true;
-                }
-                {
-                  plugin = neco-vim;
-                  useDenops = true;
-                }
-                # TODO lazy
-                {
-                  plugin = ddc-source-nvim-obsidian;
-                  depends = [ obsidian-nvim ];
-                  useDenops = true;
-                }
-                {
-                  plugin = tsnip-nvim;
-                  config = {
-                    lang = "lua";
-                    code = readFile ./../../nvim/tsnip.lua;
-                    args = { tsnip_root = ./../../snippets/tsnip; };
-                  };
-                  depends = [ nui-nvim ];
-                  useDenops = true;
-                }
-              ];
-              depends = [
-                denops-vim
-                # {
-                #   plugin = LuaSnip;
-                #   config = {
-                #     lang = "lua";
-                #     code = readFile ./../../nvim/luasnip.lua;
-                #     args = { snipmate_root = ./../../snippets/snipmate; };
-                #   };
-                #   depends = [ friendly-snippets ];
-                # }
-              ];
-              dependBundles = [ "lsp" ];
-              config = {
-                lang = "vim";
-                code = readFile ./../../nvim/ddc.vim;
-                args = { ts_config = ./../../nvim/ddc.ts; };
-              };
-              events = [ "InsertEnter" "CmdlineEnter" ];
-            }
-            {
-              name = "ddu";
-              plugins = [
-                {
-                  plugin = ddu-vim;
-                  useDenops = true;
-                }
-                # ui
-                {
-                  plugin = ddu-ui-ff;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddu-ui-filer;
-                  useDenops = true;
-                }
-                # source
-                {
-                  plugin = ddu-source-file;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddu-source-file_rec;
-                  useDenops = true;
-                }
-                # filter
-                {
-                  plugin = ddu-filter-fzf;
-                  useDenops = true;
-                  extraPackages = with pkgs; [ fzf ];
-                }
-                # filter (matcher)
-                {
-                  plugin = ddu-filter-matcher_substring;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddu-filter-matcher_hidden;
-                  useDenops = true;
-                }
-                # filter (sorter)
-                {
-                  plugin = ddu-filter-sorter_alpha;
-                  useDenops = true;
-                }
-                # filter (converter)
-                {
-                  plugin = ddu-filter-converter_hl_dir;
-                  useDenops = true;
-                }
-                {
-                  plugin = ddu-filter-converter_devicon;
-                  useDenops = true;
-                }
-                # kind
-                {
-                  plugin = ddu-kind-file;
-                  useDenops = true;
-                }
-                # other
-                {
-                  plugin = ddu-commands-vim;
-                  useDenops = true;
-                }
-              ];
-              depends = [ denops-vim ];
-              config = {
-                lang = "vim";
-                code = readFile ./../../nvim/ddu.vim;
-                args = { ts_config = ./../../nvim/ddu.ts; };
-              };
-              # commands = [ "Ddu" ];
-              commands = [ "Ddu" ];
-              lazy = true;
-            }
-            {
-              name = "neotest-bundle";
-              plugins = [
-                {
-                  plugin = neotest;
-                  depends = [ plenary-nvim ];
-                  dependBundles = [ "treesitter" "lsp" "dap" ];
-                }
-                neotest-python
-                neotest-plenary
-                neotest-go
-                neotest-jest
-                neotest-vitest
-                neotest-playwright
-                neotest-rspec
-                neotest-minitest
-                neotest-dart
-                neotest-testthat
-                neotest-phpunit
-                neotest-pest
-                neotest-rust
-                neotest-elixir
-                neotest-dotnet
-                neotest-scala
-                neotest-haskell
-                neotest-deno
-                {
-                  plugin = neotest-vim-test;
-                  depends = [ vim-test ];
-                }
-                overseer-nvim
-              ];
-              config = {
-                lang = "lua";
-                code = readFile ./../../nvim/neotest.lua;
-              };
-              commands = [ "Neotest" ];
-            }
-          ];
+                    depends = [ nui-nvim ];
+                    useDenops = true;
+                  }
+                ];
+                depends = [
+                  denops-vim
+                  # {
+                  #   plugin = LuaSnip;
+                  #   config = {
+                  #     lang = "lua";
+                  #     code = readFile ./../../nvim/luasnip.lua;
+                  #     args = { snipmate_root = ./../../snippets/snipmate; };
+                  #   };
+                  #   depends = [ friendly-snippets ];
+                  # }
+                ];
+                dependBundles = [ "lsp" ];
+                config = {
+                  lang = "vim";
+                  code = readFile ./../../nvim/ddc.vim;
+                  args = { ts_config = ./../../nvim/ddc.ts; };
+                };
+                events = [ "InsertEnter" "CmdlineEnter" ];
+              }
+              {
+                name = "neotest-bundle";
+                plugins = [
+                  {
+                    plugin = neotest;
+                    depends = [ plenary-nvim ];
+                    dependBundles = [ "treesitter" "lsp" "dap" ];
+                  }
+                  neotest-python
+                  neotest-plenary
+                  neotest-go
+                  neotest-jest
+                  neotest-vitest
+                  neotest-playwright
+                  neotest-rspec
+                  neotest-minitest
+                  neotest-dart
+                  neotest-testthat
+                  neotest-phpunit
+                  neotest-pest
+                  neotest-rust
+                  neotest-elixir
+                  neotest-dotnet
+                  neotest-scala
+                  neotest-haskell
+                  neotest-deno
+                  {
+                    plugin = neotest-vim-test;
+                    depends = [ vim-test ];
+                  }
+                  overseer-nvim
+                ];
+                config = {
+                  lang = "lua";
+                  code = readFile ./../../nvim/neotest.lua;
+                };
+                commands = [ "Neotest" ];
+              }
+            ] ++ (callPackage ./ddu.nix { });
           after = {
             ftplugin = {
               ddu-ff = readFile ./../../nvim/after/ftplugin/ddu-ff.vim;

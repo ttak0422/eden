@@ -14,7 +14,9 @@ export class Config extends BaseConfig {
       startAutoAction: true,
       autoAction: {
         name: "preview",
+        delay: 250, // same as telescope.nvim
       },
+      autoResize: false,
       displaySourceName: "no",
       filterSplitDirection: "floating",
       filterFloatingPosition: "top",
@@ -35,12 +37,6 @@ export class Config extends BaseConfig {
       winCol: 1,
       winHeight: "&lines / 3 - 2",
       winWidth: "&columns - 2",
-      // previewFloating: true,
-      // previewRow: 1,
-      // previewCol: 1,
-      // previewHeight: "&lines / 2 - 4",
-      // previewWidth: "&columns - 2",
-      // previewFloatingBorder: "single",
       previewSplit: "no",
       startFilter: true,
       prompt: " ",
