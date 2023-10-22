@@ -758,9 +758,7 @@
             }
             {
               plugin = qf-nvim;
-              config = readFile ./../../nvim/qf.lua + ''
-                vim.cmd([[silent source ${qf-nvim}/after/ftplugin/qf.vim]])
-              '';
+              config = readFile ./../../nvim/qf.lua;
               filetypes = [ "qf" ];
               commands = [ "Qnext" "Qprev" "Lnext" "Lprev" ];
             }
@@ -780,9 +778,8 @@
             }
             {
               plugin = nvim-bqf;
-              config = readFile ./../../nvim/bqf.lua + ''
-                vim.cmd([[silent source ${nvim-bqf}/after/ftplugin/qf/bqf.vim]])
-              '';
+              config = readFile ./../../nvim/bqf.lua;
+              modules = [ "bqf" ];
               events = [ "QuickFixCmdPre" ];
             }
             # {
@@ -1251,8 +1248,12 @@
               }
             ] ++ (callPackage ./ddu.nix { });
           after = {
-            ftplugin = {
-              qf = readFile ./../../nvim/after/ftplugin/qf.vim;
+            ftplugin = with pkgs.vimPlugins; {
+              qf = readFile ./../../nvim/after/ftplugin/qf.vim + ''
+                " wip...
+                " silent source ${qf-nvim}/after/ftplugin/qf.vim
+                silent source ${nvim-bqf}/after/ftplugin/qf/bqf.vim
+              '';
               ddu-ff = readFile ./../../nvim/after/ftplugin/ddu-ff.vim;
               ddu-ff-filter =
                 readFile ./../../nvim/after/ftplugin/ddu-ff-filter.vim;
