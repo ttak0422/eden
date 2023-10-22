@@ -25,11 +25,30 @@ in with vimPlugins; [{
       plugin = ddu-source-file_rec;
       useDenops = true;
     }
+    {
+      plugin = ddu-source-rg;
+      useDenops = true;
+      extraPackages = with pkgs; [ ripgrep ];
+    }
+    {
+      plugin = ddu-source-ghq;
+      useDenops = true;
+      extraPackages = with pkgs; [ ghq ];
+    }
+    {
+      plugin = ddu-source-file_external;
+      useDenops = true;
+      extraPackages = with pkgs; [ fd ];
+    }
     # filter
     {
       plugin = ddu-filter-fzf;
       useDenops = true;
       extraPackages = with pkgs; [ fzf ];
+    }
+    {
+      plugin = ddu-filter-matcher_files;
+      useDenops = true;
     }
     # filter (matcher)
     {
@@ -54,6 +73,10 @@ in with vimPlugins; [{
       plugin = ddu-filter-converter_devicon;
       useDenops = true;
     }
+    {
+      plugin = ddu-filter-converter_display_word;
+      useDenops = true;
+    }
     # kind
     {
       plugin = ddu-kind-file;
@@ -64,6 +87,10 @@ in with vimPlugins; [{
       plugin = ddu-commands-vim;
       useDenops = true;
     }
+    {
+      plugin = kensaku-vim;
+      useDenops = true;
+    }
   ];
   depends = [ denops-vim ];
   config = {
@@ -71,7 +98,6 @@ in with vimPlugins; [{
     code = readFile ./../../nvim/ddu.vim;
     args = { ts_config = ./../../nvim/ddu.ts; };
   };
-  # commands = [ "Ddu" ];
-  commands = [ "Ddu" ];
+  commands = [ "Ddu" "DduRg" "DduRgLive" ];
   lazy = true;
 }]

@@ -7,10 +7,15 @@ import {
 } from "https://deno.land/x/ddu_ui_ff@v1.1.0/ff.ts";
 
 export class Config extends BaseConfig {
-  override config({ contextBuilder }: ConfigArguments): Promise<void> {
+  override config(
+    { contextBuilder, setAlias }: ConfigArguments,
+  ): Promise<void> {
+    setAlias("source", "file_fd", "file_external");
+
     const ffParamsDefault = new FfUi().params();
     const ffUiParams: FfParams = {
       ...ffParamsDefault,
+      ignoreEmpty: true,
       startAutoAction: true,
       autoAction: {
         name: "preview",
@@ -49,6 +54,8 @@ export class Config extends BaseConfig {
       sources: [
         "file",
         "file_rec",
+        "file_external",
+        "ghq",
       ],
       uiOptions: {},
       uiParams: {
@@ -69,10 +76,27 @@ export class Config extends BaseConfig {
           converters: ["converter_hl_dir", "converter_devicon"],
           smartCase: true,
         },
+        rg: {
+          matchers: [
+            "converter_display_word",
+            "matcher_substring",
+            "matcher_files",
+          ],
+          sorters: ["sorter_alpha"],
+        },
+        ghq: {
+          defaultAction: "cd",
+        },
       },
       sourceParams: {
         file: {
           new: false,
+        },
+        file_fd: {
+          cmd: ["fd", ".", "-H", "-t", "f"],
+        },
+        rg: {
+          args: ["--json"],
         },
       },
       filterOptions: {},
