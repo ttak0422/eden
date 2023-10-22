@@ -19,3 +19,5 @@ set completeopt=menu,menuone,noinsert
 autocmd WinEnter * checktime
 autocmd FileType * setlocal formatoptions-=r
 autocmd FileType * setlocal formatoptions-=o
+" does not work correctly
+" autocmd BufLeave * if &buftype == '' | setlocal nobuflisted | endif
