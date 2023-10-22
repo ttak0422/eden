@@ -77,6 +77,10 @@ export class Config extends BaseConfig {
           converters: ["converter_hl_dir", "converter_devicon"],
           smartCase: true,
         },
+        file_fd: {
+          matchers: ["matcher_fzf"],
+          sorters: ["sorter_fzf"],
+        },
         rg: {
           matchers: [
             "converter_display_word",
@@ -103,6 +107,9 @@ export class Config extends BaseConfig {
       filterOptions: {},
       filterParams: {
         matcher_substring: {
+          highlightMatched: "Search",
+        },
+        matcher_fzf: {
           highlightMatched: "Search",
         },
         converter_hl_dir: {
