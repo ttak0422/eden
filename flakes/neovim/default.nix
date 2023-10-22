@@ -1256,6 +1256,7 @@
             ] ++ (callPackage ./ddu.nix { });
           after = {
             ftplugin = {
+              qf = readFile ./../../nvim/after/ftplugin/qf.vim;
               ddu-ff = readFile ./../../nvim/after/ftplugin/ddu-ff.vim;
               ddu-ff-filter =
                 readFile ./../../nvim/after/ftplugin/ddu-ff-filter.vim;
