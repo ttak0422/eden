@@ -36,7 +36,7 @@ export class Config extends BaseConfig {
         denops: Denops;
         previewWinId: number;
       }) => {
-        await fn.win_execute(args.denops, args.previewWinId, "normal! zt");
+        await fn.win_execute(args.denops, args.previewWinId, "normal! zz");
       },
       winRow: "&lines / 3 * 2",
       winCol: 1,
