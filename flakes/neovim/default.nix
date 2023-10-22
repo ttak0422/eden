@@ -1261,9 +1261,18 @@
                   plugin = ddu-filter-converter_hl_dir;
                   useDenops = true;
                 }
+                {
+                  plugin = ddu-filter-converter_devicon;
+                  useDenops = true;
+                }
                 # kind
                 {
                   plugin = ddu-kind-file;
+                  useDenops = true;
+                }
+                # other
+                {
+                  plugin = ddu-commands-vim;
                   useDenops = true;
                 }
               ];
@@ -1316,6 +1325,13 @@
               commands = [ "Neotest" ];
             }
           ];
+          after = {
+            ftplugin = {
+              ddu-ff = readFile ./../../nvim/after/ftplugin/ddu-ff.vim;
+              ddu-ff-filter =
+                readFile ./../../nvim/after/ftplugin/ddu-ff-filter.vim;
+            };
+          };
         };
       };
     };

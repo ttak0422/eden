@@ -11,15 +11,19 @@ export class Config extends BaseConfig {
     const ffParamsDefault = new FfUi().params();
     const ffUiParams: FfParams = {
       ...ffParamsDefault,
+      startAutoAction: true,
       autoAction: {
         name: "preview",
       },
+      displaySourceName: "no",
       filterSplitDirection: "floating",
+      filterFloatingPosition: "top",
       floatingBorder: "single",
       highlights: {
         filterText: "Statement",
         floating: "Normal",
         floatingBorder: "Special",
+        selected: "CursorLine",
       },
       onPreview: async (args: {
         denops: Denops;
@@ -27,16 +31,29 @@ export class Config extends BaseConfig {
       }) => {
         await fn.win_execute(args.denops, args.previewWinId, "normal! zt");
       },
-      previewFloating: true,
-      previewFloatingBorder: "single",
+      winRow: "&lines / 3 * 2",
+      winCol: 1,
+      winHeight: "&lines / 3 - 2",
+      winWidth: "&columns - 2",
+      // previewFloating: true,
+      // previewRow: 1,
+      // previewCol: 1,
+      // previewHeight: "&lines / 2 - 4",
+      // previewWidth: "&columns - 2",
+      // previewFloatingBorder: "single",
       previewSplit: "no",
       startFilter: true,
-      winWidth: 100,
+      prompt: " ",
+      split: "floating",
     };
 
     contextBuilder.patchGlobal({
       ui: "ff",
       profile: false,
+      sources: [
+        "file",
+        "file_rec",
+      ],
       uiOptions: {},
       uiParams: {
         ff: ffUiParams,
@@ -53,10 +70,15 @@ export class Config extends BaseConfig {
             "matcher_hidden",
           ],
           sorters: ["sorter_alpha"],
-          converters: ["converter_hl_dir"],
+          converters: ["converter_hl_dir", "converter_devicon"],
+          smartCase: true,
         },
       },
-      sourceParams: {},
+      sourceParams: {
+        file: {
+          new: false,
+        },
+      },
       filterOptions: {},
       filterParams: {
         matcher_substring: {
