@@ -926,6 +926,22 @@
         "type": "github"
       }
     },
+    "compiler-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697845006,
+        "narHash": "sha256-7g6eWcnECGP9nmYLNpnrQhmUOT8dNftRAAEyIZCz59U=",
+        "owner": "Zeioth",
+        "repo": "compiler.nvim",
+        "rev": "6af2fc0720004b2ef28bad7f85f765715216f73a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Zeioth",
+        "repo": "compiler.nvim",
+        "type": "github"
+      }
+    },
     "confirm-nvim": {
       "flake": false,
       "locked": {
@@ -7881,6 +7897,22 @@
         "type": "github"
       }
     },
+    "vim-partedit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672237683,
+        "narHash": "sha256-MOPZARyJocZpFMCdQcNRODyQUI0xJWOvA1rOr04Do+c=",
+        "owner": "thinca",
+        "repo": "vim-partedit",
+        "rev": "5936e9bc04c8e3925489397079a6b0a862353d3a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thinca",
+        "repo": "vim-partedit",
+        "type": "github"
+      }
+    },
     "vim-plugins-overlay": {
       "inputs": {
         "ChatGPT-nvim": "ChatGPT-nvim",
@@ -7939,6 +7971,7 @@
         "coman-nvim": "coman-nvim",
         "comfortable-motion-vim": "comfortable-motion-vim",
         "comfortable_motion_scroll_up_key": "comfortable_motion_scroll_up_key",
+        "compiler-nvim": "compiler-nvim",
         "confirm-nvim": "confirm-nvim",
         "confirm-quit-nvim": "confirm-quit-nvim",
         "conform-nvim": "conform-nvim",
@@ -8304,8 +8337,10 @@
         "vim-matchup": "vim-matchup",
         "vim-nix": "vim-nix",
         "vim-oscyank": "vim-oscyank",
+        "vim-partedit": "vim-partedit",
         "vim-poslist": "vim-poslist",
         "vim-qf": "vim-qf",
+        "vim-qfedit": "vim-qfedit",
         "vim-repeat": "vim-repeat",
         "vim-searchx": "vim-searchx",
         "vim-sensible": "vim-sensible",
@@ -8334,11 +8369,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1698067982,
-        "narHash": "sha256-GqwweJuQSzN7vGZmBSrgChJpGjzUWbTpsUW3Hxo7PuA=",
+        "lastModified": 1698075848,
+        "narHash": "sha256-ec8BZOr55jr4r/1trudbeNfiRfF73JbO4mNE3wLEge8=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "a1abc513a5219e82c5b9457f3c395146a0058dba",
+        "rev": "28425947f1eab501cd3dcd184ad483c33ed780a5",
         "type": "github"
       },
       "original": {
@@ -8376,6 +8411,22 @@
       "original": {
         "owner": "romainl",
         "repo": "vim-qf",
+        "type": "github"
+      }
+    },
+    "vim-qfedit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687749058,
+        "narHash": "sha256-hHjFgcnKd0o+IqNbO+jDkifFhjWESvJ7HEg+7YnMxcE=",
+        "owner": "itchyny",
+        "repo": "vim-qfedit",
+        "rev": "6ba4cc57597fa96a36b44b1a2274244fcb44e28f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "itchyny",
+        "repo": "vim-qfedit",
         "type": "github"
       }
     },

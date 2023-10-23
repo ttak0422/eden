@@ -29,6 +29,7 @@
           '';
           startPlugins = callPackage ./startup.nix { };
           optPlugins = callPackage ./util.nix { } ++ (with pkgs.vimPlugins; [
+            { plugin = nano-theme-nvim; }
             {
               plugin = harpoon;
               config = readFile ./../../nvim/harpoon.lua;
@@ -781,6 +782,8 @@
               config = readFile ./../../nvim/bqf.lua;
               modules = [ "bqf" ];
               events = [ "QuickFixCmdPre" ];
+              dependBundles = [ "treesitter" ];
+              extraPackages = with pkgs; [ fzf ];
             }
             # {
             #   plugin = qfview-nvim;

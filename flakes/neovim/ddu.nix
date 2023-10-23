@@ -97,7 +97,7 @@ in with vimPlugins; [{
       useDenops = true;
     }
   ];
-  depends = [ denops-vim ];
+  depends = [ denops-vim qf-nvim nvim-bqf ];
   config = {
     lang = "vim";
     code = readFile ./../../nvim/ddu.vim;
