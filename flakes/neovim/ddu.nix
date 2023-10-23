@@ -104,5 +104,4 @@ in with vimPlugins; [{
     args = { ts_config = ./../../nvim/ddu.ts; };
   };
   commands = [ "Ddu" "DduRg" "DduRgLive" ];
-  lazy = true;
 }]
