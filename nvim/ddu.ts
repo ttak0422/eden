@@ -110,7 +110,7 @@ export class Config extends BaseConfig {
           new: false,
         },
         file_fd: {
-          cmd: ["fd", ".", "-H", "-t", "f"],
+          cmd: ["fd", ".", "-H", "-t", "f", "--exclude", ".git"],
         },
         rg: {
           args: ["--json"],
