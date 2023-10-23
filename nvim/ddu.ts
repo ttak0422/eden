@@ -11,6 +11,9 @@ export class Config extends BaseConfig {
     { contextBuilder, setAlias }: ConfigArguments,
   ): Promise<void> {
     setAlias("source", "file_fd", "file_external");
+    setAlias("source", "mru", "mr");
+    setAlias("source", "mrw", "mr");
+    setAlias("source", "mrr", "mr");
 
     const ffParamsDefault = new FfUi().params();
     const ffUiParams: FfParams = {
@@ -56,6 +59,7 @@ export class Config extends BaseConfig {
         "file",
         "file_rec",
         "file_external",
+        "mr",
         "ghq",
       ],
       uiOptions: {},
@@ -64,7 +68,6 @@ export class Config extends BaseConfig {
       },
       sourceOptions: {
         _: {
-          ignoreCase: true,
           matchers: ["matcher_substring"],
           smartCase: true,
         },
@@ -94,6 +97,15 @@ export class Config extends BaseConfig {
         },
       },
       sourceParams: {
+        mru: {
+          kind: "mru",
+        },
+        mrw: {
+          kind: "mrw",
+        },
+        mrr: {
+          kind: "mrr",
+        },
         file: {
           new: false,
         },

@@ -40,6 +40,11 @@ in with vimPlugins; [{
       useDenops = true;
       extraPackages = with pkgs; [ fd ];
     }
+    {
+      plugin = ddu-source-mr;
+      useDenops = true;
+      depends = [ mr-vim ];
+    }
     # filter
     {
       plugin = ddu-filter-fzf;

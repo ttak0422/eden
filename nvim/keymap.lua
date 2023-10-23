@@ -156,6 +156,9 @@ local normal_keymaps = {
   { "<leader>fb", cmd("Telescope buffers"), desc("search buffer") },
   { "<leader>fh", cmd("Legendary"), desc("search legendary") },
   { "<leader>ft", cmd("Telescope sonictemplate templates"), desc("search template") },
+  { "<leader>fru", cmd("Ddu mru"), desc("MRU (Most Recently Used files)") },
+  { "<leader>frw", cmd("Ddu mrw"), desc("MRW (Most Recently Written files)") },
+  { "<leader>frr", cmd("Ddu mrr"), desc("MRR (Most Recent git Repositories)") },
   {
     "<leader>fF",
     cmd("lua require('spectre').open()"),

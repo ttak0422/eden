@@ -4215,6 +4215,22 @@
         "type": "github"
       }
     },
+    "mr-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675866639,
+        "narHash": "sha256-dpZeAcevvuBeJiW+YkPtuRGmg+/m9Ouj6qi1ETCvS0g=",
+        "owner": "lambdalisue",
+        "repo": "mr.vim",
+        "rev": "11d819541ff7b813f41d2caa32b6fd93e5eb7b8b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lambdalisue",
+        "repo": "mr.vim",
+        "type": "github"
+      }
+    },
     "nano-theme-nvim": {
       "flake": false,
       "locked": {
@@ -6231,11 +6247,11 @@
     "piccolo-pomodoro-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1694446536,
-        "narHash": "sha256-yO2A/FrI7YYHW7cD8fj1/EUtmARQR4xw9AzqzREJjCo=",
+        "lastModified": 1698066591,
+        "narHash": "sha256-QzexYwZyGDA48Auw6OoCqmKn9AZ9f3zsilgDgAoKRLY=",
         "owner": "ttak0422",
         "repo": "piccolo-pomodoro.nvim",
-        "rev": "18ef2faef539c0405c6c6f4b9735dcbf4834ae3d",
+        "rev": "ad2e1840bb87b9c853ce7bf743fa08223cc8c34d",
         "type": "github"
       },
       "original": {
@@ -8091,6 +8107,7 @@
         "modicator-nvim": "modicator-nvim",
         "monokai-nightasty-nvim": "monokai-nightasty-nvim",
         "monokai-pro-nvim": "monokai-pro-nvim",
+        "mr-vim": "mr-vim",
         "nano-theme-nvim": "nano-theme-nvim",
         "nap-nvim": "nap-nvim",
         "navigator-lua": "navigator-lua",
@@ -8317,11 +8334,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1698020252,
-        "narHash": "sha256-8uQLwX+k3uuyQevMX8aZLcgf2BNvN8cr0mpNOk0ATtU=",
+        "lastModified": 1698067982,
+        "narHash": "sha256-GqwweJuQSzN7vGZmBSrgChJpGjzUWbTpsUW3Hxo7PuA=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "db734acfd1bf2f4d05ce8948d72b1c39ba64c033",
+        "rev": "a1abc513a5219e82c5b9457f3c395146a0058dba",
         "type": "github"
       },
       "original": {
