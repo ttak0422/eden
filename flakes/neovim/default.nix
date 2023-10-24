@@ -687,6 +687,7 @@
                 nodePackages.prettier
                 nodePackages.fixjson
                 yapf
+                yamlfmt
               ];
             }
             {

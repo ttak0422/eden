@@ -1,4 +1,3 @@
-local util = require("formatter.util")
 local lspconfig = require("lspconfig")
 require("formatter").setup({
   logging = true,
@@ -60,5 +59,8 @@ require("formatter").setup({
         return require("formatter.filetypes.typescript").denofmt()
       end,
     },
+    yaml = {
+      require("formatter.filetypes.yaml").yamlfmt,
+    }
   },
 })
