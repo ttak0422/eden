@@ -29,6 +29,15 @@
           '';
           startPlugins = callPackage ./startup.nix { };
           optPlugins = callPackage ./util.nix { } ++ (with pkgs.vimPlugins; [
+            {
+              plugin = kensaku-command-vim;
+              depends = [{
+                plugin = kensaku-vim;
+                useDenops = true;
+                depends = [ denops-vim ];
+              }];
+              commands = [ "Kensaku" ];
+            }
             { plugin = nano-theme-nvim; }
             {
               plugin = harpoon;

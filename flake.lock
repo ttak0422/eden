@@ -1494,11 +1494,11 @@
     "ddc-source-nvim-lsp": {
       "flake": false,
       "locked": {
-        "lastModified": 1696829248,
-        "narHash": "sha256-tTAZWrtOmNIRiEsp+aDEVGHBbtpF79VIZxJ5GWtT1eM=",
+        "lastModified": 1698122452,
+        "narHash": "sha256-SfX6VFe+AXjr3QO3+Ln5GYhI5DljxobfRm8VdzSH9Yo=",
         "owner": "Shougo",
         "repo": "ddc-source-nvim-lsp",
-        "rev": "d203bb9c6160f9bd540692d6b857283af88bae3e",
+        "rev": "3dce3f29cb99aa5463c8ec56e091587b1c9fcba6",
         "type": "github"
       },
       "original": {
@@ -3758,6 +3758,38 @@
       "original": {
         "owner": "rebelot",
         "repo": "kanagawa.nvim",
+        "type": "github"
+      }
+    },
+    "kensaku-command-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673985062,
+        "narHash": "sha256-TbpBJMQjInDazOZFWP3KEkjcpEIWmkDZ4c70MCxWYPw=",
+        "owner": "lambdalisue",
+        "repo": "kensaku-command.vim",
+        "rev": "d14e13d67e53b597806951f7ccabc40fe6a574fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lambdalisue",
+        "repo": "kensaku-command.vim",
+        "type": "github"
+      }
+    },
+    "kensaku-search-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673982347,
+        "narHash": "sha256-hJ9Sf1BhtLrNTePso3QLZHDmvcOuOrg4Svqa71xS+b0=",
+        "owner": "lambdalisue",
+        "repo": "kensaku-search.vim",
+        "rev": "8fefbd7db9af99414896c5837feec13a02606550",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lambdalisue",
+        "repo": "kensaku-search.vim",
         "type": "github"
       }
     },
@@ -8112,6 +8144,8 @@
         "inline-fold-nvim": "inline-fold-nvim",
         "iswap-nvim": "iswap-nvim",
         "kanagawa-nvim": "kanagawa-nvim",
+        "kensaku-command-vim": "kensaku-command-vim",
+        "kensaku-search-vim": "kensaku-search-vim",
         "kensaku-vim": "kensaku-vim",
         "kitty-scrollback-nvim": "kitty-scrollback-nvim",
         "leap-ast-nvim": "leap-ast-nvim",
@@ -8369,11 +8403,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1698075848,
-        "narHash": "sha256-ec8BZOr55jr4r/1trudbeNfiRfF73JbO4mNE3wLEge8=",
+        "lastModified": 1698161543,
+        "narHash": "sha256-ICoXgSkLBwb2/1y2zREcO+I3wzKF4ws5lST3g/4hsuI=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "28425947f1eab501cd3dcd184ad483c33ed780a5",
+        "rev": "70e326d17f11d2dcd90f04b4a8ba7b4544e25e75",
         "type": "github"
       },
       "original": {
