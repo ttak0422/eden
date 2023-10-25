@@ -41,6 +41,7 @@ export class Config extends BaseConfig {
       }) => {
         await fn.win_execute(args.denops, args.previewWinId, "normal! zz");
         await fn.win_execute(args.denops, args.previewWinId, "setlocal nu");
+        await fn.win_execute(args.denops, args.previewWinId, "set nobuflisted");
       },
       winRow: "&lines / 3 * 2",
       winCol: 1,
