@@ -900,22 +900,21 @@
               }
               {
                 name = "skk";
-                plugins = [
-                  {
-                    plugin = skkeleton;
-                    useDenops = true;
-                  }
-                  # wip
-                  # {
-                  #   plugin = skk-vconv-vim;
-                  #   depends = [ skkeleton ];
-                  #   extraPackages = with pkgs; [ python3Packages.pykakasi ];
-                  # }
-                  {
-                    plugin = skkeleton_indicator-nvim;
-                    config = readFile ./../../nvim/skk-indicator.lua;
-                  }
-                ];
+                plugins = [{
+                  plugin = skkeleton;
+                  useDenops = true;
+                }
+                # wip
+                # {
+                #   plugin = skk-vconv-vim;
+                #   depends = [ skkeleton ];
+                #   extraPackages = with pkgs; [ python3Packages.pykakasi ];
+                # }
+                # {
+                #   plugin = skkeleton_indicator-nvim;
+                #   config = readFile ./../../nvim/skk-indicator.lua;
+                # }
+                  ];
                 depends = [ denops-vim ];
                 dependBundles = [ "ddc" ];
                 config = {

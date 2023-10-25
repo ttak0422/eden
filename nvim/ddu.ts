@@ -28,7 +28,7 @@ export class Config extends BaseConfig {
       displaySourceName: "no",
       filterSplitDirection: "floating",
       filterFloatingPosition: "top",
-      floatingBorder: "single",
+      floatingBorder: [ "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" ],
       highlights: {
         filterText: "Statement",
         floating: "Normal",
@@ -49,8 +49,8 @@ export class Config extends BaseConfig {
       winWidth: "&columns - 2",
       previewSplit: "no",
       startFilter: true,
-      prompt: " ",
-      split: "floating",
+      prompt: "  ",
+      split: "horizontal",
     };
 
     contextBuilder.patchGlobal({
