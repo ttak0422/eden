@@ -51,6 +51,7 @@ export class Config extends BaseConfig {
       startFilter: true,
       prompt: "  ",
       split: "horizontal",
+      statusline: false,
     };
 
     contextBuilder.patchGlobal({
