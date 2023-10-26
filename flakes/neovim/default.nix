@@ -405,7 +405,15 @@
               plugin = gin-vim;
               config = readFile ./../../nvim/gin.lua;
               depends = [ denops-vim ];
-              commands = [ "Gin" "GinBuffer" "GinLog" "GinStatus" "GinDiff" ];
+              commands = [
+                "Gin"
+                "GinBuffer"
+                "GinLog"
+                "GinStatus"
+                "GinDiff"
+                "GinBrowse"
+                "GinBranch"
+              ];
               useDenops = true;
             }
             {
