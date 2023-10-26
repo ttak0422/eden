@@ -27,6 +27,12 @@ in with vimPlugins; [{
     }
     {
       plugin = ddu-source-rg;
+      preConfig = {
+        lang = "vim";
+        code = ''
+          let g:loaded_ddu_rg = 1
+        '';
+      };
       useDenops = true;
       extraPackages = with pkgs; [ ripgrep ];
     }
@@ -104,4 +110,5 @@ in with vimPlugins; [{
     args = { ts_config = ./../../nvim/ddu.ts; };
   };
   commands = [ "Ddu" "DduRg" "DduRgLive" ];
+  lazy = true;
 }]
