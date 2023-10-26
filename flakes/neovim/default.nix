@@ -30,6 +30,10 @@
           startPlugins = callPackage ./startup.nix { };
           optPlugins = callPackage ./util.nix { } ++ (with pkgs.vimPlugins; [
             {
+              plugin = pkgs.pkgs-unstable.vimPlugins.markdown-preview-nvim;
+              filetypes = [ "markdown" ];
+            }
+            {
               plugin = kensaku-command-vim;
               depends = [{
                 plugin = kensaku-vim;
