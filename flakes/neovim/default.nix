@@ -30,6 +30,13 @@
           startPlugins = callPackage ./startup.nix { };
           optPlugins = callPackage ./util.nix { } ++ (with pkgs.vimPlugins; [
             {
+              plugin = chafa-nvim;
+              config = readFile ./../../nvim/chafa.lua;
+              depends = [ plenary-nvim baleia-nvim ];
+              extraPackages = with pkgs; [ chafa ];
+              commands = [ "ViewImage" ];
+            }
+            {
               plugin = pkgs.pkgs-unstable.vimPlugins.markdown-preview-nvim;
               filetypes = [ "markdown" ];
             }

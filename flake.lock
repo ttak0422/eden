@@ -386,6 +386,22 @@
         "type": "github"
       }
     },
+    "baleia-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681806450,
+        "narHash": "sha256-jxRlIzWbnSj89032msc5w+2TVt7zVyzlxdXxiH1dQqY=",
+        "owner": "m00qek",
+        "repo": "baleia.nvim",
+        "rev": "00bb4af31c8c3865b735d40ebefa6c3f07b2dd16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "m00qek",
+        "repo": "baleia.nvim",
+        "type": "github"
+      }
+    },
     "bclose-vim": {
       "flake": false,
       "locked": {
@@ -555,6 +571,22 @@
       "original": {
         "owner": "catppuccin",
         "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "chafa-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673020992,
+        "narHash": "sha256-4k1Nga+iYyhJeCkxgn3spzsKqBNhO+J9IRiStPCAHvM=",
+        "owner": "princejoogie",
+        "repo": "chafa.nvim",
+        "rev": "792c8f4f0e86b5e27c3602be4614f886f3a12a5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "princejoogie",
+        "repo": "chafa.nvim",
         "type": "github"
       }
     },
@@ -7930,6 +7962,7 @@
         "auto-session": "auto-session",
         "autolist-nvim": "autolist-nvim",
         "backseat-nvim": "backseat-nvim",
+        "baleia-nvim": "baleia-nvim",
         "bclose-vim": "bclose-vim",
         "better-escape-nvim": "better-escape-nvim",
         "bigfile-nvim": "bigfile-nvim",
@@ -7939,6 +7972,7 @@
         "bufresize-nvim": "bufresize-nvim",
         "caret-nvim": "caret-nvim",
         "catppuccin": "catppuccin",
+        "chafa-nvim": "chafa-nvim",
         "chowcho-nvim": "chowcho-nvim",
         "circles-nvim": "circles-nvim",
         "clear-action-nvim": "clear-action-nvim",
@@ -8366,11 +8400,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1698365976,
-        "narHash": "sha256-meeg94avdm/Lzb7Q0BLK3JhxK2VK1dIa6zNfDT/gvpE=",
+        "lastModified": 1698418385,
+        "narHash": "sha256-UR6uBIxRWCCNJIbmiHho7wWAcynZAmgMLxnlHTXbUSw=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "232d37987840277c1e725e77cb73b3227a8696a9",
+        "rev": "88ad40d8ff30c0c9a815609214d40f6cba859564",
         "type": "github"
       },
       "original": {
