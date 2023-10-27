@@ -410,6 +410,14 @@
               events = [ "CursorMoved" ];
             }
             {
+              plugin = gina-vim;
+              config = {
+                lang = "vim";
+                code = readFile ./../../nvim/gina.vim;
+              };
+              commands = [ "Gina" ];
+            }
+            {
               plugin = gin-vim;
               config = readFile ./../../nvim/gin.lua;
               depends = [ denops-vim ];

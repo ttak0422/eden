@@ -96,7 +96,7 @@ local normal_keymaps = {
   },
   {
     "<leader>gB",
-    cmd("GinBuffer ++processor=delta blame %:p"),
+    cmd("Gina blame"),
     desc("git blame"),
   },
   {
