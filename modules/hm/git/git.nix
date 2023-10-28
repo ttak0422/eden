@@ -33,7 +33,7 @@ in {
     };
   };
   home = {
-    packages = with pkgs; [ ghq pre-commit ];
+    packages = with pkgs; [ ghq pre-commit gh ];
     file.".committemplate".text = prefs.template;
   };
 }
