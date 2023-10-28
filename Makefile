@@ -49,3 +49,14 @@ else
 	@./bin/xnix/setup_develop.sh
 	@./bin/xnix/setup_onedrive.sh
 endif
+
+.PHONY: neovim
+neovim:
+ifeq ($(OS),Windows_NT)
+	@echo "wip..."
+else
+	tempfile=$(mktemp) \
+  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
+  && tic -x -o ~/.terminfo $tempfile \
+  && rm $tempfile
+endif
