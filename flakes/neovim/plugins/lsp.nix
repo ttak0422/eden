@@ -87,8 +87,8 @@ in with vimPlugins; [
       lang = "lua";
       code = readFile ./../../../nvim/deno.lua;
       args = {
-        on_attach_path = ./../../nvim/shared/on_attach.lua;
-        capabilities_path = ./../../nvim/shared/capabilities.lua;
+        on_attach_path = ./../../../nvim/shared/on_attach.lua;
+        capabilities_path = ./../../../nvim/shared/capabilities.lua;
       };
     };
     filetypes = [ "typescript" ];
@@ -121,8 +121,8 @@ in with vimPlugins; [
       lang = "lua";
       code = readFile ./../../../nvim/haskell-tools.lua;
       args = {
-        on_attach_path = ./../../nvim/shared/on_attach.lua;
-        capabilities_path = ./../../nvim/shared/capabilities.lua;
+        on_attach_path = ./../../../nvim/shared/on_attach.lua;
+        capabilities_path = ./../../../nvim/shared/capabilities.lua;
       };
     };
     filetypes = [ "haskell" ];
@@ -132,7 +132,7 @@ in with vimPlugins; [
     plugin = flutter-tools-nvim;
     depends = [ plenary-nvim ];
     dependBundles = [ "lsp" ];
-    config = readFile ./../../../../nvim/flutter-tools.lua;
+    config = readFile ./../../../nvim/flutter-tools.lua;
     filetypes = [ "dart" ];
   }
   {
