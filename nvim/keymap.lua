@@ -120,6 +120,7 @@ local normal_keymaps = {
   -- tools
   { "<leader>q", cmd("BufDel") },
   { "<leader>Q", cmd("BufDel!") },
+  { "<leader>A", cmd("tabclose") },
   { "<leader>E", cmd("FeMaco"), desc("edit code block") },
   -- buffer
   { "<leader>br", lua([[require("harpoon.mark").add_file()]]), desc("register buffer (harpoon)") },
