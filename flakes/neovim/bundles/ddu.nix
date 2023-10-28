@@ -106,8 +106,8 @@ in with vimPlugins; [{
   depends = [ denops-vim qf-nvim nvim-bqf ];
   config = {
     lang = "vim";
-    code = readFile ./../../nvim/ddu.vim;
-    args = { ts_config = ./../../nvim/ddu.ts; };
+    code = readFile ./../../../nvim/ddu.vim;
+    args = { ts_config = ./../../../nvim/ddu.ts; };
   };
   commands = [ "Ddu" "DduRg" "DduRgLive" ];
   lazy = true;
