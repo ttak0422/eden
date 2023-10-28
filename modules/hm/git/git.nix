@@ -16,7 +16,7 @@ in {
       # 参考 (https://qiita.com/hajimeni/items/73d2155fc59e152630c4)
       delete-merged-branch = ''
         !f () { git checkout $1; git branch --merged|egrep -v \
-        '\\*|develop|main'|xargs git branch -d; };f
+        '\\*|develop|master|main'|xargs git branch -d; };f
       '';
     };
     extraConfig = {
