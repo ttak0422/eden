@@ -1,12 +1,22 @@
-function! GinaOpenRev() abort
+function! GinaOpenHash() abort
   let can = gina#action#candidates()
-  let url = system(printf('%s %s', 'getpr', can[0].rev))->trim()
   let cmd = printf('Gina browse --exact %s:%%', can[0].rev)
   execute cmd
 endfunction
 
+function! GinaOpenHashPR() abort
+  let can = gina#action#candidates()
+  call system(printf("git openpr %s", can[0].rev))
+endfunction
+
 call gina#custom#mapping#nmap(
       \ 'blame', '<C-o>',
-      \ ':<C-u>call GinaOpenRev()<CR>',
+      \ ':<C-u>call GinaOpenHash()<CR>',
+      \ {'silent': 1},
+      \)
+
+call gina#custom#mapping#nmap(
+      \ 'blame', '<C-p>',
+      \ ':<C-u>call GinaOpenHashPR()<CR>',
       \ {'silent': 1},
       \)

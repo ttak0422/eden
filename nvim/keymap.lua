@@ -95,7 +95,7 @@ local normal_keymaps = {
     desc("git command (buffer)"),
   },
   {
-    "<leader>gB",
+    "<leader>gb",
     cmd("Gina blame"),
     desc("git blame"),
   },
