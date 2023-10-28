@@ -1031,13 +1031,11 @@
                 };
                 commands = [ "Neotest" ];
               }
-            ] ++
-            # (callPackage ./ddu.nix { });
-            (flatten (map (bs: callPackage bs { }) [
-              ./bundles/lsp.nix
-              ./bundles/dap.nix
-              ./bundles/ddc.nix
-              ./bundles/ddu.nix
+            ] ++ (flatten (map (bs: callPackage bs { }) [
+              ./bundles/lsp-core.nix
+              ./bundles/dap-core.nix
+              ./bundles/ddc-core.nix
+              ./bundles/ddu-core.nix
             ]));
           after = {
             ftplugin = with pkgs.vimPlugins; {
