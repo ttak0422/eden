@@ -39,6 +39,7 @@ in  { taps =
           , "keycastr"
           , "neovide" -- aquaskkで除外する必要がある
           , "onedrive"
+          , "obsidian"
           ]
         # fonts
         # browser
