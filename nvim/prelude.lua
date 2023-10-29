@@ -12,3 +12,6 @@ vim.o.shiftwidth = 2
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.diffopt = "internal,filler,closeoff,vertical"
+vim.o.backup = true
+vim.o.backupcopy = "yes"
+vim.o.backupdir = vim.fn.stdpath("cache") .. "/backup"
