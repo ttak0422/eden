@@ -22,3 +22,9 @@ call gina#custom#mapping#nmap(
       \ ':<C-u>call GinaOpenHashPR()<CR>',
       \ {'silent': 1},
       \)
+
+call gina#custom#mapping#nmap(
+      \ 'blame', 'K',
+      \ ':<C-u>Gina show<CR>',
+      \ {'silent': 1},
+      \)
