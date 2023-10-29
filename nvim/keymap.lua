@@ -96,7 +96,7 @@ local normal_keymaps = {
   },
   {
     "<leader>gb",
-    cmd("Gina blame"),
+    cmd("execute printf('Gina blame --width=%d', &columns / 3)"),
     desc("git blame"),
   },
   {

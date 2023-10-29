@@ -1,3 +1,5 @@
+let g:gina#command#blame#formatter#format="[%au] %su %=on %ti %ma%in"
+
 function! GinaOpenHash() abort
   let can = gina#action#candidates()
   let cmd = printf('Gina browse --exact %s:%%', can[0].rev)
