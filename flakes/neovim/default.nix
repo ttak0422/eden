@@ -31,6 +31,10 @@
           startPlugins = callPackage ./plugins/startup.nix { };
           optPlugins = with pkgs.vimPlugins;
             [
+              {
+                plugin = vim-startuptime;
+                commands = [ "StartupTime" ];
+              }
               # {
               #   # 画像のプレビュー
               #   plugin = chafa-nvim;
