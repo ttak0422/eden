@@ -4,6 +4,11 @@ in with vimPlugins; [{
   name = "lsp";
   plugins = [
     {
+      plugin = lsp-timeout-nvim;
+      # depends = [ nvim-lspconfig ];
+      config = readFile ./../../../nvim/lsp-timeout.lua;
+    }
+    {
       plugin = nvim-lspconfig;
       # [WIP] dotnet
       # dotnet tool install --global csharp-ls
