@@ -32,6 +32,10 @@ let bindings =
       # zoom
       bind z resize-pane -Z
 
+      # prefix c-b → c-s
+      unbind C-b
+      set -g prefix C-s
+
       # session: create and fill empty title
       bind C-n command-prompt -I "" "new -s '%%'"\; select-pane -T ""
       # session: choose
