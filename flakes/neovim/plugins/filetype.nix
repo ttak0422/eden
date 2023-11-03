@@ -164,6 +164,6 @@ in with vimPlugins; [
     # Fennel
     plugin = nfnl;
     filetypes = [ "fennel" ];
-    extraPackages = with pkgs; [ fnlfmt ];
+    extraPackages = with pkgs; [ fnlfmt sd fd ];
   }
 ]
