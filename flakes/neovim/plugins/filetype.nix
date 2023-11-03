@@ -160,4 +160,10 @@ in with vimPlugins; [
     };
     filetypes = [ "fsharp" ];
   }
+  {
+    # Fennel
+    plugin = nfnl;
+    filetypes = [ "fennel" ];
+    extraPackages = with pkgs; [ fnlfmt ];
+  }
 ]

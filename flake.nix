@@ -86,6 +86,14 @@
       url = "github:j-hui/fidget.nvim/legacy";
       flake = false;
     };
+    fennel-language-server = {
+      url = "github:ttak0422/fennel-language-server";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+
     # ddc-vim = {
     #   url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";
     #   flake = false;

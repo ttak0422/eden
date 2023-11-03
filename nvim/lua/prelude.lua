@@ -1,0 +1,36 @@
+-- [nfnl] Compiled from nvim/fnl/prelude.fnl by https://github.com/Olical/nfnl, do not edit.
+local cache_path = vim.fn.stdpath("cache")
+vim.o.helplang = "ja"
+vim.o.mouse = "a"
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.hidden = true
+vim.o.termguicolors = true
+vim.o.showmode = false
+vim.o.autoread = true
+vim.o.showmatch = true
+vim.o.startofline = false
+vim.o.completeopt = "menu,menuone,noinsert"
+vim.o.number = true
+vim.o.signcolumn = "yes"
+vim.o.virtualedit = "block"
+vim.o.cmdheight = 0
+vim.o.laststatus = 3
+vim.o.undofile = true
+vim.o.undodir = (cache_path .. "/undo")
+vim.o.swapfile = true
+vim.o.directory = (cache_path .. "/swap")
+vim.o.winwidth = 20
+vim.o.winminwidth = 20
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.backup = true
+vim.o.backupcopy = "yes"
+vim.o.backupdir = (cache_path .. "/backup")
+vim.o.diffopt = "internal,filler,closeoff,vertical"
+return nil

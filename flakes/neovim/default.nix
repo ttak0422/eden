@@ -22,7 +22,7 @@
           '';
           extraLuaConfig = ''
             vim.loader.enable()
-            ${readFile ./../../nvim/prelude.lua}
+            dofile("${./../../nvim/lua/prelude.lua}")
             ${readFile ./../../nvim/keymap.lua}
             if vim.g.neovide then
               dofile("${./../../nvim/neovide.lua}")
@@ -741,7 +741,7 @@
               }
             ] ++ (flatten (map (bs: callPackage bs { }) [
               ./plugins/util.nix
-              ./plugins/lsp.nix
+              ./plugins/filetype.nix
             ]));
           bundles = with pkgs.vimPlugins;
             [

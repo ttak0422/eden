@@ -28,6 +28,7 @@ in with vimPlugins; [{
         rubyPackages.solargraph
         rust-analyzer
         taplo-cli
+        fennel-language-server
       ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
       config = {
         lang = "lua";

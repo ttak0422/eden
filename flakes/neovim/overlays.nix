@@ -4,10 +4,12 @@ with inputs; [
   vim-plugins-overlay.overlay
   nix-filter.overlays.default
   (final: prev:
-    let inherit (prev.stdenv) mkDerivation isDarwin;
+    let
+      inherit (prev.stdenv) mkDerivation isDarwin;
+      inherit (prev.stdenv) system;
     in {
       pkgs-unstable = import inputs.nixpkgs-unstable {
-        inherit (prev.stdenv) system;
+        inherit system;
         config.allowUnfree = true;
       };
       javaPackages = prev.javaPackages // { inherit (inputs) jol; };
@@ -94,6 +96,8 @@ with inputs; [
             "b15c6badd1f437b533d857720d7593c1cbb6ee9afb4dfb0579b7318e3dbb2e19";
         };
       });
+      fennel-language-server =
+        inputs.fennel-language-server.packages.${system}.default;
     })
 
 ]

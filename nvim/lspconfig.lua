@@ -174,6 +174,22 @@ lspconfig.vtsls.setup({
   },
 })
 
+-- fennel
+lspconfig.fennel_language_server.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    fennel = {
+      workspace = {
+        library = vim.api.nvim_list_runtime_paths(),
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
 -- rust
 -- lspconfig.rust_analyzer.setup({
 --   on_attach = on_attach,
