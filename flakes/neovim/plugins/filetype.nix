@@ -166,4 +166,12 @@ in with vimPlugins; [
     filetypes = [ "fennel" ];
     extraPackages = with pkgs; [ fnlfmt sd fd ];
   }
+  {
+    plugin = conjure;
+    preConfig = readFile ./../../../nvim/lua/conjure-pre.lua;
+    config = readFile ./../../../nvim/lua/conjure.lua;
+    depends = [{ plugin = aniseed; }];
+    dependBundles = [ "treesitter" ];
+    filetypes = [ "clojure" "fennel" "scheme" ];
+  }
 ]
