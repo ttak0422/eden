@@ -85,6 +85,7 @@ with inputs; [
           cp -r ./* $out
         '';
       };
+
       jdt-language-server = let
         version = "1.28.0";
         timestamp = "202309281329";
@@ -98,6 +99,18 @@ with inputs; [
       });
       fennel-language-server =
         inputs.fennel-language-server.packages.${system}.default;
+      fennel-ls = mkDerivation {
+        name = "fennel-ls";
+        src = inputs.fennel-ls-src;
+        nativeBuildInputs = with prev; [ luajit buildPackages.makeWrapper ];
+        buildPhase = ''
+          make
+        '';
+        installPhase = ''
+          mkdir -p $out/bin
+          make install PREFIX=$out
+        '';
+      };
     })
 
 ]

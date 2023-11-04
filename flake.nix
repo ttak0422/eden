@@ -93,6 +93,10 @@
         flake-utils.follows = "flake-utils";
       };
     };
+    fennel-ls-src = {
+      url = "sourcehut:~xerool/fennel-ls";
+      flake = false;
+    };
 
     # ddc-vim = {
     #   url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";

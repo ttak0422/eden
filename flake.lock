@@ -2861,6 +2861,22 @@
         "type": "github"
       }
     },
+    "fennel-ls-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695074429,
+        "narHash": "sha256-qgHPXfIiIMw/hXkINgqv/OJb81TheiBBktuqrpJ+Z6s=",
+        "owner": "~xerool",
+        "repo": "fennel-ls",
+        "rev": "824525573a6299c232a0b910a960bd59a563904f",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~xerool",
+        "repo": "fennel-ls",
+        "type": "sourcehut"
+      }
+    },
     "ferris-nvim": {
       "flake": false,
       "locked": {
@@ -6835,6 +6851,7 @@
         "darwin": "darwin",
         "emacs": "emacs",
         "fennel-language-server": "fennel-language-server",
+        "fennel-ls-src": "fennel-ls-src",
         "fidget-nvim-legacy": "fidget-nvim-legacy",
         "flake-compat": "flake-compat_3",
         "flake-parts": "flake-parts_2",
