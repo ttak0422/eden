@@ -115,9 +115,6 @@ local normal_keymaps = {
     cmd("Neogit"),
     desc("open git tui"),
   },
-  -- window
-  { "<c-w>z", cmd("NeoZoomToggle") },
-  { "<c-w>e", cmd("lua require('smart-splits').start_resize_mode()"), desc("window resize mode") },
   -- tools
   { "<leader>q", cmd("BufDel") },
   { "<leader>Q", cmd("BufDel!") },

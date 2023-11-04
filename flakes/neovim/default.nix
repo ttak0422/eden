@@ -32,6 +32,15 @@
           optPlugins = with pkgs.vimPlugins;
             [
               {
+                plugin = winshift-nvim;
+                commands = [ "WinShift" ];
+              }
+              {
+                plugin = hydra-nvim;
+                config = readFile ./../../nvim/lua/hydra.lua;
+                lazy = true;
+              }
+              {
                 plugin = vim-startuptime;
                 commands = [ "StartupTime" ];
               }
