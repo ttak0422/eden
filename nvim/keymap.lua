@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 local key_opts = { noremap = true, silent = true }
 local function desc(d)
