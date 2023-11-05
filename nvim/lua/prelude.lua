@@ -1,37 +1,6 @@
 -- [nfnl] Compiled from nvim/fnl/prelude.fnl by https://github.com/Olical/nfnl, do not edit.
 local cache_path = vim.fn.stdpath("cache")
-local o = vim.o
-o["helplang"] = "ja"
-o["mouse"] = "a"
-o["ignorecase"] = true
-o["smartcase"] = true
-o["hlsearch"] = true
-o["incsearch"] = true
-o["hidden"] = true
-o["termguicolors"] = true
-o["showmode"] = false
-o["autoread"] = true
-o["showmatch"] = true
-o["startofline"] = false
-o["completeopt"] = "menu,menuone,noinsert"
-o["number"] = true
-o["signcolumn"] = "yes"
-o["virtualedit"] = "block"
-o["cmdheight"] = 0
-o["laststatus"] = 3
-o["undofile"] = true
-o["undodir"] = (cache_path .. "/undo")
-do end (o)["swapfile"] = true
-o["directory"] = (cache_path .. "/swap")
-do end (o)["winwidth"] = 20
-o["winminwidth"] = 20
-o["expandtab"] = true
-o["tabstop"] = 2
-o["shiftwidth"] = 2
-o["foldlevel"] = 99
-o["foldlevelstart"] = 99
-o["backup"] = true
-o["backupcopy"] = "yes"
-o["backupdir"] = (cache_path .. "/backup")
-do end (o)["diffopt"] = "internal,filler,closeoff,vertical"
+for k, v in pairs({helplang = "ja", mouse = "a", ignorecase = true, smartcase = true, hlsearch = true, incsearch = true, hidden = true, termguicolors = true, autoread = true, showmatch = true, completeopt = "menu,menuone,noinsert", number = true, signcolumn = "yes", virtualedit = "block", cmdheight = 0, laststatus = 3, undofile = true, undodir = (cache_path .. "/undo"), swapfile = true, directory = (cache_path .. "/swap"), winwidth = 20, winminwidth = 20, expandtab = true, tabstop = 2, shiftwidth = 2, foldlevel = 99, foldlevelstart = 99, backup = true, backupcopy = "yes", backupdir = (cache_path .. "/backup"), diffopt = "internal,filler,closeoff,vertical", showmode = false, startofline = false}) do
+  vim.o[k] = v
+end
 return nil
