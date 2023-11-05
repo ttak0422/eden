@@ -1,7 +1,6 @@
 (local hydra (require :hydra))
 (local cmd (. (require :hydra.keymap-util) :cmd))
-
-;; TODO: integrate with heirline
+(local config {:invoke_on_body true :hint false})
 
 ;; submode for window
 (let [heads [;; move window
@@ -9,6 +8,8 @@
              [:j :<C-w>j]
              [:k :<C-w>k]
              [:l :<C-w>l]
+             [:w :<C-w>w]
+             [:<C-w> :<C-w>w {:desc false}]
              ;; swap window
              [:H (cmd "WinShift left")]
              [:J (cmd "WinShift down")]
@@ -28,15 +29,19 @@
               (fn []
                 ((. (require :smart-splits) :resize_right) 2))]
              ["=" :<C-w>= {:desc :equalize}]
-             [:z (cmd :NeoZoomToggle)]
+             ;; split
+             [:s :<C-w>s {:desc false :exit true}]
+             [:v :<C-w>v {:desc false :exit true}]
+             ;; zoom
+             [:z (cmd :NeoZoomToggle) {:desc :zoom}]
              ;; close
-             [:q (cmd :SafeCloseWindow)]
-             [:<C-q> (cmd :SafeCloseWindow) {:desc false}]
+             [:q (cmd :SafeCloseWindow) {:exit true :desc :close}]
+             [:<C-q> (cmd :SafeCloseWindow) {:desc false :exit true}]
              [:o :<C-w>o {:desc "close other" :exit true}]
              [:<C-o> :<C-w>o {:desc false :exit true}]
              ;; quit
              [:<Esc> nil {:desc false :exit true}]
              [:<CR> nil {:desc false :exit true}]]]
-  (hydra {:name :Window :mode :n :body :<C-w> : heads}))
+  (hydra {:name :Windows :mode :n :body :<C-w> : heads : config}))
 
 nil

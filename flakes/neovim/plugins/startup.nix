@@ -22,4 +22,10 @@ in with vimPlugins; [
     plugin = direnv-vim;
     startup = readFile ./../../../nvim/direnv.lua;
   }
+  {
+    plugin = hydra-nvim;
+    startup = ''
+      dofile("${./../../../nvim/lua/hydra.lua}")
+    '';
+  }
 ]

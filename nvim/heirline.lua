@@ -1,5 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
+local hydra = require("hydra.statusline")
 
 -- heirlineと相性が悪いので別管理
 local function check_direnv()
@@ -502,6 +503,37 @@ local TerminalStatusLine = {
   },
 }
 
+local HydraStatusLine
+do
+  local ignore = {
+    Barbar = true,
+  }
+  local HydraName = {
+    provider = function()
+      return string.format("[%s]", (hydra.get_name() or "HYDRA"))
+    end,
+  }
+  local HydraHint = {
+    condition = function()
+      return hydra.get_hint()
+    end,
+    provider = function()
+      return hydra.get_hint()
+    end,
+  }
+  HydraStatusLine = {
+    condition = function()
+      return hydra.is_active() and not ignore[hydra.get_name()]
+    end,
+    LeftCap,
+    Mode,
+    Space,
+    HydraName,
+    Space,
+    HydraHint,
+  }
+end
+
 local SearchCount = {
   condition = function()
     return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
@@ -585,6 +617,7 @@ local DefaultStatusLine = {
 local StatusLine = {
   fallthrough = false,
   hl = { fg = colors.fg, bg = colors.bg, bold = true },
+  HydraStatusLine,
   SpecialStatusline,
   TerminalStatusLine,
   DefaultStatusLine,

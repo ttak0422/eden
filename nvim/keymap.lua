@@ -44,8 +44,6 @@ local normal_keymaps = {
   { "q", "<nop>" },
   { "j", "gj" },
   { "k", "gk" },
-  { "<c-w>q", cmd("SafeCloseWindow") },
-  { "<c-w><c-q>", cmd("SafeCloseWindow") },
   -- { "<leader>g", "<cmd>JABSOpen<cr>" },
   -- split/join
   { "<leader>m", cmd("lua require('treesj').toggle()"), desc("toggle split/join") },
@@ -55,11 +53,6 @@ local normal_keymaps = {
     desc("toggle split/join rec"),
   },
   -- motion
-  {
-    "<c-w><c-w>",
-    cmd("lua require('nvim-window').pick()"),
-    desc("choose window"),
-  },
   {
     "gpd",
     cmd("lua require('goto-preview').goto_preview_definition()"),

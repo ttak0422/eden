@@ -35,11 +35,11 @@
                 plugin = winshift-nvim;
                 commands = [ "WinShift" ];
               }
-              {
-                plugin = hydra-nvim;
-                config = readFile ./../../nvim/lua/hydra.lua;
-                lazy = true;
-              }
+              # {
+              #   plugin = hydra-nvim;
+              #   config = readFile ./../../nvim/lua/hydra.lua;
+              #   lazy = true;
+              # }
               {
                 plugin = vim-startuptime;
                 commands = [ "StartupTime" ];
@@ -155,7 +155,6 @@
                 dependBundles = [ "treesitter" ];
                 events = [ "CursorHold" ];
                 modules = [ "codewindow" ];
-                # lazy = true;
               }
               {
                 # require ts-parser norg.nvim
@@ -357,6 +356,7 @@
                     config = readFile ./../../nvim/piccolo-pomodoro.lua;
                     modules = [ "piccolo-pomodoro" ];
                   }
+                  hydra-nvim
                 ];
                 dependBundles = [ "skk" ];
                 lazy = true;
@@ -673,11 +673,11 @@
                 config = "vim.cmd[[set helplang=ja,en]]";
                 lazy = true;
               }
-              {
-                plugin = which-key-nvim;
-                config = readFile ./../../nvim/whichkey.lua;
-                lazy = true;
-              }
+              # {
+              #   plugin = which-key-nvim;
+              #   config = readFile ./../../nvim/whichkey.lua;
+              #   lazy = true;
+              # }
               {
                 plugin = nvim-bqf;
                 config = readFile ./../../nvim/bqf.lua;
