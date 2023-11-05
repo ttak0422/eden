@@ -698,14 +698,10 @@
                 events = [ "CmdlineEnter" ];
               }
               {
-                plugin = vim-asterisk;
-                config = {
-                  lang = "vim";
-                  code = readFile ./../../nvim/asterisk.vim;
-                };
+                plugin = highlight-current-n-nvim;
+                config = readFile ./../../nvim/lua/highlight-current-n.lua;
                 events = [ "CmdlineEnter" "CursorMoved" ];
               }
-
               {
                 plugin = mkdir-nvim;
                 events = [ "CmdlineEnter" ];
