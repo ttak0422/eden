@@ -41,6 +41,7 @@
              [:<C-o> :<C-w>o {:desc false :exit true}]
              ;; quit
              [:<Esc> nil {:desc false :exit true}]
+             [";" nil {:desc false :exit true}]
              [:<CR> nil {:desc false :exit true}]]]
   (hydra {:name :Windows :mode :n :body :<C-w> : heads : config}))
 
