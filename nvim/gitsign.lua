@@ -1,5 +1,5 @@
 require("gitsigns").setup({
-  signcolumn = false,
+  signcolumn = true,
   numhl = true,
   status_formatter = function(status)
     local added, changed, removed = status.added, status.changed, status.removed
