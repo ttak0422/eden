@@ -4,30 +4,25 @@
 
 ;; submode for window
 (let [heads [;; move window
-             [:h :<C-w>h]
-             [:j :<C-w>j]
-             [:k :<C-w>k]
-             [:l :<C-w>l]
-             [:w :<C-w>w]
-             [:<C-w> :<C-w>w {:desc false}]
+             [:h :<C-w>h {:exit true}]
+             [:j :<C-w>j {:exit true}]
+             [:k :<C-w>k {:exit true}]
+             [:l :<C-w>l {:exit true}]
+             [:w :<C-w>w {:exit true}]
+             [:<C-w> :<C-w>w {:desc false :exit true}]
+             [:H :<C-w>h]
+             [:J :<C-w>j]
+             [:K :<C-w>k]
+             [:L :<C-w>l]
              ;; swap window
-             [:H (cmd "WinShift left")]
-             [:J (cmd "WinShift down")]
-             [:K (cmd "WinShift up")]
-             [:L (cmd "WinShift right")]
-             ;; resize window
-             [:<C-h>
+             [:<C-h> (cmd "WinShift left")]
+             [:<C-j> (cmd "WinShift down")]
+             [:<C-k> (cmd "WinShift up")]
+             [:<C-l> (cmd "WinShift right")]
+             [:e
               (fn []
-                ((. (require :smart-splits) :resize_left) 2))]
-             [:<C-j>
-              (fn []
-                ((. (require :smart-splits) :resize_down) 2))]
-             [:<C-k>
-              (fn []
-                ((. (require :smart-splits) :resize_up) 2))]
-             [:<C-l>
-              (fn []
-                ((. (require :smart-splits) :resize_right) 2))]
+                ((. (require :smart-splits) :start_resize_mode)))
+              {:desc "resize mode" :exit true}]
              ["=" :<C-w>= {:desc :equalize}]
              ;; split
              [:s :<C-w>s {:desc false :exit true}]
