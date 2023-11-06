@@ -31,9 +31,16 @@
           startPlugins = callPackage ./plugins/startup.nix { };
           optPlugins = with pkgs.vimPlugins;
             [
+              # {
+              #   plugin = auto-indent-nvim;
+              #   config = readFile ./../../nvim/lua/autoindent.lua;
+              #   events = [ "InsertEnter" ];
+              #   dependBundles = [ "treesitter" ];
+              # }
               {
                 plugin = winshift-nvim;
                 commands = [ "WinShift" ];
+
               }
               # {
               #   plugin = hydra-nvim;
