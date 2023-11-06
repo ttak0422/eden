@@ -338,6 +338,22 @@
         "type": "github"
       }
     },
+    "auto-indent-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699005956,
+        "narHash": "sha256-dubpVupLfc81Jvb4woSQ63n2+VsJCRjnvDzkFTQE2MQ=",
+        "owner": "VidocqH",
+        "repo": "auto-indent.nvim",
+        "rev": "46801cf8857d42a20a73c40b0a5d3dfe8b2b6192",
+        "type": "github"
+      },
+      "original": {
+        "owner": "VidocqH",
+        "repo": "auto-indent.nvim",
+        "type": "github"
+      }
+    },
     "auto-session": {
       "flake": false,
       "locked": {
@@ -3572,6 +3588,22 @@
         "type": "github"
       }
     },
+    "haskell-snippets-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699217790,
+        "narHash": "sha256-BJbwanu/43PKUQXVuuP21pgST/wQJ7RW3InXQ4wmiSw=",
+        "owner": "mrcjkb",
+        "repo": "haskell-snippets.nvim",
+        "rev": "aa8ee67ad8b30a99165be5faa20dc768c4787d54",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrcjkb",
+        "repo": "haskell-snippets.nvim",
+        "type": "github"
+      }
+    },
     "haskell-tools-nvim": {
       "flake": false,
       "locked": {
@@ -3822,6 +3854,22 @@
         "type": "github"
       }
     },
+    "improved-search-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698713053,
+        "narHash": "sha256-NKxbVY6KF5Ob4DDI0PFz1UHzR+4e2lIm73lTtdnQqOs=",
+        "owner": "backdround",
+        "repo": "improved-search.nvim",
+        "rev": "50ece3c64f304bd3253f435fecc5c761e368cb94",
+        "type": "github"
+      },
+      "original": {
+        "owner": "backdround",
+        "repo": "improved-search.nvim",
+        "type": "github"
+      }
+    },
     "incline-nvim": {
       "flake": false,
       "locked": {
@@ -4007,6 +4055,22 @@
       "original": {
         "owner": "mikesmithgh",
         "repo": "kitty-scrollback.nvim",
+        "type": "github"
+      }
+    },
+    "launch-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698608034,
+        "narHash": "sha256-VGteC2BSk64l46D3trUDh8y/scuWhyBaTGF3e8mQoqE=",
+        "owner": "dasupradyumna",
+        "repo": "launch.nvim",
+        "rev": "98543739512189215e56184697bf596fb9c2299b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dasupradyumna",
+        "repo": "launch.nvim",
         "type": "github"
       }
     },
@@ -6975,6 +7039,22 @@
         "type": "github"
       }
     },
+    "rustaceanvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699228296,
+        "narHash": "sha256-f1qTwyOIDEjAVPWl7CXwue+n6em2SohWO5w+Up2lcro=",
+        "owner": "mrcjkb",
+        "repo": "rustaceanvim",
+        "rev": "ddee4fb4edee4b075a3d4533065c67d8c328c160",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrcjkb",
+        "repo": "rustaceanvim",
+        "type": "github"
+      }
+    },
     "sad-nvim": {
       "flake": false,
       "locked": {
@@ -7884,6 +7964,22 @@
         "type": "github"
       }
     },
+    "tshjkl-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699028371,
+        "narHash": "sha256-f4zDMALzYPTnpxGLOGyjFjOzEHup4pBlkamLERoIaGI=",
+        "owner": "gsuuon",
+        "repo": "tshjkl.nvim",
+        "rev": "a874b6d8e3fa2fdf52250e2830d88730a542d852",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gsuuon",
+        "repo": "tshjkl.nvim",
+        "type": "github"
+      }
+    },
     "tsnip-nvim": {
       "flake": false,
       "locked": {
@@ -8291,6 +8387,7 @@
         "animation-nvim": "animation-nvim",
         "anyline-nvim": "anyline-nvim",
         "arctic-nvim": "arctic-nvim",
+        "auto-indent-nvim": "auto-indent-nvim",
         "auto-session": "auto-session",
         "autolist-nvim": "autolist-nvim",
         "backseat-nvim": "backseat-nvim",
@@ -8456,6 +8553,7 @@
         "guise-vim": "guise-vim",
         "harpoon": "harpoon",
         "haskell-scope-highlighting-nvim": "haskell-scope-highlighting-nvim",
+        "haskell-snippets-nvim": "haskell-snippets-nvim",
         "haskell-tools-nvim": "haskell-tools-nvim",
         "headlines-nvim": "headlines-nvim",
         "heirline-nvim": "heirline-nvim",
@@ -8469,6 +8567,7 @@
         "hover-nvim": "hover-nvim",
         "hydra-nvim": "hydra-nvim",
         "image_preview-nvim": "image_preview-nvim",
+        "improved-search-nvim": "improved-search-nvim",
         "incline-nvim": "incline-nvim",
         "indent-blankline-nvim": "indent-blankline-nvim",
         "indent-o-matic": "indent-o-matic",
@@ -8480,6 +8579,7 @@
         "kensaku-search-vim": "kensaku-search-vim",
         "kensaku-vim": "kensaku-vim",
         "kitty-scrollback-nvim": "kitty-scrollback-nvim",
+        "launch-nvim": "launch-nvim",
         "leap-ast-nvim": "leap-ast-nvim",
         "leap-nvim": "leap-nvim",
         "leap-spooky-nvim": "leap-spooky-nvim",
@@ -8635,6 +8735,7 @@
         "registers-nvim": "registers-nvim",
         "rest-nvim": "rest-nvim",
         "rust-rools-nvim": "rust-rools-nvim",
+        "rustaceanvim": "rustaceanvim",
         "sad-nvim": "sad-nvim",
         "safe-close-window-nvim": "safe-close-window-nvim",
         "satellite-nvim": "satellite-nvim",
@@ -8687,6 +8788,7 @@
         "trim-nvim": "trim-nvim",
         "trouble-nvim": "trouble-nvim",
         "true-zen": "true-zen",
+        "tshjkl-nvim": "tshjkl-nvim",
         "tsnip-nvim": "tsnip-nvim",
         "twilight-nvim": "twilight-nvim",
         "typescript-nvim": "typescript-nvim",
@@ -8746,11 +8848,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1699229884,
-        "narHash": "sha256-SgXk0VGei7X0RIWEJsWuLTB0Uilw34lcMhFIWr29cos=",
+        "lastModified": 1699288687,
+        "narHash": "sha256-y6SRtugaVpggacZTygG72H2rCLGsXZVw+vJuL2vALRI=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "0f6b7cc65ccc54157124c8de0b9d2641a4efa3cf",
+        "rev": "ac68b8e585490a2845566cfe92606511ccfe185e",
         "type": "github"
       },
       "original": {
