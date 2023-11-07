@@ -81,10 +81,10 @@ in with vimPlugins; [{
     #   config = readFile ./../../../nvim/diagflow.lua;
     # }
     noice-nvim
-    {
-      plugin = suit-nvim;
-      config = readFile ./../../../nvim/lua/suit.lua;
-    }
+    # {
+    #   plugin = suit-nvim;
+    #   config = readFile ./../../../nvim/lua/suit.lua;
+    # }
   ];
   depends = [{
     plugin = fidget-nvim;

@@ -127,6 +127,9 @@ export class Config extends BaseConfig {
         file: {
           defaultAction: "open",
         },
+        ui_select: {
+          defaultAction: "select",
+        },
       },
       kindParams: {},
       actionOptions: {},
