@@ -10,16 +10,17 @@
              [:l :<C-w>l {:exit true}]
              [:w :<C-w>w {:exit true}]
              [:<C-w> :<C-w>w {:desc false :exit true}]
-             [:H :<C-w>h]
-             [:J :<C-w>j]
-             [:K :<C-w>k]
-             [:L :<C-w>l]
+             [:<C-h> :<C-w>h]
+             [:<C-j> :<C-w>j]
+             [:<C-k> :<C-w>k]
+             [:<C-l> :<C-w>l]
              ;; swap window
-             [:<C-h> (cmd "WinShift left")]
-             [:<C-j> (cmd "WinShift down")]
-             [:<C-k> (cmd "WinShift up")]
-             [:<C-l> (cmd "WinShift right")]
+             [:H (cmd "WinShift left")]
+             [:J (cmd "WinShift down")]
+             [:K (cmd "WinShift up")]
+             [:L (cmd "WinShift right")]
              [:e
+              ;; resize
               (fn []
                 ((. (require :smart-splits) :start_resize_mode)))
               {:desc "resize mode" :exit true}]
