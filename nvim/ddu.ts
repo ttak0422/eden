@@ -27,8 +27,6 @@ export class Config extends BaseConfig {
       autoResize: false,
       displaySourceName: "no",
       filterSplitDirection: "floating",
-      filterFloatingPosition: "top",
-      floatingBorder: [ "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" ],
       highlights: {
         filterText: "Statement",
         floating: "Normal",
@@ -43,14 +41,9 @@ export class Config extends BaseConfig {
         await fn.win_execute(args.denops, args.previewWinId, "setlocal nu");
         await fn.win_execute(args.denops, args.previewWinId, "set nobuflisted");
       },
-      winRow: "&lines / 3 * 2",
-      winCol: 1,
-      winHeight: "&lines / 3 - 2",
-      winWidth: "&columns - 2",
-      previewSplit: "no",
+      previewHeight: "&lines / 3 * 2 - 2",
       startFilter: true,
-      prompt: "  ",
-      split: "horizontal",
+      prompt: " ",
       statusline: false,
     };
 
