@@ -7407,6 +7407,22 @@
         "type": "github"
       }
     },
+    "suit-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690564635,
+        "narHash": "sha256-xP4ySNOlC81ZPekwptNsXij06XLRNeH29RuJHerF9Qk=",
+        "owner": "doums",
+        "repo": "suit.nvim",
+        "rev": "400478b71ba55c8167bdd255eede69841e3f0c75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "doums",
+        "repo": "suit.nvim",
+        "type": "github"
+      }
+    },
     "symbol-usage-nvim": {
       "flake": false,
       "locked": {
@@ -8757,6 +8773,7 @@
         "statuscol-nvim": "statuscol-nvim",
         "stickybuf-nvim": "stickybuf-nvim",
         "styler-nvim": "styler-nvim",
+        "suit-nvim": "suit-nvim",
         "symbol-usage-nvim": "symbol-usage-nvim",
         "symbols-outline-nvim": "symbols-outline-nvim",
         "tabout-nvim": "tabout-nvim",
@@ -8849,11 +8866,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1699366978,
-        "narHash": "sha256-uaBr6YgGK1kCYisJk3RCj8jF1qeyQ8kMZPHrP7wK0AY=",
+        "lastModified": 1699372969,
+        "narHash": "sha256-O79Y5wudwuwOBW/Qm11bdqkLU6lMvhJAKt4b7mDh9Us=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "a1fac4d0bd8179559113974d12ecfa2e5fc090ce",
+        "rev": "a1fc5e9e34aa5c2bdafe4ea9078d6d08165f99ea",
         "type": "github"
       },
       "original": {
