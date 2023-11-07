@@ -63,7 +63,8 @@ export class Config extends BaseConfig {
       },
       sourceOptions: {
         _: {
-          matchers: ["matcher_substring"],
+          matchers: ["matcher_fzf"],
+          sorters: ["sorter_fzf"],
           smartCase: true,
         },
         file: {
@@ -74,10 +75,6 @@ export class Config extends BaseConfig {
           sorters: ["sorter_alpha"],
           converters: ["converter_hl_dir", "converter_devicon"],
           smartCase: true,
-        },
-        file_fd: {
-          matchers: ["matcher_fzf"],
-          sorters: ["sorter_fzf"],
         },
         rg: {
           matchers: [
