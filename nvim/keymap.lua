@@ -44,7 +44,6 @@ local normal_keymaps = {
   { "q", "<nop>" },
   { "j", "gj" },
   { "k", "gk" },
-  -- { "<leader>g", "<cmd>JABSOpen<cr>" },
   -- split/join
   { "<leader>m", cmd("lua require('treesj').toggle()"), desc("toggle split/join") },
   {
