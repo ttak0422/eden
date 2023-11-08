@@ -6,6 +6,7 @@ in with vimPlugins; [{
     {
       plugin = lsp-timeout-nvim;
       # depends = [ nvim-lspconfig ];
+      preConfig = readFile ./../../../nvim/lsp-timeout-pre.lua;
       config = readFile ./../../../nvim/lsp-timeout.lua;
     }
     {
