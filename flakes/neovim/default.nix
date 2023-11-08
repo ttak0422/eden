@@ -835,7 +835,7 @@
                 name = "telescope";
                 plugins = [
                   telescope-nvim
-                  telescope-ui-select-nvim
+                  # telescope-ui-select-nvim
                   {
                     plugin = telescope-live-grep-args-nvim;
                     extraPackages = with pkgs; [ ripgrep ];
