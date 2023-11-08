@@ -31,6 +31,7 @@ in with vimPlugins; [{
         taplo-cli
         # fennel-language-server
         fennel-ls
+        marksman
       ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
       config = {
         lang = "lua";

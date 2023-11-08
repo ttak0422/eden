@@ -194,6 +194,11 @@ lspconfig.fennel_ls.setup({
   capabilities = capabilities,
 })
 
+-- markdown
+lspconfig.marksman.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 
 -- rust
 -- lspconfig.rust_analyzer.setup({
