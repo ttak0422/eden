@@ -53,12 +53,6 @@ in with vimPlugins; [{
       plugin = lsp-lens-nvim;
       config = readFile ./../../../nvim/lsp-lens.lua;
     }
-    # {
-    #   plugin = actions-preview-nvim;
-    #   config = readFile ./../../../nvim/actions-preview.lua;
-    #   dependBundles = [ "telescope" ];
-    #   modules = [ "actions-preview" ];
-    # }
     {
       plugin = lsp-inlayhints-nvim;
       config = readFile ./../../../nvim/inlayhints.lua;
