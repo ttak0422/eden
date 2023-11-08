@@ -49,11 +49,6 @@
                 commands = [ "WinShift" ];
 
               }
-              # {
-              #   plugin = hydra-nvim;
-              #   config = readFile ./../../nvim/lua/hydra.lua;
-              #   lazy = true;
-              # }
               {
                 plugin = vim-startuptime;
                 commands = [ "StartupTime" ];
@@ -711,10 +706,18 @@
                 config = readFile ./../../nvim/hlslens.lua;
                 events = [ "CmdlineEnter" ];
               }
+              # {
+              #   plugin = improved-search-nvim;
+              #   config = readFile ./../../nvim/lua/improved-search.lua;
+              #   events = [ "CursorMoved"];
+              # }
               {
-                plugin = highlight-current-n-nvim;
-                config = readFile ./../../nvim/lua/highlight-current-n.lua;
-                events = [ "CmdlineEnter" "CursorMoved" ];
+                plugin = vim-asterisk;
+                config = {
+                  lang = "vim";
+                  code = readFile ./../../nvim/asterisk.vim;
+                };
+                events = [ "CursorMoved" ];
               }
               {
                 plugin = mkdir-nvim;
