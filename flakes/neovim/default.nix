@@ -764,6 +764,7 @@
             ] ++ (flatten (map (bs: callPackage bs { }) [
               ./plugins/util.nix
               ./plugins/filetype.nix
+              ./plugins/none-ls.nix
             ]));
           bundles = with pkgs.vimPlugins;
             [
