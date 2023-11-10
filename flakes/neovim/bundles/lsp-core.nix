@@ -35,14 +35,10 @@ in with vimPlugins; [{
       ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
       config = {
         lang = "lua";
-        code = readFile ./../../../nvim/lspconfig.lua;
+        code = readFile ./../../../nvim/lua/lspconfig.lua;
         args = {
           on_attach_path = ./../../../nvim/shared/on_attach.lua;
           capabilities_path = ./../../../nvim/shared/capabilities.lua;
-          eslint_cmd = [
-            "${pkgs.nodePackages.vscode-langservers-extracted}/bin/vscode-eslint-language-server"
-            "--stdio"
-          ];
         };
       };
       # depends = [{

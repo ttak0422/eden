@@ -18,7 +18,12 @@
                 :sources nil
                 :temp_dir nil
                 :update_in_insert false}
-      sources [; null.builtins.diagnostics.textlint
+      sources [;;; code actions ;;;
+               ;;; completion ;;;
+               ;;; diagnostics ;;;
+               null.builtins.diagnostics.eslint
+               ; null.builtins.diagnostics.textlint
+               ;;; formatting ;;;
                ]]
   (null.setup {: defaults : sources})
   nil)
