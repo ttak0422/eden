@@ -1,5 +1,7 @@
 (let [null (require :null-ls)
       utils (require :null-ls.utils)
+      methods (require :null-ls.methods)
+      FORMATTING methods.internal.FORMATTING
       defaults {:border nil
                 :cmd [:nvim]
                 :debounce 250
@@ -18,12 +20,18 @@
                 :sources nil
                 :temp_dir nil
                 :update_in_insert false}
+      fnlfmt {:name :fnlfmt
+              :method [FORMATTING]
+              :filetypes [:fennel]
+              :generator (null.formatter {:command :fnlfmt
+                                          :args [:$FILENAME]
+                                          :to_stdin true})}
       sources [;;; code actions ;;;
                ;;; completion ;;;
                ;;; diagnostics ;;;
-               null.builtins.diagnostics.eslint
+               (null.builtins.diagnostics.eslint.with {:prefer_local :node_modules/.bin})
                ; null.builtins.diagnostics.textlint
                ;;; formatting ;;;
-               ]]
+               fnlfmt]]
   (null.setup {: defaults : sources})
   nil)
