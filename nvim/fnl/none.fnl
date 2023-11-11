@@ -1,5 +1,6 @@
 (let [null (require :null-ls)
       utils (require :null-ls.utils)
+      helpers (require :null-ls.helpers)
       methods (require :null-ls.methods)
       FORMATTING methods.internal.FORMATTING
       defaults {:border nil
@@ -29,7 +30,17 @@
       sources [;;; code actions ;;;
                ;;; completion ;;;
                ;;; diagnostics ;;;
-               (null.builtins.diagnostics.eslint.with {:prefer_local :node_modules/.bin})
+               (null.builtins.diagnostics.eslint.with {:prefer_local :node_modules/.bin
+                                                       :condition (fn [utils]
+                                                                    (utils.root_has_file [;; https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new
+                                                                                          :eslint.config.js
+                                                                                          ;; https://eslint.org/docs/user-guide/configuring/configuration-files#configuration-file-formats
+                                                                                          :.eslintrc
+                                                                                          :.eslintrc.js
+                                                                                          :.eslintrc.cjs
+                                                                                          :.eslintrc.yaml
+                                                                                          :.eslintrc.yml
+                                                                                          :.eslintrc.json]))})
                ; null.builtins.diagnostics.textlint
                ;;; formatting ;;;
                fnlfmt]]
