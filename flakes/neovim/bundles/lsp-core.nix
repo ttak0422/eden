@@ -41,10 +41,7 @@ in with vimPlugins; [{
           capabilities_path = ./../../../nvim/shared/capabilities.lua;
         };
       };
-      # depends = [{
-      #   plugin = neodev-nvim;
-      #   config = readFile ./../../../nvim/neodev.lua;
-      # }];
+      depends = [ climbdir-nvim ];
       lazy = true;
     }
     {

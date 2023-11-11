@@ -12,6 +12,8 @@ end
 local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
 local windows = require("lspconfig.ui.windows")
+local climb = require("climbdir")
+local marker = require("climbdir.marker")
 windows.default_options.border = {"\226\148\143", "\226\148\129", "\226\148\147", "\226\148\131", "\226\148\155", "\226\148\129", "\226\148\151", "\226\148\131"}
 lspconfig.lua_ls.setup({on_attach = on_attach, capabilities = capabilities, settings = {Lua = {runtime = {version = "LuaJIT"}, diagnostics = {globals = {"vim"}}}, workspace = {}, telemetry = {enable = false}}})
 lspconfig.fennel_ls.setup({on_attach = on_attach, capabilities = capabilities})
@@ -27,6 +29,19 @@ lspconfig.dhall_lsp_server.setup({on_attach = on_attach, capabilities = capabili
 lspconfig.yamlls.setup({on_attach = on_attach, capabilities = capabilities, settings = {yaml = {keyOrdering = false}}})
 lspconfig.html.setup({on_attach = on_attach, capabilities = capabilities})
 lspconfig.cssls.setup({on_attach = on_attach, capabilities = capabilities})
-lspconfig.vtsls.setup({on_attach = on_attach, capabilities = capabilities, root_dir = util.root_pattern("package.json"), settings = {separate_diagnostic_server = true, publish_diagnostic_on = "insert_leave", typescript = {suggest = {completeFunctionCalls = true}, preferences = {importModuleSpecifier = "relative"}}}, vtsls = {experimental = {completion = {enableServerSideFuzzyMatch = true}}}, single_file_support = false})
+local function _1_(path)
+  return climb.climb(path, marker.one_of(marker.has_readable_file("package.json"), marker.has_directory("node_modules")), {halt = marker.one_of(marker.has_readable_file("deno.json"))})
+end
+lspconfig.vtsls.setup({on_attach = on_attach, capabilities = capabilities, settings = {separate_diagnostic_server = true, publish_diagnostic_on = "insert_leave", typescript = {suggest = {completeFunctionCalls = true}, preferences = {importModuleSpecifier = "relative"}}}, root_dir = _1_, vtsls = {experimental = {completion = {enableServerSideFuzzyMatch = true}}}, single_file_support = false})
+local function _2_(path)
+  local found = climb.climb(path, marker.one_of(marker.has_readable_file("deno.json"), marker.has_readable_file("deno.jsonc"), marker.has_directory("denops")), {halt = marker.one_of(marker.has_readable_file("package.json"), marker.has_directory("node_modules"))})
+  local buf = vim.b[vim.fn.bufnr()]
+  if found then
+    buf.deno_deps_candidate = (found .. "/deps.ts")
+  else
+  end
+  return found
+end
+lspconfig.denols.setup({on_attach = on_attach, capabilities = capabilities, root_dir = _2_, init_options = {lint = true, suggest = {completeFunctionCalls = true, names = true, paths = true, autoImports = true, imports = {autoDiscover = true, hosts = vim.empty_dict()}}, unstable = false}, settings = {deno = {enable = true}}, single_file_support = false})
 lspconfig.marksman.setup({on_attach = on_attach, capabilities = capabilities})
 return nil
