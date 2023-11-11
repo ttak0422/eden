@@ -119,7 +119,7 @@ in with vimPlugins; [
     # Fennel
     plugin = nfnl;
     filetypes = [ "fennel" ];
-    extraPackages = with pkgs; [ fnlfmt sd fd ];
+    extraPackages = with pkgs; [ sd fd ];
   }
   {
     plugin = conjure;

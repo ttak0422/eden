@@ -8,6 +8,9 @@ in with vimPlugins; [{
     nodePackages.eslint
     # TODO: add rules
     nodePackages.textlint
+    # formatter
+    dhall
+    fnlfmt
   ];
   lazy = true;
 }]

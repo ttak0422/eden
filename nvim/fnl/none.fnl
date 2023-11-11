@@ -21,12 +21,6 @@
                 :sources nil
                 :temp_dir nil
                 :update_in_insert false}
-      fnlfmt {:name :fnlfmt
-              :method [FORMATTING]
-              :filetypes [:fennel]
-              :generator (null.formatter {:command :fnlfmt
-                                          :args [:$FILENAME]
-                                          :to_stdin true})}
       sources [;;; code actions ;;;
                ;;; completion ;;;
                ;;; diagnostics ;;;
@@ -43,6 +37,16 @@
                                                                                           :.eslintrc.json]))})
                ; null.builtins.diagnostics.textlint
                ;;; formatting ;;;
-               fnlfmt]]
+               {:name :dhall-format
+                :filetypes [:dhall]
+                :generator (null.formatter {:command :dhall
+                                            :args [:format :$FILENAME]
+                                            :to_stdin true})}
+               {:name :fnlfmt
+                :method [FORMATTING]
+                :filetypes [:fennel]
+                :generator (null.formatter {:command :fnlfmt
+                                            :args [:$FILENAME]
+                                            :to_stdin true})}]]
   (null.setup {: defaults : sources})
   nil)
