@@ -24,12 +24,12 @@
               (fn []
                 ((. (require :smart-splits) :start_resize_mode)))
               {:desc "resize mode" :exit true}]
-             ["=" :<C-w>= {:desc :equalize}]
+             ["=" :<C-w>= {:desc :equalize :exit true}]
              ;; split
              [:s :<C-w>s {:desc false :exit true}]
              [:v :<C-w>v {:desc false :exit true}]
              ;; zoom
-             [:z (cmd :NeoZoomToggle) {:desc :zoom}]
+             [:z (cmd :NeoZoomToggle) {:desc :zoom :exit true}]
              ;; close
              [:q (cmd :SafeCloseWindow) {:exit true :desc :close}]
              [:<C-q> (cmd :SafeCloseWindow) {:desc false :exit true}]
