@@ -9,6 +9,17 @@ in with vimPlugins; [{
     # TODO: add rules
     nodePackages.textlint
     # formatter
+    google-java-format
+    html-tidy
+    nixfmt
+    nodePackages.fixjson
+    nodePackages.prettier
+    rustfmt
+    shfmt
+    stylua
+    taplo
+    yamlfmt
+    yapf
     dhall
     fnlfmt
   ];

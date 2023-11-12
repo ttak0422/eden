@@ -1,6 +1,13 @@
+(fn is_active_lsp [lsp_name]
+  (let [bufnr (vim.api.nvim_get_current_buf)
+        clients (vim.lsp.buf_get_clients bufnr)]
+    (accumulate [acc false _ client (ipairs clients)]
+      (or acc (= lsp_name client.name)))))
+
 (let [null (require :null-ls)
       utils (require :null-ls.utils)
       helpers (require :null-ls.helpers)
+      formatter_factory (require :null-ls.helpers.formatter_factory)
       methods (require :null-ls.methods)
       FORMATTING methods.internal.FORMATTING
       defaults {:border nil
@@ -21,6 +28,18 @@
                 :sources nil
                 :temp_dir nil
                 :update_in_insert false}
+      dhall-format {:name :dhall-format
+                    :method [FORMATTING]
+                    :filetypes [:dhall]
+                    :generator (null.formatter {:command :dhall
+                                                :args [:format :$FILENAME]
+                                                :to_stdin true})}
+      fnlfmt {:name :fnlfmt
+              :method [FORMATTING]
+              :filetypes [:fennel]
+              :generator (null.formatter {:command :fnlfmt
+                                          :args [:$FILENAME]
+                                          :to_stdin true})}
       sources [;;; code actions ;;;
                ;;; completion ;;;
                ;;; diagnostics ;;;
@@ -37,16 +56,25 @@
                                                                                           :.eslintrc.json]))})
                ; null.builtins.diagnostics.textlint
                ;;; formatting ;;;
-               {:name :dhall-format
-                :filetypes [:dhall]
-                :generator (null.formatter {:command :dhall
-                                            :args [:format :$FILENAME]
-                                            :to_stdin true})}
-               {:name :fnlfmt
-                :method [FORMATTING]
-                :filetypes [:fennel]
-                :generator (null.formatter {:command :fnlfmt
-                                            :args [:$FILENAME]
-                                            :to_stdin true})}]]
+               null.builtins.formatting.tidy
+               null.builtins.formatting.fixjson
+               null.builtins.formatting.taplo
+               null.builtins.formatting.shfmt
+               null.builtins.formatting.stylua
+               null.builtins.formatting.yapf
+               null.builtins.formatting.google_java_format
+               null.builtins.formatting.nixfmt
+               null.builtins.formatting.dart_format
+               null.builtins.formatting.gofmt
+               null.builtins.formatting.rustfmt
+               null.builtins.formatting.yamlfmt
+               (null.builtins.formatting.prettier.with {:prefer_local :node_modules/.bin
+                                                        :runtime_condition (fn [...]
+                                                                             (is_active_lsp :vtsls))})
+               (null.builtins.formatting.deno_fmt.with {:runtime_condition (fn [...]
+                                                                             (is_active_lsp :denols))})
+               dhall-format
+               fnlfmt]]
   (null.setup {: defaults : sources})
+  (vim.api.nvim_create_user_command :Format "lua vim.lsp.buf.format()" {})
   nil)

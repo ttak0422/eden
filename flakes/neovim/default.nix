@@ -581,24 +581,24 @@
 
                 lazy = true;
               }
-              {
-                plugin = formatter-nvim;
-                config = readFile ./../../nvim/formatter.lua;
-                commands = [ "Format" ];
-                extraPackages = with pkgs; [
-                  html-tidy
-                  stylua
-                  google-java-format
-                  nixfmt
-                  rustfmt
-                  taplo
-                  shfmt
-                  nodePackages.prettier
-                  nodePackages.fixjson
-                  yapf
-                  yamlfmt
-                ];
-              }
+              # {
+              #   plugin = formatter-nvim;
+              #   config = readFile ./../../nvim/formatter.lua;
+              #   commands = [ "Format" ];
+              #   extraPackages = with pkgs; [
+              #     html-tidy
+              #     stylua
+              #     google-java-format
+              #     nixfmt
+              #     rustfmt
+              #     taplo
+              #     shfmt
+              #     nodePackages.prettier
+              #     nodePackages.fixjson
+              #     yapf
+              #     yamlfmt
+              #   ];
+              # }
               {
                 plugin = Comment-nvim;
                 config = readFile ./../../nvim/comment.lua;
