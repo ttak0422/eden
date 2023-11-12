@@ -3,11 +3,16 @@ let inherit (builtins) readFile;
 in with vimPlugins; [{
   name = "lsp";
   plugins = [
+    # {
+    #   plugin = lsp-timeout-nvim;
+    #   # depends = [ nvim-lspconfig ];
+    #   preConfig = readFile ./../../../nvim/lsp-timeout-pre.lua;
+    #   config = readFile ./../../../nvim/lsp-timeout.lua;
+    # }
     {
-      plugin = lsp-timeout-nvim;
-      # depends = [ nvim-lspconfig ];
-      preConfig = readFile ./../../../nvim/lsp-timeout-pre.lua;
-      config = readFile ./../../../nvim/lsp-timeout.lua;
+      plugin = garbage-day-nvim;
+      preConfig = readFile ./../../../nvim/lua/garbage-day-pre.lua;
+      config = readFile ./../../../nvim/lua/garbage-day.lua;
     }
     {
       plugin = nvim-lspconfig;

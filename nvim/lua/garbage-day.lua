@@ -1,0 +1,1 @@
+-- [nfnl] Compiled from nvim/fnl/garbage-day.fnl by https://github.com/Olical/nfnl, do not edit.

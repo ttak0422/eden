@@ -3213,6 +3213,22 @@
         "type": "github"
       }
     },
+    "focus-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697218916,
+        "narHash": "sha256-EL4mzBYxTcd3zMN8HhGOew06eK3bUVsFE7Gm8Jioirs=",
+        "owner": "nvim-focus",
+        "repo": "focus.nvim",
+        "rev": "5269ea70e2003d9dac199584b093323752a472ba",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-focus",
+        "repo": "focus.nvim",
+        "type": "github"
+      }
+    },
     "fogbell-vim": {
       "flake": false,
       "locked": {
@@ -3307,6 +3323,22 @@
       "original": {
         "owner": "romgrk",
         "repo": "fzy-lua-native",
+        "type": "github"
+      }
+    },
+    "garbage-day-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699508690,
+        "narHash": "sha256-OhrvidFs2KafAlHUlfXjynN5IACH0x07WblpfMTi6+Y=",
+        "owner": "Zeioth",
+        "repo": "garbage-day.nvim",
+        "rev": "cecb3b5672b61d970bb714cec781720c9ab76bbf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Zeioth",
+        "repo": "garbage-day.nvim",
         "type": "github"
       }
     },
@@ -8564,11 +8596,13 @@
         "flash-nvim": "flash-nvim",
         "flit-nvim": "flit-nvim",
         "flutter-tools-nvim": "flutter-tools-nvim",
+        "focus-nvim": "focus-nvim",
         "fogbell-vim": "fogbell-vim",
         "formatter-nvim": "formatter-nvim",
         "friendly-snippets": "friendly-snippets",
         "fuzzy-motion-vim": "fuzzy-motion-vim",
         "fzy-lua-native": "fzy-lua-native",
+        "garbage-day-nvim": "garbage-day-nvim",
         "gin-vim": "gin-vim",
         "gina-vim": "gina-vim",
         "git-conflict-nvim": "git-conflict-nvim",
@@ -8883,11 +8917,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1699748416,
-        "narHash": "sha256-qN2dghmgvt+8S3qmFJ3Uh1x3OARXYINlIzJi59ZIzwQ=",
+        "lastModified": 1699805300,
+        "narHash": "sha256-Nzcf1RoTPzTKT9+K5d5YutNRLQVsShyA5hRr+HOKcXo=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "c385ae9b0be17ed5fb226aad0889ef3b5dff8007",
+        "rev": "e6e2822eb5a8e827bab917a0f0c06e8d040ed264",
         "type": "github"
       },
       "original": {
