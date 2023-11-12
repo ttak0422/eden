@@ -706,19 +706,19 @@
                 config = readFile ./../../nvim/hlslens.lua;
                 events = [ "CmdlineEnter" ];
               }
-              {
-                plugin = improved-search-nvim;
-                config = readFile ./../../nvim/lua/improved-search.lua;
-                events = [ "CursorMoved" ];
-              }
               # {
-              #   plugin = vim-asterisk;
-              #   config = {
-              #     lang = "vim";
-              #     code = readFile ./../../nvim/asterisk.vim;
-              #   };
+              #   plugin = improved-search-nvim;
+              #   config = readFile ./../../nvim/lua/improved-search.lua;
               #   events = [ "CursorMoved" ];
               # }
+              {
+                plugin = vim-asterisk;
+                config = {
+                  lang = "vim";
+                  code = readFile ./../../nvim/asterisk.vim;
+                };
+                events = [ "CursorMoved" ];
+              }
               {
                 plugin = mkdir-nvim;
                 events = [ "CmdlineEnter" ];
