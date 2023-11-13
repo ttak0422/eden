@@ -201,7 +201,7 @@
               }
               {
                 plugin = smart-splits-nvim;
-                config = readFile ./../../nvim/smart-splits.lua;
+                config = readFile ./../../nvim/lua/smart-splits.lua;
                 depends = [{
                   plugin = bufresize-nvim;
                   config = readFile ./../../nvim/bufresize.lua;
