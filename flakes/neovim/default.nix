@@ -12,6 +12,19 @@
         overlays = import ./overlays.nix inputs;
       };
       bundler-nvim = {
+        split = {
+          after.ftplugin = { };
+          optPlugins = with pkgs.vimPlugins; [{
+            plugin = smart-splits-nvim;
+            config = readFile ./../../nvim/lua/smart-splits.lua;
+            depends = [{
+              plugin = bufresize-nvim;
+              config = readFile ./../../nvim/bufresize.lua;
+              events = [ "WinNew" ];
+            }];
+            modules = [ "smart-splits" ];
+          }];
+        };
         default = {
           package = pkgs.neovim-nightly;
           # logLevel = "debug";
