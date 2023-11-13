@@ -9,7 +9,6 @@ export class Config extends BaseConfig {
       sources: ["necovim", "around"],
     });
     contextBuilder.patchGlobal({
-
       ui: "pum",
       keywordPattern: "[0-9a-zA-Z]\\k*",
       // VSCode
@@ -219,8 +218,8 @@ export class Config extends BaseConfig {
             "sorter_fuzzy",
           ],
         },
-      }
-    })
+      },
+    });
     return Promise.resolve();
   }
 }

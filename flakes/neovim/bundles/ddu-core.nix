@@ -111,7 +111,7 @@ in with vimPlugins; [{
   config = {
     lang = "vim";
     code = readFile ./../../../nvim/ddu.vim;
-    args = { ts_config = ./../../../nvim/ddu.ts; };
+    args = { ts_config = ./../../../nvim/denops/ddu.ts; };
   };
   commands = [ "Ddu" "DduRg" "DduRgLive" ];
   lazy = true;

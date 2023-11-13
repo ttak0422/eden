@@ -37,9 +37,11 @@ export class Config extends BaseConfig {
         denops: Denops;
         previewWinId: number;
       }) => {
-        await fn.win_execute(args.denops, args.previewWinId, "normal! zz");
-        await fn.win_execute(args.denops, args.previewWinId, "setlocal nu");
-        await fn.win_execute(args.denops, args.previewWinId, "set nobuflisted");
+        await Promise.allSettled([
+          fn.win_execute(args.denops, args.previewWinId, "normal! zz"),
+          fn.win_execute(args.denops, args.previewWinId, "setlocal nu"),
+          fn.win_execute(args.denops, args.previewWinId, "set nobuflisted"),
+        ]);
       },
       previewHeight: "&lines / 3 * 2 - 2",
       startFilter: true,

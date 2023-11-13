@@ -162,7 +162,7 @@ in with vimPlugins; [{
   config = {
     lang = "vim";
     code = readFile ./../../../nvim/ddc.vim;
-    args = { ts_config = ./../../../nvim/ddc.ts; };
+    args = { ts_config = ./../../../nvim/denops/ddc.ts; };
   };
   events = [ "InsertEnter" "CmdlineEnter" ];
 }]
