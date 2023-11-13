@@ -44,6 +44,7 @@ export class Config extends BaseConfig {
         ]);
       },
       previewHeight: "&lines / 3 * 2 - 2",
+      previewSplit: "no",
       startFilter: true,
       prompt: " ",
       statusline: false,
