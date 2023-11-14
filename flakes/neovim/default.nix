@@ -789,7 +789,7 @@
                     (p: with p; [ bash ]))
                   nvim-yati
                   # nvim-ts-rainbow2
-                  # vim-matchup
+                  vim-matchup
                   nvim-treesitter-textobjects
                   {
                     plugin = rainbow-delimiters-nvim;
