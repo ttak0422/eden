@@ -45,6 +45,11 @@
           optPlugins = with pkgs.vimPlugins;
             [
               {
+                plugin = history-ignore-nvim;
+                config = readFile ./../../nvim/lua/history-ignore.lua;
+                events = [ "CmdlineEnter" ];
+              }
+              {
                 plugin = wf-nvim;
                 config = readFile ./../../nvim/lua/wf.lua;
                 depends = [ nvim-web-devicons ];
