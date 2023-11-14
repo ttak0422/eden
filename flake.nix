@@ -82,10 +82,6 @@
         "https://repo.maven.apache.org/maven2/org/openjdk/jol/jol-cli/0.16/jol-cli-0.16-full.jar";
       flake = false;
     };
-    fidget-nvim-legacy = {
-      url = "github:j-hui/fidget.nvim/legacy";
-      flake = false;
-    };
     fennel-language-server = {
       url = "github:ttak0422/fennel-language-server";
       inputs = {

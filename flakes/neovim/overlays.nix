@@ -30,10 +30,6 @@ with inputs; [
             cp $JSREGEXP_PATH/jsregexp.so lua/luasnip-jsregexp.so
           '';
         };
-        fidget-nvim = prev.vimPlugins.fidget-nvim.overrideAttrs (old: {
-          version = "custom";
-          src = inputs.fidget-nvim-legacy;
-        });
       };
 
       python3Packages = prev.python3Packages

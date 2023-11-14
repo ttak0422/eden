@@ -2957,23 +2957,6 @@
         "type": "github"
       }
     },
-    "fidget-nvim-legacy": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1686378433,
-        "narHash": "sha256-N3O/AvsD6Ckd62kDEN4z/K5A3SZNR15DnQeZhH6/Rr0=",
-        "owner": "j-hui",
-        "repo": "fidget.nvim",
-        "rev": "90c22e47be057562ee9566bad313ad42d622c1d3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "j-hui",
-        "ref": "legacy",
-        "repo": "fidget.nvim",
-        "type": "github"
-      }
-    },
     "filetype-nvim": {
       "flake": false,
       "locked": {
@@ -7076,7 +7059,6 @@
         "emacs": "emacs",
         "fennel-language-server": "fennel-language-server",
         "fennel-ls-src": "fennel-ls-src",
-        "fidget-nvim-legacy": "fidget-nvim-legacy",
         "flake-compat": "flake-compat_3",
         "flake-parts": "flake-parts_2",
         "flake-utils": "flake-utils_2",
