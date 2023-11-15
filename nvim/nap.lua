@@ -13,8 +13,7 @@ local function safe_qf_colder()
   if 1 < idx then
     vim.cmd("silent colder")
   else
-    local last_idx = get_qflist_nr("$")
-    vim.cmd("silent " .. last_idx .. "chistory")
+    vim.notify("reached start of quickfix list")
   end
 end
 
@@ -24,7 +23,7 @@ local function safe_qf_cnewer()
   if idx < last_idx then
     vim.cmd("silent cnewer")
   else
-    vim.cmd("silent 1chistory")
+    vim.notify("reached end of quickfix list")
   end
 end
 
