@@ -35,8 +35,8 @@ require("nap").setup({
   prev_repeat = "<c-p>",
   operators = {
     ["m"] = {
-      prev = { rhs = cmd("<Plug>(Marks-prev)"), opts = { desc = "prev mark" } },
-      next = { rhs = cmd("<Plug>(Marks-next)"), opts = { desc = "next mark" } },
+      prev = { rhs = "<Plug>(Marks-prev)", opts = { desc = "prev mark" } },
+      next = { rhs = "<Plug>(Marks-next)", opts = { desc = "next mark" } },
     },
     ["b"] = {
       prev = { rhs = cmd("bprevious"), opts = { desc = "prev buffer" } },
