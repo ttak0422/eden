@@ -45,6 +45,11 @@
           optPlugins = with pkgs.vimPlugins;
             [
               {
+                plugin = marks-nvim;
+                config = readFile ./../../nvim/lua/marks.lua;
+                lazy = true;
+              }
+              {
                 plugin = history-ignore-nvim;
                 config = readFile ./../../nvim/lua/history-ignore.lua;
                 events = [ "CmdlineEnter" ];
