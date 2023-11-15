@@ -79,6 +79,11 @@ in with vimPlugins; [{
     #   plugin = suit-nvim;
     #   config = readFile ./../../../nvim/lua/suit.lua;
     # }
+    {
+      plugin = dressing-nvim;
+      config = readFile ./../../../nvim/lua/dressing.lua;
+      dependBundles = [ "telescope" ];
+    }
   ];
   depends = [{
     plugin = fidget-nvim;

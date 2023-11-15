@@ -102,10 +102,10 @@ in with vimPlugins; [{
       plugin = kensaku-vim;
       useDenops = true;
     }
-    {
-      plugin = ddu-vim-ui-select;
-      useDenops = true;
-    }
+    # {
+    #   plugin = ddu-vim-ui-select;
+    #   useDenops = true;
+    # }
   ];
   depends = [ denops-vim qf-nvim nvim-bqf ];
   config = {
