@@ -17,4 +17,4 @@
                                       :next "<M-]>"
                                       :prev "<M-[>"
                                       :dismiss :<M-e>}}
-                :filetypes {:help false :gitrebase false ["."] false}})
+                :filetypes {:help false :gitrebase false "." false}})
