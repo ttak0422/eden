@@ -87,7 +87,7 @@ in with vimPlugins; [{
   ];
   depends = [{
     plugin = fidget-nvim;
-    config = readFile ./../../../nvim/fidget.lua;
+    config = readFile ./../../../nvim/lua/fidget.lua;
   }];
   dependBundles = [ "ddc" ];
   lazy = true;
