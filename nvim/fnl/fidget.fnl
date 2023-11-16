@@ -42,4 +42,4 @@
       logger {:level vim.log.levels.WARN
               :float_precision 0.01
               :path (string.format "%s/fidget.nvim.log" (vim.fn.stdpath :cache))}]
-  (fidget:setup {: progress : display : notification : logger}))
+  (fidget.setup {: progress : display : notification : logger}))
