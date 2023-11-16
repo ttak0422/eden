@@ -130,11 +130,11 @@ in with vimPlugins; [{
       useDenops = true;
     }
     # TODO lazy
-    {
-      plugin = ddc-source-nvim-obsidian;
-      depends = [ obsidian-nvim ];
-      useDenops = true;
-    }
+    # {
+    #   plugin = ddc-source-nvim-obsidian;
+    #   depends = [ obsidian-nvim ];
+    #   useDenops = true;
+    # }
     {
       plugin = tsnip-nvim;
       config = {
