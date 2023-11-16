@@ -106,7 +106,7 @@
               }
               {
                 plugin = copilot-lua;
-                config = readFile ./../../nvim/copilot.lua;
+                config = readFile ./../../nvim/lua/copilot.lua;
                 lazy = true;
               }
               {
