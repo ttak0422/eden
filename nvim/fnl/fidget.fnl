@@ -1,6 +1,6 @@
 (let [fidget (require :fidget)
       progress {; poll per seconds
-                :poll_rate 2
+                :poll_rate 1
                 :suppress_on_insert true
                 :ignore_done_already true
                 :notification_group (fn [msg] msg.lsp_name)
@@ -21,7 +21,7 @@
                :format_group_name (fn [grp] (tostring grp))
                :overrides {:rust_analyzer {:name :rust-analyzer}}}
       notification {; poll per seconds
-                    :poll_rate 2
+                    :poll_rate 1
                     :filter vim.log.levels.INFO
                     :override_vim_notify false
                     :configs {:default fidget.default_config}
