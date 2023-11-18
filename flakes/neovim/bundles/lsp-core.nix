@@ -36,8 +36,7 @@ in with vimPlugins; [{
         taplo-cli
         # fennel-language-server
         fennel-ls
-        marksman
-      ]) ++ (with pkgs.pkgs-unstable; [ nixd ]);
+      ]) ++ (with pkgs.pkgs-unstable; [ nixd marksman ]);
       config = {
         lang = "lua";
         code = readFile ./../../../nvim/lua/lspconfig.lua;
