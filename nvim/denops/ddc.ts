@@ -102,12 +102,6 @@ export class Config extends BaseConfig {
         "cmdline-history": {
           mark: "[HIST]",
         },
-        "nvim-obsidian": {
-          mark: "[ ]",
-        },
-        "nvim-obsidian-new": {
-          mark: "[ +]",
-        },
       },
       sourceParams: {
         "nvim-lsp": {
@@ -149,12 +143,6 @@ export class Config extends BaseConfig {
           projFromBufMaxItems: [1000, 1000, 1000],
           beforeResolve: "node_modules",
           displayBuf: "",
-        },
-        "nvim-obsidian": {
-          dir: "~/vault",
-        },
-        "nvim-obsidian-new": {
-          dir: "~/vault",
         },
       },
       filterOptions: {},

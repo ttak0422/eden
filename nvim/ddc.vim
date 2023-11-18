@@ -15,13 +15,6 @@ endfunction
 call signature_help#enable()
 " call popup_preview#enable()
 
-" for Obsidian
-function! s:obsidian() abort
-  call ddc#custom#patch_buffer('sources', ['nvim-obsidian', 'around', 'nvim-obsidian-new'])
-endfunction
-autocmd BufEnter,BufNewFile **/vault/**/*.md call s:obsidian()
-autocmd BufEnter,BufNewFile **/vault/*.md call s:obsidian()
-
 " keymaps
 inoremap <silent> <C-x>      <Cmd>call ddc#map#manual_complete()<CR>
 inoremap <silent> <C-x><C-x> <Cmd>call ddc#map#manual_complete()<CR>
