@@ -2489,6 +2489,22 @@
         "type": "github"
       }
     },
+    "detour-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699995105,
+        "narHash": "sha256-5H35CxFZiUhloxkKFHEVLiWFP9Dpo+7NrQ5u0woQbPU=",
+        "owner": "carbon-steel",
+        "repo": "detour.nvim",
+        "rev": "f8d6964dbd64243d65565bfa445e00685c115662",
+        "type": "github"
+      },
+      "original": {
+        "owner": "carbon-steel",
+        "repo": "detour.nvim",
+        "type": "github"
+      }
+    },
     "diagflow-nvim": {
       "flake": false,
       "locked": {
@@ -8673,6 +8689,7 @@
         "denops-popup-preview-vim": "denops-popup-preview-vim",
         "denops-signature_help": "denops-signature_help",
         "denops-vim": "denops-vim",
+        "detour-nvim": "detour-nvim",
         "diagflow-nvim": "diagflow-nvim",
         "diffview-nvim": "diffview-nvim",
         "direnv-vim": "direnv-vim",
@@ -9020,11 +9037,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1700266849,
-        "narHash": "sha256-TXp0g++H8Syb1myHxU/Ry5jUuX4dE8TzynXle4q0Ik8=",
+        "lastModified": 1700304707,
+        "narHash": "sha256-oGgFtYMh/M80SnyJK6Oj/lCE8CpV8DnVR++PxOJpX4k=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "48689f692cae4c60d22a5b066c1959abb0680964",
+        "rev": "153cd8bf8c80d9cbc8c9bb3f8de6aa3697f66f70",
         "type": "github"
       },
       "original": {

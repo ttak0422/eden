@@ -45,6 +45,12 @@
           optPlugins = with pkgs.vimPlugins;
             [
               {
+                plugin = detour-nvim;
+                config = readFile ./../../nvim/lua/detour.lua;
+                commands = [ "Detour" ];
+                modules = [ "detour" ];
+              }
+              {
                 plugin = marks-nvim;
                 config = readFile ./../../nvim/lua/marks.lua;
                 lazy = true;
