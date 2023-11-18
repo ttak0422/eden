@@ -9,7 +9,8 @@ in with vimPlugins; [
     config = let jdtLsp = pkgs.jdt-language-server;
     in {
       lang = "lua";
-      code = readFile ./../../../nvim/jdtls.lua;
+      # code = readFile ./../../../nvim/jdtls.lua;
+      code = readFile ./../../../nvim/lua/jdtls.lua;
       args = {
         runtimes = [
           {
@@ -19,24 +20,21 @@ in with vimPlugins; [
           {
             name = "JavaSE-17";
             path = pkgs.jdk17;
-
             default = true;
           }
         ];
         on_attach_path = ./../../../nvim/shared/on_attach.lua;
         capabilities_path = ./../../../nvim/shared/capabilities.lua;
-        java_bin = "${pkgs.jdk17}/bin/java";
-        jdtls_config = "${jdtLsp}/share/config";
-        lombok_jar = "${pkgs.lombok}/share/java/lombok.jar";
+        java_path = "${pkgs.jdk17}/bin/java";
+        jdtls_config_path = "${jdtLsp}/share/config";
+        lombok_jar_path = "${pkgs.lombok}/share/java/lombok.jar";
         jdtls_jar_pattern =
           "${jdtLsp}/share/java/plugins/org.eclipse.equinox.launcher_*.jar";
-        jdtls_settings_path = ./../../../nvim/jdtls_settings.lua;
         java_debug_jar_pattern =
           "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-*.jar";
         java_test_jar_pattern =
           "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar";
-        jol_jar = pkgs.javaPackages.jol;
-
+        jol_jar_path = pkgs.javaPackages.jol;
       };
     };
     filetypes = [ "java" ];
@@ -121,12 +119,12 @@ in with vimPlugins; [
     filetypes = [ "fennel" ];
     extraPackages = with pkgs; [ sd fd ];
   }
-  {
-    plugin = conjure;
-    preConfig = readFile ./../../../nvim/lua/conjure-pre.lua;
-    config = readFile ./../../../nvim/lua/conjure.lua;
-    depends = [{ plugin = aniseed; }];
-    dependBundles = [ "treesitter" ];
-    filetypes = [ "clojure" "fennel" "scheme" ];
-  }
+  # {
+  #   plugin = conjure;
+  #   preConfig = readFile ./../../../nvim/lua/conjure-pre.lua;
+  #   config = readFile ./../../../nvim/lua/conjure.lua;
+  #   depends = [{ plugin = aniseed; }];
+  #   dependBundles = [ "treesitter" ];
+  #   filetypes = [ "clojure" "fennel" "scheme" ];
+  # }
 ]
