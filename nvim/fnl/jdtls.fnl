@@ -64,12 +64,10 @@
                                     :matchCase :firstletter
                                     ; default is 50
                                     :maxResults 50}
-                       ; configuration?: ConfigurationOptions;
                        :configuration {: runtimes
                                        ;  "disabled" | "interactive" | "automatic", default is "interactive"
                                        :updateBuildConfiguration :interactive}
                        :eclipse {:downloadSources false}
-                       ; errors?: ErrorsOptions;
                        :errors {:incompleteClasspath {:severity :ignore}}
                        :executeCommand enabled
                        :foldingRange enabled
@@ -78,16 +76,13 @@
                        :implementationsCodeLens enabled
                        :import {:gradle {:offline enabled}
                                 :maven {:offline enabled}}
-                       ; inlayhints?: InlayHints;
                        :inlayhints {:parameterNames enabled}
-                       ; jdt?: JDTOptions;
                        :jdt {:ls {:lombokSupport enabled
                                   :protobufSupport enabled
                                   :androidSupport enabled}}
                        :maven {:downloadSources true :updateSnapshots true}
                        ; default is 1
                        :maxConcurrentBuilds 2
-                       ; project?: ProjectOptions;
                        :project {; "ignore" | "warning" | "setDefault", default is "ignore"
                                  :encoding :ignore
                                  :referencedLibraries [:lib/**/*.jar]}
