@@ -489,7 +489,7 @@
               {
                 plugin = neogit;
                 depends = [ diffview-nvim plenary-nvim ];
-                config = readFile ./../../nvim/neogit.lua;
+                config = readFile ./../../nvim/lua/neogit.lua;
                 commands = [ "Neogit" ];
               }
               {
