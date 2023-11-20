@@ -1,6 +1,6 @@
 import { BaseConfig } from "https://deno.land/x/ddu_vim@v3.6.0/types.ts";
 import { ConfigArguments } from "https://deno.land/x/ddu_vim@v3.6.0/base/config.ts";
-import { Denops, fn } from "https://deno.land/x/ddu_vim@v3.6.0/deps.ts";
+import { Denops } from "https://deno.land/x/ddu_vim@v3.6.0/deps.ts";
 import {
   Params as FfParams,
   Ui as FfUi,
@@ -37,11 +37,11 @@ export class Config extends BaseConfig {
         denops: Denops;
         previewWinId: number;
       }) => {
-        await Promise.allSettled([
-          fn.win_execute(args.denops, args.previewWinId, "normal! zz"),
-          fn.win_execute(args.denops, args.previewWinId, "setlocal nu"),
-          fn.win_execute(args.denops, args.previewWinId, "set nobuflisted"),
-        ]);
+        await args.denops.batch(
+          ["execute", "normal! zz"],
+          ["execute", "setlocal nu"],
+          ["execute", "set nobuflisted"],
+        );
       },
       previewHeight: "&lines / 3 * 2 - 2",
       previewSplit: "no",
