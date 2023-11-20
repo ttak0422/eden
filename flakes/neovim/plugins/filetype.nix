@@ -120,6 +120,18 @@ in with vimPlugins; [
     extraPackages = with pkgs; [ sd fd ];
   }
   # {
+  #   plugin = nvim-paredit-fennel;
+  #   filetypes = [ "fennel" ];
+  #   depends = [ nvim-paredit ];
+  #   config = readFile ./../../../nvim/lua/paredit-fennel.lua;
+  # }
+  # {
+  #   # closure
+  #   plugin = nvim-paredit;
+  #   filetypes = [ "clojure" ];
+  #   config = readFile ./../../../nvim/lua/paredit.lua;
+  # }
+  # {
   #   plugin = conjure;
   #   preConfig = readFile ./../../../nvim/lua/conjure-pre.lua;
   #   config = readFile ./../../../nvim/lua/conjure.lua;
