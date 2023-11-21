@@ -790,6 +790,11 @@
                 plugin = statuscol-nvim;
                 config = readFile ./../../nvim/statuscol.lua;
               }
+              {
+                plugin = tshjkl-nvim;
+                config = readFile ./../../nvim/lua/tshjkl.lua;
+                events = [ "CursorMoved" ];
+              }
             ] ++ (flatten (map (bs: callPackage bs { }) [
               ./plugins/util.nix
               ./plugins/filetype.nix
