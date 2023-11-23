@@ -1,1 +1,2 @@
 nvim/lua/*.lua linguist-generated
+configs/*.lua linguist-generated
