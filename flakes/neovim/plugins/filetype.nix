@@ -119,6 +119,13 @@ in with vimPlugins; [
     filetypes = [ "fennel" ];
     extraPackages = with pkgs; [ sd fd ];
   }
+  {
+    # markdown
+    plugin = mkdnflow-nvim;
+    depends = [ plenary-nvim ];
+    filetypes = [ "markdown" ];
+    config = readFile ./../../../nvim/lua/mkdnflow.lua;
+  }
   # {
   #   plugin = nvim-paredit-fennel;
   #   filetypes = [ "fennel" ];

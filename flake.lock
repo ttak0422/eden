@@ -48,6 +48,22 @@
         "type": "github"
       }
     },
+    "Coqtail": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698447327,
+        "narHash": "sha256-X7ZpDaPEkRrR4kPP/MV6MLh3YIMKxVrk7nA4BGNOrAU=",
+        "owner": "whonore",
+        "repo": "Coqtail",
+        "rev": "ecca5017b6b27e1bded009f9725186d941d85b53",
+        "type": "github"
+      },
+      "original": {
+        "owner": "whonore",
+        "repo": "Coqtail",
+        "type": "github"
+      }
+    },
     "Ionide-vim": {
       "flake": false,
       "locked": {
@@ -4607,6 +4623,22 @@
         "type": "github"
       }
     },
+    "mkdnflow-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700582867,
+        "narHash": "sha256-DcbaVHpY4/d8NWDYZGgXndvx3TGp6HCvLaDGQw3ayLw=",
+        "owner": "jakewvincent",
+        "repo": "mkdnflow.nvim",
+        "rev": "198d4246042f21331415a3e41836fa12322b8536",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jakewvincent",
+        "repo": "mkdnflow.nvim",
+        "type": "github"
+      }
+    },
     "modes-nvim": {
       "flake": false,
       "locked": {
@@ -8623,6 +8655,7 @@
         "ChatGPT-nvim": "ChatGPT-nvim",
         "Codewindow-nvim": "Codewindow-nvim",
         "Comment-nvim": "Comment-nvim",
+        "Coqtail": "Coqtail",
         "Ionide-vim": "Ionide-vim",
         "JABS-nvim": "JABS-nvim",
         "LspUI-nvim": "LspUI-nvim",
@@ -8867,6 +8900,7 @@
         "minimap-vim": "minimap-vim",
         "mix-nvim": "mix-nvim",
         "mkdir-nvim": "mkdir-nvim",
+        "mkdnflow-nvim": "mkdnflow-nvim",
         "modes-nvim": "modes-nvim",
         "modicator-nvim": "modicator-nvim",
         "monokai-nightasty-nvim": "monokai-nightasty-nvim",
@@ -9122,11 +9156,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1700698880,
-        "narHash": "sha256-+HArER224HXw503WrbkRHWz+7OGDlBq6Y0ODKpNwaCE=",
+        "lastModified": 1700732859,
+        "narHash": "sha256-fURojhJUXSb2/4p0tNW5VvqUb+q2K1CIw3RZoSzXjWU=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "f314f2394f076b8f2c086f560511616e47eb9664",
+        "rev": "7bbe29123050624d15adbd87eaeab8caca37b5cd",
         "type": "github"
       },
       "original": {
