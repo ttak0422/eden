@@ -66,8 +66,8 @@
                 :MkdnNewListItemAboveInsert [:n :O]
                 :MkdnExtendList false
                 :MkdnUpdateNumbering [:n :<localleader>nn]
-                :MkdnTableNextCell [:i :<Tab>]
-                :MkdnTablePrevCell [:i :<S-Tab>]
+                :MkdnTableNextCell false ; TODO
+                :MkdnTablePrevCell false ; TODO
                 :MkdnTableNextRow [:i :<S-M-CR>]
                 :MkdnTablePrevRow [:i :<M-CR>]
                 :MkdnTableNewRowBelow [:n :<localleader>ir]
