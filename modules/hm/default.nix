@@ -1,6 +1,7 @@
 {
   imports = [
     ./app
+    ./cloud
     ./core
     ./darwin
     ./development

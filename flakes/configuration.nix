@@ -54,6 +54,7 @@ in {
               stateVersion = hmStateVersion;
               modules = [
                 self.nixosModules.eden-hm-core
+                self.nixosModules.eden-hm-cloud
                 self.nixosModules.eden-hm-app
                 self.nixosModules.eden-hm-darwin
                 self.nixosModules.eden-hm-development
