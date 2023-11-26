@@ -47,6 +47,13 @@
           startPlugins = callPackage ./plugins/startup.nix { };
           optPlugins = with pkgs.vimPlugins;
             [
+              # {
+              #   plugin = denops-silicon-vim;
+              #   preConfig = readFile ./../../nvim/lua/denops-silicon.lua;
+              #   dependBundles = [ "denops" ];
+              #   useDenops = true;
+              #   commands = [ "Silicon" ];
+              # }
               {
                 plugin = detour-nvim;
                 config = readFile ./../../nvim/lua/detour.lua;
