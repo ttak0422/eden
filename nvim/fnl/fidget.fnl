@@ -4,22 +4,22 @@
                 :suppress_on_insert true
                 :ignore_done_already true
                 :notification_group (fn [msg] msg.lsp_name)
-                :ignore []}
-      display {:render_limit 10
-               :done_ttl 3
-               :done_icon "✔"
-               :done_style :Constant
-               :progress_ttl 40
-               :progress_icon {:pattern :dots :period 1}
-               :progress_style :WarningMsg
-               :group_style :Title
-               :icon_style :Question
-               :priority 30
-               :format_message (. (require :fidget.progress.display)
-                                  :default_format_message)
-               :format_annote (fn [msg] msg.title)
-               :format_group_name (fn [grp] (tostring grp))
-               :overrides {:rust_analyzer {:name :rust-analyzer}}}
+                :ignore []
+                :display {:render_limit 10
+                         :done_ttl 3
+                         :done_icon "✔"
+                         :done_style :Constant
+                         :progress_ttl 40
+                         :progress_icon {:pattern :dots :period 1}
+                         :progress_style :WarningMsg
+                         :group_style :Title
+                         :icon_style :Question
+                         :priority 30
+                         :format_message (. (require :fidget.progress.display)
+                                            :default_format_message)
+                         :format_annote (fn [msg] msg.title)
+                         :format_group_name (fn [grp] (tostring grp))
+                         :overrides {:rust_analyzer {:name :rust-analyzer}}}}
       notification {; poll per seconds
                     :poll_rate 1
                     :filter vim.log.levels.INFO
@@ -42,4 +42,4 @@
       logger {:level vim.log.levels.WARN
               :float_precision 0.01
               :path (string.format "%s/fidget.nvim.log" (vim.fn.stdpath :cache))}]
-  (fidget.setup {: progress : display : notification : logger}))
+  (fidget.setup {: progress : notification : logger}))
