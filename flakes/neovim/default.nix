@@ -15,15 +15,18 @@
         split = {
           after.ftplugin = { };
           optPlugins = with pkgs.vimPlugins; [{
-            plugin = smart-splits-nvim;
-            config = readFile ./../../nvim/lua/smart-splits.lua;
-            depends = [{
-              plugin = bufresize-nvim;
-              config = readFile ./../../nvim/bufresize.lua;
-              events = [ "WinNew" ];
-            }];
-            modules = [ "smart-splits" ];
-          }];
+            plugin = bufresize-nvim;
+            config = readFile ./../../nvim/lua/bufresize.lua;
+            events = [ "WinNew" ];
+          }
+          # {
+          #   plugin = smart-splits-nvim;
+          #   config = readFile ./../../nvim/lua/smart-splits.lua;
+          #   depends = [ bufresize-nvim ];
+          #   modules = [ "smart-splits" ];
+          #
+          # }
+            ];
         };
         default = {
           package = pkgs.neovim-nightly;
@@ -233,10 +236,10 @@
                 config = readFile ./../../nvim/lua/smart-splits.lua;
                 depends = [{
                   plugin = bufresize-nvim;
-                  config = readFile ./../../nvim/bufresize.lua;
-                  events = [ "WinNew" ];
+                  config = readFile ./../../nvim/lua/bufresize.lua;
                 }];
                 modules = [ "smart-splits" ];
+                events = [ "WinNew" ];
               }
               {
                 plugin = NeoZoom-lua;
