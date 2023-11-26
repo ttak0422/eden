@@ -47,6 +47,11 @@
           startPlugins = callPackage ./plugins/startup.nix { };
           optPlugins = with pkgs.vimPlugins;
             [
+              {
+                plugin = flow-nvim;
+                config = readFile ./../../nvim/lua/flow.lua;
+                commands = [ "FlowRunSelected" "FlowRunFile" "FlowLauncher" ];
+              }
               # {
               #   plugin = denops-silicon-vim;
               #   preConfig = readFile ./../../nvim/lua/denops-silicon.lua;

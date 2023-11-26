@@ -3260,6 +3260,22 @@
         "type": "github"
       }
     },
+    "flow-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700828445,
+        "narHash": "sha256-k/9ZyAarbl2i79DmQAx4orMmwI8ZYLu/Pm4xlLVk2TA=",
+        "owner": "arjunmahishi",
+        "repo": "flow.nvim",
+        "rev": "7e70b0ddbad93a65f2dd47169997bb747e4d61f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arjunmahishi",
+        "repo": "flow.nvim",
+        "type": "github"
+      }
+    },
     "flutter-tools-nvim": {
       "flake": false,
       "locked": {
@@ -8870,6 +8886,7 @@
         "flare-nvim": "flare-nvim",
         "flash-nvim": "flash-nvim",
         "flit-nvim": "flit-nvim",
+        "flow-nvim": "flow-nvim",
         "flutter-tools-nvim": "flutter-tools-nvim",
         "focus-nvim": "focus-nvim",
         "fogbell-vim": "fogbell-vim",
@@ -9207,11 +9224,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1700958058,
-        "narHash": "sha256-soS2n6PsrcuLP+z7oWNqEnBI9Vcpvsq73JyZPSMHNfI=",
+        "lastModified": 1700990304,
+        "narHash": "sha256-5KNNszCH70807X/KoeJIiSIebCsUN5OwdYb87iu6qRg=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "36bb563ff9bf3a49abd77427b29bd8bb68823732",
+        "rev": "8c1fc7bbbe8d500c5b648b6e36db96f4efde0344",
         "type": "github"
       },
       "original": {
