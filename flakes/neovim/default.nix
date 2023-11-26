@@ -48,6 +48,13 @@
           optPlugins = with pkgs.vimPlugins;
             [
               {
+                plugin = denops-translate-vim;
+                preConfig = readFile ./../../nvim/lua/denops-translate-pre.lua;
+                dependBundles = [ "denops" ];
+                useDenops = true;
+                commands = [ "Translate" ];
+              }
+              {
                 plugin = flow-nvim;
                 config = readFile ./../../nvim/lua/flow.lua;
                 commands = [ "FlowRunSelected" "FlowRunFile" "FlowLauncher" ];
