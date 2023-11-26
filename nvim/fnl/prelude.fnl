@@ -29,6 +29,7 @@
                    :shiftwidth 2
                    :foldlevel 99
                    :foldlevelstart 99
+                   :equalalways false
                    ;; update inode for emanote
                    :backup true
                    :backupcopy :yes
