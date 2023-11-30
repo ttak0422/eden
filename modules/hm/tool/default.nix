@@ -9,6 +9,7 @@
             bottom # --------- system monitor
             commitizen # ----- git commit helper
             coreutils-full # - cat, ls, mv, wget, ...
+            d2 # ------------- modern diagram
             exa # ------------ ls clone
             fd # ------------- find clone
             figlet # --------- ascii
