@@ -21,8 +21,13 @@
                              {:pattern "*"
                               :callback (fn []
                                           (check_direnv)
-                                          (check_direnv_active)
-                                          (vim.cmd :redrawstatus))})
+                                          (check_direnv_active))})
+
+; wip
+(check_direnv)
+(check_direnv_active)
+(vim.defer_fn (fn []
+                (vim.cmd :redrawstatus)) 1000)
 
 ;; lsp
 (local ignore_lsp {:copilot true})
@@ -149,8 +154,7 @@
                    :! "!"
                    ;; 端末ジョブモード: キー入力がジョブに行く
                    :t :T}
-      mode_colors {
-                   :n :red
+      mode_colors {:n :red
                    :no :red
                    :nov :red
                    :noV :red
@@ -331,7 +335,8 @@
                    2 direnv})
       root (let []
              {:init (fn [self]
-                      (let [cwd ((. vim.fn :fnamemodify) ((. vim.fn :getcwd)) ":t")]
+                      (let [cwd ((. vim.fn :fnamemodify) ((. vim.fn :getcwd))
+                                                         ":t")]
                         (set self.root (or (. self.alias cwd) cwd))))
               :provider (fn [self] (.. "   %4(" self.root "%) "))
               :update [:DirChanged]
