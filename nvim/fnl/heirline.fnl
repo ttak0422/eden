@@ -49,7 +49,7 @@
                        :fg kanagawa_palette.sumiInk6
                        :red kanagawa_palette.autumnRed
                        :green kanagawa_palette.autumnGreen
-                       :blue kanagawa_palette.winterBlue
+                       :blue kanagawa_palette.crystalBlue
                        :grey kanagawa_palette.fujiGray
                        :orange kanagawa_palette.surimiOrange
                        :purple kanagawa_palette.oniViolet
