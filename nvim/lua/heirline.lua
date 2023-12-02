@@ -228,6 +228,22 @@ do
   end
   root = {init = _40_, provider = _41_, update = {"DirChanged"}, hl = {fg = colors.bg, bg = colors.orange}, static = {alias = {[""] = "ROOT"}}}
 end
+local hydra_status
+do
+  local name
+  local function _42_()
+    return (hydra.get_name() or "HYDRA")
+  end
+  name = {provider = _42_}
+  local hint = {condition = hydra.get_hint, provider = hydra.get_hint}
+  local function _43_()
+    return colors.cyan
+  end
+  local function _44_(self)
+    return (hydra.is_active() and not self.hydra_ignore[hydra.get_name()])
+  end
+  hydra_status = {left_cap, utils.surround({icons.left_rounded, icons.right_rounded}, _43_, {name}), align, hint, align, condition = _44_, static = {hydra_ignore = {BarBar = true}}}
+end
 local default_status_line = {left_cap, mode, space, git, round_right, diagnostics, round_right, pomodoro, align, search_count, align, ruler, bar, file_properties, bar, indicator, root}
-local statusline = {default_status_line, hl = {fg = colors.fg, bg = colors.bg, bold = true}, fallthrough = false}
+local statusline = {hydra_status, default_status_line, hl = {fg = colors.fg, bg = colors.bg, bold = true}, fallthrough = false}
 return heirline.setup({statusline = statusline, opts = opts})

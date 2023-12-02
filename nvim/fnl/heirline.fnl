@@ -343,6 +343,25 @@
               :hl {:fg colors.bg :bg colors.orange}
               :static {:alias {"" :ROOT}}}) ;;
       ;; statusline
+      hydra_status (let [name {:provider (fn [] (or (hydra.get_name) :HYDRA))}
+                         hint {:condition hydra.get_hint
+                               :provider hydra.get_hint}]
+                     {:condition (fn [self]
+                                   (and (hydra.is_active)
+                                        (not (. self.hydra_ignore
+                                                (hydra.get_name)))))
+                      :static {:hydra_ignore {:BarBar true}}
+                      ;; left
+                      1 left_cap
+                      2 (utils.surround [icons.left_rounded
+                                         icons.right_rounded]
+                                        (fn [] colors.cyan) [name])
+                      3 align
+                      ;; center
+                      4 hint
+                      5 align
+                      ;; right
+                      })
       default_status_line [;; left
                            left_cap
                            mode
@@ -365,5 +384,6 @@
                            root]
       statusline {:fallthrough false
                   :hl {:fg colors.fg :bg colors.bg :bold true}
-                  1 default_status_line}]
+                  1 hydra_status
+                  2 default_status_line}]
   (heirline.setup {: statusline : opts}))
