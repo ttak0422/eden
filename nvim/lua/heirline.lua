@@ -228,22 +228,52 @@ do
   end
   root = {init = _40_, provider = _41_, update = {"DirChanged"}, hl = {fg = colors.bg, bg = colors.orange}, static = {alias = {[""] = "ROOT"}}}
 end
+local help_name
+local function _42_()
+  return (vim.bo.filetype == "help")
+end
+local function _43_()
+  return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
+end
+help_name = {condition = _42_, provider = _43_, hl = {fg = colors.fg}}
+local terminal_name
+local function _44_()
+  local name, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
+  return name
+end
+terminal_name = {provider = _44_, hl = {fg = colors.fg}}
 local hydra_status
 do
   local name
-  local function _42_()
+  local function _45_()
     return (hydra.get_name() or "HYDRA")
   end
-  name = {provider = _42_}
+  name = {provider = _45_}
   local hint = {condition = hydra.get_hint, provider = hydra.get_hint}
-  local function _43_()
+  local function _46_()
     return colors.cyan
   end
-  local function _44_(self)
+  local function _47_(self)
     return (hydra.is_active() and not self.hydra_ignore[hydra.get_name()])
   end
-  hydra_status = {left_cap, utils.surround({icons.left_rounded, icons.right_rounded}, _43_, {name}), align, hint, align, condition = _44_, static = {hydra_ignore = {BarBar = true}}}
+  hydra_status = {left_cap, utils.surround({icons.left_rounded, icons.right_rounded}, _46_, {name}), align, hint, align, condition = _47_, static = {hydra_ignore = {BarBar = true}}}
 end
+local special_status
+local function _48_()
+  return (" " .. icons.document .. " " .. string.upper(vim.bo.filetype) .. " ")
+end
+local function _49_()
+  return conditions.buffer_matches({buftype = {"nofile", "prompt", "help", "quickfix"}, filetype = {"^git.*", "fugative"}})
+end
+special_status = {left_cap, mode, align, help_name, align, {provider = _48_, hl = {fg = colors.bg, bg = colors.blue}, update = {"WinNew", "WinClosed", "BufEnter"}}, condition = _49_}
+local terminal_status
+local function _50_()
+  return (" " .. icons.terminal .. " TERMINAL ")
+end
+local function _51_()
+  return conditions.buffer_matches({buftype = {"terminal"}})
+end
+terminal_status = {left_cap, mode, align, terminal_name, align, {provider = _50_, hl = {fg = colors.bg, bg = colors.red}, update = {"WinNew", "WinClosed", "BufEnter"}}, condition = _51_}
 local default_status_line = {left_cap, mode, space, git, round_right, diagnostics, round_right, pomodoro, align, search_count, align, ruler, bar, file_properties, bar, indicator, root}
-local statusline = {hydra_status, default_status_line, hl = {fg = colors.fg, bg = colors.bg, bold = true}, fallthrough = false}
+local statusline = {hydra_status, special_status, terminal_status, default_status_line, hl = {fg = colors.fg, bg = colors.bg, bold = true}, fallthrough = false}
 return heirline.setup({statusline = statusline, opts = opts})

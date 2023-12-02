@@ -341,7 +341,17 @@
               :provider (fn [self] (.. "   %4(" self.root "%) "))
               :update [:DirChanged]
               :hl {:fg colors.bg :bg colors.orange}
-              :static {:alias {"" :ROOT}}}) ;;
+              :static {:alias {"" :ROOT}}})
+      help_name {:condition (fn [] (= vim.bo.filetype :help))
+                 :provider (fn []
+                             (vim.fn.fnamemodify (vim.api.nvim_buf_get_name 0)
+                                                 ":t"))
+                 :hl {:fg colors.fg}}
+      terminal_name {:provider (fn []
+                                 (let [(name _) (: (vim.api.nvim_buf_get_name 0)
+                                                   :gsub ".*:" "")]
+                                   name))
+                     :hl {:fg colors.fg}} ;;
       ;; statusline
       hydra_status (let [name {:provider (fn [] (or (hydra.get_name) :HYDRA))}
                          hint {:condition hydra.get_hint
@@ -362,6 +372,39 @@
                       5 align
                       ;; right
                       })
+      special_status {:condition (fn []
+                                   (conditions.buffer_matches {:buftype [:nofile
+                                                                         :prompt
+                                                                         :help
+                                                                         :quickfix]
+                                                               :filetype [:^git.*
+                                                                          :fugative]}))
+                      ;; left
+                      1 left_cap
+                      2 mode
+                      3 align
+                      ;; center
+                      4 help_name
+                      5 align
+                      ;; right
+                      6 {:provider (fn []
+                                     (.. " " icons.document " "
+                                         (string.upper vim.bo.filetype) " "))
+                         :hl {:fg colors.bg :bg colors.blue}
+                         :update [:WinNew :WinClosed :BufEnter]}}
+      terminal_status {:condition (fn []
+                                    (conditions.buffer_matches {:buftype [:terminal]}))
+                       ;; left
+                       1 left_cap
+                       2 mode
+                       3 align
+                       ;; center
+                       4 terminal_name
+                       5 align
+                       ;; right
+                       6 {:provider (fn [] (.. " " icons.terminal " TERMINAL "))
+                          :hl {:fg colors.bg :bg colors.red}
+                          :update [:WinNew :WinClosed :BufEnter]}}
       default_status_line [;; left
                            left_cap
                            mode
@@ -385,5 +428,7 @@
       statusline {:fallthrough false
                   :hl {:fg colors.fg :bg colors.bg :bold true}
                   1 hydra_status
-                  2 default_status_line}]
+                  2 special_status
+                  3 terminal_status
+                  4 default_status_line}]
   (heirline.setup {: statusline : opts}))
