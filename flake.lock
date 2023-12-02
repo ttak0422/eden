@@ -3968,15 +3968,15 @@
     "hydra-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1675678260,
-        "narHash": "sha256-MBlC7qQMVNNfOFcvTnw1DREOS9QWoI4zsyu3QYqIkLc=",
-        "owner": "anuvyklack",
+        "lastModified": 1700697213,
+        "narHash": "sha256-RnDqb5meOXZP6CbDbQGxkLot2QaZOJRQlXr69B9w2UE=",
+        "owner": "nvim-island",
         "repo": "hydra.nvim",
-        "rev": "3ced42c0b6a6c85583ff0f221635a7f4c1ab0dd0",
+        "rev": "de05017f30264acfea31f306e847ff4a028c5cf4",
         "type": "github"
       },
       "original": {
-        "owner": "anuvyklack",
+        "owner": "nvim-island",
         "repo": "hydra.nvim",
         "type": "github"
       }
@@ -9224,11 +9224,11 @@
         "zoomwintab-vim": "zoomwintab-vim"
       },
       "locked": {
-        "lastModified": 1701476520,
-        "narHash": "sha256-HEFTPb4SFi5v6riXwnjmAYZONMwaMhkyHH72Ohvzi6M=",
+        "lastModified": 1701535200,
+        "narHash": "sha256-wpkXXyEn+Q+fcHQx5HF2Mz9HPijLpwDKM5Kg+ldlaOg=",
         "owner": "ttak0422",
         "repo": "vim-plugins-overlay",
-        "rev": "8c121f86c873ecd065dc8f942cccd00f640527ab",
+        "rev": "5612ad28ec7a9384b5cfe7c8e898962425adce84",
         "type": "github"
       },
       "original": {
