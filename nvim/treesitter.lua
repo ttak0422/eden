@@ -1,3 +1,4 @@
+vim.g.matchup_matchparen_offscreen = { method = "popup" }
 require("nvim-treesitter.configs").setup({
   sync_install = false,
   auto_install = false,

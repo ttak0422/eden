@@ -407,7 +407,7 @@
               # }
               {
                 plugin = heirline-nvim;
-                config = readFile ./../../nvim/heirline.lua;
+                config = readFile ./../../nvim/lua/heirline.lua;
                 depends = [
                   plenary-nvim
                   nvim-web-devicons
