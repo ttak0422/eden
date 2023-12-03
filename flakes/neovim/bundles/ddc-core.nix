@@ -101,13 +101,13 @@ in with vimPlugins; [{
       useDenops = true;
     }
     {
-      plugin = ddc-source-nvim-lsp;
-      modules = [ "ddc_nvim_lsp" ];
+      plugin = ddc-source-lsp;
+      modules = [ "ddc_source_lsp" ];
       useDenops = true;
     }
     {
-      plugin = ddc-nvim-lsp-setup;
-      config = readFile ./../../../nvim/ddc-nvim-lsp-setup.lua;
+      plugin = ddc-source-lsp-setup;
+      config = readFile ./../../../nvim/lua/ddc-source-lsp-setup.lua;
       useDenops = true;
     }
     {

@@ -21,7 +21,7 @@ export class Config extends BaseConfig {
       ],
       backspaceCompletion: false,
       sources: [
-        "nvim-lsp",
+        "lsp",
         "tsnip",
         "vsnip",
         "around",
