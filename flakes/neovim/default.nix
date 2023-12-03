@@ -127,7 +127,7 @@
               }
               { plugin = nano-theme-nvim; }
               {
-                plugin = harpoon;
+                plugin = harpoon-1;
                 config = readFile ./../../nvim/harpoon.lua;
                 depends = [ plenary-nvim ];
                 modules = [ "harpoon.mark" "harpoon.ui" ];
@@ -733,11 +733,11 @@
                 config = "vim.cmd[[set helplang=ja,en]]";
                 lazy = true;
               }
-              # {
-              #   plugin = which-key-nvim;
-              #   config = readFile ./../../nvim/whichkey.lua;
-              #   lazy = true;
-              # }
+              {
+                plugin = which-key-nvim;
+                config = readFile ./../../nvim/whichkey.lua;
+                lazy = true;
+              }
               {
                 plugin = nvim-bqf;
                 config = readFile ./../../nvim/bqf.lua;
