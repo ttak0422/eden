@@ -39,7 +39,8 @@
           extraLuaConfig = ''
             vim.loader.enable()
             dofile("${./../../nvim/lua/prelude.lua}")
-            ${readFile ./../../nvim/keymap.lua}
+            dofile("${./../../nvim/keymap.lua}")
+            dofile("${./../../nvim/lua/keymap.lua}")
             if vim.g.neovide then
               dofile("${./../../nvim/neovide.lua}")
             end
