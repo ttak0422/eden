@@ -1,3 +1,8 @@
+vim.cmd([[
+  tnoremap <ESC> <c-\><c-n><Plug>(esc)
+  nnoremap <Plug>(esc)<ESC> i<ESC>
+]])
+
 local function desc(d)
   return { noremap = true, silent = true, desc = d }
 end

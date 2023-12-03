@@ -34,7 +34,6 @@
           extraConfig = ''
             ${readFile ./../../nvim/disable-default-plugin.vim}
             ${readFile ./../../nvim/prelude.vim}
-            ${readFile ./../../nvim/keymap.vim}
           '';
           extraLuaConfig = ''
             vim.loader.enable()
