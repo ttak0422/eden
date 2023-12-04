@@ -34,14 +34,18 @@
                             :opts {:desc "next registered buffer"}}}
                  :e {:prev {:rhs "g," :opts {:desc "prev edit"}}
                      :next {:rhs "g;" :opts {:desc "next edit"}}}
-                 :d {:prev {:rhs (vim.diagnostic.goto_prev diagnostic_wrn_options)
+                 :d {:prev {:rhs (fn []
+                                   (vim.diagnostic.goto_prev diagnostic_wrn_options))
                             :opts {:desc "prev diagnostic warning"}}
-                     :next {:rhs (vim.diagnostic.goto_next diagnostic_wrn_options)
+                     :next {:rhs (fn []
+                                   (vim.diagnostic.goto_next diagnostic_wrn_options))
                             :opts {:desc "next diagnostic warning"}}
                      :mode [:n :v :o]}
-                 :D {:prev {:rhs (vim.diagnostic.goto_prev diagnostic_err_options)
+                 :D {:prev {:rhs (fn []
+                                   (vim.diagnostic.goto_prev diagnostic_err_options))
                             :opts {:desc "prev diagnostic error"}}
-                     :next {:rhs (vim.diagnostic.goto_next diagnostic_err_options)
+                     :next {:rhs (fn []
+                                   (vim.diagnostic.goto_next diagnostic_err_options))
                             :opts {:desc "next diagnostic error"}}
                      :mode [:n :v :o]}
                  :q {:prev {:rhs (cmd :Qprev) :opts {:desc "prev quickfix"}}

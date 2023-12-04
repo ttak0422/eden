@@ -855,9 +855,9 @@
                   };
                 in {
                   lang = "lua";
-                  code = readFile ./../../nvim/treesitter.lua + ''
+                  code = ''
                     vim.opt.runtimepath:append("${parser}");
-                  '';
+                  '' + readFile ./../../nvim/lua/treesitter.lua;
                   args = { inherit parser; };
                 };
                 extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
