@@ -139,7 +139,7 @@
               }
               {
                 plugin = nap-nvim;
-                config = readFile ./../../nvim/nap.lua;
+                config = readFile ./../../nvim/lua/nap.lua;
                 depends = [{
                   plugin = vim-bufsurf;
                   config = readFile ./../../nvim/bufsurf.lua;
