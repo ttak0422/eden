@@ -929,6 +929,7 @@
                     depends = [ plenary-nvim ];
                     dependBundles = [ "treesitter" "lsp" "dap" ];
                   }
+                  neotest-java
                   neotest-python
                   neotest-plenary
                   neotest-go
@@ -955,7 +956,7 @@
                 ];
                 config = {
                   lang = "lua";
-                  code = readFile ./../../nvim/neotest.lua;
+                  code = readFile ./../../nvim/lua/neotest.lua;
                 };
                 commands = [ "Neotest" ];
               }
