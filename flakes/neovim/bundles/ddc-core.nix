@@ -158,7 +158,7 @@ in with vimPlugins; [{
     #   depends = [ friendly-snippets ];
     # }
   ];
-  dependBundles = [ "lsp" ];
+  dependBundles = [ "lsp" "ddu" ];
   config = {
     lang = "vim";
     code = readFile ./../../../nvim/ddc.vim;

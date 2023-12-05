@@ -16,6 +16,21 @@ call signature_help#enable()
 " call popup_preview#enable()
 
 " keymaps
+inoremap <C-l> <Cmd>call ddu#start(#{
+      \   name: 'ddc',
+      \   ui: 'ff',
+      \   sync: v:true,
+      \   input: matchstr(getline('.')[: col('.') - 1], '\k*$'),
+      \   sources: [
+      \     #{ name: 'ddc', options: #{ defaultAction: 'complete' } },
+      \   ],
+      \   uiParams: #{
+      \     ff: #{
+      \       startFilter: v:true,
+      \       replaceCol: match(getline('.')[: col('.') - 1], '\k*$') + 1,
+      \     },
+      \   },
+      \ })<CR>
 inoremap <silent> <C-x>      <Cmd>call ddc#map#manual_complete()<CR>
 inoremap <silent> <C-x><C-x> <Cmd>call ddc#map#manual_complete()<CR>
 inoremap <silent> <C-x><C-b> <Cmd>call ddc#map#manual_complete(#{ sources: ['buffer'] })<CR>
