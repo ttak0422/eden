@@ -104,7 +104,7 @@ export class Config extends BaseConfig {
         },
       },
       sourceParams: {
-        "nvim-lsp": {
+        lsp: {
           snippetEngine: async (body: string) => {
             await denops.call("vsnip#anonymous", body);
             return Promise.resolve();
