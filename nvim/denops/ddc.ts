@@ -75,7 +75,7 @@ export class Config extends BaseConfig {
           isVolatile: true,
           sorters: [],
         },
-        "nvim-lsp": {
+        lsp: {
           mark: "[LSP]",
           keywordPattern: "\\k+",
           dup: "keep",
@@ -84,7 +84,7 @@ export class Config extends BaseConfig {
           minKeywordLength: 0,
           sorters: [
             // "sorter_itemsize",
-            // "sorter_lsp-detail-size",
+            "sorter_lsp-detail-size",
             "sorter_lsp-kind",
             "sorter_fuzzy",
             // "sorter_rank",
