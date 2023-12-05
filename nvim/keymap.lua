@@ -30,22 +30,17 @@ local function toggle_tool()
   end
 end
 local toggle = toggle_tool()
-local map = vim.keymap.set
 
-local normal_keymaps = {
-  { "<leader>tq", toggle(1, "quickfix", nil), desc("open quickfix") },
-  {
-    "<leader>td",
-    toggle(2, "trouble", { mode = "document_diagnostics" }),
-    desc("open diagnostics (document)"),
-  },
-  {
-    "<leader>tD",
-    toggle(3, "trouble", { mode = "workspace_diagnostics" }),
-    desc("open diagnostics (workspace)"),
-  },
-}
-
-for _, keymap in ipairs(normal_keymaps) do
-  map("n", keymap[1], keymap[2], keymap[3])
-end
+vim.keymap.set("n", "<leader>tq", toggle(1, "quickfix", nil), desc("open quickfix"))
+vim.keymap.set(
+  "n",
+  "<leader>td",
+  toggle(2, "trouble", { mode = "document_diagnostics" }),
+  desc("open diagnostics (document)")
+)
+vim.keymap.set(
+  "n",
+  "<leader>tD",
+  toggle(3, "trouble", { mode = "workspace_diagnostics" }),
+  desc("open diagnostics (workspace)")
+)
