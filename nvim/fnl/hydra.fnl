@@ -33,12 +33,13 @@
                            ;; zoom
                            [:z (cmd :NeoZoomToggle) {:desc :zoom :exit true}]
                            ;; close
-                           [:q
-                            (cmd :SafeCloseWindow)
-                            {:exit true :desc :close}]
-                           [:<C-q>
-                            (cmd :SafeCloseWindow)
-                            {:desc false :exit true}]
+                           ; [:q
+                           ;  (cmd :SafeCloseWindow)
+                           ;  {:exit true :desc :close}]
+                           ; [:<C-q>
+                           ;  (cmd :SafeCloseWindow)
+                           ;  {:desc false :exit true}]
+                           [:c :<C-w>c {:desc :close :exit true}]
                            [:o :<C-w>o {:desc "close other" :exit true}]
                            [:<C-o> :<C-w>o {:desc false :exit true}]
                            ;; quit
