@@ -58,6 +58,7 @@
               ;; toggle
               [:<leader>tc (cmd :ColorizerToggle) (desc "toggle colorize")]
               [:<leader>tb (cmd :NvimTreeToggle)]
+              [:<leader>tB (cmd :Neotree toggle)]
               [:<leader>to (cmd :SidebarNvimToggle)]
               [:<leader>tm
                (lua_cmd "require('codewindow').toggle_minimap()")
