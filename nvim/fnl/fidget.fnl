@@ -3,7 +3,7 @@
                 :poll_rate 1
                 :suppress_on_insert true
                 :ignore_done_already true
-                :notification_group (fn [msg] msg.lsp_name)
+                :ignore_empty_message true
                 :ignore []
                 :display {:render_limit 10
                           :done_ttl 3
@@ -24,8 +24,7 @@
                     :poll_rate 1
                     :filter vim.log.levels.INFO
                     :override_vim_notify false
-                    :configs {:default (. (require :fidget.notification)
-                                          :default_config)}
+                    :configs {:default fidget.notification.default_config}
                     :view {:stack_upwards true
                            :icon_separator " "
                            :group_separator "---"
