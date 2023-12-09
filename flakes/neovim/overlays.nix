@@ -14,6 +14,11 @@ with inputs; [
       };
       javaPackages = prev.javaPackages // { inherit (inputs) jol; };
       vimPlugins = prev.vimPlugins // {
+        tsnip-nvim = prev.vimUtils.buildVimPlugin {
+          pname = "tsnip-nvim";
+          version = "unstable";
+          src = inputs.tsnip-nvim-src;
+        };
         LuaSnip = prev.vimUtils.buildVimPlugin {
           pname = "LuaSnip";
           version = "unstable";

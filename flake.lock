@@ -7311,6 +7311,7 @@
         "nix-filter": "nix-filter",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "tsnip-nvim-src": "tsnip-nvim-src",
         "vim-plugins-overlay": "vim-plugins-overlay"
       }
     },
@@ -8391,6 +8392,23 @@
       },
       "original": {
         "owner": "yuki-yano",
+        "repo": "tsnip.nvim",
+        "type": "github"
+      }
+    },
+    "tsnip-nvim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699602591,
+        "narHash": "sha256-UYScIR5+tpYRHpifCmbDTNMeJhBBhBtJ/hx8xcLDPos=",
+        "owner": "gamoutatsumi",
+        "repo": "tsnip.nvim",
+        "rev": "65f5b3432e6c78deb7ac3de0fbaa189e196b5334",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gamoutatsumi",
+        "ref": "update-to-ddc-4",
         "repo": "tsnip.nvim",
         "type": "github"
       }
