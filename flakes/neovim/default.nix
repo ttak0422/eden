@@ -308,7 +308,7 @@
               {
                 plugin = nvim-tree-lua;
                 depends = [ nvim-web-devicons circles-nvim ];
-                config = readFile ./../../nvim/nvim-tree.lua;
+                config = readFile ./../../nvim/lua/nvim-tree.lua;
                 commands = [ "NvimTreeToggle" ];
               }
               {
