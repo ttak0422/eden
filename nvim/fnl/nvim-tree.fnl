@@ -235,8 +235,8 @@
                               [:q api.tree.close (opt :Close)]
                               [:r api.fs.rename (opt :Rename)]
                               [:R api.tree.reload (opt :Refresh)]
-                              [:s api.node.run.system (opt "Run System")]
-                              [:S api.tree.search_node (opt :Search)]
+                              ; [:s api.node.run.system (opt "Run System")]
+                              ; [:S api.tree.search_node (opt :Search)]
                               [:u api.fs.rename_full (opt "Rename: Full Path")]
                               [:U
                                api.tree.toggle_custom_filter
