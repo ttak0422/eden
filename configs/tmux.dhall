@@ -30,7 +30,7 @@ let bindings =
       # clock
       bind t clock-mode
       # zoom
-      bind z resize-pane -Z
+      bind z resize-pane -Z \; set -g status \; set -g pane-border-status
 
       # prefix c-b → c-s
       unbind C-b
