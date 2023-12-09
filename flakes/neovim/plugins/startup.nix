@@ -2,10 +2,10 @@
 let inherit (builtins) readFile;
 in with vimPlugins; [
   # vim-sensible
-  {
-    plugin = alpha-nvim;
-    startup = readFile ./../../../nvim/alpha.lua;
-  }
+  # {
+  #   plugin = alpha-nvim;
+  #   startup = readFile ./../../../nvim/alpha.lua;
+  # }
   {
     plugin = kanagawa-nvim;
     startup = readFile ./../../../nvim/kanagawa.lua;
