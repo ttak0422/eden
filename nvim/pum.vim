@@ -1,13 +1,17 @@
 set pumblend=11
 
 call pum#set_option(#{
+      \ auto_confirm_time: 0,
+      \ border: [ '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' ],
+      \ direction: 'auto',
       \ padding: v:false,
-      \ scrollbar_char: '',
+      \ scrollbar_char: '▌',
       \ item_orders: ['abbr', 'space', 'kind', 'space', 'menu'],
       \ max_height: 20,
-      \ use_complete: v:false,
-      \ use_setline: v:true,
+      \ use_setline: v:false,
       \ offset_cmdcol: 0,
+      \ highlight_normal_menu: '',
+      \ highlight_preview: '',
       \ preview: v:true,
       \ preview_border: [ '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' ],
       \ preview_width: 120,
