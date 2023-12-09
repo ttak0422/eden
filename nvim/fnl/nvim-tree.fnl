@@ -83,8 +83,8 @@
                :dotfiles false
                :git_clean false
                :no_buffer false
-               :custom []
-               :exclude [:.DS_Store]}
+               :custom [:.DS_Store]
+               :exclude []}
       live_filter {:prefix "[FILTER]: " :always_show_folders true}
       actions {:change_dir {:enable true
                             :global false
@@ -283,5 +283,4 @@
                     : help
                     : ui
                     : log
-                    : on_attach
-                    }))
+                    : on_attach}))
