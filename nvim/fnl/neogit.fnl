@@ -83,7 +83,7 @@
                  :remember_settings true
                  :auto_refresh true
                  :sort_branches :-committerdate
-                 :kind :split
+                 :kind :tab
                  :disable_line_numbers true
                  :console_timeout 2000
                  :auto_show_console true
@@ -91,7 +91,7 @@
                  :status {:recent_commit_count 10}
                  :commit_editor {:kind :auto}
                  :commit_select_view {:kind :tab}
-                 :commit_view {:kind :vsplit
+                 :commit_view {:kind :tab
                                :verify_commit (fn []
                                                 (= (vim.fn.executable :gpg) 1))}
                  :log_view {:kind :tab}
@@ -100,8 +100,8 @@
                  :merge_editor {:kind :auto}
                  :description_editor {:kind :auto}
                  :tag_editor {:kind :auto}
-                 :preview_buffer {:kind :split}
-                 :popup {:kind :split}
+                 :preview_buffer {:kind :tab}
+                 :popup {:kind :tab}
                  : git_services
                  : signs
                  : integrations
