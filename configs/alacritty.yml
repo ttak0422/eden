@@ -1,3 +1,27 @@
 ---
 env:
     TERM: alacritty
+shell:
+    program: /bin/zsh
+    args:
+        - -l
+        - -c
+        - zellij attach --index 0 create
+window:
+    decorations: none
+    padding:
+        x: 5
+        y: 5
+
+font:
+    normal:
+        family: PlemolJP Console NF
+        style: Regular
+    bold:
+        family: PlemolJP Console NF
+        style: Bold
+    size: 14.0
+
+key_bindings:
+    # for JIS keyboard
+    - {key: Semicolon, mods: Command|Shift, action: IncreaseFontSize}
