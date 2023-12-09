@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
   flake.nixosModules.eden-hm-app =
     { system, pkgs, config, lib, username, ... }: {
-      imports = [ ./wezterm.nix ];
+      imports = [ ./alacritty.nix ./wezterm.nix ];
       home = {
         activation.aliasApplications =
           lib.mkIf pkgs.stdenv.hostPlatform.isDarwin (let
