@@ -9,6 +9,8 @@ shell:
         - zellij attach --index 0 --create
 window:
     decorations: none
+    # for MacOS
+    option_as_alt: Both
     padding:
         x: 5
         y: 5
