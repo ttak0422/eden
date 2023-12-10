@@ -1,3 +1,23 @@
+;; for cspell
+(if (not= (vim.fn.filereadable "~/.local/share/cspell/user.txt") 1)
+    (do
+      (io.popen "mkdir -p ~/.local/share/cspell")
+      (io.popen "touch ~/.local/share/cspell/user.txt")))
+
+(fn cspell_append [opts]
+  (let [dict_path "~/.local/share/cspell/user.txt"
+        word (if (or (not opts.word) (= opts.word ""))
+                 (: (vim.call :expand :<cword>) :lower)
+                 opts.word)]
+    (io.popen (.. "echo " word " >> " dict_path))
+    (vim.notify (.. "`" word "`" " is appended to user dictionary.")
+                vim.log.levels.INFO {})
+    ;; to apply new dictionary
+    (if (vim.api.nvim_get_option_value :modifiable {})
+        (do
+          (vim.api.nvim_set_current_line (vim.api.nvim_get_current_line))
+          (vim.api.nvim_command "silent! undo")))))
+
 (fn is_active_lsp [lsp_name]
   (let [bufnr (vim.api.nvim_get_current_buf)
         clients (vim.lsp.buf_get_clients bufnr)]
