@@ -6,7 +6,7 @@ shell:
     args:
         - -l
         - -c
-        - zellij attach --index 0 create
+        - zellij attach --index 0 --create
 window:
     decorations: none
     padding:
