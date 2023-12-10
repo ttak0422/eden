@@ -8,7 +8,7 @@ call pum#set_option(#{
       \ scrollbar_char: '▌',
       \ item_orders: ['abbr', 'space', 'kind', 'space', 'menu'],
       \ max_height: 20,
-      \ use_setline: v:false,
+      \ use_setline: v:true,
       \ offset_cmdcol: 0,
       \ highlight_normal_menu: '',
       \ highlight_preview: '',
