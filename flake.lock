@@ -1252,6 +1252,22 @@
         "type": "github"
       }
     },
+    "cspell-dicts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702111309,
+        "narHash": "sha256-drCmewI+RcPIv/kiVtoxFQbvyWvC8qPRLTFYjJvJ/Xo=",
+        "owner": "streetsidesoftware",
+        "repo": "cspell-dicts",
+        "rev": "19b5c4ab5dc0cfd9561e3b3405ea643a9249c0cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "streetsidesoftware",
+        "repo": "cspell-dicts",
+        "type": "github"
+      }
+    },
     "cybu-nvim": {
       "flake": false,
       "locked": {
@@ -7392,6 +7408,7 @@
     "root": {
       "inputs": {
         "bundler": "bundler",
+        "cspell-dicts": "cspell-dicts",
         "darwin": "darwin",
         "emacs": "emacs",
         "fennel-language-server": "fennel-language-server",

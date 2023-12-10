@@ -60,7 +60,9 @@
                                                                                           :WARN)))
                                                        :condition (fn []
                                                                     (> (vim.fn.executable :cspell)
-                                                                       0))})
+                                                                       0))
+                                                       :extra_args [:--config
+                                                                    "~/.config/cspell/cspell.json"]})
                ; null.builtins.diagnostics.textlint
                ;;; formatting ;;;
                null.builtins.formatting.tidy

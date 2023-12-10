@@ -98,6 +98,10 @@
       url = "github:gamoutatsumi/tsnip.nvim/update-to-ddc-4";
       flake = false;
     };
+    cspell-dicts = {
+      url = "github:streetsidesoftware/cspell-dicts";
+      flake = false;
+    };
 
     # ddc-vim = {
     #   url = "github:Shougo/ddc.vim/dbaa5703fa8de684def8a5bc5ff50c597702a57c";

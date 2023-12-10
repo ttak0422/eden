@@ -56,6 +56,6 @@
 
         sessionVariables = { BAT_CONFIG_PATH = ./../../../configs/bat.conf; };
       };
-      imports = [ ./direnv.nix ./fzf.nix ./pet.nix ];
+      imports = [ ./cspell.nix ./direnv.nix ./fzf.nix ./pet.nix ];
     };
 }

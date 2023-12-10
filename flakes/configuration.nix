@@ -18,7 +18,7 @@ in {
         aarch64-darwin = mkConfiguration {
           inherit system pkgs flags;
 
-          specialArgs = { inherit username; };
+          specialArgs = { inherit inputs username; };
 
           modules = [
             inputs.home-manager.darwinModules.home-manager
@@ -67,7 +67,7 @@ in {
                 self.nixosModules.eden-hm-vim
                 self.nixosModules.eden-hm-virtualization
               ];
-              extraSpecialArgs = { inherit system username userEmail; };
+              extraSpecialArgs = { inherit inputs system username userEmail; };
             })
           ];
         };
