@@ -54,6 +54,13 @@
                                                                                           :.eslintrc.yaml
                                                                                           :.eslintrc.yml
                                                                                           :.eslintrc.json]))})
+               (null.builtins.diagnostics.cspell.with {:diagnostics_postprocess (fn [diagnostic]
+                                                                                  (set diagnostic.severity
+                                                                                       (. vim.diagnostic.severity
+                                                                                          :WARN)))
+                                                       :condition (fn []
+                                                                    (> (vim.fn.executable :cspell)
+                                                                       0))})
                ; null.builtins.diagnostics.textlint
                ;;; formatting ;;;
                null.builtins.formatting.tidy

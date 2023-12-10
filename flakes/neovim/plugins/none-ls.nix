@@ -6,6 +6,7 @@ in with vimPlugins; [{
   config = readFile ./../../../nvim/lua/none.lua;
   extraPackages = with pkgs; [
     nodePackages.eslint
+    nodePackages.cspell
     # TODO: add rules
     nodePackages.textlint
     # formatter
