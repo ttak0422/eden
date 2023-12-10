@@ -27,3 +27,5 @@ font:
 key_bindings:
     # for JIS keyboard
     - {key: Semicolon, mods: Command|Shift, action: IncreaseFontSize}
+    - {key: Yen, chars: \}
+    - {key: Yen, mods: Alt, chars: ¥}
