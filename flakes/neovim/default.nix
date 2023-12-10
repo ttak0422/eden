@@ -82,13 +82,13 @@
                 config = readFile ./../../nvim/lua/history-ignore.lua;
                 events = [ "CmdlineEnter" ];
               }
-              {
-                plugin = wf-nvim;
-                config = readFile ./../../nvim/lua/wf.lua;
-                depends = [ nvim-web-devicons ];
-                modules = [ "wf.builtin.which_key" ];
-                lazy = true;
-              }
+              # {
+              #   plugin = wf-nvim;
+              #   config = readFile ./../../nvim/lua/wf.lua;
+              #   depends = [ nvim-web-devicons ];
+              #   modules = [ "wf.builtin.which_key" ];
+              #   lazy = true;
+              # }
               # {
               #   plugin = auto-indent-nvim;
               #   config = readFile ./../../nvim/lua/autoindent.lua;
