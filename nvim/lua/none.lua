@@ -36,7 +36,6 @@ local helpers = require("null-ls.helpers")
 local formatter_factory = require("null-ls.helpers.formatter_factory")
 local methods = require("null-ls.methods")
 local FORMATTING = methods.internal.FORMATTING
-local defaults = {border = nil, cmd = {"nvim"}, debounce = 250, default_timeout = 5000, diagnostic_config = {}, diagnostics_format = "#{m}", fallback_severity = vim.diagnostic.severity.ERROR, log_level = "warn", notify_format = "[null-ls] %s", on_attach = nil, on_init = nil, on_exit = nil, root_dir = utils.root_pattern({".null-ls-root", ".git"}), should_attach = nil, sources = nil, temp_dir = nil, update_in_insert = false, debug = false}
 local dhall_format = {name = "dhall-format", method = {FORMATTING}, filetypes = {"dhall"}, generator = null.formatter({command = "dhall", args = {"format", "$FILENAME"}, to_stdin = true})}
 local fnlfmt = {name = "fnlfmt", method = {FORMATTING}, filetypes = {"fennel"}, generator = null.formatter({command = "fnlfmt", args = {"$FILENAME"}, to_stdin = true})}
 local sources
@@ -57,6 +56,6 @@ local function _8_(...)
   return is_active_lsp("denols")
 end
 sources = {null.builtins.diagnostics.eslint.with({prefer_local = "node_modules/.bin", condition = _4_}), null.builtins.diagnostics.cspell.with({diagnostics_postprocess = _5_, condition = _6_, extra_args = {"--config", "~/.config/cspell/cspell.json"}}), null.builtins.formatting.tidy, null.builtins.formatting.fixjson, null.builtins.formatting.taplo, null.builtins.formatting.shfmt, null.builtins.formatting.stylua, null.builtins.formatting.yapf, null.builtins.formatting.google_java_format, null.builtins.formatting.nixfmt, null.builtins.formatting.dart_format, null.builtins.formatting.gofmt, null.builtins.formatting.rustfmt, null.builtins.formatting.yamlfmt, null.builtins.formatting.prettier.with({prefer_local = "node_modules/.bin", runtime_condition = _7_}), null.builtins.formatting.deno_fmt.with({runtime_condition = _8_}), dhall_format, fnlfmt}
-null.setup({defaults = defaults, sources = sources})
+null.setup({border = {"\226\148\143", "\226\148\129", "\226\148\147", "\226\148\131", "\226\148\155", "\226\148\129", "\226\148\151", "\226\148\131"}, cmd = {"nvim"}, debounce = 250, default_timeout = 5000, diagnostic_config = {}, diagnostics_format = "#{m}", fallback_severity = vim.diagnostic.severity.ERROR, log_level = "warn", notify_format = "[null-ls] %s", on_attach = nil, on_init = nil, on_exit = nil, root_dir = utils.root_pattern({".null-ls-root", ".git"}), should_attach = nil, temp_dir = nil, sources = sources, debug = false, update_in_insert = false})
 vim.api.nvim_create_user_command("Format", "lua vim.lsp.buf.format()", {})
 return nil

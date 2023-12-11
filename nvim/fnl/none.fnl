@@ -30,24 +30,6 @@
       formatter_factory (require :null-ls.helpers.formatter_factory)
       methods (require :null-ls.methods)
       FORMATTING methods.internal.FORMATTING
-      defaults {:border nil
-                :cmd [:nvim]
-                :debounce 250
-                :debug false
-                :default_timeout 5000
-                :diagnostic_config {}
-                :diagnostics_format "#{m}"
-                :fallback_severity vim.diagnostic.severity.ERROR
-                :log_level :warn
-                :notify_format "[null-ls] %s"
-                :on_attach nil
-                :on_init nil
-                :on_exit nil
-                :root_dir (utils.root_pattern [:.null-ls-root :.git])
-                :should_attach nil
-                :sources nil
-                :temp_dir nil
-                :update_in_insert false}
       dhall-format {:name :dhall-format
                     :method [FORMATTING]
                     :filetypes [:dhall]
@@ -104,6 +86,23 @@
                                                                              (is_active_lsp :denols))})
                dhall-format
                fnlfmt]]
-  (null.setup {: defaults : sources})
+  (null.setup {:border ["┏" "━" "┓" "┃" "┛" "━" "┗" "┃"]
+               :cmd [:nvim]
+               :debounce 250
+               :debug false
+               :default_timeout 5000
+               :diagnostic_config {}
+               :diagnostics_format "#{m}"
+               :fallback_severity vim.diagnostic.severity.ERROR
+               :log_level :warn
+               :notify_format "[null-ls] %s"
+               :on_attach nil
+               :on_init nil
+               :on_exit nil
+               :root_dir (utils.root_pattern [:.null-ls-root :.git])
+               :should_attach nil
+               :temp_dir nil
+               :update_in_insert false
+               : sources})
   (vim.api.nvim_create_user_command :Format "lua vim.lsp.buf.format()" {})
   nil)
