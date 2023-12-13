@@ -28,7 +28,39 @@
       utils (require :null-ls.utils)
       helpers (require :null-ls.helpers)
       formatter_factory (require :null-ls.helpers.formatter_factory)
-      methods (require :null-ls.methods)
+      methods (require :null-ls.methods) ;;; code actions ;;;
+      CODE_ACTION methods.internal.CODE_ACTION
+      cspell_append_action {:name :cspell-append
+                            :method CODE_ACTION
+                            :filetypes []
+                            :generator {:fn (fn [...]
+                                              (let [lnum (- (. (vim.fn.getcurpos)
+                                                               2)
+                                                            1)
+                                                    col (. (vim.fn.getcurpos) 3)
+                                                    diagnostics (vim.diagnostic.get 0
+                                                                                    {: lnum})
+                                                    regex "^Unknown word %((%w+)%)$"
+                                                    word (accumulate [acc "" _ d (ipairs diagnostics)]
+                                                           (if (and (= d.source
+                                                                       :cspell)
+                                                                    (< d.col
+                                                                       col)
+                                                                    (<= col
+                                                                        d.end_col)
+                                                                    (string.match d.message
+                                                                                  regex))
+                                                               (: (string.gsub d.message
+                                                                               regex
+                                                                               "%1")
+                                                                  :lower)
+                                                               acc))]
+                                                (if (not= word "")
+                                                    [{:title (.. "Append " word
+                                                                 " to user dictionary")
+                                                      :action (fn []
+                                                                (cspell_append {:args word}))}])))}}
+      ;;; formatting ;;;
       FORMATTING methods.internal.FORMATTING
       dhall-format {:name :dhall-format
                     :method [FORMATTING]
@@ -43,6 +75,7 @@
                                           :args [:$FILENAME]
                                           :to_stdin true})}
       sources [;;; code actions ;;;
+               cspell_append_action
                ;;; completion ;;;
                ;;; diagnostics ;;;
                (null.builtins.diagnostics.eslint.with {:prefer_local :node_modules/.bin
