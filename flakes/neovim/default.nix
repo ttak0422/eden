@@ -291,7 +291,7 @@
               }
               {
                 plugin = registers-nvim;
-                config = readFile ./../../nvim/registers.lua;
+                config = readFile ./../../nvim/lua/registers.lua;
                 events = [ "CursorMoved" ];
               }
               {
