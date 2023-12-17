@@ -93,6 +93,7 @@
                                                                                   (set diagnostic.severity
                                                                                        (. vim.diagnostic.severity
                                                                                           :WARN)))
+                                                       :disabled_filetypes [:NvimTree]
                                                        :condition (fn []
                                                                     (> (vim.fn.executable :cspell)
                                                                        0))
