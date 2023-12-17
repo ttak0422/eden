@@ -3,20 +3,20 @@ local is_direnv = false
 local is_direnv_active = false
 local check_direnv
 local function _1_()
-  local function _2_(_, code, _0)
-    is_direnv = (code == 0)
+  local function _2_(handle)
+    is_direnv = (handle == 0)
     return nil
   end
-  return vim.loop.spawn("sh", {args = {"-c", "direnv status | grep --silent 'Found RC allowed'"}, stdio = {nil, nil, nil}}, _2_)
+  return vim.loop.spawn("sh", {args = {"-c", "direnv status | grep --silent 'Found RC allowed'"}}, _2_)
 end
 check_direnv = _1_
 local check_direnv_active
 local function _3_()
-  local function _4_(_, code, _0)
-    is_direnv_active = (code == 0)
+  local function _4_(handle)
+    is_direnv_active = (handle == 0)
     return nil
   end
-  return vim.loop.spawn("sh", {args = {"-c", "direnv status | grep --silent 'Found RC allowed true'"}, stdio = {nil, nil, nil}}, _4_)
+  return vim.loop.spawn("sh", {args = {"-c", "direnv status | grep --silent 'Found RC allowed true'"}}, _4_)
 end
 check_direnv_active = _3_
 local function _5_()

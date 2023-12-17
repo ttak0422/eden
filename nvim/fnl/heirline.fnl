@@ -5,17 +5,16 @@
        (fn []
          (vim.loop.spawn :sh
                          {:args [:-c
-                                 "direnv status | grep --silent 'Found RC allowed'"]
-                          :stdio [nil nil nil]}
-                         (fn [_ code _] (set is_direnv (= code 0))))))
+                                 "direnv status | grep --silent 'Found RC allowed'"]}
+                         (fn [handle] (set is_direnv (= handle 0))))))
 
 (local check_direnv_active
        (fn []
          (vim.loop.spawn :sh
                          {:args [:-c
-                                 "direnv status | grep --silent 'Found RC allowed true'"]
-                          :stdio [nil nil nil]}
-                         (fn [_ code _] (set is_direnv_active (= code 0))))))
+                                 "direnv status | grep --silent 'Found RC allowed true'"]}
+                         (fn [handle]
+                           (set is_direnv_active (= handle 0))))))
 
 (vim.api.nvim_create_autocmd [:DirChanged]
                              {:pattern "*"
