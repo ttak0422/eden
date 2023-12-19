@@ -88,14 +88,14 @@ with inputs; [
       };
 
       jdt-language-server = let
-        version = "1.28.0";
-        timestamp = "202309281329";
+        version = "1.30.1";
+        timestamp = "202312071447";
       in prev.jdt-language-server.overrideAttrs (old: {
         src = prev.fetchurl {
           url =
             "https://download.eclipse.org/jdtls/milestones/${version}/jdt-language-server-${version}-${timestamp}.tar.gz";
           sha256 =
-            "b15c6badd1f437b533d857720d7593c1cbb6ee9afb4dfb0579b7318e3dbb2e19";
+            "4c005ede9df73e60cfb8f611373808c9121286d3adbfb745384cced9f19b2de3";
         };
       });
       fennel-language-server =
