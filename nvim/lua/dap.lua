@@ -4,7 +4,6 @@ local dap_vscode = require("dap.ext.vscode")
 local dap_ui = require("dapui")
 local dap_virt = require("nvim-dap-virtual-text")
 local dap_hl = require("nvim-dap-repl-highlights")
-local dap_go = require("dap-go")
 local kanagawa = require("kanagawa.colors")
 local kanagawa_palette = kanagawa.setup().palette
 local icons = {expanded = "\226\150\190", collapsed = "\226\150\184", current_frame = "\226\150\184"}
@@ -55,9 +54,8 @@ end
 dap.listeners.before.event_exited["dapui_config"] = _9_
 dap_vscode.load_launchjs()
 dap_ui.setup({element_mappings = {}, expand_lines = true, force_buffers = true, icons = icons, controls = controls, floating = floating, layouts = layouts, mappings = mappings, render = render})
-dap_virt.setup({enabled_commands = true, highlight_changed_variables = true, show_stop_reason = true, commented = true, only_first_definition = true, display_callback = display_callback, virt_text_pos = virt_text_pos, virt_text_win_col = nil, virt_lines = false, all_frames = false, enabled = false, clear_on_continue = false, highlight_new_as_changed = false, all_references = false})
+dap_virt.setup({enabled_commands = true, highlight_changed_variables = true, show_stop_reason = true, commented = true, only_first_definition = true, display_callback = display_callback, virt_text_pos = virt_text_pos, virt_text_win_col = nil, virt_lines = false, clear_on_continue = false, all_frames = false, enabled = false, highlight_new_as_changed = false, all_references = false})
 dap_hl.setup({})
-dap_go.setup({dap_configurations = {{type = "go", name = "Attach remote", mode = "remote", request = "attach"}}, delve = {initialize_timeout_sec = 20, port = "${port}"}})
 for _, h in ipairs(highlights) do
   vim.api.nvim_set_hl(0, h[1], {fg = h[2]})
 end

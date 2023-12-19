@@ -4,7 +4,6 @@
       dap-ui (require :dapui)
       dap-virt (require :nvim-dap-virtual-text)
       dap-hl (require :nvim-dap-repl-highlights)
-      dap-go (require :dap-go)
       kanagawa (require :kanagawa.colors)
       kanagawa_palette (. ((. kanagawa :setup)) :palette) ;;
       ;; ui
@@ -100,12 +99,6 @@
                    :virt_text_win_col nil})
   ;; highlights
   (dap-hl.setup {})
-  ;; go
-  (dap-go.setup {:dap_configurations [{:type :go
-                                       :name "Attach remote"
-                                       :mode :remote
-                                       :request :attach}]
-                 :delve {:initialize_timeout_sec 20 :port "${port}"}})
   ;; other
   (each [_ h (ipairs highlights)]
     (vim.api.nvim_set_hl 0 (. h 1) {:fg (. h 2)}))

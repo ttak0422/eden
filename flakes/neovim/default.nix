@@ -180,7 +180,7 @@
               }
               {
                 plugin = nvim-dap-go;
-                config = readFile ./../../nvim/dap-go.lua;
+                config = readFile ./../../nvim/lua/dap-go.lua;
                 dependBundles = [ "dap" ];
                 filetypes = [ "go" ];
                 extraPackages = with pkgs; [ delve ];
