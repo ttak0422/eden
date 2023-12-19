@@ -25,6 +25,8 @@ font:
     size: 14.0
 
 key_bindings:
+    - {key: W, mods: Command, action: None}
+    - {key: Q, mods: Command, action: None}
     # for JIS keyboard
     - {key: Semicolon, mods: Command|Shift, action: IncreaseFontSize}
     - {key: Yen, chars: \}
