@@ -20,7 +20,23 @@
                         :NeogitLogPopup--
                         :NeogitCommitPopup--allow-empty
                         :NeogitRevertPopup--no-edit]
-      integrations {:telescope nil :diffview true :fzf_lua nil} ;; mappings
+      integrations {:telescope nil :diffview true :fzf_lua nil} ;;
+      ;; mappings
+      commit_editor {:q :Close :<c-c><c-c> :Submit :<c-c><c-k> :Abort}
+      rebase_editor {:p :Pick
+                     :r :Reword
+                     :e :Edit
+                     :s :Squash
+                     :f :Fixup
+                     :x :Execute
+                     :d :Drop
+                     :b :Break
+                     :q :Close
+                     :<cr> :OpenCommit
+                     :gk :MoveUp
+                     :gj :MoveDown
+                     :<c-c><c-c> :Submit
+                     :<c-c><c-k> :Abort}
       finder {:<cr> :Select
               :<c-c> :Close
               :<esc> :Close
@@ -71,7 +87,7 @@
               :<c-t> :TabOpen
               "{" :GoToPreviousHunkHeader
               "}" :GoToNextHunkHeader}
-      mappings {: finder : popup : status}]
+      mappings {: commit_editor : rebase_editor : finder : popup : status}]
   (neogit.setup {:use_default_keymaps false
                  :disable_hint false
                  :disable_context_highlighting false
