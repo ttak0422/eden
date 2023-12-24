@@ -62,8 +62,8 @@ in  { aliases =
       , g = "cd \$(ghq root)/\$(ghq list | fzf)"
       , gg = "ghq get"
       , cat = "bat"
-      , ls = "exa"
-      , tree = "exa -T"
+      , ls = "eza"
+      , tree = "eza -T"
       , sqlplus = "rlwrap sqlplus"
       }
     , darwinAliases.emacs = "emacsClient"

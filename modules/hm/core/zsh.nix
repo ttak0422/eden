@@ -9,7 +9,7 @@ in {
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
       shellAliases = prefs.aliases
         // (optionalAttrs isDarwin prefs.darwinAliases);
       initExtra = ''
@@ -40,5 +40,5 @@ in {
       }];
     };
   };
-  home.packages = with pkgs; [ bat exa ghq ];
+  home.packages = with pkgs; [ bat eza ghq ];
 }

@@ -5,7 +5,7 @@
       inherit (lib.attrsets) optionalAttrs;
     in {
       nix = {
-        package = pkgs.nixVersions.stable;
+        package = pkgs.nixFlakes;
         gc = {
           automatic = true;
           options = "--delete-older-than 10d";

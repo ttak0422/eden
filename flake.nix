@@ -3,8 +3,8 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixos-hardware.url = "nixos-hardware";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nix-filter.url = "github:numtide/nix-filter";
@@ -14,12 +14,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
+    };
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     #      _                     _
@@ -84,13 +88,6 @@
       url =
         "https://repo.maven.apache.org/maven2/org/openjdk/jol/jol-cli/0.16/jol-cli-0.16-full.jar";
       flake = false;
-    };
-    fennel-language-server = {
-      url = "github:ttak0422/fennel-language-server";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
     };
     fennel-ls-src = {
       url = "sourcehut:~xerool/fennel-ls";
