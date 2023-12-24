@@ -1,3 +1,6 @@
+> [!NOTE] 
+> → eden will be archived. (refined new dotfiles → [Limbo](https://github.com/ttak0422/Limbo))
+
 <div align="center">
   <h1>eden</h1>
   <img alt="channel" src="https://img.shields.io/badge/channel-unstable-white?style=flat&logo=NixOS&logoColor">
