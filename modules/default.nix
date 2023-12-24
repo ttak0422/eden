@@ -1,1 +1,1 @@
-{ imports = [ ./core ./darwin ./hm ]; }
+{ imports = [ ./core ./darwin ./hm ./nixos ]; }

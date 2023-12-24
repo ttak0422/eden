@@ -51,7 +51,8 @@
             ]
           else
             [
-              pkgs.oracle-instantclient # sqlplus, ...
+              # WIP
+              # pkgs.oracle-instantclient # sqlplus, ...
             ]);
 
         sessionVariables = { BAT_CONFIG_PATH = ./../../../configs/bat.conf; };
