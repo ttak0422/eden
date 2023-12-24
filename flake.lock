@@ -1285,11 +1285,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686307493,
-        "narHash": "sha256-R4VEFnDn7nRmNxAu1LwNbjns5DPM8IBsvnrWmZ8ymPs=",
+        "lastModified": 1703415240,
+        "narHash": "sha256-SgsAYwDo2wWHUdZeNKKRRT402sRzQ/rLmzxH/wqMUPw=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "7c16d31383a90e0e72ace0c35d2d66a18f90fb4f",
+        "rev": "f454cff5fe84adca9e8aa8d546d2c9879b789950",
         "type": "github"
       },
       "original": {
@@ -5431,7 +5431,7 @@
         "hercules-ci-effects": "hercules-ci-effects",
         "neovim-flake": "neovim-flake",
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -9162,7 +9162,7 @@
         "nfnl": "nfnl",
         "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ],
         "noice-nvim": "noice-nvim",
         "nomodoro": "nomodoro",

@@ -1,1 +1,1 @@
-{ pkgs, ... }: { home.packages = with pkgs.pkgs-unstable; [ deno ]; }
+{ pkgs, ... }: { home.packages = with pkgs; [ deno ]; }

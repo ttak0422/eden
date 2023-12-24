@@ -84,7 +84,7 @@ in {
             self.nixosModules.eden-darwin-core
             self.nixosModules.eden-darwin-desktop
             self.nixosModules.eden-darwin-development
-            self.nixosModules.eden-darwin-emacs
+            # self.nixosModules.eden-darwin-emacs
             self.nixosModules.eden-darwin-homebrew
 
             {
@@ -115,7 +115,7 @@ in {
                 self.nixosModules.eden-hm-app
                 self.nixosModules.eden-hm-darwin
                 self.nixosModules.eden-hm-development
-                self.nixosModules.eden-hm-emacs
+                # self.nixosModules.eden-hm-emacs
                 # self.nixosModules.eden-hm-doom-emacs
                 self.nixosModules.eden-hm-git
                 self.nixosModules.eden-hm-ideavim

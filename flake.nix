@@ -45,14 +45,14 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
+        nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
         flake-compat.follows = "flake-compat";
       };
     };
     vim-plugins-overlay = {
       url = "github:ttak0422/vim-plugins-overlay";
-      inputs = { nixpkgs.follows = "nixpkgs-unstable"; };
+      inputs = { nixpkgs.follows = "nixpkgs"; };
     };
     bundler = {
       url = "github:ttak0422/bundler";
