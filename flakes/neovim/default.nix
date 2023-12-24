@@ -6,6 +6,19 @@
       inherit (pkgs) callPackage;
       inherit (lib) flatten;
       inherit (lib.strings) concatStringsSep;
+
+      after = {
+        ftplugin = with pkgs.vimPlugins; {
+          qf = readFile ./../../nvim/after/ftplugin/qf.vim + ''
+            " wip...
+            " silent source ${qf-nvim}/after/ftplugin/qf.vim
+            silent source ${nvim-bqf}/after/ftplugin/qf/bqf.vim
+          '';
+          ddu-ff = readFile ./../../nvim/after/ftplugin/ddu-ff.vim;
+          ddu-ff-filter =
+            readFile ./../../nvim/after/ftplugin/ddu-ff-filter.vim;
+        };
+      };
     in {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
@@ -28,7 +41,112 @@
           # }
             ];
         };
+        # WIP
+        minimal = {
+          inherit after;
+          package = pkgs.neovim-nightly;
+          extraConfig = ''
+            ${readFile ./../../nvim/disable-default-plugin.vim}
+            ${readFile ./../../nvim/prelude.vim}
+          '';
+          extraLuaConfig = ''
+            vim.loader.enable()
+            dofile("${./../../nvim/lua/prelude.lua}")
+            dofile("${./../../nvim/lua/keymap.lua}")
+            ${readFile ./../../nvim/keymap.lua}
+            if vim.g.neovide then
+              dofile("${./../../nvim/neovide.lua}")
+            end
+          '';
+          startPlugins = callPackage ./plugins/startup.nix { };
+          optPlugins = with pkgs.vimPlugins;
+            [
+
+            ] ++ (flatten (map (bs: callPackage bs { }) [
+              ./plugins/util.nix
+              ./plugins/filetype.nix
+              ./plugins/none-ls.nix
+            ]));
+          bundles = with pkgs.vimPlugins;
+            [
+              {
+                name = "treesitter";
+                plugins = [
+                  # WIP: `bash` does not work on lazy loading
+                  (pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins
+                    (p: with p; [ bash ]))
+                  nvim-yati
+                  # nvim-ts-rainbow2
+                  vim-matchup
+                  nvim-treesitter-textobjects
+                  {
+                    plugin = rainbow-delimiters-nvim;
+                    config = readFile ./../../nvim/rainbow-delimiters.lua;
+                  }
+                ];
+                config = let
+                  parser = pkgs.stdenv.mkDerivation {
+                    name = "treesitter-all-grammars";
+                    buildCommand = ''
+                      mkdir -p $out/parser
+                      echo "${
+                        concatStringsSep ","
+                        pkgs.pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
+                      }" \
+                        | tr ',' '\n' \
+                        | xargs -I {} find {} -not -type d \
+                        | xargs -I {} ln -s {} $out/parser
+                    '';
+                  };
+                in {
+                  lang = "lua";
+                  code = ''
+                    vim.opt.runtimepath:append("${parser}");
+                  '' + readFile ./../../nvim/lua/treesitter.lua;
+                  args = { inherit parser; };
+                };
+                extraPackages = [ pkgs.pkgs-unstable.tree-sitter ];
+                lazy = true;
+              }
+              {
+                name = "telescope";
+                plugins = [
+                  telescope-nvim
+                  {
+                    plugin = telescope-live-grep-args-nvim;
+                    extraPackages = with pkgs; [ ripgrep ];
+                  }
+                  {
+                    plugin = telescope-sonictemplate-nvim;
+                    depends = [{
+                      plugin = vim-sonictemplate.overrideAttrs (old: {
+                        src = pkgs.nix-filter {
+                          root = vim-sonictemplate.src;
+                          exclude = [ "template/java" "template/make" ];
+                        };
+                      });
+                      preConfig = ''
+                        vim.g.sonictemplate_vim_template_dir = "${pkgs.sonicCustomTemplates}"
+                        vim.g.sonictemplate_key = 0
+                        vim.g.sonictemplate_intelligent_key = 0
+                        vim.g.sonictemplate_postfix_key = 0
+                      '';
+                    }];
+                  }
+                ];
+                depends = [ plenary-nvim ];
+                config = readFile ./../../nvim/telescope.lua;
+                commands = [ "Telescope" ];
+              }
+            ] ++ (flatten (map (bs: callPackage bs { }) [
+              ./bundles/lsp-core.nix
+              ./bundles/dap-core.nix
+              ./bundles/ddc-core.nix
+              ./bundles/ddu-core.nix
+            ]));
+        };
         default = {
+          inherit after;
           package = pkgs.neovim-nightly;
           # logLevel = "debug";
           extraConfig = ''
@@ -599,20 +717,6 @@
                 config = readFile ./../../nvim/context-vt.lua;
                 lazy = true;
               }
-              # {
-              #   plugin = nvim-treesitter';
-              #   config = let
-              #     nvim-plugintree = (pkgs.imPlugins.nvim-treesitter.withPlugins
-              #       (p: [ p.nvimc p.lua p.nix p.bash p.cpp p.json p.python p.markdown ]));
-              #     treesitter-parsers = pkgs.nvimsymlinkJoin {
-              #       name = "treesitter-parsers";
-              #       paths = nvim-plugintree.dependencies;
-              #     };
-              #   in ''
-              #     vim.opt.runtimepath:append("${treesitter-parsers}");
-              #   '' + readFile ./../../nvim/treesitter.lua;
-              #   extraPackages = [ pkgs.tree-sitter ];
-              # }
               {
                 plugin = nvim-lint;
                 config = {
@@ -966,18 +1070,6 @@
               ./bundles/ddc-core.nix
               ./bundles/ddu-core.nix
             ]));
-          after = {
-            ftplugin = with pkgs.vimPlugins; {
-              qf = readFile ./../../nvim/after/ftplugin/qf.vim + ''
-                " wip...
-                " silent source ${qf-nvim}/after/ftplugin/qf.vim
-                silent source ${nvim-bqf}/after/ftplugin/qf/bqf.vim
-              '';
-              ddu-ff = readFile ./../../nvim/after/ftplugin/ddu-ff.vim;
-              ddu-ff-filter =
-                readFile ./../../nvim/after/ftplugin/ddu-ff-filter.vim;
-            };
-          };
         };
       };
     };
