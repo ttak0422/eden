@@ -30,6 +30,7 @@ in {
                 startMenuLaunchers = true;
               };
               system.stateVersion = hmStateVersion;
+              users.defaultUserShell = pkgs.zsh;
               users.users."${username}" = {
                 isNormalUser = true;
                 group = "users";
