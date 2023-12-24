@@ -1,0 +1,32 @@
+---
+env:
+    TERM: alacritty
+
+shell:
+    program: wsl
+    args:
+        - "~"
+        - "zellij attach --index 0 --create"
+
+window:
+    decorations: none
+    padding:
+        x: 5
+        y: 5
+
+font:
+    normal:
+        family: PlemolJP Console NF
+        style: Regular
+    bold:
+        family: PlemolJP Console NF
+        style: Bold
+
+    size: 14.0
+key_bindings:
+    # for JIS keyboard
+    - {key: Minus, mods: Control|Shift, action: IncreaseFontSize}
+    - {key: Yen, chars: \}
+    - {key: Yen, mods: Alt, chars: ¥}
+    - {key: Convert, action: None}
+    - {key: NoConvert, action: None}
