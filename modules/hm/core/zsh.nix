@@ -15,6 +15,7 @@ in {
       initExtra = ''
         ${prefs.bindkey.emacs}
         ${prefs.history}
+        ${prefs.sharedInit}
         ${prefs.sharedPath}
         ${if isDarwin then prefs.darwinPath else ""}
         ${prefs.function}

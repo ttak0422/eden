@@ -27,7 +27,9 @@ let darwinFunction =
       }
       ''
 
-let sharedProfile =
+let sharedProfile = ""
+
+let sharedInit =
       ''
       export NLS_LANG=Japanese_Japan.AL32UTF8
       export MCFLY_KEY_SCHEME=vim
@@ -38,15 +40,11 @@ let sharedProfile =
       export PATH=$GOPATH/bin:$PATH
       export PATH=~/.npm-packages/bin:$PATH
       export NODE_PATH=~/.npm-packages/lib/node_modules
-      ''
+        ''
 
-let sharedPath =
-      ''
-      ''
+let sharedPath = ""
 
-let darwinPath =
-      ''
-      ''
+let darwinPath = ""
 
 let darwinProfile =
       ''
@@ -69,6 +67,7 @@ in  { aliases =
     , darwinAliases.emacs = "emacsClient"
     , bindkey.emacs = "bindkey -e"
     , history
+    , sharedInit
     , sharedProfile
     , darwinProfile
     , sharedPath
