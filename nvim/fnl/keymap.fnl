@@ -45,7 +45,7 @@
                (desc "git blame")]
               [:<leader>gs (cmd :GinStatus) (desc "git status")]
               [:<leader>gl (cmd :GinLog) (desc "git log")]
-              [:<leader>G (cmd :Neogit) (desc "magit for vim")]
+              ; [:<leader>G (cmd :Neogit) (desc "magit for vim")]
               ;; tools
               [:<leader>q (cmd :BufDel)]
               [:<leader>Q (cmd :BufDel!)]

@@ -626,12 +626,13 @@
                 ];
                 useDenops = true;
               }
-              {
-                plugin = neogit;
-                depends = [ diffview-nvim plenary-nvim ];
-                config = readFile ./../../nvim/lua/neogit.lua;
-                commands = [ "Neogit" ];
-              }
+              # {
+              #   plugin = neogit;
+              #   depends = [ diffview-nvim plenary-nvim ];
+              #   dependBundles = [ "telescope" ];
+              #   config = readFile ./../../nvim/lua/neogit.lua;
+              #   commands = [ "Neogit" ];
+              # }
               {
                 plugin = diffview-nvim;
                 depends = [ plenary-nvim ];
