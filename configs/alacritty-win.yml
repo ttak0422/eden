@@ -30,3 +30,4 @@ key_bindings:
     - {key: Yen, mods: Alt, chars: ¥}
     - {key: Convert, action: None}
     - {key: NoConvert, action: None}
+    - {key: OEM102, chars: _}
