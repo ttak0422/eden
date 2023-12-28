@@ -21,7 +21,9 @@ in {
             inputs.nixpkgs.nixosModules.notDetected
             inputs.home-manager.nixosModules.home-manager
             self.nixosModules.eden-core
+            self.nixosModules.eden-nixos-app
             self.nixosModules.eden-nixos-core
+            self.nixosModules.eden-nixos-tool
 
             {
               wsl = {
