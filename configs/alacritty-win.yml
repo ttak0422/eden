@@ -30,5 +30,6 @@ key_bindings:
     - {key: Yen, mods: Alt, chars: ¥}
     - {key: Convert, action: None}
     - {key: NoConvert, action: None}
+    - {key: Q, mods: Control, action: None}
     - {key: Q, mods: Control, action: ReceiveChar}
     - {key: Q, mods: Control|Shift, action: Quit}
