@@ -9,20 +9,23 @@ in with vimPlugins; [{
     }
     {
       plugin = ddc-ui-pum;
-      depends = [{
+      dependPlugins = [{
         plugin = pum-vim;
-        depends = [
+        dependPlugins = [
           { plugin = noice-nvim; }
           {
             plugin = nvim-autopairs;
-            dependBundles = [ "treesitter" ];
-            config = readFile ./../../../nvim/autopairs.lua;
-            events = [ "InsertEnter" ];
-            modules = [ "nvim-autopairs" ];
+            dependGroups = [ "treesitter" ];
+            postConfig = {
+              language = "lua";
+              code = readFile ./../../../nvim/autopairs.lua;
+            };
+            onEvents = [ "InsertEnter" ];
+            onModules = [ "nvim-autopairs" ];
           }
         ];
-        config = {
-          lang = "vim";
+        postConfig = {
+          language = "vim";
           code = readFile ./../../../nvim/pum.vim;
         };
       }];
@@ -90,11 +93,11 @@ in with vimPlugins; [{
     }
     {
       plugin = ddc-source-vsnip;
-      depends = [{
+      dependPlugins = [{
         plugin = vim-vsnip;
-        depends = [ tabout-nvim ];
-        config = {
-          lang = "vim";
+        dependPlugins = [ tabout-nvim ];
+        postConfig = {
+          language = "vim";
           code = readFile ./../../../nvim/vsnip.vim;
         };
       }];
@@ -102,12 +105,15 @@ in with vimPlugins; [{
     }
     {
       plugin = ddc-source-lsp;
-      modules = [ "ddc_source_lsp" ];
+      onModules = [ "ddc_source_lsp" ];
       useDenops = true;
     }
     {
       plugin = ddc-source-lsp-setup;
-      config = readFile ./../../../nvim/lua/ddc-source-lsp-setup.lua;
+      postConfig = {
+        language = "lua";
+        code = readFile ./../../../nvim/lua/ddc-source-lsp-setup.lua;
+      };
       useDenops = true;
     }
     {
@@ -118,8 +124,8 @@ in with vimPlugins; [{
     # denops-popup-preview-vim
     # {
     #   plugin = ddc-previewer-floating;
-    #   config = readFile ./../../../nvim/ddc-previewer-floating.lua;
-    #   depends = [ pum-vim ];
+    #   postConfig = readFile ./../../../nvim/ddc-previewer-floating.lua;
+    #   dependPlugins = [ pum-vim ];
     # }
     {
       plugin = denops-signature_help;
@@ -132,37 +138,37 @@ in with vimPlugins; [{
     # TODO lazy
     # {
     #   plugin = ddc-source-nvim-obsidian;
-    #   depends = [ obsidian-nvim ];
+    #   dependPlugins = [ obsidian-nvim ];
     #   useDenops = true;
     # }
     {
       plugin = tsnip-nvim;
-      config = {
-        lang = "lua";
+      postConfig = {
+        language = "lua";
         code = readFile ./../../../nvim/tsnip.lua;
         args = { tsnip_root = ./../../../snippets/tsnip; };
       };
-      depends = [ nui-nvim ];
+      dependPlugins = [ nui-nvim ];
       useDenops = true;
     }
   ];
-  depends = [
+  dependPlugins = [
     denops-vim
     # {
     #   plugin = LuaSnip;
-    #   config = {
-    #     lang = "lua";
+    #   postConfig = {
+    #     language = "lua";
     #     code = readFile ./../../../nvim/luasnip.lua;
     #     args = { snipmate_root = ./../../../snippets/snipmate; };
     #   };
-    #   depends = [ friendly-snippets ];
+    #   dependPlugins = [ friendly-snippets ];
     # }
   ];
-  dependBundles = [ "lsp" "ddu" ];
-  config = {
-    lang = "vim";
+  dependGroups = [ "lsp" "ddu" ];
+  postConfig = {
+    language = "vim";
     code = readFile ./../../../nvim/ddc.vim;
     args = { ts_config = ./../../../nvim/denops/ddc.ts; };
   };
-  events = [ "InsertEnter" "CmdlineEnter" ];
+  onEvents = [ "InsertEnter" "CmdlineEnter" ];
 }]

@@ -10,7 +10,10 @@ in with vimPlugins; [{
     nvim-dap-go
     overseer-nvim
   ];
-  dependBundles = [ "treesitter" ];
-  config = readFile ./../../../nvim/lua/dap.lua;
-  lazy = true;
+  dependGroups = [ "treesitter" ];
+  postConfig = {
+    language = "lua";
+    code = readFile ./../../../nvim/lua/dap.lua;
+  };
+  useTimer = true;
 }]

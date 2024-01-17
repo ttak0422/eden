@@ -28,7 +28,7 @@ in with vimPlugins; [{
     {
       plugin = ddu-source-rg;
       preConfig = {
-        lang = "vim";
+        language = "vim";
         code = ''
           let g:loaded_ddu_rg = 1
         '';
@@ -49,7 +49,7 @@ in with vimPlugins; [{
     {
       plugin = ddu-source-mr;
       useDenops = true;
-      depends = [ mr-vim ];
+      dependPlugins = [ mr-vim ];
     }
     # filter
     {
@@ -107,12 +107,12 @@ in with vimPlugins; [{
     #   useDenops = true;
     # }
   ];
-  depends = [ denops-vim qf-nvim nvim-bqf ];
-  config = {
-    lang = "vim";
+  dependPlugins = [ denops-vim qf-nvim nvim-bqf ];
+  postConfig = {
+    language = "vim";
     code = readFile ./../../../nvim/ddu.vim;
     args = { ts_config = ./../../../nvim/denops/ddu.ts; };
   };
-  commands = [ "Ddu" "DduRg" "DduRgLive" ];
-  lazy = true;
+  onCommands = [ "Ddu" "DduRg" "DduRgLive" ];
+  useTimer = true;
 }]

@@ -5,14 +5,20 @@ in with vimPlugins; [{
   plugins = [
     # {
     #   plugin = lsp-timeout-nvim;
-    #   # depends = [ nvim-lspconfig ];
+    #   # dependPlugins = [ nvim-lspconfig ];
     #   preConfig = readFile ./../../../nvim/lsp-timeout-pre.lua;
-    #   config = readFile ./../../../nvim/lsp-timeout.lua;
+    #  postConfig = readFile ./../../../nvim/lsp-timeout.lua;
     # }
     {
       plugin = garbage-day-nvim;
-      preConfig = readFile ./../../../nvim/lua/garbage-day-pre.lua;
-      config = readFile ./../../../nvim/lua/garbage-day.lua;
+      preConfig = {
+        language = "lua";
+        code = readFile ./../../../nvim/lua/garbage-day-pre.lua;
+      };
+      postConfig = {
+        language = "lua";
+        code = readFile ./../../../nvim/lua/garbage-day.lua;
+      };
     }
     {
       plugin = nvim-lspconfig;
@@ -37,57 +43,69 @@ in with vimPlugins; [{
         # fennel-language-server
         fennel-ls
       ]) ++ (with pkgs.pkgs-unstable; [ nixd marksman ]);
-      config = {
-        lang = "lua";
+      postConfig = {
+        language = "lua";
         code = readFile ./../../../nvim/lua/lspconfig.lua;
         args = {
           on_attach_path = ./../../../nvim/shared/on_attach.lua;
           capabilities_path = ./../../../nvim/shared/capabilities.lua;
         };
       };
-      depends = [ climbdir-nvim ];
-      lazy = true;
+      dependPlugins = [ climbdir-nvim ];
+      useTimer = true;
     }
     {
       plugin = lsp-lens-nvim;
-      config = readFile ./../../../nvim/lsp-lens.lua;
+      postConfig = {
+        language = "lua";
+        code = readFile ./../../../nvim/lsp-lens.lua;
+      };
     }
     {
       plugin = lsp-inlayhints-nvim;
-      config = readFile ./../../../nvim/inlayhints.lua;
+      postConfig = {
+        language = "lua";
+        code = readFile ./../../../nvim/inlayhints.lua;
+      };
     }
     # {
     #   # カーソルの対応する要素のハイライト.
     #   plugin = vim-illuminate;
-    #   config = readFile ./../../../nvim/illuminate.lua;
+    #  postConfig = readFile ./../../../nvim/illuminate.lua;
     # }
     # {
     #   plugin = hover-nvim;
-    #   config = readFile ./../../../nvim/hover.lua;
+    #  postConfig = readFile ./../../../nvim/hover.lua;
     # }
     # {
     #   plugin = pretty_hover;
-    #   config = readFile ./../../../nvim/pretty-hover.lua;
+    #  postConfig = readFile ./../../../nvim/pretty-hover.lua;
     # }
     # {
     #   plugin = diagflow-nvim;
-    #   config = readFile ./../../../nvim/diagflow.lua;
+    #  postConfig = readFile ./../../../nvim/diagflow.lua;
     # }
     noice-nvim
     # {
     #   plugin = suit-nvim;
-    #   config = readFile ./../../../nvim/lua/suit.lua;
+    #  postConfig = readFile ./../../../nvim/lua/suit.lua;
     # }
     {
       plugin = dressing-nvim;
-      config = readFile ./../../../nvim/lua/dressing.lua;
-      dependBundles = [ "telescope" ];
+      postConfig = {
+        language = "lua";
+        code = readFile ./../../../nvim/lua/dressing.lua;
+      };
+      dependGroups = [ "telescope" ];
     }
   ];
-  depends = [{
+  dependPlugins = [{
     plugin = fidget-nvim;
-    config = readFile ./../../../nvim/lua/fidget.lua;
+    postConfig = {
+      language = "lua";
+      code = readFile ./../../../nvim/lua/fidget.lua;
+    };
   }];
-  dependBundles = [ "ddc" ];
-  lazy = true;
+  dependGroups = [ "ddc" ];
+  useTimer = true;
 }]

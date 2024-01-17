@@ -2,8 +2,11 @@
 let inherit (builtins) readFile;
 in with vimPlugins; [{
   plugin = none-ls-nvim;
-  depends = [ plenary-nvim ];
-  config = readFile ./../../../nvim/lua/none.lua;
+  dependPlugins = [ plenary-nvim ];
+  postConfig = {
+    language = "lua";
+    code = readFile ./../../../nvim/lua/none.lua;
+  };
   extraPackages = with pkgs; [
     nodePackages.eslint
     nodePackages.cspell
@@ -24,5 +27,5 @@ in with vimPlugins; [{
     dhall
     fnlfmt
   ];
-  lazy = true;
+  useTimer = true;
 }]

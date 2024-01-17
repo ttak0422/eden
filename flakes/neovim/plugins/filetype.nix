@@ -4,11 +4,11 @@ in with vimPlugins; [
   {
     # Java
     plugin = nvim-jdtls;
-    depends = [ ];
-    dependBundles = [ "lsp" ];
-    config = let jdtLsp = pkgs.jdt-language-server;
+    dependPlugins = [ ];
+    dependGroups = [ "lsp" ];
+    postConfig = let jdtLsp = pkgs.jdt-language-server;
     in {
-      lang = "lua";
+      language = "lua";
       # code = readFile ./../../../nvim/jdtls.lua;
       code = readFile ./../../../nvim/lua/jdtls.lua;
       args = {
@@ -37,56 +37,56 @@ in with vimPlugins; [
         jol_jar_path = pkgs.javaPackages.jol;
       };
     };
-    filetypes = [ "java" ];
+    onFiletypes = [ "java" ];
   }
   {
     # JS/TS (node)
     plugin = nvim-vtsls;
-    config = readFile ./../../../nvim/vtsls.lua;
-    dependBundles = [ "lsp" ];
-    filetypes = [ "typescript" ];
+    postConfig = {language="lua";code=readFile ./../../../nvim/vtsls.lua;};
+    dependGroups = [ "lsp" ];
+    onFiletypes = [ "typescript" ];
   }
   {
     # Rust
     plugin = rust-tools-nvim;
-    depends = [ plenary-nvim toggleterm-nvim ];
-    dependBundles = [ "lsp" "dap" ];
-    config = {
-      lang = "lua";
+    dependPlugins = [ plenary-nvim toggleterm-nvim ];
+    dependGroups = [ "lsp" "dap" ];
+    postConfig = {
+      language = "lua";
       code = readFile ./../../../nvim/rust-tools.lua;
       args = {
         on_attach_path = ./../../../nvim/shared/on_attach.lua;
         capabilities_path = ./../../../nvim/shared/capabilities.lua;
       };
     };
-    filetypes = [ "rust" ];
+    onFiletypes = [ "rust" ];
   }
   {
     # Haskell
     plugin = haskell-tools-nvim;
-    depends = [ plenary-nvim ];
-    dependBundles = [ "lsp" ];
+    dependPlugins = [ plenary-nvim ];
+    dependGroups = [ "lsp" ];
     extraPackages = with pkgs; [
       haskellPackages.fourmolu
       haskell-language-server
     ];
-    config = {
-      lang = "lua";
+    postConfig = {
+      language = "lua";
       code = readFile ./../../../nvim/haskell-tools.lua;
       args = {
         on_attach_path = ./../../../nvim/shared/on_attach.lua;
         capabilities_path = ./../../../nvim/shared/capabilities.lua;
       };
     };
-    filetypes = [ "haskell" ];
+    onFiletypes = [ "haskell" ];
   }
   {
     # Flutter
     plugin = flutter-tools-nvim;
-    depends = [ plenary-nvim ];
-    dependBundles = [ "lsp" ];
-    config = readFile ./../../../nvim/flutter-tools.lua;
-    filetypes = [ "dart" ];
+    dependPlugins = [ plenary-nvim ];
+    dependGroups = [ "lsp" ];
+    postConfig = {language="lua";code=readFile ./../../../nvim/flutter-tools.lua;};
+    onFiletypes = [ "dart" ];
   }
   {
     # FSharp
@@ -95,55 +95,55 @@ in with vimPlugins; [
     # dotnet tool install -g dotnet-fsharplint
     # dotnet tool install --global fantomas-tool
     plugin = Ionide-vim;
-    dependBundles = [ "lsp" ];
+    dependGroups = [ "lsp" ];
     preConfig = {
-      lang = "vim";
+      language = "vim";
       code = ''
         let g:fsharp#lsp_auto_setup = 0
         let g:fsharp#fsautocomplete_command =[ 'fsautocomplete' ]
       '';
     };
-    config = {
-      lang = "lua";
+    postConfig = {
+      language = "lua";
       code = readFile ./../../../nvim/ionide.lua;
       args = {
         on_attach_path = ./../../../nvim/shared/on_attach.lua;
         capabilities_path = ./../../../nvim/shared/capabilities.lua;
       };
     };
-    filetypes = [ "fsharp" ];
+    onFiletypes = [ "fsharp" ];
   }
   {
     # Fennel
     plugin = nfnl;
-    filetypes = [ "fennel" ];
+    onFiletypes = [ "fennel" ];
     extraPackages = with pkgs; [ sd fd ];
   }
   {
     # markdown
     plugin = mkdnflow-nvim;
-    depends = [ plenary-nvim ];
-    filetypes = [ "markdown" ];
-    config = readFile ./../../../nvim/lua/mkdnflow.lua;
+    dependPlugins = [ plenary-nvim ];
+    onFiletypes = [ "markdown" ];
+    postConfig = {language="lua";code=readFile ./../../../nvim/lua/mkdnflow.lua;};
   }
   # {
   #   plugin = nvim-paredit-fennel;
-  #   filetypes = [ "fennel" ];
-  #   depends = [ nvim-paredit ];
-  #   config = readFile ./../../../nvim/lua/paredit-fennel.lua;
+  #   onFiletypes = [ "fennel" ];
+  #   dependPlugins = [ nvim-paredit ];
+  #  postConfig = readFile ./../../../nvim/lua/paredit-fennel.lua;
   # }
   # {
   #   # closure
   #   plugin = nvim-paredit;
-  #   filetypes = [ "clojure" ];
-  #   config = readFile ./../../../nvim/lua/paredit.lua;
+  #   onFiletypes = [ "clojure" ];
+  #  postConfig = readFile ./../../../nvim/lua/paredit.lua;
   # }
   # {
   #   plugin = conjure;
-  #   preConfig = readFile ./../../../nvim/lua/conjure-pre.lua;
-  #   config = readFile ./../../../nvim/lua/conjure.lua;
-  #   depends = [{ plugin = aniseed; }];
-  #   dependBundles = [ "treesitter" ];
-  #   filetypes = [ "clojure" "fennel" "scheme" ];
+  #   prpostConfig = readFile ./../../../nvim/lua/conjure-pre.lua;
+  #  postConfig = readFile ./../../../nvim/lua/conjure.lua;
+  #   dependPlugins = [{ plugin = aniseed; }];
+  #   dependGroups = [ "treesitter" ];
+  #   onFiletypes = [ "clojure" "fennel" "scheme" ];
   # }
 ]

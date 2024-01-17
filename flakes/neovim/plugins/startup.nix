@@ -4,28 +4,41 @@ in with vimPlugins; [
   # vim-sensible
   # {
   #   plugin = alpha-nvim;
-  #   startup = readFile ./../../../nvim/alpha.lua;
+  #   startupConfig = readFile ./../../../nvim/alpha.lua;
   # }
   {
     plugin = kanagawa-nvim;
-    startup = readFile ./../../../nvim/kanagawa.lua;
+    startupConfig = {
+      language = "lua";
+      code = readFile ./../../../nvim/kanagawa.lua;
+    };
   }
   {
     plugin = nvim-config-local;
-    startup = readFile ./../../../nvim/config-local.lua;
+    startupConfig = {
+      language = "lua";
+      code = readFile ./../../../nvim/config-local.lua;
+    };
   }
   {
     plugin = stickybuf-nvim;
-    startup = readFile ./../../../nvim/stickybuf.lua;
+    startupConfig = {
+      language = "lua";
+      code = readFile ./../../../nvim/stickybuf.lua;
+    };
   }
   {
     plugin = direnv-vim;
-    startup = readFile ./../../../nvim/direnv.lua;
+    startupConfig = {
+      language = "lua";
+      code = readFile ./../../../nvim/direnv.lua;
+    };
   }
   {
     plugin = hydra-nvim;
-    startup = ''
-      dofile("${./../../../nvim/lua/hydra.lua}")
-    '';
+    startupConfig = {
+      language = "lua";
+      code = readFile ./../../../nvim/lua/hydra.lua;
+    };
   }
 ]
